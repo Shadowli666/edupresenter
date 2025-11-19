@@ -1,5 +1,8 @@
 
 
+
+
+
 import { Course } from './types';
 import { MODULE_1 } from './data/module1';
 import { MODULE_2 } from './data/module2';
@@ -35,6 +38,14 @@ import { PNN_MODULE_3 } from './data/pnn_module3';
 import { PNN_MODULE_4 } from './data/pnn_module4';
 import { PNN_MODULE_5 } from './data/pnn_module5';
 import { PNN_MODULE_6 } from './data/pnn_module6';
+
+// Import Python Modules
+import { PYTHON_MODULE_1 } from './data/python_module1';
+import { PYTHON_MODULE_2 } from './data/python_module2';
+import { PYTHON_MODULE_3 } from './data/python_module3';
+import { PYTHON_MODULE_4 } from './data/python_module4';
+import { PYTHON_MODULE_5 } from './data/python_module5';
+import { PYTHON_MODULE_6 } from './data/python_module6';
 
 export const INTRO_TO_CS_COURSE: Course = {
   id: 'intro-cs-001',
@@ -99,9 +110,27 @@ export const NON_NUMERIC_COURSE: Course = {
   ]
 };
 
+export const PYTHON_COURSE: Course = {
+  id: 'python-004',
+  title: 'Programación en Python',
+  code: 'PY-101',
+  description: 'Fundamentos de programación moderna usando Python. Desde sintaxis básica hasta estructuras de control.',
+  teacherName: 'Ing. Luis Felipe Moreno Oropeza',
+  teacherEmail: '27758801@psm.edu.ve',
+  modules: [
+    PYTHON_MODULE_1,
+    PYTHON_MODULE_2,
+    PYTHON_MODULE_3,
+    PYTHON_MODULE_4,
+    PYTHON_MODULE_5,
+    PYTHON_MODULE_6
+  ]
+};
+
 // Array for the main menu selection
 export const AVAILABLE_COURSES: Course[] = [
   INTRO_TO_CS_COURSE,
   PROGRAMMING_COURSE,
-  NON_NUMERIC_COURSE
+  NON_NUMERIC_COURSE,
+  PYTHON_COURSE
 ];

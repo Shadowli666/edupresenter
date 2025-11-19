@@ -7,13 +7,13 @@ import {
   MonitorPlay, 
   ArrowLeft, 
   ChevronRight, 
-  ChevronLeft,
+  ChevronLeft, 
   ChevronDown,
-  Clock,
-  Calendar,
-  CheckCircle2,
-  X,
-  User
+  Clock, 
+  Calendar, 
+  CheckCircle, 
+  X, 
+  User 
 } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -270,7 +270,7 @@ const App: React.FC = () => {
               <span className="absolute -left-[9px] top-9 flex items-center justify-center w-5 h-5 bg-slate-200 rounded-full"></span>
               <div className="p-6 bg-slate-900 rounded-xl text-white flex items-center gap-4 shadow-lg">
                  <div className="p-3 bg-white/10 rounded-full">
-                   <CheckCircle2 size={24} />
+                   <CheckCircle size={24} />
                  </div>
                  <div>
                    <h3 className="font-bold text-lg">Fin del Contenido</h3>
@@ -379,7 +379,7 @@ const App: React.FC = () => {
              onClick={handleBackToSyllabus}
              className="flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors"
           >
-             Finalizar <CheckCircle2 size={16} />
+             Finalizar <CheckCircle size={16} />
           </button>
         )}
 
