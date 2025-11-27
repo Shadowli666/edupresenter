@@ -10,6 +10,7 @@
       body {
         font-family: 'Inter', sans-serif;
         background-color: #f8fafc;
+        overflow-x: hidden; /* Prevent horizontal scroll from animations */
       }
       /* Custom scrollbar for cleaner look */
       ::-webkit-scrollbar {
@@ -34,7 +35,7 @@
         }
         to {
           opacity: 1;
-          transform: translateY(0);
+          transform: none; /* Reset transform to avoid sticky issues */
         }
       }
       .animate-fade-in {
@@ -55,5 +56,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
