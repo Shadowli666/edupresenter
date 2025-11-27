@@ -97,6 +97,16 @@ export const PNN_MODULE_1: Module = {
               Es un tipo especial de árbol donde el <strong>grado máximo es 2</strong>. Cada nodo puede tener como máximo un hijo izquierdo y un hijo derecho. Son la base para estructuras de búsqueda eficientes (BST).
             </p>
           </div>
+
+          <div class="bg-white p-5 rounded-xl border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-3">Mini-actividad guiada</h4>
+            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2">
+              <li>En el diagrama de la slide inicial, identifica el <strong>nivel</strong> de cada nodo.</li>
+              <li>Calcula la <strong>altura</strong> del árbol.</li>
+              <li>Indica el <strong>grado</strong> de la raíz y de B.</li>
+            </ol>
+            <p class="text-xs text-slate-500 mt-2">Discusión breve: ¿cómo cambia la altura si agregamos un hijo a F?</p>
+          </div>
         </div>
       `
     },

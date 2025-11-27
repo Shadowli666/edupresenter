@@ -162,6 +162,16 @@ export const PNN_MODULE_4: Module = {
 
              </div>
           </div>
+
+          <!-- Mini-quiz interactivo -->
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+            <h4 class="font-semibold text-slate-800 mb-2">Preguntas rápidas</h4>
+            <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
+              <li>¿En qué paso se aplica el caso base?</li>
+              <li>Si el arreglo ya está ordenado, ¿la traza cambia? ¿Por qué?</li>
+              <li>¿Merge Sort es estable? ¿Qué implica eso en datos con claves iguales?</li>
+            </ul>
+          </div>
         </div>
       `
     },

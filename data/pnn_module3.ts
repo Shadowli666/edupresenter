@@ -90,6 +90,23 @@ export const PNN_MODULE_3: Module = {
              <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-xs text-gray-400">20</div>
           </div>
           <p class="text-center text-xs text-slate-500">Buscando el 8: Se compara con el medio, si coincide, termina.</p>
+
+          <div class="bg-white rounded-xl border p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Traza guiada</h4>
+            <ol class="list-decimal list-inside text-xs text-slate-600 space-y-1">
+              <li>low=0, high=6 → mid=3 → a[3]=8 → encontrado</li>
+              <li>Variante: buscar 7 → low=0, high=6 → mid=3 (8) → high=2 → mid=1 (3) → low=2 → mid=2 (5) → low=3 → termina sin encontrar</li>
+            </ol>
+          </div>
+
+          <div class="bg-slate-50 rounded-xl border p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Preguntas rápidas</h4>
+            <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
+              <li>¿Qué ocurre si el arreglo no está ordenado?</li>
+              <li>¿Cómo cambiaría si buscamos el primer elemento ≥ x?</li>
+              <li>¿Qué pasa si hay duplicados?</li>
+            </ul>
+          </div>
         </div>
       `
     },

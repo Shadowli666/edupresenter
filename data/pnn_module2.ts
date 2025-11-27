@@ -32,6 +32,10 @@ export const PNN_MODULE_2: Module = {
             </div>
           </div>
         </div>
+          <div class="bg-white rounded-xl border p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Mini-reto</h4>
+            <p class="text-sm text-slate-700">Aplica <code>insert(7)</code> y luego <code>extractMax()</code> sobre el heap resultante. ¿Cuál es el arreglo final?</p>
+          </div>
       `
     },
     {

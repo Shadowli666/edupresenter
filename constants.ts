@@ -38,6 +38,18 @@ import { PNN_MODULE_3 } from './data/pnn_module3';
 import { PNN_MODULE_4 } from './data/pnn_module4';
 import { PNN_MODULE_5 } from './data/pnn_module5';
 import { PNN_MODULE_6 } from './data/pnn_module6';
+import { PNN_MODULE_7 } from './data/pnn_module7';
+import { PNN_MODULE_8 } from './data/pnn_module8';
+import { PNN_MODULE_9 } from './data/pnn_module9';
+import { PNN_MODULE_10 } from './data/pnn_module10';
+import { PNN_MODULE_11 } from './data/pnn_module11';
+import { PNN_MODULE_12 } from './data/pnn_module12';
+import { PNN_MODULE_13 } from './data/pnn_module13';
+import { PNN_MODULE_14 } from './data/pnn_module14';
+import { PNN_MODULE_15 } from './data/pnn_module15';
+import { PNN_MODULE_16 } from './data/pnn_module16';
+import { PNN_MODULE_17 } from './data/pnn_module17';
+import { PNN_MODULE_18 } from './data/pnn_module18';
 
 // Import Python Modules
 import { PYTHON_MODULE_1 } from './data/python_module1';
@@ -106,7 +118,19 @@ export const NON_NUMERIC_COURSE: Course = {
     PNN_MODULE_3,
     PNN_MODULE_4,
     PNN_MODULE_5,
-    PNN_MODULE_6
+    PNN_MODULE_6,
+    PNN_MODULE_7,
+    PNN_MODULE_8,
+    PNN_MODULE_9,
+    PNN_MODULE_10,
+    PNN_MODULE_11,
+    PNN_MODULE_12,
+    PNN_MODULE_13,
+    PNN_MODULE_14,
+    PNN_MODULE_15,
+    PNN_MODULE_16,
+    PNN_MODULE_17,
+    PNN_MODULE_18
   ]
 };
 

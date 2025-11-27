@@ -28,6 +28,16 @@ export const PNN_MODULE_5: Module = {
             <p class="text-sm text-slate-500 mt-4">
               Luego, se aplica recursivamente lo mismo a la sublista izquierda y derecha.
             </p>
+            <div class="bg-slate-50 rounded-lg border p-4 mt-4">
+              <h5 class="font-semibold text-slate-800 mb-2">Ejemplo guiado de partición</h5>
+              <p class="text-xs text-slate-600 mb-2">Arreglo: [8, 3, 7, 6, 2, 5, 4], pivote = 4</p>
+              <ol class="list-decimal list-inside text-xs text-slate-600 space-y-1">
+                <li>i avanza buscando > pivot; j retrocede buscando < pivot</li>
+                <li>Intercambios hasta que i ≥ j</li>
+                <li>Resultado de partición (una posible variante Hoare): [3, 2, 4, 6, 7, 5, 8]</li>
+              </ol>
+              <p class="text-xs text-slate-500 mt-2">Nota: Existen esquemas de partición (Lomuto/Hoare) con diferencias en índices y swaps.</p>
+            </div>
           </div>
         </div>
       `
