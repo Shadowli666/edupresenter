@@ -17,6 +17,26 @@ export const MODULE_12: Module = {
             <p class="text-indigo-800">Detalle de las actividades sumativas correspondientes al segundo corte (30% + acumulado).</p>
           </div>
 
+          <div class="flex justify-center bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+             <div class="mermaid">
+               graph LR
+                 C1[Corte I: 30%] -.-> Total{Total 60%}
+                 
+                 subgraph Corte II
+                   Act1[Ejercicios] -->|10%| Act2[Parcial]
+                   Act2 -->|20%| Suma2[Total 30%]
+                 end
+                 
+                 Suma2 --> Total
+                 Total --> Final([Nota Acumulada])
+                 
+                 style C1 fill:#f1f5f9,stroke:#94a3b8,stroke-dasharray: 5 5
+                 style Act1 fill:#dcfce7,stroke:#16a34a
+                 style Act2 fill:#dbeafe,stroke:#2563eb
+                 style Total fill:#fef9c3,stroke:#ca8a04,stroke-width:2px
+             </div>
+          </div>
+
           <div class="overflow-hidden border rounded-xl shadow-sm">
             <table class="min-w-full text-sm text-left text-slate-600">
               <thead class="bg-slate-100 text-slate-700 uppercase font-bold">

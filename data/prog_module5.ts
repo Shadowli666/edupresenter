@@ -89,36 +89,19 @@ export const PROG_MODULE_5: Module = {
           <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm w-full">
              <h4 class="font-bold text-slate-800 mb-6 text-sm uppercase tracking-wider text-center border-b pb-2">2. Estructura de la Lista Enlazada</h4>
              
-             <div class="flex items-center justify-center overflow-x-auto py-4 gap-2">
-                <!-- Head -->
-                <div class="flex flex-col items-center mr-2">
-                   <span class="text-xs font-bold text-purple-600 mb-1">Cabeza</span>
-                   <div class="w-px h-4 bg-purple-400"></div>
-                   <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                </div>
-
-                <!-- Node 1 -->
-                <div class="flex border border-slate-400 rounded bg-white shadow-sm transform scale-90">
-                   <div class="p-2 border-r border-slate-300 bg-amber-50 font-bold">10</div>
-                   <div class="p-2 bg-blue-50 text-xs font-mono flex items-center">→</div>
-                </div>
-                
-                <!-- Arrow -->
-                <div class="text-slate-400">➜</div>
-
-                <!-- Node 2 -->
-                <div class="flex border border-slate-400 rounded bg-white shadow-sm transform scale-90">
-                   <div class="p-2 border-r border-slate-300 bg-amber-50 font-bold">20</div>
-                   <div class="p-2 bg-blue-50 text-xs font-mono flex items-center">→</div>
-                </div>
-
-                <!-- Arrow -->
-                <div class="text-slate-400">➜</div>
-
-                <!-- Node 3 -->
-                <div class="flex border border-slate-400 rounded bg-white shadow-sm transform scale-90">
-                   <div class="p-2 border-r border-slate-300 bg-amber-50 font-bold">30</div>
-                   <div class="p-2 bg-slate-100 text-[10px] font-mono flex items-center text-red-500 font-bold">NULL</div>
+             <div class="flex justify-center">
+                <div class="mermaid">
+                  graph LR
+                    H[Cabeza] --> N1(10)
+                    N1 -->|0x200| N2(20)
+                    N2 -->|0x300| N3(30)
+                    N3 -->|NULL| E[Fin]
+                    
+                    style H fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
+                    style N1 fill:#fff,stroke:#334155,stroke-width:2px
+                    style N2 fill:#fff,stroke:#334155,stroke-width:2px
+                    style N3 fill:#fff,stroke:#334155,stroke-width:2px
+                    style E fill:#fecaca,stroke:#ef4444,stroke-width:2px,stroke-dasharray: 5 5
                 </div>
              </div>
              <p class="text-center text-xs text-slate-500 mt-2">El último nodo siempre apunta a <strong>NULL</strong> (Tierra/Vacío) para indicar el fin.</p>
@@ -176,53 +159,44 @@ export const PROG_MODULE_5: Module = {
             Insertar un nodo al final implica recorrer toda la lista para encontrar el último elemento (aquel que apunta a <code>NULL</code>) y hacer que apunte al nuevo nodo.
           </p>
 
-          <!-- Step-by-Step Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-             <div class="bg-white p-4 border-l-4 border-blue-500 rounded shadow-sm">
-                <h4 class="font-bold text-blue-900 mb-2">Paso 1: Crear el Nodo</h4>
-                <p class="text-xs text-slate-600">Se reserva memoria para el nuevo dato. Su puntero <code>siguiente</code> debe apuntar a <code>NULL</code>, ya que será el nuevo final.</p>
+          <div class="grid md:grid-cols-2 gap-6">
+             <!-- Steps -->
+             <div class="space-y-3">
+               <div class="bg-white p-3 border-l-4 border-blue-500 rounded shadow-sm">
+                  <h4 class="font-bold text-blue-900 text-sm">1. Crear Nodo</h4>
+                  <p class="text-xs text-slate-600">Reservar memoria y asignar dato. <code>next = NULL</code>.</p>
+               </div>
+               <div class="bg-white p-3 border-l-4 border-purple-500 rounded shadow-sm">
+                  <h4 class="font-bold text-purple-900 text-sm">2. ¿Lista Vacía?</h4>
+                  <p class="text-xs text-slate-600">Si <code>cabeza == NULL</code>, el nuevo nodo es la cabeza.</p>
+               </div>
+               <div class="bg-white p-3 border-l-4 border-orange-500 rounded shadow-sm">
+                  <h4 class="font-bold text-orange-900 text-sm">3. Recorrer</h4>
+                  <p class="text-xs text-slate-600">Si no, avanzar con un auxiliar hasta que <code>aux->next == NULL</code>.</p>
+               </div>
+               <div class="bg-white p-3 border-l-4 border-green-500 rounded shadow-sm">
+                  <h4 class="font-bold text-green-900 text-sm">4. Enlazar</h4>
+                  <p class="text-xs text-slate-600">Hacer <code>aux->next = nuevo</code>.</p>
+               </div>
              </div>
-             <div class="bg-white p-4 border-l-4 border-purple-500 rounded shadow-sm">
-                <h4 class="font-bold text-purple-900 mb-2">Paso 2: ¿Está vacía?</h4>
-                <p class="text-xs text-slate-600">Si la lista no tiene nodos (<code>cabeza == NULL</code>), el nuevo nodo se convierte inmediatamente en la cabeza.</p>
-             </div>
-             <div class="bg-white p-4 border-l-4 border-orange-500 rounded shadow-sm">
-                <h4 class="font-bold text-orange-900 mb-2">Paso 3: Recorrer (Traversal)</h4>
-                <p class="text-xs text-slate-600">Si ya hay nodos, usamos un puntero auxiliar (<code>aux</code>) para saltar de nodo en nodo hasta llegar al que no tiene siguiente.</p>
-             </div>
-             <div class="bg-white p-4 border-l-4 border-green-500 rounded shadow-sm">
-                <h4 class="font-bold text-green-900 mb-2">Paso 4: Enlazar</h4>
-                <p class="text-xs text-slate-600">Actualizamos el puntero del último nodo encontrado para que apunte al nuevo nodo.</p>
-             </div>
-          </div>
 
-          <!-- Visual Representation -->
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col items-center">
-             <span class="text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">Visualización del Enlace</span>
-             <div class="flex items-center gap-2">
-                <!-- Last Node -->
-                <div class="relative p-2 bg-white rounded border-2 border-slate-300">
-                   <div class="absolute -top-2 left-2 text-[9px] font-bold text-slate-500 bg-white px-1">Ultimo Actual</div>
-                   <div class="flex items-center">
-                      <div class="w-8 h-8 flex items-center justify-center font-bold text-slate-700 border-r">C</div>
-                      <div class="w-8 h-8 flex items-center justify-center text-[10px] text-slate-400 line-through decoration-red-500">NULL</div>
-                   </div>
-                   <!-- Dynamic Arrow -->
-                   <div class="absolute -bottom-4 right-2 text-green-600 text-2xl animate-bounce">
-                      ↘
-                   </div>
-                </div>
-
-                <!-- Connection Line -->
-                <div class="w-12 h-0.5 bg-green-500 mt-4"></div>
-
-                <!-- New Node -->
-                <div class="relative p-2 bg-green-50 rounded border-2 border-green-500 shadow-md mt-8">
-                   <div class="absolute -top-3 left-0 w-full text-center text-[9px] font-bold text-green-700 bg-white px-1 shadow-sm rounded">Nuevo Final</div>
-                   <div class="flex items-center">
-                      <div class="w-8 h-8 bg-white flex items-center justify-center font-bold text-green-900 border-r border-green-200">D</div>
-                      <div class="w-8 h-8 bg-slate-100 flex items-center justify-center text-[9px] text-red-500 font-bold">NULL</div>
-                   </div>
+             <!-- Diagram -->
+             <div class="flex items-center justify-center bg-white rounded-lg border border-slate-200">
+                <div class="mermaid">
+                  flowchart TD
+                    Start([Inicio]) --> Create[Crear Nuevo Nodo]
+                    Create --> Empty{¿Cabeza NULL?}
+                    Empty -- Sí --> LinkHead[Cabeza = Nuevo]
+                    Empty -- No --> Loop{¿Aux->sig == NULL?}
+                    Loop -- No --> Advance[Aux = Aux->sig]
+                    Advance --> Loop
+                    Loop -- Sí --> Link[Aux->sig = Nuevo]
+                    LinkHead --> End([Fin])
+                    Link --> End
+                    style Start fill:#fef9c3,stroke:#eab308
+                    style End fill:#fef9c3,stroke:#eab308
+                    style Create fill:#dbeafe,stroke:#2563eb
+                    style Link fill:#dcfce7,stroke:#16a34a
                 </div>
              </div>
           </div>
@@ -260,40 +234,19 @@ export const PROG_MODULE_5: Module = {
           </p>
 
           <!-- Logic Diagram -->
-          <div class="bg-white p-6 border rounded-xl shadow-sm overflow-x-auto flex justify-center">
-             <div class="flex items-center gap-4">
-                
-                <!-- Head Pointer -->
-                <div class="flex flex-col items-center mr-4">
-                   <span class="text-xs font-bold text-purple-600 mb-1">Cabeza</span>
-                   <div class="w-1 h-8 bg-purple-400"></div>
-                   <div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-purple-400"></div>
-                </div>
-
-                <!-- Node 1 -->
-                <div class="flex opacity-50 grayscale">
-                   <div class="border border-slate-400 p-2 bg-slate-50 rounded-l">10</div>
-                   <div class="border border-slate-400 p-2 bg-slate-100 rounded-r border-l-0">→</div>
-                </div>
-
-                <!-- Aux Pointer Animation -->
-                <div class="flex flex-col items-center mx-2">
-                   <span class="text-xs font-bold text-orange-600 mb-1 animate-bounce">Aux</span>
-                   <div class="border-2 border-orange-500 rounded p-1 bg-white shadow-md z-10">
-                      <div class="flex">
-                        <div class="px-3 py-1 bg-orange-50 font-bold text-orange-900 border-r border-orange-200">20</div>
-                        <div class="px-3 py-1 bg-white text-orange-400">→</div>
-                      </div>
-                   </div>
-                   <span class="text-[10px] text-slate-400 mt-2 text-center font-mono">aux = aux->siguiente</span>
-                </div>
-
-                <!-- Node 3 -->
-                <div class="flex opacity-50 grayscale">
-                   <div class="border border-slate-400 p-2 bg-slate-50 rounded-l">30</div>
-                   <div class="border border-slate-400 p-2 bg-slate-100 rounded-r border-l-0 font-mono text-xs flex items-center">NULL</div>
-                </div>
-
+          <div class="flex justify-center bg-white p-6 border rounded-xl shadow-sm">
+             <div class="mermaid">
+               flowchart LR
+                 Start([Inicio]) --> Init[Aux = Cabeza]
+                 Init --> Check{¿Aux != NULL?}
+                 Check -- Sí --> Print[/Imprimir Aux->dato/]
+                 Print --> Next[Aux = Aux->siguiente]
+                 Next --> Check
+                 Check -- No --> End([Fin])
+                 
+                 style Check fill:#ffedd5,stroke:#ea580c,stroke-width:2px
+                 style Print fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                 style Next fill:#dbeafe,stroke:#2563eb,stroke-width:2px
              </div>
           </div>
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import mermaid from 'mermaid';
 import { Slide } from '../types';
 
 interface SlideViewerProps {
@@ -14,6 +15,26 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
   teacherName, 
   teacherEmail
 }) => {
+  
+  useEffect(() => {
+    // Initialize mermaid configuration
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'neutral',
+      securityLevel: 'loose',
+      fontFamily: 'Inter',
+      flowchart: {
+        htmlLabels: true,
+        curve: 'basis'
+      }
+    });
+
+    // Run mermaid on all elements with class 'mermaid'
+    mermaid.run({
+      querySelector: '.mermaid'
+    });
+  }, [slide]);
+
   return (
     <div className="w-full animate-fade-in flex flex-col min-h-[60vh]">
       {/* Document Header */}

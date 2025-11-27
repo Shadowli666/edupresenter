@@ -42,27 +42,29 @@ export const PNN_MODULE_2: Module = {
           <p class="text-gray-700">Un <strong>Heap</strong> es un Árbol Binario Completo que cumple la propiedad de orden del montículo.</p>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+            <div class="bg-red-50 p-4 rounded-lg border border-red-100 flex flex-col items-center">
               <strong class="text-red-900 block mb-2">Max-Heap</strong>
               <p class="text-sm text-red-800 mb-2">El valor de cada nodo es <strong>mayor o igual</strong> que el de sus hijos.</p>
-              <div class="flex flex-col items-center mt-4">
-                 <div class="w-8 h-8 rounded-full bg-red-200 text-red-800 flex items-center justify-center font-bold text-sm border border-red-300">100</div>
-                 <div class="flex gap-4 mt-1">
-                    <div class="w-8 h-8 rounded-full bg-white text-red-800 flex items-center justify-center font-bold text-xs border border-red-200">80</div>
-                    <div class="w-8 h-8 rounded-full bg-white text-red-800 flex items-center justify-center font-bold text-xs border border-red-200">90</div>
-                 </div>
+              <div class="mermaid">
+                graph TD
+                  A((100)) --- B((80))
+                  A --- C((90))
+                  style A fill:#fecaca,stroke:#ef4444
+                  style B fill:#fff,stroke:#ef4444
+                  style C fill:#fff,stroke:#ef4444
               </div>
             </div>
 
-            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+            <div class="bg-green-50 p-4 rounded-lg border border-green-100 flex flex-col items-center">
               <strong class="text-green-900 block mb-2">Min-Heap</strong>
               <p class="text-sm text-green-800 mb-2">El valor de cada nodo es <strong>menor o igual</strong> que el de sus hijos.</p>
-              <div class="flex flex-col items-center mt-4">
-                 <div class="w-8 h-8 rounded-full bg-green-200 text-green-800 flex items-center justify-center font-bold text-sm border border-green-300">5</div>
-                 <div class="flex gap-4 mt-1">
-                    <div class="w-8 h-8 rounded-full bg-white text-green-800 flex items-center justify-center font-bold text-xs border border-green-200">20</div>
-                    <div class="w-8 h-8 rounded-full bg-white text-green-800 flex items-center justify-center font-bold text-xs border border-green-200">15</div>
-                 </div>
+              <div class="mermaid">
+                graph TD
+                  A((5)) --- B((20))
+                  A --- C((15))
+                  style A fill:#dcfce7,stroke:#22c55e
+                  style B fill:#fff,stroke:#22c55e
+                  style C fill:#fff,stroke:#22c55e
               </div>
             </div>
           </div>

@@ -24,21 +24,19 @@ export const MODULE_3: Module = {
           </ul>
 
           <h3 class="font-bold text-xl mt-6 text-gray-900">Partes de un Algoritmo</h3>
-          <div class="flex flex-col md:flex-row gap-4 text-center">
-            <div class="flex-1 p-4 bg-white border rounded shadow-sm">
-              <strong class="text-green-600 block mb-1">Entrada (Input)</strong>
-              <span class="text-sm text-gray-600">Datos que necesita el algoritmo para funcionar.</span>
-            </div>
-            <div class="flex items-center justify-center text-gray-400 text-xl">➔</div>
-            <div class="flex-1 p-4 bg-white border rounded shadow-sm">
-              <strong class="text-blue-600 block mb-1">Proceso</strong>
-              <span class="text-sm text-gray-600">Operaciones lógicas y matemáticas sobre los datos.</span>
-            </div>
-            <div class="flex items-center justify-center text-gray-400 text-xl">➔</div>
-            <div class="flex-1 p-4 bg-white border rounded shadow-sm">
-              <strong class="text-purple-600 block mb-1">Salida (Output)</strong>
-              <span class="text-sm text-gray-600">Resultados obtenidos tras el proceso.</span>
-            </div>
+          <div class="flex justify-center my-4">
+             <div class="mermaid">
+               flowchart LR
+                 A["Entrada\n(Input)"] --> B["Proceso\n(Process)"] --> C["Salida\n(Output)"]
+                 style A fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                 style B fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style C fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
+             </div>
+          </div>
+          <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600">
+             <div>Datos iniciales</div>
+             <div>Operaciones Lógicas</div>
+             <div>Resultados</div>
           </div>
         </div>
       `

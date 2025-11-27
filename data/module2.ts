@@ -11,10 +11,26 @@ export const MODULE_2: Module = {
       id: 's2-1',
       title: 'Hardware',
       contentHtml: `
-        <div class="prose max-w-none">
-          <p>El hardware representa la parte física y tangible de un sistema informático.</p>
+        <div class="space-y-6">
+          <p class="text-gray-700 text-lg">El hardware representa la parte física y tangible de un sistema informático. Es todo lo que puedes tocar.</p>
           
-          <h4 class="mt-6 mb-4 font-bold text-gray-800">Arquitectura Básica (Von Neumann)</h4>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center">
+             <h4 class="font-bold text-slate-800 mb-4 border-b pb-2">Arquitectura de Von Neumann</h4>
+             <div class="mermaid">
+               graph TD
+                 CPU[Unidad Central de Proceso (CPU)]
+                 MEM[Memoria Principal (RAM)]
+                 IO[Dispositivos E/S]
+                 
+                 CPU <-->|Bus de Datos| MEM
+                 CPU -->|Control| IO
+                 IO -->|Interrupciones| CPU
+                 
+                 style CPU fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style MEM fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                 style IO fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
+             </div>
+          </div>
           
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div class="p-4 border rounded text-center bg-gray-50">
@@ -25,12 +41,12 @@ export const MODULE_2: Module = {
             <div class="p-4 border rounded text-center bg-gray-50">
               <div class="text-2xl mb-2">💾</div>
               <div class="font-bold text-gray-900">Memoria</div>
-              <div class="text-xs text-gray-500">RAM (Trabajo) / ROM (Arranque)</div>
+              <div class="text-xs text-gray-500">RAM (Volátil) / ROM (Fija)</div>
             </div>
             <div class="p-4 border rounded text-center bg-gray-50">
               <div class="text-2xl mb-2">💿</div>
-              <div class="font-bold text-gray-900">Storage</div>
-              <div class="text-xs text-gray-500">Discos Duros, SSD</div>
+              <div class="font-bold text-gray-900">Almacenamiento</div>
+              <div class="text-xs text-gray-500">HDD, SSD (Persistente)</div>
             </div>
             <div class="p-4 border rounded text-center bg-gray-50">
               <div class="text-2xl mb-2">⌨️</div>
@@ -39,7 +55,7 @@ export const MODULE_2: Module = {
             </div>
           </div>
 
-          <table class="w-full text-sm text-left text-gray-600 border">
+          <table class="w-full text-sm text-left text-gray-600 border rounded-lg overflow-hidden">
             <thead class="text-xs text-gray-700 uppercase bg-gray-100">
               <tr>
                 <th class="px-6 py-3 border-b">Tipo</th>
@@ -48,20 +64,20 @@ export const MODULE_2: Module = {
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-white border-b">
-                <td class="px-6 py-4 font-medium text-gray-900">Entrada</td>
+              <tr class="bg-white border-b hover:bg-slate-50">
+                <td class="px-6 py-4 font-medium text-slate-900">Entrada</td>
                 <td class="px-6 py-4">Introducir datos</td>
-                <td class="px-6 py-4">Teclado, Mouse, Escáner, Micrófono</td>
+                <td class="px-6 py-4">Teclado, Mouse, Escáner</td>
               </tr>
-              <tr class="bg-white border-b">
-                <td class="px-6 py-4 font-medium text-gray-900">Salida</td>
+              <tr class="bg-white border-b hover:bg-slate-50">
+                <td class="px-6 py-4 font-medium text-slate-900">Salida</td>
                 <td class="px-6 py-4">Mostrar resultados</td>
-                <td class="px-6 py-4">Monitor, Impresora, Parlantes</td>
+                <td class="px-6 py-4">Monitor, Impresora</td>
               </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4 font-medium text-gray-900">E/S (Mixtos)</td>
+              <tr class="bg-white hover:bg-slate-50">
+                <td class="px-6 py-4 font-medium text-slate-900">E/S (Mixtos)</td>
                 <td class="px-6 py-4">Ambas funciones</td>
-                <td class="px-6 py-4">Pantalla táctil, Modem, USB</td>
+                <td class="px-6 py-4">Pantalla táctil, Router</td>
               </tr>
             </tbody>
           </table>
@@ -73,16 +89,39 @@ export const MODULE_2: Module = {
       title: 'Software',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-lg text-gray-700">Soporte lógico de un sistema informático, que comprende el conjunto de los componentes lógicos necesarios que hacen posible la realización de tareas específicas.</p>
+          <p class="text-lg text-gray-700">Soporte lógico de un sistema informático. Son las instrucciones que le dicen al hardware qué hacer.</p>
           
+          <div class="flex justify-center bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
+             <div class="mermaid">
+               graph TD
+                 SW[Software] --> SYS[De Sistema]
+                 SW --> APP[De Aplicación]
+                 SW --> DEV[De Programación]
+                 
+                 SYS --> OS[Sistemas Operativos]
+                 SYS --> DRV[Drivers/Controladores]
+                 
+                 APP --> OFI[Ofimática (Word)]
+                 APP --> NAV[Navegadores]
+                 
+                 DEV --> IDE[IDEs (VS Code)]
+                 DEV --> COMP[Compiladores]
+                 
+                 style SW fill:#1e293b,color:#fff,stroke:#0f172a
+                 style SYS fill:#dbeafe,stroke:#2563eb
+                 style APP fill:#f3e8ff,stroke:#9333ea
+                 style DEV fill:#dcfce7,stroke:#16a34a
+             </div>
+          </div>
+
           <div class="space-y-4">
             <div class="flex flex-col md:flex-row border border-l-4 border-l-blue-500 rounded overflow-hidden">
               <div class="bg-blue-50 p-4 md:w-48 flex-shrink-0 font-bold text-blue-800 flex items-center justify-center md:justify-start">
                 De Sistema
               </div>
               <div class="p-4 bg-white flex-grow">
-                <p class="text-gray-700 mb-1 font-medium">Gestiona el hardware y provee servicios a otros programas.</p>
-                <p class="text-sm text-gray-500">Ejemplos: Windows, Linux (Ubuntu, Debian), macOS, Android, iOS.</p>
+                <p class="text-gray-700 mb-1 font-medium">Gestiona el hardware y provee base para otros programas.</p>
+                <p class="text-xs text-gray-500 font-mono">Ej: Windows 11, Linux Ubuntu, Android, iOS.</p>
               </div>
             </div>
 
@@ -91,8 +130,8 @@ export const MODULE_2: Module = {
                 De Aplicación
               </div>
               <div class="p-4 bg-white flex-grow">
-                <p class="text-gray-700 mb-1 font-medium">Permite al usuario realizar una o varias tareas específicas.</p>
-                <p class="text-sm text-gray-500">Ejemplos: Microsoft Word, Google Chrome, Spotify, Photoshop.</p>
+                <p class="text-gray-700 mb-1 font-medium">Herramientas para tareas específicas del usuario final.</p>
+                <p class="text-xs text-gray-500 font-mono">Ej: Excel, WhatsApp, Spotify, Photoshop.</p>
               </div>
             </div>
 
@@ -101,8 +140,8 @@ export const MODULE_2: Module = {
                 De Programación
               </div>
               <div class="p-4 bg-white flex-grow">
-                <p class="text-gray-700 mb-1 font-medium">Herramientas que permiten al desarrollador escribir nuevos programas.</p>
-                <p class="text-sm text-gray-500">Ejemplos: Visual Studio Code, Python, Compiladores C++.</p>
+                <p class="text-gray-700 mb-1 font-medium">Permite crear nuevo software.</p>
+                <p class="text-xs text-gray-500 font-mono">Ej: Python, C++, Visual Studio Code, Git.</p>
               </div>
             </div>
           </div>
@@ -123,29 +162,29 @@ export const MODULE_2: Module = {
               <div class="flex justify-between items-center p-2 bg-slate-50 rounded">
                 <span>Webcam</span>
                 <details class="text-right">
-                  <summary class="cursor-pointer text-blue-600 text-xs">Ver Respuesta</summary>
-                  <span class="text-green-600 font-bold">Entrada</span>
+                  <summary class="cursor-pointer text-blue-600 text-xs font-bold">Ver Respuesta</summary>
+                  <span class="text-green-600 font-bold block mt-1">Entrada</span>
                 </details>
               </div>
               <div class="flex justify-between items-center p-2 bg-slate-50 rounded">
-                <span>Proyector (VideoBeam)</span>
+                <span>Proyector</span>
                 <details class="text-right">
-                  <summary class="cursor-pointer text-blue-600 text-xs">Ver Respuesta</summary>
-                  <span class="text-green-600 font-bold">Salida</span>
+                  <summary class="cursor-pointer text-blue-600 text-xs font-bold">Ver Respuesta</summary>
+                  <span class="text-green-600 font-bold block mt-1">Salida</span>
                 </details>
               </div>
               <div class="flex justify-between items-center p-2 bg-slate-50 rounded">
-                <span>Memoria USB</span>
+                <span>Pen Drive (USB)</span>
                 <details class="text-right">
-                  <summary class="cursor-pointer text-blue-600 text-xs">Ver Respuesta</summary>
-                  <span class="text-green-600 font-bold">E/S (Almacenamiento)</span>
+                  <summary class="cursor-pointer text-blue-600 text-xs font-bold">Ver Respuesta</summary>
+                  <span class="text-green-600 font-bold block mt-1">E/S (Almacenamiento)</span>
                 </details>
               </div>
               <div class="flex justify-between items-center p-2 bg-slate-50 rounded">
-                <span>Joystick</span>
+                <span>Joystick / Control</span>
                 <details class="text-right">
-                  <summary class="cursor-pointer text-blue-600 text-xs">Ver Respuesta</summary>
-                  <span class="text-green-600 font-bold">Entrada</span>
+                  <summary class="cursor-pointer text-blue-600 text-xs font-bold">Ver Respuesta</summary>
+                  <span class="text-green-600 font-bold block mt-1">Entrada</span>
                 </details>
               </div>
             </div>
@@ -157,28 +196,28 @@ export const MODULE_2: Module = {
             <p class="text-xs text-gray-500 mb-4">Determine si es Software de Sistema, Aplicación o Programación.</p>
             
             <div class="space-y-2">
-               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer">
+               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer border border-transparent hover:border-purple-200">
                  <summary class="text-sm font-medium text-slate-700 flex justify-between">
                    <span>Windows 11</span>
-                   <span class="text-gray-400 text-xs">?</span>
+                   <span class="text-slate-400 text-xs">▼</span>
                  </summary>
-                 <p class="text-xs mt-2 text-purple-700 font-bold">Software de Sistema</p>
+                 <p class="text-xs mt-2 text-blue-700 font-bold bg-blue-50 p-2 rounded">Software de Sistema</p>
                </details>
 
-               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer">
+               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer border border-transparent hover:border-purple-200">
                  <summary class="text-sm font-medium text-slate-700 flex justify-between">
-                   <span>Compilador de Java</span>
-                   <span class="text-gray-400 text-xs">?</span>
+                   <span>Compilador GCC</span>
+                   <span class="text-slate-400 text-xs">▼</span>
                  </summary>
-                 <p class="text-xs mt-2 text-purple-700 font-bold">Software de Programación</p>
+                 <p class="text-xs mt-2 text-green-700 font-bold bg-green-50 p-2 rounded">Software de Programación</p>
                </details>
 
-               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer">
+               <details class="group bg-gray-50 rounded px-4 py-2 cursor-pointer border border-transparent hover:border-purple-200">
                  <summary class="text-sm font-medium text-slate-700 flex justify-between">
-                   <span>Excel</span>
-                   <span class="text-gray-400 text-xs">?</span>
+                   <span>Microsoft Excel</span>
+                   <span class="text-slate-400 text-xs">▼</span>
                  </summary>
-                 <p class="text-xs mt-2 text-purple-700 font-bold">Software de Aplicación</p>
+                 <p class="text-xs mt-2 text-purple-700 font-bold bg-purple-50 p-2 rounded">Software de Aplicación</p>
                </details>
             </div>
           </div>
@@ -210,11 +249,11 @@ export const MODULE_2: Module = {
           
           <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-purple-500 shadow-sm max-w-2xl">
             <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
-              "El hardware es la parte de la computadora que puedes patear."
+              "El hardware es la parte de la computadora que puedes patear, el software es la parte que solo puedes maldecir."
             </p>
             <footer class="flex items-center justify-center gap-2">
               <div class="h-px w-8 bg-slate-300"></div>
-              <cite class="not-italic font-bold text-slate-900">Jeff Pesis</cite>
+              <cite class="not-italic font-bold text-slate-900">Dicho popular</cite>
             </footer>
           </blockquote>
         </div>

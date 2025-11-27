@@ -1,3 +1,4 @@
+
 import { Module } from '../types';
 
 export const MODULE_6: Module = {
@@ -14,6 +15,20 @@ export const MODULE_6: Module = {
           <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
             <h3 class="text-xl font-bold text-blue-900 mb-2">Resumen del Corte</h3>
             <p class="text-blue-800">A continuación se detalla la ponderación de las evaluaciones realizadas durante las primeras 5 semanas.</p>
+          </div>
+
+          <div class="flex justify-center bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+             <div class="mermaid">
+               graph LR
+                 Start([Inicio]) --> Mod4[Guía Ejercicios]
+                 Mod4 -->|10%| Mod5[Prueba Escrita]
+                 Mod5 -->|20%| Suma{Total 30%}
+                 Suma --> Fin([Cierre Corte])
+                 
+                 style Mod4 fill:#dcfce7,stroke:#16a34a
+                 style Mod5 fill:#dbeafe,stroke:#2563eb
+                 style Suma fill:#fef9c3,stroke:#ca8a04,stroke-width:2px
+             </div>
           </div>
 
           <div class="overflow-hidden border rounded-xl shadow-sm">
@@ -56,21 +71,15 @@ export const MODULE_6: Module = {
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
-              <h4 class="font-bold text-yellow-800 mb-2 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                Reclamos y Correcciones
-              </h4>
+              <h4 class="font-bold text-yellow-800 mb-2">Reclamos y Correcciones</h4>
               <p class="text-sm text-yellow-700">
-                Si encuentra alguna inconsistencia en su nota, por favor acérquese al finalizar la presentación con su evidencia (examen físico o archivo enviado).
+                Si encuentra alguna inconsistencia en su nota, por favor acérquese al finalizar la presentación.
               </p>
             </div>
             <div class="bg-green-50 p-6 rounded-lg border border-green-100">
-              <h4 class="font-bold text-green-800 mb-2 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Próximos Pasos
-              </h4>
+              <h4 class="font-bold text-green-800 mb-2">Próximos Pasos</h4>
               <p class="text-sm text-green-700">
-                La próxima semana daremos inicio al <strong>Corte II</strong>, enfocado en estructuras de control avanzadas y codificación en lenguaje real.
+                Inicio del <strong>Corte II</strong>: Estructuras condicionales avanzadas y bucles.
               </p>
             </div>
           </div>
@@ -98,7 +107,6 @@ export const MODULE_6: Module = {
       contentHtml: `
         <div class="flex flex-col items-center justify-center py-12 text-center">
           <h2 class="text-4xl font-bold text-slate-900 mb-8">¡Felicidades por completar el Corte I!</h2>
-          
           <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-blue-600 shadow-sm max-w-2xl">
             <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
               "El éxito es la suma de pequeños esfuerzos repetidos día tras día."

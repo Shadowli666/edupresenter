@@ -46,30 +46,37 @@ export const PROG_MODULE_8: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <!-- PUSH -->
           <div class="bg-white border-2 border-green-100 rounded-xl p-6 hover:border-green-300 transition-colors">
-            <h3 class="text-xl font-bold text-green-700 mb-2 flex items-center">
+            <h3 class="text-xl font-bold text-green-700 mb-4 flex items-center">
               <span class="bg-green-100 p-2 rounded mr-2">⬇</span> Push (Apilar)
             </h3>
-            <p class="text-gray-600 text-sm mb-4">Inserta un elemento en el tope de la pila.</p>
-            <div class="font-mono text-xs bg-slate-900 text-green-400 p-3 rounded">
-              Si PilaLlena() -> Error<br>
-              Sino:<br>
-              &nbsp;&nbsp;Tope++<br>
-              &nbsp;&nbsp;Pila[Tope] = Dato
+            <div class="mermaid">
+              flowchart TD
+                Start([Inicio]) --> Check{¿Llena?}
+                Check -- Sí --> Error[Error Overflow]
+                Check -- No --> Inc[Tope++]
+                Inc --> Assign[Pila.Tope = Dato]
+                Assign --> End([Fin])
+                
+                style Check fill:#dcfce7,stroke:#16a34a
+                style Error fill:#fecaca,stroke:#ef4444
             </div>
           </div>
 
           <!-- POP -->
           <div class="bg-white border-2 border-red-100 rounded-xl p-6 hover:border-red-300 transition-colors">
-            <h3 class="text-xl font-bold text-red-700 mb-2 flex items-center">
+            <h3 class="text-xl font-bold text-red-700 mb-4 flex items-center">
               <span class="bg-red-100 p-2 rounded mr-2">⬆</span> Pop (Desapilar)
             </h3>
-            <p class="text-gray-600 text-sm mb-4">Extrae y elimina el elemento del tope.</p>
-            <div class="font-mono text-xs bg-slate-900 text-red-400 p-3 rounded">
-              Si PilaVacia() -> Error<br>
-              Sino:<br>
-              &nbsp;&nbsp;Valor = Pila[Tope]<br>
-              &nbsp;&nbsp;Tope--<br>
-              &nbsp;&nbsp;Retornar Valor
+            <div class="mermaid">
+              flowchart TD
+                Start([Inicio]) --> Check{¿Vacía?}
+                Check -- Sí --> Error[Error Underflow]
+                Check -- No --> Get[Dato = Pila.Tope]
+                Get --> Dec[Tope--]
+                Dec --> Return[Retornar Dato]
+                
+                style Check fill:#fee2e2,stroke:#dc2626
+                style Error fill:#fecaca,stroke:#ef4444
             </div>
           </div>
         </div>

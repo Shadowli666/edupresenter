@@ -67,7 +67,7 @@ export const PYTHON_MODULE_4: Module = {
             Evalúa una condición booleana antes de cada iteración. Si es <code>True</code>, entra. Si es <code>False</code>, termina.
           </p>
 
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid md:grid-cols-2 gap-6 items-center">
              <!-- Standard Logic -->
              <div class="bg-white border p-4 rounded-lg shadow-sm">
                 <h4 class="font-bold text-slate-800 mb-2">Lógica Estándar</h4>
@@ -80,17 +80,17 @@ export const PYTHON_MODULE_4: Module = {
                 </div>
              </div>
 
-             <!-- Validation Use Case -->
-             <div class="bg-white border p-4 rounded-lg shadow-sm">
-                <h4 class="font-bold text-slate-800 mb-2">Caso de Uso: Validación</h4>
-                <p class="text-xs text-slate-500 mb-2">Forzar al usuario a ingresar un dato correcto.</p>
-                <div class="bg-slate-900 p-3 rounded font-mono text-xs text-slate-300">
-                  edad = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Edad: "</span>))<br>
-                  <span class="text-purple-400">while</span> edad < <span class="text-blue-400">0</span>:<br>
-                  &nbsp;&nbsp;<span class="text-blue-400">print</span>(<span class="text-green-400">"Edad inválida."</span>)<br>
-                  &nbsp;&nbsp;edad = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Edad: "</span>))<br>
-                  <span class="text-blue-400">print</span>(<span class="text-green-400">"Gracias"</span>)
-                </div>
+             <!-- Flowchart -->
+             <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-200">
+               <div class="mermaid">
+                 flowchart TD
+                   Start([Inicio]) --> Cond{¿Cont > 0?}
+                   Cond -- True --> Print[/Print/]
+                   Print --> Dec[Cont -= 1]
+                   Dec --> Cond
+                   Cond -- False --> End([Fin])
+                   style Cond fill:#dcfce7,stroke:#16a34a
+               </div>
              </div>
           </div>
 
@@ -110,19 +110,30 @@ export const PYTHON_MODULE_4: Module = {
             En Python, <code>for</code> itera sobre elementos de una secuencia (lista, string, tupla) o un generador numérico.
           </p>
 
-          <!-- Range Function -->
-          <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <h4 class="font-bold text-blue-900 mb-2 font-mono text-lg">range(start, stop, step)</h4>
-            <ul class="list-disc list-inside text-sm text-blue-800 space-y-1">
-              <li><code>range(5)</code>: 0, 1, 2, 3, 4 (Hasta n-1)</li>
-              <li><code>range(2, 6)</code>: 2, 3, 4, 5</li>
-              <li><code>range(0, 10, 2)</code>: 0, 2, 4, 6, 8 (Saltos de 2)</li>
-              <li><code>range(10, 0, -1)</code>: 10, 9, ..., 1 (Cuenta regresiva)</li>
-            </ul>
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+             <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+               <h4 class="font-bold text-blue-900 mb-2 font-mono text-lg">range(start, stop, step)</h4>
+               <ul class="list-disc list-inside text-sm text-blue-800 space-y-1">
+                 <li><code>range(5)</code>: 0, 1, 2, 3, 4 (Hasta n-1)</li>
+                 <li><code>range(2, 6)</code>: 2, 3, 4, 5</li>
+                 <li><code>range(0, 10, 2)</code>: 0, 2, 4, 6, 8 (Saltos de 2)</li>
+               </ul>
+             </div>
+
+             <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-200">
+               <div class="mermaid">
+                 flowchart TD
+                   Start([Inicio]) --> GetNext{¿Hay items?}
+                   GetNext -- Sí --> Assign[i = Siguiente]
+                   Assign --> Block[Ejecutar Bloque]
+                   Block --> GetNext
+                   GetNext -- No --> End([Fin])
+                   style GetNext fill:#dbeafe,stroke:#2563eb
+               </div>
+             </div>
           </div>
 
-          <!-- Examples -->
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid md:grid-cols-2 gap-6 mt-4">
             <div class="bg-white border rounded p-4 shadow-sm">
               <strong class="block text-slate-800 mb-2 text-sm">Iterar Strings</strong>
               <div class="bg-slate-900 p-3 rounded font-mono text-xs text-slate-300">

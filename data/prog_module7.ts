@@ -1,6 +1,4 @@
 
-
-
 import { Module } from '../types';
 
 export const PROG_MODULE_7: Module = {
@@ -16,29 +14,20 @@ export const PROG_MODULE_7: Module = {
         <div class="space-y-8">
           <p class="text-gray-700">En una lista simple, solo podemos avanzar. En una <strong>Lista Doblemente Enlazada</strong>, cada nodo tiene dos punteros: uno al siguiente nodo (Next) y otro al anterior (Prev).</p>
 
-          <div class="flex flex-col md:flex-row items-center justify-center gap-4 my-8 overflow-x-auto p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-            
-            <div class="text-slate-400 font-mono text-xs">NULL</div>
-            <div class="text-slate-300">←</div>
-
-            <!-- Nodo 1 -->
-            <div class="flex border-2 border-indigo-600 rounded bg-white shadow-md relative group hover:-translate-y-1 transition-transform">
-               <div class="p-3 font-mono text-xs bg-indigo-50 flex items-center border-r border-indigo-200 text-indigo-800">← Prev</div>
-               <div class="p-3 font-bold text-slate-800 px-6">10</div>
-               <div class="p-3 font-mono text-xs bg-indigo-50 flex items-center border-l border-indigo-200 text-indigo-800">Next →</div>
+          <div class="flex justify-center my-8 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <div class="mermaid">
+              graph LR
+                N1[NULL] <--> A(10)
+                A <--> B(20)
+                B <--> C(30)
+                C <--> N2[NULL]
+                
+                style A fill:#eff6ff,stroke:#2563eb
+                style B fill:#eff6ff,stroke:#2563eb
+                style C fill:#eff6ff,stroke:#2563eb
+                style N1 fill:#f1f5f9,stroke:#64748b,stroke-dasharray: 5 5
+                style N2 fill:#f1f5f9,stroke:#64748b,stroke-dasharray: 5 5
             </div>
-            
-            <div class="text-indigo-300 text-xl">↔</div>
-
-            <!-- Nodo 2 -->
-            <div class="flex border-2 border-indigo-600 rounded bg-white shadow-md relative group hover:-translate-y-1 transition-transform">
-               <div class="p-3 font-mono text-xs bg-indigo-50 flex items-center border-r border-indigo-200 text-indigo-800">← Prev</div>
-               <div class="p-3 font-bold text-slate-800 px-6">20</div>
-               <div class="p-3 font-mono text-xs bg-indigo-50 flex items-center border-l border-indigo-200 text-indigo-800">Next →</div>
-            </div>
-
-            <div class="text-slate-300">→</div>
-            <div class="text-slate-400 font-mono text-xs">NULL</div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
@@ -67,20 +56,16 @@ export const PROG_MODULE_7: Module = {
         <div class="space-y-6">
           <p class="text-gray-700">En una <strong>Lista Circular</strong>, el último nodo no apunta a NULL, sino que regresa al primer nodo (Cabeza), formando un ciclo infinito.</p>
 
-          <div class="relative h-48 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
-             <!-- Visualización abstracta circular -->
-             <div class="absolute w-32 h-32 border-4 border-dashed border-blue-200 rounded-full animate-spin-slow"></div>
-             
-             <div class="flex gap-4 z-10">
-                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-lg">A</div>
-                <div class="text-slate-400 self-center">→</div>
-                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-lg">B</div>
-                <div class="text-slate-400 self-center">→</div>
-                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-lg">C</div>
-             </div>
-             
-             <div class="absolute bottom-4 text-xs text-slate-500 font-mono bg-slate-50 px-2 py-1 rounded border">
-                C->next = A
+          <div class="flex justify-center my-8 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+             <div class="mermaid">
+               graph LR
+                 A((A)) --> B((B))
+                 B --> C((C))
+                 C --> A
+                 
+                 style A fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style B fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style C fill:#dbeafe,stroke:#2563eb,stroke-width:2px
              </div>
           </div>
 

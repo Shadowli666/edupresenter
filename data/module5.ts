@@ -1,4 +1,6 @@
 
+
+
 import { Module } from '../types';
 
 export const MODULE_5: Module = {
@@ -14,6 +16,21 @@ export const MODULE_5: Module = {
         <div class="space-y-6">
           <p class="text-gray-700">Para que una computadora resuelva un problema, el programador debe seguir una metodología rigurosa.</p>
           
+          <div class="flex justify-center mb-8">
+             <div class="mermaid">
+               flowchart TD
+                 A[1. Análisis del Problema] --> B[2. Diseño del Algoritmo]
+                 B --> C[3. Codificación]
+                 C --> D{4. Prueba y Depuración}
+                 D -->|Errores| B
+                 D -->|Éxito| E((Fin))
+                 style A fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style B fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
+                 style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                 style D fill:#fef9c3,stroke:#eab308,stroke-width:2px
+             </div>
+          </div>
+
           <ol class="relative border-l border-gray-200 ml-3">                  
             <li class="mb-10 ml-6">            
               <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white">

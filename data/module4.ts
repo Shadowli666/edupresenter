@@ -1,6 +1,8 @@
 
 
 
+
+
 import { Module } from '../types';
 
 export const MODULE_4: Module = {
@@ -325,34 +327,21 @@ export const MODULE_4: Module = {
               </div>
             </div>
 
-            <!-- Diagrama Simulado -->
-            <div class="border p-6 rounded-lg bg-white shadow-sm hover:shadow-md transition-all flex flex-col items-center space-y-2">
+            <!-- Diagrama Real con Mermaid -->
+            <div class="border p-6 rounded-lg bg-white shadow-sm hover:shadow-md transition-all flex flex-col items-center">
               <h3 class="font-bold text-lg mb-2 text-center text-indigo-700 border-b pb-2 w-full">Diagrama de Flujo</h3>
-              
-              <!-- Inicio -->
-              <div class="px-4 py-1 rounded-full border-2 border-black bg-yellow-100 text-xs text-black font-bold shadow-sm">Inicio</div>
-              <div class="h-3 w-0.5 bg-black"></div>
-              
-              <!-- Entrada -->
-              <div class="px-4 py-1 transform -skew-x-12 border-2 border-black bg-green-100 text-xs text-black shadow-sm">
-                 <div class="transform skew-x-12 font-bold">Leer base, altura</div>
+              <div class="mermaid">
+                flowchart TD
+                  A([Inicio]) --> B[/Leer base, altura/]
+                  B --> C[area = base * altura / 2]
+                  C --> D[/Escribir area/]
+                  D --> E([Fin])
+                  style A fill:#fef9c3,stroke:#eab308,stroke-width:2px
+                  style E fill:#fef9c3,stroke:#eab308,stroke-width:2px
+                  style B fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                  style D fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                  style C fill:#dbeafe,stroke:#2563eb,stroke-width:2px
               </div>
-              <div class="h-3 w-0.5 bg-black"></div>
-
-              <!-- Proceso -->
-              <div class="px-4 py-2 border-2 border-black bg-blue-100 text-xs font-mono text-black shadow-sm">
-                area = (b * h) / 2
-              </div>
-              <div class="h-3 w-0.5 bg-black"></div>
-
-              <!-- Salida -->
-              <div class="px-4 py-1 transform -skew-x-12 border-2 border-black bg-green-100 text-xs text-black shadow-sm">
-                 <div class="transform skew-x-12 font-bold">Escribir area</div>
-              </div>
-              <div class="h-3 w-0.5 bg-black"></div>
-
-              <!-- Fin -->
-              <div class="px-4 py-1 rounded-full border-2 border-black bg-yellow-100 text-xs text-black font-bold shadow-sm">Fin</div>
             </div>
           </div>
         </div>

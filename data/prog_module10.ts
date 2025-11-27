@@ -42,30 +42,37 @@ export const PROG_MODULE_10: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Enqueue -->
           <div class="bg-white border-2 border-blue-100 rounded-xl p-6 hover:border-blue-300 transition-colors">
-            <h3 class="text-xl font-bold text-blue-700 mb-2 flex items-center">
+            <h3 class="text-xl font-bold text-blue-700 mb-4 flex items-center">
               <span class="bg-blue-100 p-2 rounded mr-2">➜</span> Enqueue (Encolar)
             </h3>
-            <p class="text-gray-600 text-sm mb-4">Inserta un elemento al <strong>Final</strong> de la cola.</p>
-            <div class="font-mono text-xs bg-slate-900 text-blue-400 p-3 rounded">
-              Si ColaLlena() -> Error<br>
-              Sino:<br>
-              &nbsp;&nbsp;Final++<br>
-              &nbsp;&nbsp;Cola[Final] = Dato
+            <div class="mermaid">
+              flowchart TD
+                Start([Inicio]) --> Check{¿Llena?}
+                Check -- Sí --> Error[Error Overflow]
+                Check -- No --> Inc[Final++]
+                Inc --> Assign[Cola.Final = Dato]
+                Assign --> End([Fin])
+                
+                style Check fill:#dbeafe,stroke:#2563eb
+                style Error fill:#fecaca,stroke:#ef4444
             </div>
           </div>
 
           <!-- Dequeue -->
           <div class="bg-white border-2 border-orange-100 rounded-xl p-6 hover:border-orange-300 transition-colors">
-            <h3 class="text-xl font-bold text-orange-700 mb-2 flex items-center">
+            <h3 class="text-xl font-bold text-orange-700 mb-4 flex items-center">
               <span class="bg-orange-100 p-2 rounded mr-2">➜</span> Dequeue (Desencolar)
             </h3>
-            <p class="text-gray-600 text-sm mb-4">Extrae y elimina el elemento del <strong>Frente</strong> de la cola.</p>
-            <div class="font-mono text-xs bg-slate-900 text-orange-400 p-3 rounded">
-              Si ColaVacia() -> Error<br>
-              Sino:<br>
-              &nbsp;&nbsp;Valor = Cola[Frente]<br>
-              &nbsp;&nbsp;Frente++<br>
-              &nbsp;&nbsp;Retornar Valor
+            <div class="mermaid">
+              flowchart TD
+                Start([Inicio]) --> Check{¿Vacía?}
+                Check -- Sí --> Error[Error Underflow]
+                Check -- No --> Get[Dato = Cola.Frente]
+                Get --> Inc[Frente++]
+                Inc --> Return[Retornar Dato]
+                
+                style Check fill:#ffedd5,stroke:#ea580c
+                style Error fill:#fecaca,stroke:#ef4444
             </div>
           </div>
         </div>

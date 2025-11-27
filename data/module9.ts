@@ -1,4 +1,6 @@
 
+
+
 import { Module } from '../types';
 
 export const MODULE_9: Module = {
@@ -16,16 +18,28 @@ export const MODULE_9: Module = {
             Son estructuras "Si" dentro de otros "Si". Se utilizan cuando necesitamos evaluar más de dos posibilidades de forma jerárquica.
           </p>
 
-          <div class="bg-slate-900 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-lg">
-            <p>Si (promedio >= 18) Entonces</p>
-            <p class="pl-4 text-green-400">Escribir "Excelente"</p>
-            <p>SiNo</p>
-            <p class="pl-4">Si (promedio >= 10) Entonces</p>
-            <p class="pl-8 text-yellow-400">Escribir "Regular"</p>
-            <p class="pl-4">SiNo</p>
-            <p class="pl-8 text-red-400">Escribir "Deficiente"</p>
-            <p class="pl-4">FinSi</p>
-            <p>FinSi</p>
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-lg">
+              <p>Si (promedio >= 18) Entonces</p>
+              <p class="pl-4 text-green-400">Escribir "Excelente"</p>
+              <p>SiNo</p>
+              <p class="pl-4">Si (promedio >= 10) Entonces</p>
+              <p class="pl-8 text-yellow-400">Escribir "Regular"</p>
+              <p class="pl-4">SiNo</p>
+              <p class="pl-8 text-red-400">Escribir "Deficiente"</p>
+              <p class="pl-4">FinSi</p>
+              <p>FinSi</p>
+            </div>
+
+            <div class="flex justify-center">
+               <div class="mermaid">
+                 flowchart TD
+                   A{>= 18?} -- Sí --> B[Excelente]
+                   A -- No --> C{>= 10?}
+                   C -- Sí --> D[Regular]
+                   C -- No --> E[Deficiente]
+               </div>
+            </div>
           </div>
 
           <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-xs text-yellow-900">
@@ -43,16 +57,33 @@ export const MODULE_9: Module = {
             Estructura especializada para cuando una misma variable puede tomar distintos valores específicos (1, 2, 3...). Es ideal para <strong>Menús de Opciones</strong>.
           </p>
 
-          <div class="bg-white border p-4 rounded shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">Sintaxis</h4>
-            <div class="font-mono text-sm bg-slate-100 p-3 rounded text-slate-700">
-              <span class="text-blue-600 font-bold">Segun</span> opcion <span class="text-blue-600 font-bold">Hacer</span><br>
-              &nbsp;&nbsp;1: Escribir "Seleccionó Sumar";<br>
-              &nbsp;&nbsp;2: Escribir "Seleccionó Restar";<br>
-              &nbsp;&nbsp;3: Escribir "Seleccionó Salir";<br>
-              &nbsp;&nbsp;<span class="text-blue-600 font-bold">De Otro Modo:</span><br>
-              &nbsp;&nbsp;&nbsp;&nbsp;Escribir "Opción Inválida";<br>
-              <span class="text-blue-600 font-bold">FinSegun</span>
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="bg-white border p-4 rounded shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Sintaxis</h4>
+              <div class="font-mono text-sm bg-slate-100 p-3 rounded text-slate-700">
+                <span class="text-blue-600 font-bold">Segun</span> opcion <span class="text-blue-600 font-bold">Hacer</span><br>
+                &nbsp;&nbsp;1: Escribir "Seleccionó Sumar";<br>
+                &nbsp;&nbsp;2: Escribir "Seleccionó Restar";<br>
+                &nbsp;&nbsp;3: Escribir "Seleccionó Salir";<br>
+                &nbsp;&nbsp;<span class="text-blue-600 font-bold">De Otro Modo:</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Escribir "Opción Inválida";<br>
+                <span class="text-blue-600 font-bold">FinSegun</span>
+              </div>
+            </div>
+
+            <div class="flex justify-center">
+               <div class="mermaid">
+                 flowchart TD
+                   Start([Inicio]) --> Sel{Opcion?}
+                   Sel -- 1 --> A[Sumar]
+                   Sel -- 2 --> B[Restar]
+                   Sel -- 3 --> C[Salir]
+                   Sel -- Otro --> D[Error]
+                   A --> End([Fin])
+                   B --> End
+                   C --> End
+                   D --> End
+               </div>
             </div>
           </div>
           

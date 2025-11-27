@@ -17,37 +17,31 @@ export const PNN_MODULE_1: Module = {
           </p>
 
           <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex justify-center">
-            <div class="flex flex-col items-center gap-4">
-               <!-- Root -->
-               <div class="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md z-10">A</div>
-               
-               <div class="flex gap-16 relative">
-                  <!-- Branches lines (Visual hack) -->
-                  <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 w-32 h-px bg-slate-400"></div>
-                  <div class="absolute top-0 left-8 -translate-y-4 w-px h-4 bg-slate-400"></div>
-                  <div class="absolute top-0 right-8 -translate-y-4 w-px h-4 bg-slate-400"></div>
-
-                  <!-- Level 1 -->
-                  <div class="flex flex-col items-center">
-                     <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold border border-indigo-200">B</div>
-                     <span class="text-xs text-slate-400 mt-1">Hijo izq</span>
-                  </div>
-                  <div class="flex flex-col items-center">
-                     <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold border border-indigo-200">C</div>
-                     <span class="text-xs text-slate-400 mt-1">Hijo der</span>
-                  </div>
-               </div>
+            <div class="mermaid">
+              graph TD
+                A((A)) --- B((B))
+                A --- C((C))
+                B --- D((D))
+                B --- E((E))
+                C --- F((F))
+                
+                style A fill:#4f46e5,color:#fff,stroke:#312e81,stroke-width:2px
+                style B fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px
+                style C fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px
+                style D fill:#f5f3ff,stroke:#818cf8
+                style E fill:#f5f3ff,stroke:#818cf8
+                style F fill:#f5f3ff,stroke:#818cf8
             </div>
           </div>
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
             <div class="bg-slate-50 p-3 rounded border">
                <strong class="block text-slate-800">Raíz</strong>
-               <span class="text-slate-600">Nodo único sin padre.</span>
+               <span class="text-slate-600">Nodo único sin padre (A).</span>
             </div>
             <div class="bg-slate-50 p-3 rounded border">
                <strong class="block text-slate-800">Hoja</strong>
-               <span class="text-slate-600">Nodo que no tiene hijos.</span>
+               <span class="text-slate-600">Nodo que no tiene hijos (D, E, F).</span>
             </div>
              <div class="bg-slate-50 p-3 rounded border">
                <strong class="block text-slate-800">Rama</strong>

@@ -28,6 +28,16 @@ export const MODULE_1: Module = {
             </div>
           </div>
 
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center">
+             <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Ciclo de Procesamiento</h4>
+             <div class="mermaid">
+               flowchart LR
+                 A["Datos\n(Entrada)"] -->|Procesamiento| B("Información\n(Salida)")
+                 style A fill:#f1f5f9,stroke:#64748b,stroke-width:2px
+                 style B fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+             </div>
+          </div>
+
           <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
             <h3 class="text-lg font-bold text-slate-800 mb-4">Conceptos Relacionados</h3>
             <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
