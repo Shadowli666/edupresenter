@@ -9,340 +9,321 @@ export const PROG_MODULE_4: Module = {
   slides: [
     {
       id: 'p4-1',
-      title: 'Vectores (Unidimensionales)',
+      title: 'Arreglos Primitivos en C++',
+      notes: 'Concepto de arreglo estático C-style. Contigüidad en memoria.',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-gray-700">Un vector (Array) es una estructura de memoria estática que almacena múltiples elementos del <strong>mismo tipo</strong> en bloques contiguos.</p>
-          
-          <!-- Visual Array -->
-          <div class="bg-white p-6 rounded-xl border shadow-sm overflow-x-auto flex flex-col items-center">
+          <p class="text-gray-700">Un arreglo es una colección de elementos del <strong>mismo tipo</strong> almacenados en memoria <strong>contigua</strong>. Su tamaño es <strong>fijo</strong> y se define en tiempo de compilación.</p>
+          <div class="bg-white p-4 rounded-xl border shadow-sm flex flex-col items-center">
             <p class="font-mono font-bold text-slate-500 mb-2 self-start">int notas[5];</p>
             <div class="flex">
-              <div class="text-center mr-1 group">
-                <div class="w-12 h-12 border-2 border-slate-400 bg-slate-50 group-hover:bg-blue-50 group-hover:border-blue-400 transition-colors flex items-center justify-center font-bold text-slate-800">18</div>
-                <span class="text-xs text-slate-400 font-mono group-hover:text-blue-600">[0]</span>
-              </div>
-              <div class="text-center mr-1 group">
-                <div class="w-12 h-12 border-2 border-slate-400 bg-slate-50 group-hover:bg-blue-50 group-hover:border-blue-400 transition-colors flex items-center justify-center font-bold text-slate-800">20</div>
-                <span class="text-xs text-slate-400 font-mono group-hover:text-blue-600">[1]</span>
-              </div>
-              <div class="text-center mr-1 group">
-                <div class="w-12 h-12 border-2 border-slate-400 bg-slate-50 group-hover:bg-blue-50 group-hover:border-blue-400 transition-colors flex items-center justify-center font-bold text-slate-800">15</div>
-                <span class="text-xs text-slate-400 font-mono group-hover:text-blue-600">[2]</span>
-              </div>
-              <div class="text-center mr-1 group">
-                <div class="w-12 h-12 border-2 border-slate-400 bg-slate-50 group-hover:bg-blue-50 group-hover:border-blue-400 transition-colors flex items-center justify-center font-bold text-slate-800">12</div>
-                <span class="text-xs text-slate-400 font-mono group-hover:text-blue-600">[3]</span>
-              </div>
-              <div class="text-center group">
-                <div class="w-12 h-12 border-2 border-slate-400 bg-slate-50 group-hover:bg-blue-50 group-hover:border-blue-400 transition-colors flex items-center justify-center font-bold text-slate-800">19</div>
-                <span class="text-xs text-slate-400 font-mono group-hover:text-blue-600">[4]</span>
-              </div>
+              <div class="text-center group p-1"><div class="w-12 h-12 border-2 flex items-center justify-center font-bold">18</div><span class="text-xs font-mono">[0]</span></div>
+              <div class="text-center group p-1"><div class="w-12 h-12 border-2 flex items-center justify-center font-bold">20</div><span class="text-xs font-mono">[1]</span></div>
+              <div class="text-center group p-1"><div class="w-12 h-12 border-2 flex items-center justify-center font-bold">15</div><span class="text-xs font-mono">[2]</span></div>
+              <div class="text-center group p-1"><div class="w-12 h-12 border-2 flex items-center justify-center font-bold">12</div><span class="text-xs font-mono">[3]</span></div>
+              <div class="text-center group p-1"><div class="w-12 h-12 border-2 flex items-center justify-center font-bold">19</div><span class="text-xs font-mono">[4]</span></div>
             </div>
+            <p class="text-xs text-gray-500 mt-2">Acceso a un elemento por su índice: <code>notas[2]</code> (valor: 15). El acceso es O(1).</p>
           </div>
+          <p class="text-sm text-center text-red-600 bg-red-50 p-2 rounded"><strong>¡Cuidado!</strong> C++ no verifica los límites. Acceder a <code>notas[5]</code> es un error grave (buffer overflow).</p>
+        </div>
+      `
+    },
+    {
+      id: 'p4-2-vector',
+      title: 'El Contenedor Moderno: std::vector',
+      notes: 'Introducir std::vector como la forma preferida de manejar arreglos en C++ moderno.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-blue-700 mb-4">El Camino de C++ Moderno: <code>std::vector</code></h3>
+        <p class="text-gray-600 mb-4">Aunque los arreglos primitivos existen, la forma estándar y más segura de trabajar es con <code>std::vector</code> de la librería <code>&lt;vector&gt;</code>.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+             <h5 class="font-bold text-blue-900">Ventajas de <code>std::vector</code></h5>
+             <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-blue-800">
+               <li><strong>Tamaño dinámico:</strong> Crece y decrece automáticamente.</li>
+               <li><strong>Seguridad:</strong> Puede verificar límites con <code>.at()</code>.</li>
+               <li><strong>Funciones útiles:</strong> <code>.push_back()</code>, <code>.pop_back()</code>, <code>.size()</code>, <code>.clear()</code>, etc.</li>
+               <li>Gestiona su propia memoria.</li>
+             </ul>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <pre><code class="language-cpp">
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
 
-          <div class="grid md:grid-cols-2 gap-6">
-             <div class="bg-slate-900 p-4 rounded-lg font-mono text-xs text-slate-300">
-               <p class="text-green-400 mb-2">// Declaración en C++</p>
-               <p><span class="text-purple-400">int</span> numeros[10]; <span class="text-gray-500">// Vacío</span></p>
-               <p><span class="text-purple-400">float</span> precios[] = {10.5, 20.0}; <span class="text-gray-500">// Inicializado</span></p>
-               <p class="mt-2"><span class="text-green-400">// Acceso</span></p>
-               <p>numeros[0] = 5;</p>
-               <p>cout << precios[1];</p>
-             </div>
+int main() {
+    std::vector&lt;int&gt; notas; // Tamaño 0 al inicio
 
-             <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500 text-sm text-blue-900 flex flex-col justify-center">
-                <strong>Características Clave:</strong>
-                <ul class="list-disc list-inside mt-2 space-y-1 text-blue-800">
-                  <li>Tamaño fijo (no crece en ejecución).</li>
-                  <li>Acceso directo O(1) vía índice.</li>
-                  <li>Los índices siempre empiezan en 0.</li>
-                </ul>
-             </div>
+    notas.push_back(18); // Añade al final -> {18}
+    notas.push_back(20); // -> {18, 20}
+    notas.push_back(15); // -> {18, 20, 15}
+
+    std::cout &lt;&lt; "La nota en el índice 1 es: " &lt;&lt; notas[1]; // 20
+    
+    // Acceso seguro
+    // std::cout &lt;&lt; notas.at(5); // Lanzaría una excepción
+
+    std::cout &lt;&lt; "El tamaño es: " &lt;&lt; notas.size(); // 3
+    return 0;
+}
+            </code></pre>
           </div>
         </div>
       `
     },
     {
-      id: 'p4-2',
-      title: 'Matrices (Bidimensionales)',
+      id: 'p4-3-python-list',
+      title: 'El "Arreglo" de Python: La Lista',
+      notes: 'Presentar la lista de Python como el equivalente súper flexible.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">Una matriz es un "vector de vectores". Se utiliza para representar tablas, mapas de juego o imágenes.</p>
-
-          <div class="flex justify-center">
-             <div class="bg-white p-4 rounded border shadow-sm inline-block relative">
-               <span class="absolute top-2 right-2 text-xs font-mono text-slate-400">mat[3][2]</span>
-               <div class="grid grid-cols-3 gap-1 text-center font-mono text-sm">
-                 <!-- Headers -->
-                 <div></div>
-                 <div class="text-xs text-gray-400 font-bold">Col 0</div>
-                 <div class="text-xs text-gray-400 font-bold">Col 1</div>
-                 
-                 <!-- Row 0 -->
-                 <div class="text-xs text-gray-400 flex items-center justify-end pr-2 font-bold">Fila 0</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">0,0</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">0,1</div>
-
-                 <!-- Row 1 -->
-                 <div class="text-xs text-gray-400 flex items-center justify-end pr-2 font-bold">Fila 1</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">1,0</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">1,1</div>
-                 
-                 <!-- Row 2 -->
-                 <div class="text-xs text-gray-400 flex items-center justify-end pr-2 font-bold">Fila 2</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">2,0</div>
-                 <div class="w-12 h-12 border bg-indigo-50 flex items-center justify-center font-bold text-indigo-900">2,1</div>
-               </div>
-             </div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Python lo hace simple: <code>list</code></h3>
+        <p class="text-gray-600 mb-4">En Python, la estructura de datos más parecida a un arreglo es la <strong>lista</strong>. Son extremadamente flexibles.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+             <h5 class="font-bold text-green-900">Características de la Lista de Python</h5>
+             <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-green-800">
+               <li><strong>Totalmente dinámica:</strong> Crece, decrece, inserta, elimina.</li>
+               <li><strong>Tipos mixtos:</strong> Puede contener enteros, strings, objetos, etc., a la vez.</li>
+               <li><strong>Funciones muy ricas:</strong> <code>.append()</code>, <code>.pop()</code>, <code>.sort()</code>, slicing (<code>[:]</code>), etc.</li>
+               <li>Gestiona toda la memoria por ti.</li>
+             </ul>
           </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <pre><code class="language-python">
+# Creación de una lista
+notas = [18, 20, 15]
 
-          <div class="bg-slate-900 p-4 rounded-lg font-mono text-xs text-slate-300">
-             <p class="text-green-400 mb-2">// Recorrido en C++ (Bucles Anidados)</p>
-             <p><span class="text-purple-400">int</span> mat[3][2];</p>
-             <p><span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;3; i++) { <span class="text-gray-500">// Recorre Filas</span></p>
-             <p>&nbsp;&nbsp;<span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> j=0; j&lt;2; j++) { <span class="text-gray-500">// Recorre Columnas</span></p>
-             <p>&nbsp;&nbsp;&nbsp;&nbsp;cin >> mat[i][j];</p>
-             <p>&nbsp;&nbsp;}</p>
-             <p>}</p>
+# Añadir un elemento
+notas.append(12) # -> [18, 20, 15, 12]
+
+# Acceso
+print(f"La nota en el índice 2 es: {notas[2]}") # 15
+
+# Slicing
+ultimos_dos = notas[2:] # -> [15, 12]
+
+# Tipos mixtos
+mixta = [1, "hola", True, 3.14]
+print(mixta)
+            </code></pre>
           </div>
         </div>
       `
     },
     {
-      id: 'p4-3',
-      title: 'Banco de Ejercicios en C++',
+      id: 'p4-4-matrices',
+      title: 'Matrices (Arreglos Bidimensionales)',
+      notes: 'Cómo representar tablas de datos. Ejemplo en C++ y Python.',
       contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-100 text-sm">
-            <p class="text-blue-900 font-medium"><strong>Instrucciones:</strong> Intente implementar la solución en su IDE (Dev-C++, VS Code) antes de desplegar la respuesta. Los ejercicios están ordenados por dificultad.</p>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Representando Tablas: Matrices</h3>
+        <p class="text-gray-600 mb-4">Una matriz no es más que un "arreglo de arreglos", ideal para representar datos en 2D como tableros, imágenes o tablas.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+             <h5 class="text-gray-400 mb-2">// Matriz 3x2 en C++ (con std::vector)</h5>
+            <pre><code class="language-cpp">
+std::vector&lt;std::vector&lt;int&gt;&gt; matriz = {
+    {1, 2},
+    {3, 4},
+    {5, 6}
+};
+
+// Acceder al elemento en fila 1, columna 0
+int valor = matriz[1][0]; // valor = 3
+
+// Recorrer la matriz
+for (int i = 0; i < matriz.size(); ++i) {
+    for (int j = 0; j < matriz[i].size(); ++j) {
+        std::cout << matriz[i][j] << " ";
+    }
+    std::cout << std::endl;
+}
+            </code></pre>
           </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Matriz 3x2 en Python (con listas anidadas)</h5>
+            <pre><code class="language-python">
+matriz = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+]
 
-          <div class="space-y-4">
-            
-            <!-- Nivel 1: Básicos -->
-            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-6 mb-2">Nivel 1: Recorrido y Acumulación</h4>
-            
-            <!-- Ex 1 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>1. Suma y Promedio</span>
-                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Fácil</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Declarar un arreglo de 5 enteros, pedir los valores al usuario y mostrar la suma total y el promedio.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">int</span> nums[5], sum = 0;<br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;5; i++) {<br>
-                    &nbsp;&nbsp;cin >> nums[i];<br>
-                    &nbsp;&nbsp;sum += nums[i];<br>
-                    }<br>
-                    cout << "Suma: " << sum << endl;<br>
-                    cout << "Promedio: " << (sum/5.0);
-                  </div>
-                </details>
-              </div>
-            </details>
+# Acceder al elemento en fila 1, columna 0
+valor = matriz[1][0] # valor = 3
 
-            <!-- Ex 2 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>2. Contar Pares e Impares</span>
-                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Fácil</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Llenar un vector de 10 posiciones. Contar cuántos números son pares y cuántos impares.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">int</span> pares=0, impares=0;<br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;10; i++) {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">if</span>(vec[i] % 2 == 0) pares++;<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">else</span> impares++;<br>
-                    }
-                  </div>
-                </details>
-              </div>
-            </details>
-
-            <!-- Nivel 2: Búsqueda y Modificación -->
-            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-6 mb-2">Nivel 2: Lógica y Búsqueda</h4>
-
-            <!-- Ex 3 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>3. Buscar el Mayor (Max)</span>
-                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Medio</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Dado un arreglo precargado, encontrar e imprimir el número más grande.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">int</span> max = vec[0]; <span class="text-gray-500">// Asumir el primero es mayor</span><br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=1; i&lt;tam; i++) {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">if</span>(vec[i] > max) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;max = vec[i];<br>
-                    &nbsp;&nbsp;}<br>
-                    }
-                  </div>
-                </details>
-              </div>
-            </details>
-
-            <!-- Ex 4 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>4. Búsqueda Lineal</span>
-                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Medio</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Pedir un número X al usuario. Buscar si X existe en el arreglo e imprimir su posición (índice) o un mensaje si no existe.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">bool</span> found = <span class="text-purple-400">false</span>;<br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;N; i++) {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">if</span>(arr[i] == x) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;cout << "Posición: " << i;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;found = <span class="text-purple-400">true</span>;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">break</span>;<br>
-                    &nbsp;&nbsp;}<br>
-                    }<br>
-                    <span class="text-purple-400">if</span>(!found) cout << "No encontrado";
-                  </div>
-                </details>
-              </div>
-            </details>
-
-            <!-- Ex 5 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>5. Invertir Arreglo (Swap)</span>
-                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Medio</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Invertir el orden de los elementos de un vector (ej: [1,2,3] -> [3,2,1]) <strong>sin</strong> usar un vector auxiliar.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">int</span> n = 5;<br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i &lt; n/2; i++) {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">int</span> temp = arr[i];<br>
-                    &nbsp;&nbsp;arr[i] = arr[n-1-i];<br>
-                    &nbsp;&nbsp;arr[n-1-i] = temp;<br>
-                    }
-                  </div>
-                </details>
-              </div>
-            </details>
-
-             <!-- Ex 6 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>6. Palíndromo (Strings)</span>
-                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Medio</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Determinar si una palabra (cadena de caracteres) se lee igual al derecho y al revés (ej: "radar", "ala").</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    string s = "radar";<br>
-                    <span class="text-purple-400">int</span> ini = 0, fin = s.length()-1;<br>
-                    <span class="text-purple-400">bool</span> esPalin = <span class="text-purple-400">true</span>;<br>
-                    <span class="text-purple-400">while</span>(ini < fin) {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">if</span>(s[ini] != s[fin]) esPalin = <span class="text-purple-400">false</span>;<br>
-                    &nbsp;&nbsp;ini++; fin--;<br>
-                    }
-                  </div>
-                </details>
-              </div>
-            </details>
-
-             <!-- Nivel 3: Matrices -->
-            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-6 mb-2">Nivel 3: Matrices</h4>
-
-             <!-- Ex 7 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>7. Suma Diagonal Principal</span>
-                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">Difícil</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Dada una matriz cuadrada de 3x3, sumar los elementos de la diagonal principal (donde fila == columna).</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                    <span class="text-purple-400">int</span> suma = 0;<br>
-                    <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;3; i++) {<br>
-                    &nbsp;&nbsp;<span class="text-gray-500">// Solo necesitamos un ciclo porque fila=columna</span><br>
-                    &nbsp;&nbsp;suma += matriz[i][i];<br>
-                    }
-                  </div>
-                </details>
-              </div>
-            </details>
-
-            <!-- Ex 8 -->
-            <details class="group border border-slate-200 rounded-lg bg-white shadow-sm">
-              <summary class="cursor-pointer p-4 font-bold text-slate-800 hover:bg-slate-50 flex justify-between items-center">
-                <span>8. Suma de Matrices</span>
-                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">Difícil</span>
-              </summary>
-              <div class="p-4 border-t bg-slate-50 text-sm text-slate-600">
-                <p class="mb-3">Sumar dos matrices A y B de 2x2 y guardar el resultado en una matriz C.</p>
-                <details>
-                  <summary class="text-xs text-blue-600 font-bold cursor-pointer mb-2">Ver Código C++</summary>
-                  <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs">
-                     <span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> i=0; i&lt;2; i++) {<br>
-                     &nbsp;&nbsp;<span class="text-purple-400">for</span>(<span class="text-purple-400">int</span> j=0; j&lt;2; j++) {<br>
-                     &nbsp;&nbsp;&nbsp;&nbsp;C[i][j] = A[i][j] + B[i][j];<br>
-                     &nbsp;&nbsp;}<br>
-                     }
-                  </div>
-                </details>
-              </div>
-            </details>
-
+# Recorrer la matriz
+for fila in matriz:
+    for valor in fila:
+        print(valor, end=' ')
+    print()
+            </code></pre>
           </div>
         </div>
+      `
+    },
+    {
+      id: 'p4-5-linear-search',
+      title: 'Algoritmo: Búsqueda Lineal',
+      notes: 'El algoritmo de búsqueda más simple. Explicar complejidad.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Buscando un Elemento: Búsqueda Lineal</h3>
+        <p class="text-gray-600 mb-4">Es el método más simple: recorrer el arreglo elemento por elemento desde el inicio hasta encontrar el valor buscado o llegar al final.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="prose">
+            <h5>Características</h5>
+            <ul>
+              <li>Funciona en arreglos <strong>ordenados y desordenados</strong>.</li>
+              <li>Fácil de implementar.</li>
+              <li><strong>Complejidad Temporal:</strong> O(N). En el peor caso, hay que recorrer todo el arreglo.</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Pseudocódigo de Búsqueda Lineal</h5>
+            <pre><code>
+FUNCIÓN busqueda_lineal(arreglo, valor_buscado):
+  PARA cada elemento en el arreglo:
+    SI elemento == valor_buscado:
+      DEVOLVER "Encontrado en la posición" + indice_actual
+  
+  DEVOLVER "No encontrado"
+            </code></pre>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'p4-6-binary-search',
+      title: 'Algoritmo: Búsqueda Binaria',
+      notes: 'Un algoritmo mucho más eficiente, pero con un prerrequisito clave.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Una Búsqueda Inteligente: Búsqueda Binaria</h3>
+        <p class="text-gray-600 mb-4">Este método divide repetidamente el arreglo a la mitad para encontrar el valor. Es extremadamente rápido.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="prose">
+            <h5>Características</h5>
+            <ul>
+              <li><strong>REQUISITO:</strong> El arreglo <strong>DEBE</strong> estar ordenado.</li>
+              <li>Compara el valor buscado con el elemento del medio. Si es mayor, busca en la mitad derecha; si es menor, en la izquierda.</li>
+              <li><strong>Complejidad Temporal:</strong> O(log N). Mucho más eficiente que O(N) para arreglos grandes.</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Pseudocódigo de Búsqueda Binaria</h5>
+            <pre><code>
+FUNCIÓN busqueda_binaria(arreglo_ordenado, valor_buscado):
+  inicio = 0
+  fin = longitud(arreglo_ordenado) - 1
+
+  MIENTRAS inicio <= fin:
+    medio = (inicio + fin) / 2
+    SI arreglo_ordenado[medio] == valor_buscado:
+      DEVOLVER "Encontrado en la posición " + medio
+    SINO SI arreglo_ordenado[medio] < valor_buscado:
+      inicio = medio + 1 // Buscar en la mitad derecha
+    SINO:
+      fin = medio - 1 // Buscar en la mitad izquierda
+      
+  DEVOLVER "No encontrado"
+            </code></pre>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'p4-7-bubble-sort',
+      title: 'Algoritmo: Ordenamiento Burbuja',
+      notes: 'El algoritmo de ordenamiento más simple de entender y visualizar.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Ordenando Elementos: Método de la Burbuja</h3>
+        <p class="text-gray-600 mb-4">Compara repetidamente pares de elementos adyacentes y los intercambia si están en el orden incorrecto. Los elementos más grandes "burbujean" hacia el final del arreglo.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="prose">
+            <h5>Características</h5>
+            <ul>
+              <li>Fácil de implementar y entender.</li>
+              <li><strong>Muy ineficiente</strong> para la mayoría de los casos.</li>
+              <li><strong>Complejidad Temporal:</strong> O(N²). No es práctico para arreglos grandes.</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Pseudocódigo de Ordenamiento Burbuja</h5>
+            <pre><code>
+FUNCIÓN ordenamiento_burbuja(arreglo):
+  n = longitud(arreglo)
+  PARA i DESDE 0 HASTA n-1:
+    PARA j DESDE 0 HASTA n-i-2:
+      SI arreglo[j] > arreglo[j+1]:
+        intercambiar(arreglo[j], arreglo[j+1])
+            </code></pre>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'p4-8-bank',
+      title: 'Banco de Ejercicios',
+      notes: 'Ejercicios rápidos para practicar en clase.',
+      contentHtml: `
+        <div class="space-y-4 max-h-96 overflow-y-auto pr-2">
+            <details class="group border rounded-lg bg-white shadow-sm">
+              <summary class="cursor-pointer p-3 font-bold text-slate-800 flex justify-between">1. Suma y Promedio (C++) <span class="text-xs bg-green-100 px-2 py-1 rounded">Fácil</span></summary>
+              <div class="p-3 border-t bg-slate-50 text-xs"><p>Dado un <code>std::vector&lt;int&gt;</code>, calcula la suma y el promedio de sus elementos.</p></div>
+            </details>
+            <details class="group border rounded-lg bg-white shadow-sm">
+              <summary class="cursor-pointer p-3 font-bold text-slate-800 flex justify-between">2. Encontrar el Máximo (Python) <span class="text-xs bg-green-100 px-2 py-1 rounded">Fácil</span></summary>
+              <div class="p-3 border-t bg-slate-50 text-xs"><p>Dada una lista de números, encuentra el valor más grande. Pista: <code>max()</code> o un bucle manual.</p></div>
+            </details>
+             <details class="group border rounded-lg bg-white shadow-sm">
+              <summary class="cursor-pointer p-3 font-bold text-slate-800 flex justify-between">3. Invertir un Arreglo (C++) <span class="text-xs bg-yellow-100 px-2 py-1 rounded">Medio</span></summary>
+              <div class="p-3 border-t bg-slate-50 text-xs"><p>Invierte los elementos de un <code>std::vector</code> en el lugar (sin crear un segundo vector). Pista: usa dos punteros/índices, uno al inicio y otro al final.</p></div>
+            </details>
+            <details class="group border rounded-lg bg-white shadow-sm">
+              <summary class="cursor-pointer p-3 font-bold text-slate-800 flex justify-between">4. Comprobar Palíndromo (Python) <span class="text-xs bg-yellow-100 px-2 py-1 rounded">Medio</span></summary>
+              <div class="p-3 border-t bg-slate-50 text-xs"><p>Dada una palabra (string), comprueba si es un palíndromo. Pista: el slicing <code>[::-1]</code> puede ser útil.</p></div>
+            </details>
+            <details class="group border rounded-lg bg-white shadow-sm">
+              <summary class="cursor-pointer p-3 font-bold text-slate-800 flex justify-between">5. Suma de Diagonal de Matriz (C++/Python) <span class="text-xs bg-red-100 px-2 py-1 rounded">Difícil</span></summary>
+              <div class="p-3 border-t bg-slate-50 text-xs"><p>Dada una matriz cuadrada, calcula la suma de los elementos de la diagonal principal (donde <code>i == j</code>).</p></div>
+            </details>
+        </div>
+      `
+    },
+    {
+      id: 'p4-9-code-practice',
+      title: 'Práctica: A Programar',
+      notes: 'Ejercicio para implementar un algoritmo de búsqueda.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: Implementar Búsqueda Binaria</h3>
+        <p class="text-gray-600 mb-4">Escribe una función en C++ y/o Python que implemente el algoritmo de <strong>Búsqueda Binaria</strong>.</p>
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 mb-4">
+          <li>La función debe recibir un <strong>arreglo/lista ordenada</strong> y un valor a buscar.</li>
+          <li>Debe devolver el <strong>índice</strong> del elemento si lo encuentra.</li>
+          <li>Debe devolver <strong>-1</strong> (o <code>None</code> en Python) si no lo encuentra.</li>
+          <li>Prueba tu función con un arreglo de ejemplo y busca un valor que exista y otro que no.</li>
+        </ol>
+        <p class="text-sm text-gray-500"><b>Reto extra (C++):</b> Usa plantillas (templates) para que tu función de búsqueda binaria funcione con cualquier tipo de dato (<code>int</code>, <code>float</code>, <code>double</code>, etc.).</p>
       `
     },
     {
       id: 'p4-end-questions',
       title: '¿Preguntas?',
+      notes: 'Espacio para dudas.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12">
-          <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 animate-bounce">
-             <span class="text-6xl font-bold select-none">?</span>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Estructuras Estáticas</h3>
-          <p class="text-center text-gray-600 max-w-md">
-            ¿Queda claro cómo se comportan los índices en memoria? Recuerde: <code>arr[5]</code> accede a la posición 6 y causa un desbordamiento.
-          </p>
+        <div class="flex flex-col items-center justify-center h-full">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">¿Dudas sobre Arreglos, Vectores, Listas, Búsqueda u Ordenamiento?</h3>
         </div>
       `
     },
     {
       id: 'p4-end-thanks',
-      title: 'Gracias por su atención',
+      title: 'Gracias y Próxima Clase',
+      notes: 'Cierre y adelanto.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12 text-center">
-          <h2 class="text-4xl font-bold text-slate-900 mb-8">Fin de la Clase</h2>
-          <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-green-500 shadow-sm max-w-2xl">
-            <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
-              "Un array es una estructura de datos que permite a los programadores cometer errores 'Off-by-one' (fuera por uno) más rápido que nunca."
-            </p>
-            <footer class="flex items-center justify-center gap-2">
-              <div class="h-px w-8 bg-slate-300"></div>
-              <cite class="not-italic font-bold text-slate-900">Anónimo</cite>
-            </footer>
-          </blockquote>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Fin del Módulo 4</h2>
+          <p class="text-gray-600 text-lg">Ahora que dominamos los arreglos, estamos listos para explorar estructuras de datos más complejas y flexibles. En la próxima clase: <b>Listas Enlazadas</b>.</p>
         </div>
       `
     }
   ]
-};
+}

@@ -1,0 +1,7220 @@
+\
+
+ESTR. CURA
+
+DE. DATOS
+
+J
+
+T UCTUR
+DE DATOS
+Tercera edición
+
+D . os I
+
+D
+
+Profesor-Investigador del
+Instituto Tecnológico Autónomo de México (ITAM)
+Miembro del Sistema Nacional
+de Investigadores (SNI) Nivel 1
+
+M.e. SILV
+Profesor Numerario del
+Instituto Tecnológico Autónomo de México (ITAM)
+
+MÉXICO· AUCKLAND· BOGOTÁ· BUENOS AIRES· CARACAS· GUATEMALA
+ISBOA • LONDRES • MADRID • MILÁN • MONTREAL • NUEVA DELHI • NUEVA YORK
+SAN FRANCISCO· SAN JUAN· SAN LUIS· SANTIAGO
+SÁO PAULO • SIDNEY • SINGAPUR • TORONTO
+
+CONTENIDO
+PRESENTACIÓN
+
+xiii
+
+1111~ IIIII~~II~IIIIIII~ 1111
+*
+
+100 O 1 O 4 66*
+
+CAPÍTULO 1. Estructuras fundamentales de datos
+
+1
+
+1.1 Introducción 1
+1.2 Arreglos 2
+1.2.1 Declaración de arreglos unidimensionales 5
+1.2.2 Operaciones con arreglos unidimensionales 7
+1.3 Arreglos bidimensionales 18
+1.3.1 Declaración de arreglos bidimensionales 19
+1.3.2 Operaciones con arreglos bidimensionales 23
+lA Arreglos de más de dos dimensiones 25
+1.5 La clase Arreglo 27
+1 6 Registros 29
+1.6.1 Declaración de registros 29
+1.6.2 Acceso a los campos de un registro 30
+1.6.3 Diferencias entre registros y arreglos 32
+1.6.4 Combinaciones entre arreglos y registros 32
+1.6.5 Arreglos paralelos 36
+1.7 Registros y clases 39
+Ejercicios 40
+
+CAPÍTULO 2. Arreglos multidimensionales representados
+en arreglos unidimensionales 51
+2.1 Introducción 51
+2.2 Arreglos bidimensionales 51
+2.3 Arreglos de más de dos dimensiones 54
+2.4 Matrices poco densas 59
+2.4.1 Matrices cuadradas poco densas 61
+2.4.2 Matriz triangular inferior 61
+2.4.3 Matriz triangular superior 63
+
+Vlll
+
+Contenido
+
+2.4.4 Matriz tridiagonal 65
+2.4.5 Matrices simétricas y antisimétricas
+Ejercicios 69
+
+CAPÍTULO 3. Pilas y colas
+
+67
+
+75
+
+3 I Introducción 75
+32 Pilas 75
+3.2.1 Representación de pilas 76
+3.2.2 Operaciones con pilas 78
+3.2.3 Aplicaciones de pilas 81
+3.2.4 La clase Pila 92
+3j Colas 93
+3.3.1 Representación de colas 94
+3.3.2 Operaciones con colas 95
+3.3.3 Colas circulares 99
+3.3.4 Doble cola 102
+3.3.5 Aplicaciones de colas 103
+3.3.6 La clase Cola 104
+E e 1 L c.
+105
+J
+
+CAPÍTl LO 4. Recursión
+
+109
+
+4.1 Introducción 109
+4.2 El problema de las Torres de Hanoi 129
+4.1 Recursividad en árboles 137
+4 4 Recursividad en ordenación y búsqueda 137
+r 'CI '1
+138
+
+('APÍ n LO 5.
+
+Listas
+
+141
+
+Introducción 141
+Listas simplemente ligadas 142
+5.2.1 Operaciones con listas simplemente ligadas 142
+5.2.2 Recorrido de una lista simplemente ligada 145
+5.2.3 Inserción en listas simplemente ligadas 146
+5.2.4 Eliminación en listas simplemente ligadas 152
+5.2.5 Búsqueda en listas simplemente ligadas 156
+Listas circulares 158
+Listas doblemente ligadas 159
+5.4.1 Operaciones con listas doblemente ligadas 159
+5.4.2 Recorrido de una lista doblemente ligada 160
+5.4.3 Inserción en listas doblemente ligadas 160
+5.4.4 Eliminación en listas doblemente ligadas 163
+5.: Listas doblemente ligadas circulares 169
+Aplicaciones de listas 170
+
+"
+
+Representación de polinomios 170
+SoJtuaíónde colisiones (hash) 170
+
+Lista
+
+171
+
+1 3
+
+Árboles
+
+Introducción
+
+177
+
+1
+
+~ Árboles en general
+
+178
+
+6.2.1 Características y propiedades de los árboles 178
+6.2.2 Longitud de camino interno Yexterno 180
+b -' Árboles binarios 184
+6.3.1 Árboles binarios distintos, similares y equivalentes 186
+6.3.2 Árboles binarios completos 187
+6.3.3 Representación de árboles generales como binarios 188
+6.3.4 Representación de un bosque como árbol binario 192
+6.3.5 Representación de árboles binarios en memoria 195
+6.3.6 Operaciones en árboles binarios 196
+6.3.7 Árboles binarios de búsqueda 203
+6.4 Árboles balanceados 214
+6.4.1 Inserción en árboles balanceados 216
+6.4.2 Reestructuración del árbol balanceado 218
+6.5 Árboles multicarninos 240
+6.5.1 Árboles-B 241
+6.5.2 Árboles-B+ 255
+6.5.3 Árboles 2-4 264
+6.6 La clase Árbol 264
+EJtrciclOs 265
+
+CAPÍTULO 7. Gráficas
+
+277
+
+7.1 Introducción 277
+7.2 Definición de gráficas 277
+7.3 Conceptos básicos de gráficas 279
+7.4 Gráficas dirigidas 280
+7.4.1 Representación de gráficas dirigidas 282
+7.4.2 Obtención de caminos dentro de una digráfica 285
+7.4.3 Algoritmo de Dijkstra 285
+7.4.4 Algoritmo de Floyd 288
+7.4.5 Algoritmo de Marshall 292
+7.5 Gráficas no dirigidas 293
+7.5.1 Representación de gráficas no dirigidas 294
+7.5.2 Construcción del árbol abarcador de costo mínimo 295
+7.5.3 Algoritmo de Prim 296
+7.5.4 Algoritmo de Kruskal 298
+- 6 Resolución de problemas 301
+
+A
+
+x
+7.6.1 Espacio-estado 304
+7.6.2 Métodos de búsqueda en espacio-estado 305
+7.6.3 Métodos de búsqueda breadth-first 306
+7.6.4 Método de búsqueda depth-first 316
+7.7 La clase gráfica 320
+Ejercicios 321
+
+CAPÍTULO 8. Métodos de ordenación
+
+329
+
+8.1 Introducción 329
+8.2 Ordenación interna 331
+8.2.1 Ordenación por intercambio directo (burbuja) 332
+8.2.2 Ordenación por el método de intercambio directo con señal 336
+8.2.3 Ordenación por el método de la sacudida (shaker sort) 337
+8.2.4 Ordenación por inserción directa 339
+8.2.5 Ordenación por el método de inserción binaria 344
+8.2.6 Ordenación por selección directa 346
+8.2.7 Análisis de eficiencia de los métodos directos 349
+8.2.8 Ordenación por el método de Shell 350
+8.2.9 Ordenación por el método quicksort 354
+8.2.10 Ordenación por el método heapsort (montículo) 362
+8.3 Ordenación externa 371
+8.3.1 Intercalación de archivos 372
+8.3.2 Ordenación de archivos 374
+8.3.3 Ordenación por mezcla directa 374
+8.3.4 Ordenación por el método de mezcla equilibrada 380
+EJercICIo 386
+
+CAPÍTULO 9. Métodos de búsqueda
+
+391
+
+9. I Introducción 391
+9.2 Búsqueda interna 392
+9.2.1 Búsqueda secuencial 393
+9.2.2 Búsqueda binaria 397
+9.2.3 Búsqueda por transformación de claves 402
+9.2.4 Función hash por módulo: división 403
+9.2.5 Función hash cuadrado 404
+9.2.6 Función hash por plegamiento 405
+9.2.7 Función hash por truncamiento 406
+9.2.8 Solución de colisiones 406
+9.2.9 Reasignación 407
+9.2.10 Arreglos anidados 413
+9.2.11 Encadenamiento 414
+9.2.12 Árboles de búsqueda 418
+S 3 Búsqueda externa 420
+9.3.1 Búsqueda en archivos secuenciales 422
+
+XI
+
+9.3.2 Búsqueda secuencial 422
+9.3.3 Búsqueda secuencial mediante bloques 424
+9.3.4 Búsqueda secuencial con índices 425
+9.3.5 Búsqueda binaria 427
+9.3.6 Búsqueda por transformación de claves (hash) 428
+9.3.7 Solución de colisiones 429
+9.3.8 Hashing dinámico: búsqueda dinámica por transformación
+de claves 433
+9.3.9 Método de las expansiones totales 433
+9.3.10 Método de las expansiones parciales 437
+9.3.11 Listas invertidas 440
+9.3.12 Multilistas 445
+EjercICIO. 448
+
+BIBLIOGRAFÍA
+GLOSARIO
+
+455
+
+461
+
+ÍNDICE ANALÍTICO
+
+465
+
+PRESENTACiÓN
+OBJETIVO
+Este libro tiene como objetivo presentar las estructuras de datos, así como los algoritmos necesarios para tratarlas. El lenguaje utilizado es algorítmico, escrito en seudo
+código, independiente de cualquier lenguaje comercial de programación. Esta característica es muy importante, ya que permite al lector comprender las estructuras de datos y los algoritmos asociados a ellas sin relacionarlos con lenguajes de programación
+particulares. Se considera que una vez que el lector domine estos conceptos, los podrá
+implementar fácilmente en cualquier lenguaje.
+Si bien cada uno de los temas son desarrollados desde niveles básicos a niveles
+complejos, se supone que el lector ya conoce ciertos conceptos, por ejemplo el de datos
+simples --enteros, reales, booleanos, carácter-; el de instrucción --declarativa, asignación, entrada/salida-, y el de operadores -aritméticos, relacionales y lógicos-o
+Asimismo se utiliza, pero no se explica, el concepto de variables y constantes. En los
+algoritmos se escriben los nombres de variables con mayúsculas -SUMA, N, etc.-, lo
+mismo para las constantes booleanas -VERDADERO y FALSO-.
+Cabe aclarar que en este libro no se abordan los tipos abstractos de datos de manera
+explícita. Sin embargo, se tratan algunos de ellos 'sin presentarlos como tales; por ejemplo, las pilas y colas en el capítulo tres.
+Cada capítulo cuenta con un número importante de ejercicios. Con éstos se sigue
+el mismo criterio aplicado en el desarrollo de los distintos temas, es decir, se proponen
+ejercicios en los que se aumenta gradualmente el nivel de complejidad.
+
+LENGUAJE UTILIZADO
+El lenguaje utilizado para describir los algoritmos es estructurado. Las estructuras algorítmicas selectivas y repetitivas se enumeran y las instrucciones que forman parte de
+ellas se escriben dejando sangrías para proporcionar mayor claridad. Además, con el
+objeto de ayudar al entendimiento de los mismos, se escriben comentarios encerrados
+entre {}. A continuación se presentan las estructuras algorítmicas empleadas en los algoritmos:
+
+XlV
+
+Presentación
+
+Selectiva simple
+pi Si (condición) entonces
+acción
+p(i + 1) {Fin del condicional del paso pi}
+Donde condición es cualquier expresión relacional y/o lógica, y acción es cualquier
+operación o conjunto de operaciones -lectura, escritura, asignación u otras-o
+Esta estructura permite seleccionar una alternativa dependiendo de que la condición
+sea verdadera. Es decir, al ser evaluada la condición, si ésta resulta con un valor igual
+a VERDADERO, entonces se ejecutará la acción indicada. En caso contrario se sigue
+con el flujo establecido.
+Selectiva doble
+pi Si (condición)
+entonces
+acción¡
+sino
+acción2
+p(i + 1) {Fin del condicional del paso pi}
+Donde condición es una expresión relacional y/o lógica, y acción¡ y acción 2 son cualquier operación o conjunto de operaciones -lectura, escritura, asignación u otras-o
+Esta estructura permite seleccionar una de dos alternativas, según la condición sea
+verdadera o falsa. Si la condición es verdadera se ejecutará la acción l , en caso contrario
+se ejecutará la acción 2•
+Selectiva múltiple
+pi Si (variable)
+=valor¡: acción!
+=valor2 : acción2
+
+=valorn : acciónn
+p(i + 1) {Fin del condicional del paso pi}
+Donde valor}' 1 s j s n, son los posibles valores que puede tomar la variable; acción/ 1 s j s n, es cualquier operación o conjunto de operaciones -lectura, escritura,
+asignación u otras-o
+Este tipo de estructura se utiliza para una selección sobre múltiples alternativas.
+Según el valor de la variable se ejecutará la acción correspondiente. De esta manera, si
+variable es igual a valor¡ se ejecutará la acción¡, si variable es igual a valor2 se ejecutará
+la acción 2, y así en los demás casos.
+
+Repetitiva condicionada
+pi Mientras (condición) Repetir
+acción
+p(i + 1) {Fin del ciclo del paso pi}
+
+Donde condición es cualquier expresión relacional y/o lógica, y acción es cualquier
+operación o conjunto de operaciones -lectura, escritura, asignación u otras-o
+Esta estructura permite repetir una o más operaciones mientras la condición sea
+verdadera.
+Repetitiva predefinida
+pi Repetir con variable desde VI hasta VF
+acción
+p(i + 1) {Fin del ciclo del paso pi}
+
+Donde variable es cualquier variable, VI es un valor inicial que se le asigna a variable, VF es el valor final que va a tomar variable y acción es cualquier operación o
+conjunto de operaciones -lectura, escritura, asignación u otras-o Se asume que el
+valor de la variable se incrementa de uno en uno.
+Esta estructura permite repetir una o más operaciones un número fijo de veces. El
+número de repeticiones queda determinado por la diferencia entre VF y VI más uno.
+
+ORGANIZACiÓN
+El libro está organizado en nueve capítulos, cada uno de ellos cuenta con numerosos
+ejemplos y ejercicios que ilustran y ayudan a entender los conceptos vertidos en ellos.
+Se utilizan tablas con seguimientos de los algoritmos para presentar cómo funcionan y
+de qué manera afectan a las estructuras de datos involucradas.
+Algunos lectores quizá sepan que esta obra tiene dos ediciones anteriores, publicada
+por primera vez por la misma casa editorial en 1993, con múltiples reimpresiones. Trece
+años es un tiempo extenso en computación, un área donde los cambios se presentan velozmente. Esta edición ofrece una cuidadosa revisión de los temas tratados, algoritmos
+mejorados y ejercicios adicionales, en fin, muchos cambios para alcanzar el objetivo
+propuesto de esta nueva edición. Además, en los capítulos 1, 3, 5, 6 Y7 se incluyó una
+breve introducción a la programación orientada a objetos, presentando a las estructuras
+de datos -objetos de estudio en dichos capítulos- con este enfoque.
+El lenguaje utilizado en los programas es pseudocódigo, es decir, independiente de
+cualquier otro lenguaje de programación comercial. Esta característica permite al estudiante concentrarse en las estructuras de datos y en los algoritmos asociados a ellas sin
+tener que atender los detalles de implementación. Una vez que domine los conceptos,
+los podrá llevar a la práctica con la ayuda de cualquier lenguaje de programación comercial. La generalidad con la que se explican los conceptos y posibles aplicaciones de los
+mismos facilitan, incluso, la implementación en lenguajes estructurados o en lenguaje
+orientados a objetos.
+
+XVI
+
+Presentación
+
+Capítulo 1:
+
+Estructuras fundamentales
+En este capítulo se presentan las estructuras fundamentales de datos. Se estudian los
+arreglos unidimensionales, bidimensionales y multidimensionales. Además, se explican
+los registros. Por último, se incluye una breve introducción a la programación orientada
+a objetos con el fin de que sirva como base para entender las principales estructuras de
+datos desde este enfoque. También se describe la clase arreglo.
+
+Capítulo 2: Arreglos multidimensionales representados
+en arreglos unidimensionales
+La mayoría de los lenguajes de programación de alto nivel proporcionan medios eficaces para almacenar y recuperar elementos de arreglos bidimensionales y multidimensionales. Por ello, el usuario no se preocupa por los detalles del almacenamiento y el tratamiento físico del dato, sino por el tratamiento lógico del mismo. Esto representa una
+ventaja. Sin embargo, si las estructuras son muy grandes y no todos los campos están
+llenos, se presenta entonces una desventaja: gran desperdicio de espacio. Puede ocurrir
+también que el usuario necesite representar dichas estructuras de forma lineal. Por esta
+razón, en este capítulo se estudiará la representación lineal de arreglos bidimensionales
+y multidimensionales. Se analizarán, además, las matrices poco densas, las triangulares
+y tridiagonales, las simétricas y antisimétricas.
+
+Capítulo 3:
+
+Pilas y colas
+Este capítulo se dedicará a las pilas y colas, las cuales son estructuras de datos lineales,
+estáticas o dinámicas ~ependiendo de si éstas se implementan con arreglos o listas--.
+Tales estructuras de datos tienen la particularidad de que la inserción y eliminación de
+los elementos se hace solamente por alguno de los extremos según su estructura. También se presentan estas estructuras con un enfoque orientado a objetos.
+
+Capítulo 4:
+
+Recursión
+La recursión permite definir un objeto en términos de sí mismo. Aparece eh numerosas
+actividades de la vida diaria; por ejemplo, en la fotografía de una fotografía. Casos típicos de estructuras de datos definidas de manera recursiva son las listas y los árboles, que
+se estudiarán en los dos siguientes capítulos. La recursividad es una propiedad esencial
+en el desarrollo de software; por esta razón, se analizan aquí la descripción de la recursividad, así como el uso de algoritmos recursivos clásicos y complejos.
+
+Capítulo 5:
+
+listas
+Las listas son estructuras lineales y dinámicas de datos. La principal ventaja del dinamismo lo representa el hecho de que se adquieren posiciones de memoria a medida
+que se necesitan y se liberan cuando ya no se requieren. Es decir, se llegan a expandir
+o contraer, dependiendo de la aplicación. El dinamismo de estas estructuras soluciona
+el problema de decidir cuánto espacio se necesita a priori, por ejemplo, en una estructura de datos estática como el arreglo. En este capítulo estudiaremos las listas lineales,
+circulares y doblemente ligadas. También se presentan estas estructuras con un enfoque
+orientado a objetos.
+
+Capítulo 6:
+
+Árboles
+Los árboles representan las estructuras de datos no-lineales y las dinámicas más relevantes en computación. No lineales, puesto que a cada elemento del árbol pueden seguirle
+varios elementos. Dinámicas, dado que la estructura del árbol suele cambiar durante la ejecución del programa. Los árboles balanceados son la estructura de datos más
+importante para trabajar en la memoria interna de la computadora. Por otra parte, los
+árboles-B+ constituyen la estructura de datos más útil para trabajar con almacenamiento
+secundario. También se presenta esta estructura con un enfoque orientado a objetos.
+
+Capítulo 7:
+
+Graficas
+Este capítulo se dedica a las estructuras de datos que permiten representar diferentes tipos de relaciones entre los objetos: las gráficas. Estudiaremos las gráficas dirigidas y no
+dirigidas, los conceptos más importantes y los algoritmos más destacados para trabajar
+con ellas, tales como Dijkstra, Floyd, WarshaIl, Prim y Kruskal. Además, se incluye una
+introducción a la solución de problemas -tema muy relacionado con las gráficas- y se
+estudian los algoritmos Breadth-First y Depth-First. También se presenta esta estructura
+con un enfoque orientado a objetos.
+
+Capítulo 8:
+
+Meto os de ordenaclon
+Ordenar significa colocar o reorganizar un conjunto de datos u objetos en una secuencia
+específica. Los procesos, tanto de ordenación como de búsqueda, son frecuentes en
+nuestra vida. En este capítulo estudiaremos los métodos de ordenación interna y externa
+más importantes de la actualidad. Se presenta, además, el análisis de eficiencia de cada
+uno de los métodos.
+
+Capítulo 9:
+
+Metodos de búsqueda
+Este capítulo se dedicó a una de las operaciones más importante en el p
+de la información: la búsqueda. Tal operación permite recuperar dato
+
+esamiemo
+-. La
+
+XVIlI
+
+Presentación
+
+búsqueda puede ser interna, cuando todos los elementos se encuentran en la memoria
+principal, o externa, cuando están en la memoria secundaria. Se estudian los métodos de
+búsqueda más importantes que existen. Se presenta también el análisis de eficiencia de
+cada uno de estos métodos.
+
+AGRADECIMIENTOS
+Esta obra es fruto de la colaboración de amigos, estudiantes y colegas que, de alguna u
+otra forma, participaron para que este proyecto sea una realidad. Especialmente queremos agradecer al doctor Arturo Fernández Pérez, rector del ITAM, y a los funcionarios
+de la División Académica de Ingeniería del ITAM, quienes nos apoyaron para la realización de este libro.
+OSVALDO CAIRÓ
+SILVIA GUARDATI
+
+Capítulo •.1.
+"o
+
+ESTRUCTURAS
+FUNDAMENTALES
+DE DATOS
+1.1
+
+INTRODUCCION
+
+La importancia de las computadoras radica fundamentalmente en su capacidad para
+procesar información. Esta característica les pennite realizar actividades que antes sólo
+las realizaban los humanos.
+Con el propósito de que la información sea procesada, se requiere que ésta se almacene en la memoria de la computadora. De acuerdo con la forma en que los datos se
+organizan, se clasifican en:
+Tipos de datos simples.
+Tipos de datos estructurados.
+La principal característica de los tipos de datos simples consiste en que ocupan sólo
+una casilla de memoria (fig. 1.la); por tanto, una variable simple hace referencia a un
+único valor a la vez. En este grupo de datos se encuentran: números enteros y reales,
+caracteres, booleanos, enumerados y subrangos. Cabe señalar que los dos últimos no
+existen en algunos lenguajes de programación.
+Por otra parte, los tipos de datos estructurados se caracterizan por el hecho de que
+con un nombre -identificador de variable estructurada- se hace referencia a un grupo
+de casillas de memoria (fig. 1.lb). Es decir, un tipo de dato estructurado tiene varios
+componentes. Cada uno de éstos puede ser un tipo de dato simple o estructurado. Sin
+embargo, los componentes básicos, los del nivel más bajo, de cualquier tipo de datos
+estructurado son siempre tipos de datos simples.
+El estudio de las estructuras de datos constituye una de las principales actividades
+para llegar al desarrollo de grandes sistemas de software. En este capítulo se tratarán las
+estructuras de datos básicos que son útiles para la mayoría de los lenguaje de programación. Éstas son: arreglos y registros.
+
+1
+
+2
+
+Capítulo 1
+
+ESTRUCTURAS FU DA! :: -"LES
+
+FIGURA 1 1
+Tipos de datos simples
+y estructurados.
+a) Dato simple.
+b) Dato estructurado.
+
+-
+
+:,,-os
+
+Identificador'
+
+D
+
+Identificador
+
+,_ _--'-----------'------_
+
+a)
+
+1.2
+
+b)
+
+ARREGLOS
+
+Con frecuencia se presentan en la práctica problemas cuya solución no resulta fácil -a
+veces es imposible- si se utilizan tipos de datos simples.
+Con el propósito de ilustrar esta dificultad, a continuación se presentarán un problema y dos de sus posibles soluciones mediante tipos simples de datos. El objetivo de
+este ejemplo es demostrar lo complejo que resulta un algoritmo de solución para ciertos
+problemas, si no se utilizan tipos de datos estructurados. Finalmente, y luego de presentar los arreglos, se ofrecerá una solución al problema mencionado en primer término
+usando arreglos.
+
+Ejemplo 1.1
+
+Consideremos que en una universidad se conocen las calificaciones de un grupo de 50
+alumnos. Se necesita saber cuántos de éstos tienen calificación superior al promedio del
+grupo.
+¿Cómo resolver este problema?
+Primera solución
+_ rl
+Doble_lectura
+
+{Este algoritmo n suelve el problema planteado en el ejemplo 1.1, realizando dos yeces la
+lectura de los datos}
+(l Y CONT son variables de tipo entero. AC, PROM y C son variables de tipo real)
+
+1. Hacer AC +- O el+- 1
+2. Mientras (J :S 50) Repetir
+Escribir "Ingrese la calificación", 1
+Leer C
+Hacer AC +- AC + Ce 1 +- 1 + 1
+(Fin del ciclo del paso 2)
+4. Hacer PROM +- AC/50
+
+(Como se necesita indicar cuántos alumnos obtuvieron calificación superior al promedio, se
+releerán las 50 calificaciones para comparar cada una de ellas con el promedio calculado en
+el paso 4)
+
+Hacer CONT +- Oel+- 1
+• Mientras (1 s 50) Repetir
+Escribir "Ingrese la calificación", 1
+Leer C
+Si C> PROM entonces
+Hacer CONT +- CONT + 1
+5' {Fin del condicional del paso 5.1 }
+Hacer 1 +- 1 + 1
+6 {Fin del ciclo del paso 5}
+7 Escribir CONT
+
+Segunda solución
+AlgorItmo 1.2 Muchas_variables
+
+luchas_\ariables
+{Este algoritmo resuelve el problema planteado en el ejemplo 1.1, pero ahora mediante
+muchas variables}
+{CONT es una variable de tipo entero. PROM, AC y C¡ son variables de tipo real}
+Leer CI' C2' C3' ••• , Cso
+{Las calificaciones corresponden a los 50 alumnos}
+2
+
+Hacer AC +- C I + C2 + C3 + ... + Cso '
+PROM +- AC/50 y CONT +- O
+Si CI > PROM entonces
+Hacer CONT +- CONT + 1
+
+{Fin del condicional del paso 3}
+5. Si C2 > PROM entonces
+Hacer CONT +- CONT + 1
+6
+
+{Fin del condicional del paso 5}
+
+10. Si Cso > PROM entonces
+Hacer CONT +- CONT + 1
+10 1. {Fin del condicional del paso lOO}
+102 Escribir CONT
+
+Estas dos soluciones son muy representativas de los inconvenientes a lo que uno
+se puede enfrentar, al plantear una solución algorítmica a un problema al usar sólo·
+de datos simples.
+
+r
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+En la solución planteada en el algoritmo 1.1 el usuario debe ingresar dos veces el
+conjunto de datos. Esto último tiene varias desventajas: es totalmente molesto --considere que el número de datos puede ser mayor a 50-, ineficiente -la operación de
+lectura, ya sea de manera interactiva con el usuario o desde un archivo, se debe repetir,
+lo que ocasiona pérdida de tiempo- y causa de errores -en los casos donde la entrada
+de datos se haga de forma manual-o
+Por otra parte, en la solución planteada en el algoritmo 1.2 se manejan 50 variables
+en memoria. Esta solución presenta el inconveniente de que el manejo de las variables se
+puede tomar incontrolable, sobre todo si su número crece en forma considerable. Además,
+algunos pasos especificados en el algoritmo, que posteriormente serán instrucciones de
+algún lenguaje de programación, se repiten, ya que no se pueden generalizar. Esta característica no sólo provoca más trabajo, sino también posibles errores. Es sabido que ejecutar
+una tarea en forma repetida, en este caso escribir un mismo paso varias veces, resta interés
+en la acción que se está llevando a cabo, y puede propiciar más errores.
+Se observa, entonces, que ninguna de las dos soluciones resulta práctica ni eficiente. Es necesario un tipo de dato que permita manejar mucha información, generalizando sus operaciones. Los tipos de datos estructurados que ayudan a resolver problemas
+como éste son los arreglos.
+Un arreglo unidimensional se define como una colección finita, homogénea y
+ordenada de elementos.
+•
+•
+•
+
+Finita: todo arreglo tiene un límite; es decir, se debe determinar cuál será el número
+máximo de elementos que formarán parte del arreglo.
+Homogénea: todos los elementos de un arreglo son del mismo tipo. Es decir, todos
+enteros, todos booleanos, etcétera, pero nunca una combinación de distintos tipos.
+Ordenada: se puede determinar cuáles son el primero, el segundo, el tercero, ... y
+el enésimo elementos.
+
+Un arreglo unidimensional se puede representar gráficamente como se muestra en
+la figura 1.2.
+Si un arreglo tiene la característica de que puede almacenar a N elementos del
+mismo tipo, entonces deberá permitir la recuperación de cada uno de ellos. Como consecuencia, se distinguen do partes fundamentales en los arreglos:
+•
+•
+
+Los componentes.
+Los índices.
+
+Los primeros hacen referencia a los elementos que forman el arreglo; es decir, a
+los valores que se almacenan en cada una de sus casillas (fig. 1.3). Considerando el
+FIGURA
+
+2
+
+Arreglo
+
+~----,------_I= ... J--,-----
+
+Representación
+de arreglos.
+
+L L
+
+Segundo elemento
+Primer elemento
+
+(
+
+~
+
+." :
+
+/
+
+L
+
+N-ésimo elemento
+
+FIGURA 1 :l
+índices y componentes
+
+~
+
+de un arreglo.
+
+c1
+
+c2
+
+c3
+
+Val]
+
+Val 2
+
+Val 3
+
+t
+
+t
+
+t
+
+TIcompo",o",
+•• •
+
+C
+
+n
+
+Val n
+
+~ Índices
+
+ejemplo anterior, cada una de las 50 calificaciones será un componente de un arreglo
+"calificaciones". En este contexto, los índices especifican cuántos elementos tendrá el
+arreglo y además de qué modo podrán recuperarse esos componentes. Los índices también permiten hacer referencia a los componentes del arreglo en forma individual; es
+decir, distinguirán entre sus elementos. Por tanto, para hacer referencia a un elemento
+de un arreglo se debe utilizar:
+•
+•
+
+El nombre del arreglo.
+El índice del elemento.
+
+En la figura 1.3 se representa un arreglo unidimensional y se indican tanto sus componentes como sus índices.
+
+1.2.1
+
+Declaración de arreglos unidimensionales
+No es el propósito de este libro seguir la sintaxis de algún lenguaje de programación en
+particular; un arreglo unidimensional se define de la siguiente manera:
+idencarreglo = ARREGLO [líminf .. límsup] DE tipo
+Con los valores líminf y límsup se declara el tipo de los índices, así como el número de elementos que tendrá el arreglo. El número total de componentes (NTC) que
+tendrá el arreglo unidimensional se calcula con
+'T
+
+NTC = límsup - líminf + 1
+
+Fórmula 1.1
+
+Con tipo se declara el tipo de datos para todos los componentes del arreglo unidimensional. El tipo de los componentes no tiene que ser el mismo que el de los índices.
+En general, los lenguajes de programación establecen restricciones al respecto.
+Observaciones:
+a)
+
+El tipo del índice puede ser cualquier tipo ordinal: carácter, ~n!~.~~ enumerado. En
+la maYOlia de los lenguajes usados actualmente se permite ro núm.
+••. .:: _
+
+6
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+b)
+
+el
+
+El tipo de los componentes puede ser cualquier tipo de datos --entero, real, cadena
+de caracteres, registro, arreglo, etcétera-o
+Se utilizan los corchetes H[]" para indicar el índice de un arreglo. Entre [] se debe
+escribir un valor ordinal; puede ser una variable, una constante o una expresión tan
+compleja como se quiera, pero que dé como resultado un valor ordinal.
+Enseguida se verán algunos ejemplos de arreglos unidimensionales:
+
+Ejemplo 1.2
+
+Sea V un arreglo unidimensional de 50 elementos enteros con índices enteros. Su representación se indica en la figura 1.4.
+V = ARREGLO[1..50] DE enteros
+
+•
+•
+
+NTC = (50 - 1 + 1) = 50.
+Cada componente del arreglo unidimensional V será un número entero, al cual se
+tendrá acceso por medio de un índice que será un valor comprendido entre 1 y 50.
+Por ejemplo:
+V[l] hace referencia al elemento de la posición 1.
+V[2] hace referencia al elemento de la posición 2.
+V[50] hace referencia al elemento de la posición 50.
+
+Los índices de tipo entero no necesariamente deben tener un límite inferior igual a cero
+o a uno. Podrían usarse valores negativos [-10.. 10] o valores mayores a uno [100..200].
+
+Ejemplo 1.3
+
+Sea A un arreglo de 26 elementos booleanos con índices de tipo carácter. Su representación se muestra en la figura 1.5.
+A =ARREGLO ['a' .. 'z'] DE booleanos
+•
+•
+
+NTC = (ord('z') - ord('a') + 1) = 122 - 97 + 1 =26.
+Cada componente del arreglo unidimensional A será uno de los dos posibles valores
+lógicos (VERDADERO o FALSO) al cual se tendrá acceso por medio de un índice,
+que será un valor comprendido entre los caracteres 'a' y 'z'.
+Por ejemplo:
+A['a'] hace referencia al elemento de la posición 'a' (lera.)
+A['b'] hace referencia al elemento de la posición 'b' (2da.)
+
+FIGURA 1.4
+
+v
+
+---'C ... JL.-._
+
+L-.-
+
+"
+
+.
+
+. \;;'
+
+~"" ~
+'" \
+
+2
+
+3
+
+50
+
+7
+FIGURA 1.5
+
+A
+
+__--'----c·.. J_
+'a'
+
+'b'
+
+'e'
+
+'z'
+
+A['z'] hace referencia al elemento de la posición 'z' (26)
+
+Ejemplo 1.4
+
+Sea CICLO un arreglo de 12 elementos reales con índices de tipo escalar o enumerados.
+Su representación se muestra en la figura 1.6.
+meses = (ene, feb, mar, abr, may, jun, jul, ago, sept, oct, nov, dic)
+CICLO = ARREGLO [meses] DE reales
+•
+•
+
+NTC = (ord(dic) - ord(ene) + 1) = 11 - O + 1 = 12.
+Cada componente del arreglo unidimensional CICLO será un número real, al cual
+se tendrá acceso por medio de un índice, que será un valor comprendido entre ene
+y dic.
+Por ejemplo:
+CICLO[ene] hace referencia al elemento de la posición ene (lera.)
+CICLO[feb] hace referencia al elemento de la posición feb (2da.)
+CICLO[dic] hace referencia al elemento de la posición dic (l2ava.)
+
+1.2.2
+
+Operaciones con arreglos unidimensionales
+Como ya se mencionó, los arreglos se utilizan para almacenar datos. Por tanto, resulta
+necesario leer, escribir, asignar o simplemente modificar datos en un arreglo. Asimismo
+al considerar que es una estructura, a una colección de elementos se deben incorporar
+nuevos elementos, así como eliminar algunos de los ya almacenados. Las operaciones
+válidas en arreglos son las siguientes:
+•
+•
+
+LecturalEscritura.
+Asignación.
+
+IGURA 1.6
+
+CICLO
+
+ene
+
+feb
+
+mar
+
+dic
+
+8
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+t
+
+t
+t
+
+Actualización: Inserción.
+Eliminación.
+Modificación.
+Ordenación.
+Búsqueda.
+
+Como los arreglos son tipos de datos estructurados, muchas de estas operaciones
+no se pueden llevar a cabo de manera global; es decir, tratando al arreglo como un todo,
+sino que se debe trabajar sobre cada componente.
+A continuación se analizará cada una de estas operaciones. Cabe destacar que las
+dos últimas, ordenación y búsqueda, serán tema de estudio en próximos capítulos. Para
+ilustrarlas se utilizarán los ejemplos presentados anteriormente.
+
+lectura
+El proceso de lectura de un arreglo consiste en leer y asignar un valor a cada uno de sus
+componentes. Suponga que se desea leer todos los elementos del arreglo unidimensional Ven forma consecutiva. Se podría hacer de la siguiente manera:
+Leer V[l],
+Leer V[2],
+Leer V[50]
+Pero es importante que el lector observe que de esta forma no resulta práctico. Por
+tanto, se usará un ciclo para leer todos los elementos del arreglo unidimensional.
+Repetircon 1 desde 1 hasta 50
+Leer V[l]
+Al variar el valor de 1, cada elemento leído se asigna al correspondiente componente del arreglo según la posición indicada por I.
+Para 1 = 1, se lee V[l]
+1 = 2, se lee V[2]
+1 = N, se lee V[N]
+
+Al finalizar el ciclo de lectura se tendrá asignado un valor a cada uno de los componentes del arreglo unidimensional V. El arreglo se muestra en la figura 1.7.
+
+v
+FIGURA 1.7
+Lectura de arreglos.
+
+2
+
+3
+
+49
+
+50
+
+FIGUR
+
+1
+
+Lectura de arreglos.
+
+v
+
+11~loC··· Jol_l= ~------'
+2
+
+30
+
+31
+
+50
+
+Puede suceder que no se necesiten leer todos los componentes del arreglo, sino
+solamente alguno de ellos. Supongamos que se deben leer los elementos con índices
+comprendidos entre el I y el 30. A continuación se muestra el ciclo que se necesita para
+realizar esta operación:
+Repetir con 1 desde 1 hasta 30
+Leer V[I]
+
+El arreglo se muestra en la figura 1.8.
+
+Escritura
+El caso de la operación de escritura es similar al de lectura. Se debe escribir el valor de
+cada uno de los componentes. Supongamos que se desea escribir los primeros N componentes del arreglo unidimensional Ven forma consecutiva. Los pasos a seguir son:
+Repetir con 1 desde 1 hasta N
+Escribir V[I]
+
+Al variar el valor de 1 se escribe el elemento del arreglo unidimensional V, correspondiente a la posición indicada por I.
+Para 1 = 1, se escribe el valor de V[ 1)
+1 = 2, se escribe el valor de V[2)
+1 = N, se escribe el valor de V[N]
+
+Asignación
+En general, no es posible asignar directamente un valor a todo el arreglo. ino que e
+debe asignar el valor deseado a cada componente. Enseguida se analizan alguno ejemplos de asignación.
+Observe que en los dos primeros casos se asigna un valor a una determinada casilla
+del arreglo, en el primero a la señalada por el índice ene, y en el egundo a la indicada
+por el índice mar.
+CICLO[ene) ~ 123.89
+CICLO[mar) ~ CICLO[ene)/2
+En el tercer caso se asigna el Oa todas las casillas del arreglo. con lo que éste queda
+como se muestra en la figura 1.9.
+
+10
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+19
+
+CICLO
+
+L·.. J__
+
+Asignación de arreglos.
+
+_ _O
+
+ene
+
+O_-L-__
+O_ _
+
+o_---.J
+
+feb
+
+dic
+
+mar
+
+Repetir con MES desde ene hasta dic
+Hacer CICLO[MES] +- O
+
+Cabe destacar que en algunos lenguajes de programación es posible asignar una
+variable tipo arreglo a otra del mismo tipo.
+
+La expresión anterior es equivalente a realizar lo siguiente:
+Repetir con 1 desde 1 hasta 50
+Hacer V\[/] +- V(/]
+
+Actuahzaclon
+La actualización es una operación que se realiza en forma frecuente en los arreglos. La
+cantidad de actualizaciones está relacionada con el tipo de problema que se intente resolver. A diferencia de las otrflS operaciones estudiadas, la actualización lleva implícita
+otros tipos de operaciones, como inserción y eliminación de elementos.
+Con el propósito de realizar una actualización de manera eficiente, es importante
+conocer si el arreglo está o no ordenado; es decir, si sus componentes respetan algún
+orden, ya sea creciente o decreciente. Cabe destacar que las operaciones de inserción,
+eliminación y modificación serán tratadas en forma separada para arreglos ordenados y
+desordenados.
+Finalmente, es importante señalar que la operación de búsqueda se utiliza como
+auxiliar en las operacione de inserción, eliminación y modificación. Esta es la principal razón por la cual a continuación se presenta el algoritmo de búsqueda secuencial en
+arreglos desordenados. En el capítulo correspondiente a métodos de búsqueda se tratará
+con mayor detalle este tema.
+Algor tmo l.:
+
+Busca secuencial_desordenado
+
+Busca_secuencial desordenado
+{El algoritmo busca en forma secuencial un elemento en un arreglo unidimensional que se
+encuentra desordenado. Ves un arreglo de 100 elementos, N el número actual de elementos y
+X el valor a buscar}
+{l es una variable auxiliar de tipo entero}
+Hacer 1 - 1
+
+11
+Mientras (l s N) y (X .. V[I]) Repetir
+Hacer 1 +- 1 + 1
+{Fin del ciclo del paso 2}
+Si 1> N {No se encontró el valor buscado}
+entonces
+
+Escribir "El valor X no está en el arreglo"
+si no Escribir "El valor X está en la posición F'
+5. {Fin del condicional del paso 4}
+
+--
+
+Este método de búsqueda es sencillo, aunque no muy eficiente. Consiste en recorrer
+el arreglo, comparando cada elemento del mismo con el valor a buscar. El proceso se
+repite hasta que el valor se encuentre -éxito- o hasta que se haya superado el tamaño
+del arreglo -fracaso-o
+
+a) Arreglos desordenados
+
+Considere un arreglo unidimensional V de 100 elementos, como el que se presenta en la figura 1.10. Observe que los primeros N compo.nentes tienen asignado un valor.
+o. I )
+
+Inserción: Para insertar un elemento Yen un arreglo unidimensional V desordenado, se debe verificar que exista espacio. Si se cumple esta condición, entonces
+se asignará en la posición N + 1 el nuevo elemento y se incrementará en N el
+total de elementos del arreglo.
+A continuación se presenta el algoritmo de inserción en arreglos unidimensionales desordenados.
+
+Algoritmo l A
+
+Inserta_desordenado
+
+Inserta desordenado (V. N. Y)
+{El algoritmo inserta un elemento en un arreglo unidimensional desordenado. Ves un arreglo
+de máximo 100 elementos. N es el número actual de elementos. Y representa el valor a
+insertar}
+Si N < 100
+entonces
+Hacer N +- N + I y V[N] +- y
+si no {No hay espacio en el arreglo}
+Escribir "El valor Y no se puede insertar. No hay espacio"
+
+{Fin del condicional del paso 1}
+
+Luego de la inserción el arreglo unidimensional V queda como se muestra en la
+figura l. lOa.
+
+.
+
+,
+12
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+v
+
+11~11~ICII=··· Jol
+
+I
+F URA
+
+2
+
+3
+
+N
+
+L ...~L--N+ 1
+
+100
+
+O
+
+Actualización de arreglos
+desordenados.
+
+al
+
+Eliminación: Para eliminar un elemento X de un arreglo unidimensional V desordenado, se debe verificar que X se encuentre en el arreglo. Si se cumple esta
+condición, entonces se procederá a recorrer todos los elementos que están a su
+derecha una posición a la izquierda, disminuyendo en uno el número de componentes del arreglo.
+A continuación se presenta el algoritmo de eliminación en arreglos desordenados. Cabe destacar que la operación de búsqueda presentada en el algoritmo
+1.3 se usa para determinar si el elemento X se encuentra en el arreglo. Para el
+caso de que la respuesta sea positiva, se obtiene también la posición en que se
+encuentra. Con el propósito de ofrecer mayor claridad en la solución de este problema, se incluye dentro del algoritmo de eliminación el algoritmo de búsqueda
+secuencial en arreglos desordenados.
+
+Algoritmo l.
+
+Elimina_desordenado
+
+Elimina de ordenado (Y, N, X)
+{El algoritmo elimina un elemento en un arreglo unidimensional desordenado. V es un
+arreglo de 100 elementos. N es el número actual de elementos. X es el valor a eliminar}
+{I y K son variables de tipo entero}
+Hacer 1 ~ 1
+Mientras (l s N) y (X .. VIl]) Repetir
+Hacer 1 ~ 1 + 1
+_ (Fin del ciclo del paso 2)
+Si (l> N) {No se encontró el valor buscado}
+entonces
+
+Escribir "El valor X no se encuentra en el arreglo"
+si no
+Repetir con K desde 1 hasta (N - 1)
+Hacer VIKJ ~ VIK + 1]
+1 _ {Fin del ciclo del paso 4.1 }
+HacerN~N- 1
+• {Fin del condicional del paso 4 }
+
+Luego de la eliminación, el arreglo unidimensional V queda como se muestra en
+la figura l.lüb.
+
+.
+
+'.
+
+II~IDIDC"'JDI
+
+I
+
+2
+
+3
+
+N
+
+y
+N+l
+
+C"'~_
+100
+
+FIGURA 110a
+Inserción en arreglos
+desordenados.
+
+a.3)
+
+Modificación: Para modificar un elemento X de un arreglo unidimensional V
+desordenado se debe verificar que X se encuentre en el arreglo. Si se cumple esta
+condición, entonces se procederá a su actualización.
+A continuación se presenta el algoritmo de modificación en arreglos desordenados, en el cual se incluye la búsqueda secuencial.
+
+Algoritmo 1.6 Modifica_desordenado
+
+Modifica_desordenado (V, N, X, Y)
+{El algoritmo modifica un elemento de un arreglo unidimensional desordenado. V es un
+arreglo de máximo 100 elementos. N es el número actual de elementos. X es el elemento a
+modificar por el elemento Y}
+{I es una variable de tipo entero}
+1. Hacer 1 +- 1
+2. Mientras (1 s N) y (X .. V[I]) Repetir
+
+Hacer 1 +- 1 + 1
+3. {Fin del ciclo del paso 2}
+4. Si (l> N) {No se encontró el valor buscado}
+entonces
+
+Escribir "El valor X no se encuentra en el arreglo"
+si no
+
+Hacer V[I] +- y
+5. {Fin del condicional del paso 4}
+
+Luego de la modificación, el arreglo unidimensional V queda como se
+muestra en la figura 1.1Oc.
+
+'nación en arreglos
+::ESOfdenados.
+
+V
+
+14
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+v
+
+IDIDIDC"]
+2
+
+FIGURA 1
+
+3
+
+y
+
+C ~DI-------,C" .~,---N
+
+N+ 1
+
+100
+
+e
+
+Modificación en arreglos
+desordenados.
+
+de ados Considere el arreglo unidimensional ordenado V de 100
+elementos de la figura 1.11. Los primeros N componentes del mismo tienen asignado un
+valor. En este caso se trabajará con un arreglo ordenado de manera creciente, es decir:
+V[l] s V[2] s V[3] s ... s V[N]
+
+Cuando se trabaja con arreglos ordenados se debe evitar alterar el orden al insertar
+nuevos elementos o al modificar los existentes.
+b.l,
+
+Inserción: Para insertar un elemento X en un arreglo unidimensional V ordenado,
+primero se debe verificar que exista espacio. Luego se encontrará la posición en
+la que debería estar el nuevo valor para no alterar el orden del arreglo. Cuando se
+detecte la posición, se procederá a recorrer todos los elementos desde ahí hasta
+la N-ésima posición, un lugar a la derecha. Finalmente se asignará el valor de
+X en la posición encontrada. Cabe destacar que el desplazamiento no se lleva a
+cabo cuando el valor a insertar es mayor que el último elemento del arreglo.
+Generalmente, cuando se quiere hacer una inserción se debe verificar que el
+elemento no se encuentre en el arreglo. En la mayoría de los casos prácticos no
+interesa tener información duplicada; por tanto, si el valor que se desea insertar
+ya estuviera en el arreglo, la operación no se llevará a cabo.
+
+Antes de presentar el algoritmo de inserción, se definirá una función de búsqueda
+auxiliar, para arreglos ordenados, que se utilizará tanto en el proceso de inserción como
+en el de eliminación. Esta función es una variante de la presentada en el algoritmo 1.3,
+y da como resultado la posición en la que encontró al elemento X o el negativo de la
+posición en la que debería estar. Para mayor información sobre algoritmos de búsqueda,
+consulte el capítulo 9.
+Algoritmo 1.7
+
+Busca_secuenciaLordenado
+
+Busca secuencial_ordenado (~,
+
+¿
+
+,X, POS)
+
+{El algoritmo busca un elemento X en un arreglo unidimensional V de N elementos que se
+encuentra ordenado crecientemente. POS indica la posición de X en Vo la posición en la que
+estaria X}
+{I es una variable de tipo entero }
+. Hacer 1 ~ 1
+Mientras (l s N) y (V[l] < X) Repetir
+Hacer 1 ~ 1 + 1
+
+'.
+
+"
+
+•2
+
+.... ===:_:::
+
+15
+
+v
+
+11~loloC··· Jol
+
+I
+
+"IGURA 1.11
+Mualización de arreglos
+ordenados.
+
+2
+
+3
+
+N
+
+I
+
+N+1
+
+C·· .~'------100
+
+3. {Fin del ciclo del paso 2}
+4. Si «1> N) o (VIl] > X)
+
+entonces
+Hacer POS - -1
+si no
+Hacer POS -1
+5. {Fin del condicional del paso 4}
+
+A continuación se presenta el algoritmo de inserción en un arreglo unidimensional
+que se encuentra ordenado en forma creciente.
+Algoritmo 1.8
+
+Inserta_ordenado
+
+Inserta_ordenado (V, N, Y)
+{Este algoritmo inserta un elemento Y en un arreglo unidimensional que se encuentra ordenado
+de forma creciente. La capacidad máxima del arreglo es de 100 elementos. N indica el número
+actual de elementos de V}
+{POS e 1 son variables de tipo entero}
+
+1. Si (N < 1(0)
+entonces
+Llamar al algoritmo Busca_secuencial_ordenado con V, N, Y YPOS
+1.1 Si POS> O {El elemento fue encontrado en el arreglo}
+entonces
+Escribir "El elemento ya existe"
+si no
+HacerN-N + 1 y POS - POS * (-1)
+1.1.1 Repetir con 1 desde N hasta POS + 1
+Hacer VIl] - VII- 1]
+1.1.2 {Fin del ciclo del paso 1.1.1}
+Hacer V{POS] - y
+1.2 {Fin del condicional del paso U}
+si no
+Escribir "No hay espacio en el arreglo"
+2. {Fin del condicional del paso 1}
+
+16
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+v
+
+IDIDIDC"']
+I
+2
+
+3
+
+FIGURA 1.11a
+Inserción en arreglos
+ordenados.
+
+y
+POS
+
+C '''~DIDI= ...~_
+N
+
+N+ 1
+
+100
+
+Luego de la inserción, el arreglo queda como se muestra en la figura 1.11 a.
+b.2)
+
+Eliminación: Para eliminar un elemento X de un arreglo unidimensional ordenado V se debe buscar la posición del elemento a eliminar. Si el resultado de la
+función es un valor positivo, significa que el elemento se encuentra en el arreglo
+y, por tanto, se puede eliminar; en caso contrario, no se puede realizar la operación de eliminación.
+A continuación se presenta el algoritmo de eliminación en arreglos ordenados.
+
+Algoritmo 1.9 Elimina_ordenado
+
+Elimina_ordenado (V, N, X)
+{El algoritmo elimina un elemento X de un arreglo unidimensional V de N elementos que se
+encuentra ordenado en forma creciente}
+{POS e I son variables de tipo entero}
+
+1. Si (N) O)
+entonces
+Llamar al algoritmo Busca_secuencial_ordenado con V, N, X YPOS
+1.1 Si (pOS < O) {No se puede eliminar porque X no existe}
+entonces
+Escribir "El elemento no existe"
+sino
+Hacer N +- N - 1
+1.1.1 Repetir con I desde POS hasta N
+Hacer VIl] +- VII + 1]
+1.1.2 {Fin del ciclo del paso 1.I.1}
+1.2 {Fin del condicional del paso 1.1 }
+si no
+Escribir "El arreglo está vacío"
+2. {Fin del condicional del paso l}
+
+Luego de la eliminación, el arreglo queda como se muestra en la figura l.11b.
+b.3)
+
+Modificación: Esta operación consiste en reemplazar un componente del arreglo
+con otro valor. Para ello, primero se buscará el elemento en el arreglo. Si se
+encuentra, antes de realizar el cambio se debe verificar que el orden del arreglo
+no se altere. Si esto llegara a suceder, entonces es necesario realizar dos opera-
+
+17
+
+v
+
+lololl~C'" Jol
+
+I
+
+:. inación en arreglos
+:rdenados.
+
+2
+
+3
+
+N-1
+
+N
+
+100
+
+ciones; primero se debe eliminar el elemento que se quiere modificar y luego
+insertar en la posición correspondiente el nuevo valor. Como consecuencia de
+que las operaciones que se necesitan para realizar una modificación ya han sido
+presentadas, se deja como tarea la construcción del algoritmo de modificación
+en arreglos ordenados.
+Hasta el momento se ha analizado cómo declarar arreglos y cómo usarlos. Ahora se
+puede dar solución al problema del ejemplo 1.1 mediante este tipo de estructura de datos.
+\l~() 11111\l 1.10
+
+Con_arreglos
+
+Con_arreglos (CAL)
+{Este algoritmo resuelve el problema del ejemplo 1.1 al aplicar arreglos unidimensionales.
+CAL es un arreglo de 50 elementos de números reales}
+{AC, 1 y CONT son variables de tipo entero. PROM es una variable de tipo real}
+1 Hacer AC -- O
+2. Repetir con 1 desde 1 hasta 50
+Leer CAL [1]
+Hacer AC -- AC + CAL[I] el -- 1 + 1
+{Fin del ciclo del paso 2 }
+4. Hacer PROM -- AC/50 y CONT -- O
+5 Repetir con 1 desde 1 hasta 50
+.: ; 1 Si (CAL[I] > PROM) entonces
+Hacer CONT -- CONT + 1
+: 2 {Fin del condicional del paso 5.1}
+(. {Fin del ciclo del paso 5 }
+7. Escribir CONT
+
+Ésta es una solución más eficiente que las que se presentaron en los algoritmos 1.1
+y 1.2. Se realiza una lectura de los datos y además se define una variable para almacenar
+las 50 calificaciones.
+Al utilizar un arreglo puede disponerse de los datos tantas veces como sea necesario
+sin que se deba volver a leerlos, ya que éstos permanecen en memoria. Además se facilita el procesamiento de los datos, al generalizar ciertas operaciones.
+Los arreglos presentados hasta el momento se denominan arreglos unidi:IJlleflSÍl>nales o lineales, debido a que cualquier elemento se referencia solamente
+
+18
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+Sin embargo, es importante destacar que para la mayoría de los lenguajes de programación se pueden definir arreglos multidimensionales; es decir, arreglos con múltiples Índices. El número de dimensiones -Índices- depende tanto deLproblema que se quiera
+resolver como del lenguaje utilizado.
+Se analizarán primero los arreglos bidimensionales, que representan un caso especial de los multidimensionales, por ser los más ampliamente utilizados.
+
+1.3
+
+ARREGLOS BIDIMENSIONALES
+
+Para que el lector entienda mejor la estructura de los arreglos bidimensionales, se presenta el siguiente ejemplo.
+
+Ejemplo 1.5
+
+La tabla 1.1 contiene los costos de producción de cada departamento de una fábrica,
+correspondientes a los 12 meses del año anterior.
+La tabla se interpreta de la siguiente manera: dado un mes, se conocen los costos de
+producción de cada uno de los departamentos de la fábrica; y dado un departamento, se
+conocen los costos de producción mensuales. Si se quisiera almacenar esta información
+utilizando los arreglos unidimensionales, se tendrían dos alternativas:
+
+1.
+
+Definir 12 arreglos de tres elementos cada uno. En este caso, cada arreglo almacenará la información relativa a un mes.
+
+TABLA 1.1
+
+!\Icscs/Deptus.
+
+Costos mensuales por
+departamentos
+
+Dulces
+
+Consenas
+
+Enero
+
+100
+
+300
+
+120
+
+Febrero
+
+400
+
+200
+
+200
+
+Marzo
+
+350
+
+250
+
+210
+
+Abril
+
+280
+
+300
+
+200
+
+Mayo
+
+300
+
+320
+
+300
+
+Junio
+
+250
+
+300
+
+350
+
+Julio
+
+200
+
+280
+
+300
+
+Agosto
+
+180
+
+300
+
+400
+
+Septiembre
+
+500
+
+400
+
+450
+
+Octubre
+
+350
+
+420
+
+220
+
+Noviembre
+
+400
+
+450
+
+360
+
+Diciembre
+
+600
+
+550
+
+531
+
+FIGURA 1.12
+
+o
+
+.:
+
+.:.:;~~:}~!~;.
+
+•
+
+",
+
+':'i\~<t"',
+
+'. . . . ,1,
+
+'".,
+
+t
+
+.lit,- " 1 " ' , .
+
+,.fui l ; .~.J.:~
+
+.~
+
+CIIJ CIIJ
+
+'0' 0"-.--J
+
+'./~
+
+Diciembre
+
+Febrero
+
+Enero
+
+Almacenamiento de la
+información por mes.
+
+Bebidas
+
+2
+
+3
+
+2
+
+3
+
+CIIJ'o
+
+1.3
+
+FIGURA 1.13
+
+ARRI "LOS 8 DI!v'ENSIONt>.LES
+
+19
+
+Dulces
+
+Almacenamiento
+de la información
+por departamento.
+
+2
+
+3
+
+L ... ~
+
+12
+
+Conservas
+
+2
+
+3
+
+L ... ~
+
+12
+
+Bebidas
+
+2
+
+2.
+
+3
+
+L ... ~
+
+12
+
+Definir tres arreglos de 12 elementos cada uno. De esta forma, cada arreglo almacenará la información relativa a un departamento a lo largo del año.
+
+Sin embargo, no resulta muy práctico adoptar alguna de las dos alternativas. Se necesita una estructura que permita manejar los datos considerando los meses -renglones
+de la tabla-, y los departamentos --columnas de la tabla-; es decir, una estructura
+que trate a la información como un todo. La estructura que tiene esta característica se
+denomina arreglo bidimensional.
+Un arreglo bidimensional es una colección homogénea, finita y ordenada de datos, en la que se hace referencia a cada componente del arreglo por medio de dos índices. El primero se utiliza para indicar el renglón, y el segundo para señalar la columna.
+Un arreglo bidimensional también se puede definir como un arreglo de arreglos. En la
+figura 1.14 se presenta un arreglo de tipo bidimensional.
+El arreglo A(M X N) tiene M renglones y N columnas. Un elemento A[l, 1] se localiza en el renglón 1, y en la columna J. Internamente en memoria se reservan M X N
+posiciones consecutivas para almacenar todos los elementos del arreglo.
+
+1.3.1
+
+Declaración de arreglos bidimensionales
+Los arreglos bidimensionales se declaran cuando se especifican el número de renglones
+y el número de columnas, junto con el tipo de dato de los componentes.
+id_arreglo = ARREGLO [líminfr..límsupr,líminfc..límsupc] DE tipo
+Con líminfr y límsupr se declara el tipo de dato del írifice de I
+cuántos renglones tendrá el arreglo. Asimismo, con líminfc y
+~ se
+
+20
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+FIGURA 1.14
+Representación de un
+arreglo bidimensional.
+
+A
+J
+
+2
+
+N
+1 ~ I~M
+
+1 ~ J~N
+
+de dato del índice de las columnas y cuántas columnas tendrá el arreglo. Con tipo se
+declara el tipo de datos de todos los componentes del arreglo.
+El número total de componentes (NTe) de un arreglo bidimensional está detenninado por la expresión:
+...............................................................................................................................................................................
+
+NTC =(límsupr - líminfr + 1) * (límsupc - líminfc + 1)
+
+Fórmula 1.2
+
+Al 'igual que en el caso de los arreglos unidimensionales, los índices pueden ser
+cualquier tipo de dato ordinal (escalar, entero, carácter), mientras que los componentes
+pueden ser de cualquier tipo (reales, enteros, cadenas de caracteres, etc.). A continuación se analizan algunos ejemplos de arreglos bidimensionales.
+
+Ejemplo 1.6
+
+Sea MATRIZ un arreglo bidimensional de números reales con índices enteros. Su representación se muestra en la figura 1.15.
+
+FIGURA 1.15
+
+MATRIZ
+
+2
+
+3
+
+4
+
+5
+
+1
+
+21---+--+--+---t----i
+
+:.!.10 L-----lL-----l_----'_----'_-----'
+'1.':'
+
+21
+
+1.3
+
+MATRIZ = ARREGLO[1..1O,1..5] DE reales
+
+t
+t
+
+NTC = (10 -1 + 1)*(5 - 1 + 1) = 10 * 5 = 50
+Cada componente de MATRIZ será un número real. Para hacer referencia a cada uno
+de ellos se usarán dos índices y el nombre de la variable tipo arreglo: MATRIZ[iJl
+Donde: 1 s i s 10
+1 sj s 5
+
+Ejemplo 1.7
+
+Sea COSTOS un arreglo bidimensional de números reales con índices de tipo escalar.
+Su representación se muestra en la figura 1.16.
+meses = (ene, feb, mar, abr, may, jun, jul, ago, set, oct, nov, dic)
+departamentos = (dulces, conservas, bebidas)
+COSTOS = ARREGLO[meses, departamentos] DE reales
+
+t
+
+NTC = (ord(dic) - ord(ene) + 1) * (ord(bebidas) - ord(dulces) + 1)
+= (11 - 0+ 1) * (2 - Ó + 1) = 12 * 3 = 36
+
+t
+
+Cada componente de COSTOS será un real. Para hacer referencia a cada uno de
+ellos usaremos dos índices y el nombre de la variable tipo arreglo COSTOS[i,j]
+Donde: ene :S i s dic
+dulces :S j s bebidas
+
+Ejemplo 1.8
+
+Sea MAT un arreglo bidimensional de cadenas de caracteres con índices para los renglones de tipo carácter y para las columnas de tipo entero. Su representación se muestra
+en la figura 1.17.
+MAT =ARREGLO['a' .. 'z', - 5..5] DE cadena-de-caracteres
+
+URA 1016
+
+COSTOS
+dulces
+
+conservas
+
+bebidas
+
+ene
+feb
+
+Ir~~
+
+1, ...:" ., ~
+dic
+
+...
+
+:'Í"o.. :J~.
+~ J~'
+.• ........•,
+•
+" 0 O"
+... .,I.:jM"#'
+
+~
+
+- .,'
+
+-.,
+~
+.
+
+--- •••• • ,r. .
+
+CAT~OGACIO~
+.~"':'l:MA tnllLIOT':CAWUO
+
+22
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+FIGURA 1.17
+
+MAT
+
+-5
+
+-4
+
+5
+
+'Tñ
+
+Fl
+
+'b'
+
+",lE
+
+W
+
+t
+
+NTC = (ord('z') - ord('a') + 1) * (5 - (-5) + 1)
+= (122 - 97 + 1) * (5 + 5 + 1) = 26 * 11 = 286
+
+t
+
+Cada componente de MAT será un valor de tipo cadena de caracteres. Para hacer
+referencia a cada uno de ellos, se usarán dos índices y el nombre de la variable tipo
+arreglo: MAT[iJ]
+Donde: 'a' s i s 'z'
+-5 sj s 5
+
+Ejemplo 1.9
+
+---~~
+
+Sea LETRAS un arreglo bidimensional de caracteres con índices enteros. Su representación se muestra en la figura 1.18.
+LETRAS = ARREGLO [-4.. -1, -2..2] DE caracteres
+NTC = (-1 - (-4) + 1) * (2 - (-2) + 1) = 4 * 5 = 20
+Cada componente de LETRAS será un valor tipo carácter. Para hacer referencia
+a cada uno de ellos, se usarán dos índices y el nombre de la variable tipo arreglo:
+
+t
+t
+
+LETRAS[i,j]
+
+Donde: -4 s i s -1
+-2 sj s 2
+FIGURA 1.18
+
+LETRAS
+
+-2
+
+-1
+
+O
+
+2
+
+-4
+
+-3
+-2
+~-
+
+'" . ".. .,
+:; .... .
+
+"
+
+1-
+
+,
+
+,
+
+.,.
+
+'"
+
+';~"{!lo
+
+".'
+
+;
+
+t
+
+~'"
+
+.. ~',
+
+~ ""~\
+
+,
+
+.;-
+
+~":;'.~ ~~~"'." t..:~.~ ~. ~y
+
+1
+
+j
+
+1.3
+
+1.3.2.
+
+s.::
+
+A=P:GLOS 3 J
+
+-
+
+Operaciones con arreglos bidimensionales
+Las operaciones que se pueden realizar con arreglos bidimensionales son:
+•
+•
+•
+
+•
+•
+
+LecturalEscritura
+Asignación
+Actualización: Inserción
+Eliminación
+Modificación
+Ordenación
+Búsqueda
+
+Los arreglos bidimensionales se consideran una generalización de los unidimensionales, por lo que se presentará una revisión rápida de algunas de las operaciones
+mencionadas. Para ilustrarlas se utilizarán los ejemplos anteriores.
+
+Lectura
+Cuando se presentó la operación de lectura en arreglos unidimensionales, se mencionó
+que con la ayuda de un ciclo se iban leyendo y asignando valores a cada uno de los componentes. Lo mismo sucede con los arreglos bidimensionales. Sin embargo, como sus
+elementos deben indicarse por medio de dos índices, normalmente se usan dos ciclos
+para lograr la lectura de elementos consecutivos.
+Supongamos, por ejemplo, que se desea leer todos los elementos del arreglo bidimensional MATRIZ. Los pasos a seguir son:
+Repetir con 1 desde 1 hasta 10
+Repetir con J desde 1 hasta 5
+Leer MATRIZ[I, 1]
+
+Al variar los índices de 1 y J, cada elemento de MATRIZ que se lee se asigna al
+lugar que le corresponde en el arreglo, según la posición de los índices 1 y J.
+Para 1 = 1 Y J = 1, se lee el elemento del renglón 1 y columna 1.
+1 = 1 Y J = 2, se lee el elemento del renglón 1 y columna 2.
+1 = 10 YJ = 5, se lee el elemento del renglón 10 y columna 5.
+
+Escritura
+La escritura de un arreglo bidimensional también se lleva a cabo elemento tras elemento. Supongamos que se quiera escribir todos los componentes del arreglo MATRIZ. Los
+pasos a seguir son:
+Repetir con 1 desde 1 hasta 10
+Repetir con J desde 1 hasta 5
+Escribir MATRIZ[I,1]
+
+Al variar los valores de 1 y J se escribe el elemento de MATRIZ C0ITesplJl)(:Iielme
+la posición indicada justamente por los índices 1 y 1.
+1
+
+24
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+Para 1 = 1 YJ = 1, se escribe el elemento del renglón 1 y columna 1.
+1 = 1 YJ = 2, se escribe el elemento del renglón 1 y columna 2.
+1 = 10 Y J = 5, se escribe el elemento del renglón 10 y columna 5.
+
+Asignación
+La asignación de valores a un arreglo bidimensional se realiza de diferentes formas. La
+forma depende del número de componentes involucrados. Observemos a continuación
+dos alternativas diferentes.
+1.
+
+Se asignan valores a todos los elementos del arreglo: en este caso se necesitarán dos
+ciclos para recorrer todo el arreglo.
+Repetir con 1 desde 1 hasta 10
+Repetir con J desde 1 hasta 5
+MATRIZ[I,J] ~ O
+
+Al variar los valores de 1 y J se asigna el O al elemento de MATRIZ correspondiente
+a la posición indicada por los índices 1 y 1.
+Para 1 = 1 Y J = 1, se asigna el valor Oal elemento del renglón 1 y columna 1.
+1 = 1 Y J = 2, se asigna el valor O al elemento del renglón 1 y columna 2.
+1 = 10 Y J = 5, se asigna el valor O al elemento del renglón 10 y columna 5.
+
+En la figura 1.19 se presenta cómo queda el arreglo bidimensional cuando se asigna
+el valor Oa cada una de las casillas.
+2.
+
+Se asigna un valor a un elemento en particular del arreglo: en este caso la asignación es directa y se debe indicar el renglón y la columna del componente involucrado. Por ejemplo, para asignar el valor 8 al elemento del renglón 2 y columna 5 se
+procede de la siguiente manera:
+
+FIGURA 1.19
+Asignación de arreglos.
+
+MATRIZ
+
+2
+
+3
+
+4
+
+5
+
+1
+
+o
+
+2
+
+O
+
+O
+O
+
+O
+O
+
+O
+O
+
+O
+O
+
+10
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+1.4
+
+_;lA 1.20
+
+ARRE - -
+
+~: ':,...5 DE DOS DIMENSlor ::
+
+25
+
+MATRIZ
+
+-sg¡ación de arreglos.
+
+1
+
+2
+
+3
+
+4
+
+5
+
+o
+
+O
+O
+
+O
+O
+
+O
+O
+
+O
+8
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+O
+O
+O
+
+2
+
+10
+
+MATRIZ[2,5] -- 8
+El arreglo se muestra en la figura 1.20.
+Es importante aclarar que las operaciones de lectura, escritura y asignación a todos
+los elementos de un arreglo bidimensional se pueden hacer tanto por renglones como
+por columnas.
+
+1.4
+
+ARREGLOS DE MÁS DE DOS DIMENSIONES
+
+Un arreglo multidimensional-N dimensiones- se define como una colección finita,
+homogénea y ordenada de K) x ~ x ... x ~ elementos. Para hacer referencia a cada
+componente de un arreglo de N dimensiones, se usarán N índices, uno para cada dimensión.
+El arreglo A de N dimensiones se declara de la siguiente manera:
+
+El total de componentes de A será:
+.................................................................................................................................................................. .. ".
+
+NTC = (LS¡ - L/) + 1) * (LS 2 - L/2 + 1) * ,.. * (LSN - L/N + 1)
+
+Fórmula 1.3
+
+Por ejemplo, el arreglo tridimensional A[l...3, 1...2, 1...3] tendrá:
+(3 - 1 + 1) * (2 - 1 + 1) * (3 - 1 + 1) = 3 * 2 * 3 = 18 elementos
+Gráficamente el arreglo A se puede representar como se muestra en las figuras 1.21
+Y 1.22:
+A continuación se presenta un ejemplo de un arreglo tridimensional.
+
+26
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+~
+
+/
+
+FIGURA 1.21
+
+/'"
+
+/'"
+
+~
+
+Representación de arreglos
+de más de dos
+dimensiones.
+
+~
+
+/'"
+
+.-/
+
+/'"
+
+V
+
+//V
+//
+
+2
+
+/v-;
+
+3
+
+2
+
+2
+
+Ejemplo 1.10
+
+Una empresa lleva un registro del total producido mensualmente por cada departamento. La empresa consta de cinco departamentos y la información se ha registrado a lo largo de los últimos cuatro años. Para almacenar los datos de la producción de la empresa,
+se requiere entonces de un arreglo de tres dimensiones (5 x 12 x 4 = 240 elementos),
+como el de la figura 1.23.
+A = ARREGLO [1..5,1..12,1..4] DE reales
+
+Supongamos que la empresa necesita obtener la siguiente información:
+a)
+
+El total mensual de cada departamento durante el segundo año. Para obtener la
+información solicitada se deben realizar los siguientes pasos:
+Repetir con 1 desde 1 hasta 5
+Repetir con J desde 1 hasta 12
+Escribir A [I,J,2]
+
+Observe que para este caso se asigna la constante 2 al tercer índice --el de los
+años- y se hace variar a los otros dos índices. De esta manera se escribirán las producciones mensuales.
+b)
+
+El total de la producción durante el primer año. Para obtener la información solici- .
+tada se deben realizar los siguientes pasos:
+
+FIGURA 1.22
+
+A[~J.,31
+
+Representación de arreglos
+de más de dos
+dimensiones.
+
+- A[1)2;3f
+
+-Á[2,qt -Á[2,2,3]
+
+- -- A[1)~2r
+A[~J.,21
+----
+
+-
+
+-Á[2,1,~1 -;'\[2,2,2]
+---- ----¡
+---- ------ - _t\!3j,2]--..A[3,2,2]
+ro;:::' - -----A[l,l,l] A[1,2,1]
+-----I
+
+:
+
+- -------A[3,1,1] A[3,2,1]
+L -- - - i A[2,1,1]
+
+A[2,2,1]
+
+{
+
+A[3,2,3]
+-A[3:í,3]
+- - - - ---
+
+1.5
+
+LA (Lt·SE A ''''EG -
+
+27
+
+//.//////////./
+
+• . RAl.23
+
+/////////////v
+
+/////////////V
+V
+/VVV
+""""""'VVV
+/VVV
+
+/////////////v
+
+1
+
+2
+3
+4
+5
+
+/vV; 4
+2
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12
+
+Hacer SUMA ..- O
+Repetir con 1 desde 1 hasta 5
+Repetir con J desde 1 hasta 12
+Hacer SUMA ..- SUMA +A[I,J,l]
+Escribir SUMA
+Observe que este caso es similar al anterior. La diferencia radica en que las cantidades mensuales no se escribirán, sino que se acumularán obteniendo el total anual.
+c)
+
+El total de la produ~ción del departamento 3 a lo largo del último año. Para obtener
+la información solicitada será necesario ejecutar los siguientes pasos:
+Hacer SUMA ..- O
+Repetir con J desde 1 hasta 12
+Hacer SUMA ..- SUMA + A[3,J,4]
+Escribir SUMA
+
+Note que en este caso se tienen dos índices constantes, el de departamentos y el de
+años, y se hace variar solamente el índice de meses. Concluido el ciclo se escribirá el
+total producido por el departamento 3 durante el cuarto año.
+
+1.5
+
+LA CLASE ARREGLO
+
+Para entender la clase arreglo, se requiere primero conocer algunos concepto básicos
+relacionados con el paradigma de la programación orientada a objetos (POO).
+Una clase define a un objeto por medio de la descripción de sus datos, conocidos
+como atributos y de su comportamiento, representado por métodos. Se dice que los
+atributos y los métodos son miembros de la clase.
+Una clase puede representar a los alumnos de una escuela. En este caso los datos
+son los atributos que caracterizan a un alumno, por ejemplo, nombre fecha de nacimiento, dirección, teléfono, etcétera, mientras que el comportamiento hace referencia a
+las operaciones que pueden realizarse sobre esos datos, por ejemplo, cambiar dirección
+o teléfono del alumno.
+La programación orientada a objetos tiene cuatro propiedades:
+1.
+2.
+
+Abstracción.
+Encapsulamiento u ocultamiento de la información.
+
+28
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+3.
+4.
+
+Herencia.
+Polimorfismo.
+
+La abstracción permite concentrarse en los datos y operaciones que definen a un
+conjunto de objetos, ignorando los elementos que no son relevantes. La segunda propiedad, encapsulamiento, implica que tanto los atributos como los métodos forman
+un todo -la clase- y pueden ocultarse de los clientes de la clase, al controlar de esta
+manera el acceso que se tenga a sus integrantes. Por su parte, la herencia representa la
+propiedad que permite compartir atributos y métodos entre clases. Por último, el polimorfismo ofrece la facilidad de que ciertos métodos puedan adoptar distintas formas.
+La clase Arreglo tendrá atributos y métodos. Los atributos constituirán la colección
+de elementos y el tamaño. Los métodos serán todas las operaciones analizadas en las
+secciones previas: lectura, inserción, eliminación, etcétera. Gráficamente la clase Arreglo puede verse como se muestra en la figura 1.24.
+Un objeto es una instancia de una clase. Es decir, esta última representa a un conjunto de objetos, a un concepto general, por ejemplo, los alumnos de una escuela o los
+arreglos, mientras que los primeros son ocurrencias de la clase. Considerando la clase
+Arreglo, un ejemplo de objeto será el arreglo de calificaciones de un grupo de alumnos.
+En los lenguajes de programación orientada a objetos más conocidos se usa la notación de puntos para tener acceso a los miembros no privados de un objeto.
+<objeto>.<miembro>
+Dentro de un método de una clase, la referencia a cualquiera de sus otros miembros
+no requiere el uso de esta notación. Asumiendo que la variable CALIF es un objeto de
+la clase Arreglo, se pueden tener las siguientes instrucciones:
+CALIFTamaño = CALIF.Tamaño -2
+CALIF.Datos[6] = 10
+Para el caso de que las instrucciones fueran parte de un método, se puede oÍnitir el
+nombre del objeto y el punto, y usar directamente el atributo.
+Datos[6] = 10
+
+FIGURA 1.24
+Clase Arreglo.
+
+Arreglo
+
+}
+
+Nombre de la clase
+
+Tamaño
+Datos := ARREGLO [LI..LS]
+
+}
+
+Alrib",o,
+
+Lectura (argumentos)
+Escritura (argumentos)
+Inserta (argumentos)
+Elimina (argumentos)
+Busca (argumentos)
+
+...
+
+Métodos
+
+1.6
+
+REGISTROS
+
+De acuerdo con lo estudiado en las secciones previas, los arreglos son estructuras de
+datos muy útiles para almacenar una colección de datos, todos del mismo tipo. Sin embargo, en la práctica, a veces se necesitan estructuras que permitan almacenar datos de
+distintos tipos que sean manipulados como un único dato. Para ilustrar este problema se
+incluye el siguiente ejemplo.
+
+Ejemplo 1.11
+
+Una compañía tiene por cada empleado la siguiente información:
+
+t
+
+t
+t
+
+t
+t
+
+Nombre
+Dirección
+Edad
+Sexo
+Antigüedad
+
+(cadena de caracteres)
+(cadena de caracteres)
+(entero)
+(carácter)
+(entero)
+
+Si se quisiera almacenar estos datos no sería,posible usar un arreglo, ya que sus
+componentes deben ser todos del mismo tipo. La estructura que puede guardar esta
+información de manera efectiva se conoce como registro o estructura.
+Un registro se define como una colección finita y heterogénea de elementos. También representa un tipo de dato estructurado, en el que cada uno de sus componentes se
+denomina campo. Los campos de un registro pueden ser todos de diferentes tipos de
+datos. Por tanto, también podrán ser registros o arreglos. Cada campo se identifica con
+un nombre único, el identificador de campo. Otra diferencia importante con los arreglos
+es que no es necesario establecer un orden entre los campos.
+
+1.6.1
+
+Declaración de registros
+Como no es la intención de los autores seguir la sintaxis de algún lenguaje de programación en particular, un registro se declara de la siguiente forma:
+idenCregistro =REGISTRO
+id3ampol: tipo]
+id_campoz: tipoz
+id_campo,,: tipo"
+{Fin de la declaración del registro 1}
+Donde: idenCregistro es el nombre del dato tipo registro
+id_campo; es el nombre del campo i
+id campo", id campo.J V..lJ = 1,.. ,n e..
+'''''"J
+tipo; es el tipo del campo i
+-
+
+1
+
+-
+
+Los que siguen son ejemplos de declaraciones de registros, con su correspondiente
+representación gráfica.
+
+30
+
+Capítulo 1
+
+Ejemplo 1.12
+
+ESTRuaURAS FUNDAMENTALES DE DATOS
+
+Sea FECHA un registro formado por tres campos numéricos. Su representación se
+muestra en la figura 1.25.
+FECHA =REGISTRO
+día: 1..31
+mes: 1..12
+año: 0..2100
+{Fin de la declaración del registro FECHA}
+
+Ejemplo 1.13
+
+Sea DOMICILIO un registro formado por cuatro campos, uno de ellos es numérico y los
+tres restantes del tipo cadena de caracteres. Su representación se muestra en la figura 1.26.
+DOMICILIO = REGISTRO
+calle: cadena_de_caracteres
+número: entero
+ciudad: cadena_de3aracteres
+país: cadena_de_caracteres
+{Fin de la declaración del registro DOMICILIO}
+
+Ejemplo 1.14
+
+Sea CLIENTE un registro forIiJ.ado por cuatro campos, dos del tipo cadena de caracteres, uno del tipo real y el otro del tipo booleano. Su representación se muestra en la
+figura 1.27.
+CLIENTE = REGISTRO
+nombre: cadena_de_caracteres
+teléfono: cadena_de3aracteres
+saldo: real
+moroso: booleano
+{Fin de la declaración del registro CLIENTE}
+
+1.6.2
+
+Acceso a los campos de un registro
+Como un registro es un tipo de dato estructurado, no se puede tener acceso a él directamente como un único dato, sino que se debe especificar el elemento ----campo- del
+
+FIGURA 1.25
+
+FECHA
+
+I
+
+DÍA
+
+11
+
+MES
+
+1I
+
+AÑo
+
+I
+
+eee
+
+6
+
+: GURA 1.26
+
+::GSO"GS
+
+31
+
+DOMICILIO
+
+I
+
+CALLE
+
+I [
+
+NúMERO
+
+11
+
+CIUDAD
+
+PAÍs
+
+1I
+
+1
+
+DDDD
+registro que nos interesa. Para ello, en la mayoría de los lenguajes se sigue la siguiente
+sintaxis:
+.
+
+Donde: variable_registro es una variable de tipo registro
+id_campo es el identificador del campo deseado
+Es decir, se usarán dos identificadores para hacer referencia a un elemento: el nombre de la variable tipo registro y el nombre del campo, separados entre sí por un punto.
+De acuerdo con los ejemplos de registros 1.12, 1.13 Y 1.14, se presentan a continuación diferentes casos que ilustran el acceso a los campos de un registro.
+a)
+
+Para leer los tres campos de una variable F de tipo FECHA:
+Leer Fdía,Fmes,Faño
+
+b)
+
+Para escribir los cuatro campos de una variable D de tipo DOMICILIO:
+Escribir D.calle,D.número,D.ciudad,D.país
+Para asignar valores a algunos de los campos de una variable e de tipo CIJ:EI,lE:
+
+e)
+
+C.saldo +- C.saldo + cant
+C.moroso +- VERDADERO
+C.nombre +- "Juan Pérez"
+
+-
+
+1.27
+
+CLIENTE
+
+1
+
+NOMBRE
+
+1I
+
+TELÉFONO 1I
+
+SALDO
+
+11
+
+MOROSO
+
+I
+
+DDDD
+
+32
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+En general, como se mencionó anteriormente, el orden en e1 que se manejan los
+campos no es importante. Es decir, se podrían haber leído los campos de la variable
+F de la siguiente manera:
+Leer Faño,Fdía,Fmes
+Sólo se debe tener en cuenta que los datos proporcionados por el usuario o asignados en un algoritmo se correspondan en tipo con los campos.
+
+1.6.3
+
+Diferencias entre registros y arreglos
+Las dos diferencias sustanciales existentes entre registros y arreglos son:
+1.
+
+2.
+
+1.6.4
+
+Un arreglo puede almacenar N elementos del mismo tipo --estructura de datos
+homogénea-, mientras que un registro puede almacenar N elementos de diferentes
+tipos de datos --estructura de datos heterogénea-o
+A los componentes de un arreglo se tiene acceso por medio de índices que indican
+la posición del elemento correspondiente en el arreglo, mientras que a los componentes de un registro, los campos, se tiene acceso por medio de su nombre, que es
+único.
+
+Combinaciones entre arreglos y registros
+Los registros tienen varios campos. Cada uno de ellos puede ser de cualquier tipo de
+datos, simples o estructurados. Sin embargo, los componentes del nivel más bajo de un
+tipo estructurado siempre deben ser tipos simples de datos.
+De acuerdo con esta condición, se infiere que un campo de un registro puede ser
+otro registro o bien un arreglo. Por otra parte, los componentes de un arreglo también
+pueden ser registros. Estos casos enunciados, además, se pueden presentar en forma
+anidada.
+
+Combinaciones entre
+arreglos y registros
+
+Arreglos de
+registros
+
+Registros anidados
+
+Registros con
+arreglos
+
+Arreglos de registros
+En este caso, cada elemento del arreglo es un registro. Todos los componentes del arreglo tienen que ser del mismo tipo de registro, ya que es una estructura de datos homogénea. A continuación presentamos un ejemplo.
+
+Ejemplo 1.15
+
+Una empresa registra para cada uno de sus clientes los siguientes datos:
+
+••
+••
+
+Nombre
+Teléfono
+Saldo
+Moroso
+
+(cadena de caracteres)
+(cadena de caracteres)
+(real)
+(booleano)
+
+Si la empresa tiene N clientes necesitará un arreglo de N elementos, en el cual cada
+uno de sus componentes es un registro como el descrito en el ejemplo 1.14. La figura
+1.28 muestra la estructura de datos correcta para resolver este problema:
+A = ARREGLO [1..100] DE CLIENTE
+
+Cada elemento de A será un dato tipo CLIENTE. Por tanto, si se quiere, por ejemplo, leer el arreglo A, debe leerse por cada componente cada uno de los campos que
+forman al registro.
+Repetir con 1 desde 1 hasta N
+Leer A[I].nombre
+Leer A[I].teléfono
+Leer A [I].saldo
+Leer A [I] .moroso
+Con A[I] se hace referencia al elemento 1 del arreglo A, que es un registro; con
+.id_campo se especifica cuál de los campos del registro se leerá. De forma similar se
+procede para escritura, asignación, etcétera.
+
+_RA 1.28
+de registros.
+
+A
+
+EESALDOG EESALDOB
+
+OJ nOJ [ OJU
+2
+
+N
+
+34
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+Registros anidados
+En los registros anidados, al menos un campo del registro es del tipo registro. Observemos a continuación el siguiente ejemplo.
+
+Ejemplo 1.16
+
+Una empresa registra para cada uno de sus acreedores los siguientes datos:
+•
+•
+
+Nombre (cadena de caracteres)
+Dirección:
+• Calle (cadena de caracteres)
+• Número (entero)
+• Ciudad (cadena de caracteres)
+• País (cadena de caracteres)
+
+•
+
+Saldo (real)
+
+Para definir el tipo de dato del campo dirección, es necesario declarar previamente
+un registro formado por los cuatro componentes: calle, número, ciudad y país que se
+especifican. Se usará el registro del ejemplo 1.13, presentado anteriormente, para resolver este caso.
+ACREEDOR = REGISTRO
+nombre: cadena_de_caracteres
+dirección: DOMICILIO
+saldo: real
+{Fin de la declaración del registro ACREEDOR}
+La figura 1.29 muestra la estructura de datos requerida.
+En este caso, el registro tiene un campo -dirección- que es del tipo de datos DOMICILIO, el cual es un registro de cuatro campos. Para tener acceso a los campos que, a
+su vez, son registros, en la mayoría de los lenguajes se sigue la siguiente sintaxis:
+variable_registro.id_campol.id_campon
+Donde:
+
+variable_registro es una variable de tipo registro
+id_campal es el identificador de un campo del registro: el campo es de
+tipo registro
+id_campan representa el identificador de un campo
+
+FIGURA 1.29
+Registros anidados.
+
+ACREEDOR
+
+I
+
+NOMBRE
+
+D
+
+DIRECCIÓN
+
+SALDO
+
+1I
+
+11
+
+CALLE NúMERO CIUDAD
+
+PAÍS
+
+D
+
+I
+
+Para tener acceso a los campos de la variable AC de tipo ACREEDOR, la secuencia
+a seguir es la siguiente:
+
+ACnombre
+AC.dirección.calle
+A Cdirección.número
+ACdirección.ciudad
+ACdirección.país
+ACsaldo
+
+Registros con arreglos
+Los registros con arreglos tienen, por lo menos, un campo que es de tipo arreglo. Analice cuidadosamente el siguiente ejemplo.
+
+Ejemplo 1.17
+
+Una empresa registra para cada uno de sus clientes los siguientes datos:
+
+t
+t
+t
+t
+
+Nombre
+Teléfono
+Saldo mensual del último año
+Moroso
+
+(cadena de caracteres)
+(cadena de caracteres)
+(arreglo de reales)
+(booleano)
+
+La definición del registro correspondiente es:
+CLIENTE = REGISTRO
+nombre: cadena_de_caracteres
+teléfono: cadena_de_caracteres
+saldos: ARREGLO [1..12] DE reales
+moroso: booleano
+{Fin de la declaración del registro CLIENTE}
+La figura 1.30 muestra la estructura requerida.
+Para este caso el registro tiene un campo, saldos, que es un arreglo unidimensional
+de 12 elementos reales. Con el propósito de hacer referencia a ese campo, se procede de
+la siguiente manera:
+1.30
+
+CLIENTE
+
+con arreglos.
+
+I NOMBRE I ¡TELÉFONOI I
+
+SALDOS
+
+=
+
+I MOROSO I
+
+DDlJI[°]D
+123
+
+12
+
+36
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+variable_registro.id_campo[índice]
+Para tener acceso a los campos de la variable CL/ de tipo CLIENTE se debe seguir
+la secuencia:
+CL/.nombre
+CL/.teléfono
+Repetir con I desde 1 hasta 12
+CLI.saldos[I]
+CL/.moroso
+Las tres posibles combinaciones analizadas aquí: arreglos de registros, registros
+anidados y registros con arreglos, pueden presentarse de manera simultánea y en diferentes niveles en una misma estructura de datos. En estos casos, se recomienda que la
+estructura resultante sea comprensible y que no se complique demasiado el acceso a los
+datos individuales.
+
+1.6.5 Arreglos paralelos
+Por arreglos paralelos se entiende dos o más arreglos cuyos elementos se corresponden. Es decir, los componentes que ocupan una misma posición en diferentes arreglos
+tienen una estrecha relación semántica. Para ilustrar esta idea, a continuación se presentará un caso práctico y su solución, mediante arreglos paralelos.
+Supongamos que se conoce el nombre del alumno y la calificación obtenida por
+éste en un examen que fue aplicado a un grupo de 30 alumnos. Si se quisiera usar estos
+datos para generar información, por ejemplo, promedio del grupo, calificación más alta,
+nombre de los alumnos con calificación inferior al promedio, etc., se tendrían dos alternativas principales en el diseño de la solución.
+
+Uso de arreglos paralelos
+Si se utilizan arreglos paralelos para resolver este problema, se requiere de dos arreglos
+unidimensionales; en uno se almacenará el nombre de los alumnos, y en otro la calificación obtenida por éste en el examen. Es decir, a cada elemento del arreglo NOMBRES
+le corresponderá entonces uno del arreglo CALIFICACIÓN. Así, si se quiere hacer
+referencia a la calificación de OMBRES[I], se utilizará CALIFICACIÓN[I]. Observe
+la figura 1.31.
+López
+obtuvo una calificación de 9.5
+Martínez obtuvo una calificación de 5.8
+Torres
+obtuvo una calificación de 7.4
+Viasa
+
+obtuvo una calificación de 10.0
+
+A continuación se incluye un algoritmo que calcula el promedio del grupo e imprime el nombre de los alumnos que tengan calificación menor al promedio.
+'-'"
+
+FIGURA 1.31
+
+NOMBRES
+
+CALIFICAOO lES
+
+Arreglos paralelos.
+
+1
+
+1
+
+López
+1-------0...-----1
+2
+Martínez
+
+2
+
+3
+
+3
+
+1----------....1
+
+Torres
+
+30 If------v-i-a-sa----
+
+Algoritmo 1.11
+
+9.5
+5.8
+
+f---------;
+
+7.4
+
+30 1---1-0-.0---
+
+Arreglos_paralelos
+
+Arreglos_paralelos
+{Este algoritmo calcula el promedio del grupo e imprime el nombre de los alumnos con
+calificación menor al promedio}
+{NOMBRE YCALIFICACIÓN son variables de tipo arreglo. 1 es una variable de tipo entero.
+PROM y AC son variables de tipo real}
+
+1. Hacer AC E - O
+2. Repetir con 1 desde 1 hasta 30
+Leer NOMBRE[I] y CALIFICACIÓN[I]
+Hacer AC E - AC + CALIFICACIÓN[I]
+3. {Fin del ciclo del paso 2}
+{Se calcula el promedio del grupo}
+4. Hacer PROM E - ACl30
+5. Escribir "El promedio del grupo es": PROM
+{Búsqueda e impresión de los nombres de los alumnos con calificación inferior al
+promedio}
+
+6. Repetir con 1 desde 1 hasta 30
+6.1 Si (CALIFICACIÓN[I] < PROM) entonces
+Escribir NOMBRE[I]
+6.2 {Fin del condicional del paso 6.1 }
+7. {Fin del ciclo del paso 6}
+
+Uso de arreglos de registros
+Otra solución al problema sería utilizar un arreglo de registros. En este caso, cada componente del arreglo ALUMNO es un registro que tiene dos campos: NOMBRE y CALlF. Observe la figura 1.32.
+
+38
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+FIGURA 1.32
+
+ALUMNOS
+
+~IAsí:
+
+1
+r--N_O_M_B_RE_I CALIF I
+
+ALUMNOS[l].NOMBRE hará referencia al nombre del alumno I
+ALUMNOS [l].CALIF hará referencia a la calificación obtenida por el
+alumnoI
+
+El siguiente algoritmo presenta la solución al problema anterior mediante un arreglo de registros.
+Algoritmo 1.12 Arreglo_de_registros
+
+{Este algoritmo calcula el promedio del grupo e imprime el nombre de los alumnos con
+calificación menor al promedio}
+{ALUMNOS es un arreglo de registros. I es una variable de tipo entero. AC y PROM son
+variables de tipo real}
+1. Hacer AC E - O
+2. Repetir con I desde 1 hasta 30
+Leer ALUMNOS [l].NOMBRE y ALUMNOS [I].CALIF
+Hacer AC E - AC + ALUMNOS [I].CALIF
+3. {Fin del ciclo del paso 2}
+4. Hacer PROM E - AC/30
+S. Escribir "El promedio del grupo es"; PROM
+{Búsqueda e impresión de los alumnos con calificación inferior al promedio}
+6. Repetir con I desde 1 hasta 30
+6.1 Si (ALUMNOS[I].CALIF < PROM) entonces
+Escribir ALUMNOS [I].NOMBRE
+6.2 {Fin del condicional del paso 6.1}
+7. {Fin del ciclo del paso 6}
+
+1.7
+
+1.7
+
+RF
+
+F os
+
+e
+
+L
+
+39
+
+REGISTROS Y CLASES
+
+Los registros son las estructuras de datos que más se parecen al concepto de clase presentado. En la sección anterior se dijo que un registro almacena las principales características de un conjunto de objetos. Cada una de esas características constituye un campo
+del registro. Al establecer la relación con las clases, los campos representan los atributos. Por tanto, sólo se agregan los métodos --operaciones que pueden aplicarse sobre
+los campos- para completar la definición de una clase.
+La clase Registro como tal no se declara, porque lo que se requiere es una clase por
+cada registro. Es decir, si se desea representar a los clientes de una empresa, según el
+ejemplo visto en la sección anterior, desde el punto de vista de la programación orientada a objetos, se deberá definir una clase que contendrá tanto los atributos -lo que en
+registros se llaman campos- como todas las operaciones válidas para un cliente, por
+ejemplo, actualizar el saldo, cambiar el número telefónico, etcétera. Gráficamente la
+clase Cliente puede verse como se muestra en la figura 1.33.
+Un objeto de la clase Cliente es una instancia de la misma. Es decir, está representando a un cliente con un nombre, un número telefónico y un saldo específico.
+La notación de puntos utilizada en los registros -<variable_registro>.<campo>es similar a la usada en los lenguajes orientados a objetos para tener acceso a los miembros no privados de un objeto -<objeto>.<miembro>-. Al asumir que la variable
+CLI es un objeto de la clase Cliente previamente definida, se puede tener acceso a los
+miembros no privados de dicho objeto por medio de las instrucciones:
+o)
+
+CLI.ActualizarSaldo (NuevoSaldo)
+En este ejemplo se está invocando al método que actualiza el saldo del cliente. El
+método tiene un argumento que indica el nuevo valor que se asignará al atributo
+Saldo.
+
+b)
+
+CLI.CambiaTeléfono (NuevoTel)
+En este ejemplo se está invocando al método que actualiza el número telefónico del
+cliente. El método tiene un argumento que indica el nuevo valor que se asignará al
+atributo Teléfono.
+
+Cliente
+
+Nombre: cadena de caracteres
+Teléfono: cadena de caracteres
+Saldo: real
+ActualizarSaldo (argumentos)
+CambiaTeléfono (argumentos)
+
+40
+
+Capítulo 1
+
+T
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+EJERCICIOS
+Arreglos de una dimensión y arreglos paralelos
+1. En un arreglo unidimensional se ha almacenado el número total de toneladas de
+cereales cosechadas durante cada mes del año anterior. Escriba un programa que
+obtenga e imprima la siguiente información:
+a)
+b)
+
+c)
+
+El promedio anual de toneladas cosechadas.
+¿Cuántos meses tuvieron cosecha superior al promedio anual?
+¿Cuántos meses tuvieron cosecha inferior al promedio anual?
+
+2. En un arreglo unidimensional se almacenan las calificaciones finales de N alumnos
+de un curso universitario. Escriba un programa que calcule e imprima:
+a)
+b)
+
+c)
+d)
+
+El promedio general del grupo.
+Número de alumnos aprobados y reprobados.
+Porcentaje de alumnos aprobados y reprobados.
+Número de alumnos cuya calificación fue mayor o igual a 8.
+
+3. Dada una cadena de caracteres como dato, se desea saber el número de veces que
+aparecen las letras 'a', 'b' ,...,'z' y 'A', 'B' ,... ,'Z' en dicha cadena. Escriba un programa que resuelva el problema.
+a)
+b)
+
+Si usó arreglos, ¿cuántos necesitó? ¿Por qué?
+¿Existe otra forma de resolverlo?
+
+4. Dado un arreglo unidimensional de números enteros, ordenados crecientemente, escriba un programa que elimine todos los elementos repetidos. Considere que de haber valores repetidos, éstos se encontrarán en posiciones consecutivas del arreglo.
+5. Una compañía almacena la información relacionada con sus proveedores en los
+siguientes arreglos:
+PROVEEDORES
+
+J-
+
+PlI
+
+Cada PIes el nombre del proveedor i. Este arreglo está ordenado alfabéticamente.
+CIUDAD
+'--_ _C_1
+
+'--
+
+C2
+
+'--
+
+C3
+
+[
+
+JI..---
+
+C
+_"
+
+Cada c I representa el nombre de la ciudad en la que reside el proveedor i.
+,O",.:,.
+
+..... , ."
+
+"'
+
+..... f
+
+...,
+1
+
+.. (,
+
+.
+'
+
+NÚMERO DE ARTíCULOS
+a3
+
+[
+
+-------------------'
+
+l
+
+an
+
+Cada a¡ es el número de artículos diferentes que provee el proveedor i.
+Escriba un programa que pueda llevar a cabo las siguientes transacciones:
+a)
+
+b)
+
+e)
+
+d)
+
+e)
+
+Dado el nombre de un proveedor, informar el nombre de la ciudad en la que reside
+y el número de artículos que provee.
+Actualizar el nombre de la ciudad, en caso de que un proveedor cambie de domicilio. Los datos serán el nombre del proveedor y el nombre de la ciudad a la cual se
+mudó.
+Actualizar el número de artículos, manejados por un proveedor para el caso de que
+éste aumente o disminuya. Los datos serán el nombre del proveedor y la cantidad
+en la que aumenta ( +) o disminuye (- ) el total de artículos que provee.
+La compañía incorpora a un nuevo proveedor. Actualizar los arreglos sin alterar el
+orden de PROVEEDORES. Los datos serán el nombre del proveedor, el nombre de
+la ciudad y el total de artículos que provee.
+.
+La compañía da de baja a un proveedor. Actualizar los arreglos. El dato será el
+nombre del proveedor.
+
+6. Una inmobiliaria tiene información sobre departamentos en renta almacenada en
+dos arreglos:
+EXTENSiÓN
+
+_ _ _e_i
+
+e_2
+
+-JI=
+
+e_3 _ _
+
+l'---_e
+ll
+
+---l
+
+El arreglo EXTENSIÓN almacena la superficie, en metros cuadrados, de cada uno
+de los N departamentos.
+PRECIO
+
+El arreglo PRECIO almacena los precios de alquiler de los N departamentos. Este
+arreglo está ordenado de manera creciente. Considere que no existen departamentos
+con igual superficie y distintos precios.
+Escriba un programa que pueda llevar a cabo las siguientes operaciones:
+a)
+
+b)
+
+Llega un cliente a la inmobiliaria y solicita rentar un departamento. Si existe alguno
+con superficie mayor o igual a la buscada y precio menor o igual al buscado, se dará
+de baja al departamento seleccionado.
+Se vence un contrato y el cliente no desea renovarlo. Se de en actual.iz:ti ros arreglos.
+
+42
+
+Capítulo 1
+
+ESTRuaURAS FUNDAMENTALES DE DATOS
+
+7. Se tiene la siguiente información:
+CT
+
+J'---_a,,-----:
+En el arreglo CT se almacenan los nombres de N centros turísticos del país.
+H
+b
+
+[
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _3_ _--J
+
+J
+
+b
+
+"
+
+'------
+
+En el arreglo H se almacena el número de habitaciones de cada tipo, sencilla
+doble, de cada centro turístico.
+Por ejemplo:
+H[l] guarda el número de habitaciones sencillas del centro 1.
+H[2] guarda el número de habitaciones dobles del centro 1.
+H[3] guarda el número de habitaciones sencillas del centro 2.
+H[ 4] guarda el número de habitaciones dobles del centro 2.
+
+etcétera.
+
+TR
+_ _ _C_
+t
+
+C_
+2
+
+--J[
+
+C_
+3_ _
+
+En el arreglo TR se almacena el número total de restaurantes por centro turístico.
+Deberá desarrollar un programa que proporcione la siguiente información:
+a)
+b)
+
+c)
+d)
+
+El nombre del centro turístico que cuenta con más restaurantes.
+El nombre del centro turístico que cuenta con más habitaciones, teniendo en cuenta
+las sencillas y las dobles.
+Dado el nombre de un centro turístico como dato, informar cuántas habitacione
+tiene: sencillas, dobles y el total.
+El nombre del centro turístico que más restaurantes tiene en relación con el número
+de habitaciones.
+
+8. Se tienen tres arreglos: SUR, CENTRO Y NORTE que almacenan los nombres de
+los países de Sur, Centro y Norteamérica, respectivamente. Los tres arreglos están
+ordenados alfabéticamente.
+Escriba un programa que mezcle los tres arreglos anteriores, formando un
+cuarto arreglo, AMÉRICA, en el cual aparezcan los nombres de todos los paíse
+del continente ordenados alfabéticamente.
+9. Se tienen dos arreglos: CINES y TEATROS. El primero almacena los nombre
+de todos los cines de la ciudad. Está ordenado alfabéticamente de manera ascendente:
+
+'"
+
+•-
+
+\ ~
+
+" 'i':,
+
+-
+
+- - - - --
+
+-15
+
+CINES[l] :5 CINES[2] :5 ... :5 CINES [N]
+El segundo arreglo guarda los nombres de todos los teatros de la ciudad. Está ordenado alfabéticamente de manera descendente:
+TEATROS[l] ~ TEATROS[2] ~ oo. ~ TEATROS [K]
+Escriba un programa que mezcle estos arreglos formando un tercero, ENTRETENIMIENTOS, que quede ordenado alfabéticamente de manera ascendente.
+10. Se tienen registradas las calificaciones obtenidas en un examen a SO alumnos. Los
+datos son cal!, cal 2, oo., cal so ' donde cal¡ es un número entero comprendido entre los
+valores Oy 10 (O :5 cal¡ :5 10).
+Escriba un programa que calcule e imprima la frecuencia de cada uno de los
+posibles valores.
+La salida del programa se muestra a continuación:
+Calificación
+
+Frecuencia
+
+o
+
+lALUMNO
+
+]
+
+2
+3
+
+4 ALUMNOS
+
+4
+
+2 ALUMNOS
+
+10
+
+3 ALUMNOS
+
+11. Escriba sus propios algoritmos para insertar, eliminar o modificar un elemento de
+un arreglo:
+a)
+b)
+
+Si el arreglo está desordenado.
+Si el arreglo está ordenado.
+
+12. Dado un arreglo unidimensional de tipo entero que contiene calificaciones de exámenes de alumnos, construya un programa que calcule lo siguiente:
+a)
+b)
+
+c)
+d)
+
+Media aritmética. Se calcula como la suma de los elementos entre el número de
+elementos.
+Varianza. Se calcula como la suma de los cuadrados de las desviaciones de la media, entre el número de elementos.
+Desviación estándar. Se calcula como la raíz cuadrada de la varianza.
+Moda. Se calcula al obtener el número con mayor frecuencia.
+
+13. Escriba un programa que almacene en un arreglo unidimensional los primeros Onúmeros perfectos. Un número se considera perfecto, si la suma de los di\"Íso e..~
+to el mismo es igual al propio número. El 6, por ejemplo, es un número perf'"
+
+44
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+Arreglos multidimensionales
+14. Sean los arreglos bidimensionales A(M x N) y B(M x N)
+Donde: 1 :s M :s 10,
+1 :s N:s 20,
+a¡j y b¡j son reales.
+Escriba un programa que calcule C(M x N) = A(M x N) + B(M x N).
+
+15. Sean los arreglos bidimensionales A(M x N) y B(N x P)
+Donde: 1 :s M :s 10,
+1 :s N:s 10,
+1 :s P :s 5,
+a¡j y b¡j son reales.
+Escriba un programa que calcule C(M x P) =A(M x N) * B(N x P)
+
+16. Escriba un programa que llene de ceros una matriz A(N x N) excepto en la diagonal
+principal donde debe asignar l. Si N = 4, la matriz debe quedar:
+2
+
+3
+
+4
+
+1
+
+O
+
+O
+
+O
+
+2
+
+O
+
+1
+
+O
+
+O
+
+3
+
+O
+
+O
+
+1
+
+O
+
+4
+
+O
+
+O
+
+O
+
+1
+
+17. Escriba un programa que intercambie por renglón los elementos de un arreglo bidimensional. Los elementos del renglón 1 deben intercambiarse con los del renglón
+N, los del renglón 2 con los del N - 1, Yasí sucesivamente.
+
+Por ejemplo, si A es:
+1
+
+2
+
+3
+
+4
+
+1
+
+4
+
+5
+
+-5
+
+2
+
+O
+
+87
+
+1
+
+O
+
+3
+
+2
+
+4
+
+10
+
+3
+
+4
+
+9
+
+5
+
+7
+
+5
+
+El resultado de la operación debe ser:
+1
+
+2
+
+3
+
+4
+
+9
+
+5
+
+7
+
+5
+
+2
+
+2
+
+4
+
+10
+
+3
+
+3
+
+O
+
+87
+
+1
+
+O
+
+4
+
+1
+
+4
+
+5
+
+-5
+
+18. Dado como dato el arreglo bidimensional A(M x N), que almacena números reales.
+Donde: 1 s M s 20,
+1 sNs20,
+Escriba un programa que encuentre e imprima el valor más grande almacenado
+en cada una de las columnas y en cada uno de los renglones del arreglo. Su programa debe imprimir, junto al valor encontrado, la columna o renglón en la cual se
+encontró.
+
+19. Se tienen los costos de producción de tres departamentos: dulces, bebidas y conservas, correspondientes a los 12 meses del año anterior.
+dulces
+
+bebidas
+
+conservas
+
+enero
+febrero
+
+d¡,¡,mb"
+
+11----------------
+
+Escriba un programa que pueda proporcionar la siguiente información:
+¿En qué mes se registró el mayor costo de producción de dulces?
+Promedio anual de los costos de producción de bebidas.
+¿En qué mes se registró el mayor costo de producción en bebidas, y en qué mes el
+menor costo?
+d) ¿Cuál fue el rubro que tuvo el menor costo de producción en diciembre?
+
+a)
+b)
+e)
+
+20. Se tiene una tabla con las calificaciones obtenidas por 30 alumnos en seis exámenes
+diferentes:
+2
+
+6
+
+I I F =R
+Escriba un programa que calcule:
+
+-46
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+a)
+b)
+
+e)
+d)
+e)
+
+El promedio general de calificaciones de los 30 alumnos, considerando los
+exámenes.
+El alumno que obtuvo la mayor calificación en el tercer examen.
+El alumno, si lo hubiera, que obtuvo la mayor calificación en el primero y en ~
+sexto exámenes.
+Dado el número que identifica a un alumno, informar en qué examen logró la me
+calificación.
+¿En cuál examen fue más alto el promedio de los 30 alumnos?
+
+21. Escriba un programa que genere e imprima un cuadrado mágico de dimensión.
+Observe que N es entero, positivo e impar. Un cuadrado mágico es una matriz Clllidrada de orden N, que contiene a los números naturales del 1 al N * N, Ydonde _
+suma de cualquiera de los renglones, columnas o diagonales principales es siemp la misma. Puede utilizar los siguientes pasos para generar un cuadrado mágico:
+a)
+b)
+
+e)
+d)
+
+El número 1 se coloca en la casilla central del primer renglón.
+El siguiente número se coloca en la casilla correspondiente al renglón anterior .
+columna posterior.
+El renglón anterior al primero es el último, y la columna posterior a la última es
+primera.
+Si el número es un sucesor de un múltiplo de N, no se aplica la regla 2, sino que
+coloca en la casilla del renglón posterior y en la misma columna.
+Si N = 5, el cuadrado generado debe quedar:
+2
+
+3
+
+4
+
+5
+
+17
+
+24
+
+1
+
+8
+
+15
+
+2
+
+23
+
+5
+
+7
+
+14
+
+16
+
+3
+
+4
+
+6
+
+13
+
+20
+
+22
+
+4
+
+10
+
+12
+
+19
+
+21
+
+3
+
+5
+
+11
+
+18
+
+25
+
+2
+
+9
+
+22. Sean A(M x N) Y B(N) arreglos de dos y una dimensión, respectivamente. Escribe.
+un programa que asigne valores a B, a partir de A, teniendo en cuenta los siguiente_
+criterios:
+n
+
+a)
+
+b="a.
+,L,.,.
+1
+
+1,)
+
+Si i es impar
+
+j=!
+n
+
+b)
+
+bI = ",L,.,. a1,). * a·1-! ,J. * a·1-! ,j.
+
+Si i es par
+
+j-!
+
+23. Sean A(M x N) YB(N) dos arreglos de dos y una dimensión, respectivamente.
+
+7
+Escriba un programa que asigne valores a A, a partir de B, teniendo en cuenta lo
+siguientes criterios:
+
+a)
+
+b)
+
+aIJ.. = bi
+a=O
+IJ
+
+Si .:5 J.
+Si. > J.
+l
+
+l
+
+Combinaciones entre arreglos y registros
+24. El departamento de personal de una escuela tiene registros del nombre, sexo y edad
+de cada uno de los profesores adscritos ahí.
+SEXO
+
+NOMBRE
+
+EDAD
+
+Escriba un programa que calcule e imprima los siguientes datos:
+a)
+b)
+e)
+d)
+e)
+
+Edad promedio del grupo de profesores.
+Nombre del profesor más joven del grupo.
+Nombre del profesor de más edad.
+Número de profesoras con edad mayor al promedio.
+Número de profesores con edad menor al promedio.
+
+25. Resuelva el problema anterior con tres arreglos paralelos. Compare sus soluciones.
+SEXO
+
+NOMBRE
+
+2
+
+2
+
+EDAD
+
+2
+
+26. En una escuela por cada alumno se tienen los siguientes datos:
+
+t
+t
+t
+t
+
+Nombre
+Matrícula
+Número de semestres cursados
+Calificación promedio por semestre
+Escriba un programa que, dada la información de N alumnos, pueda realiz..ar
+siguientes operaciones:
+
+48
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+a)
+b)
+e)
+
+Listar nombre y matrícula de estudiantes con promedios generales mayores o iguales a 8.
+Actualizar los campos que correspondan cuando un estudiante ha concluido un
+semestre.
+Listar nombre y matrícula de estudiantes que hayan obtenido 9 o más de calificación en todos los semestres cursados hasta el momento.
+
+27. Una compañía distribuye N productos a distintos comercios de la ciudad. Para ello
+almacena en un arreglo toda la información relacionada con su mercancía:
+
+t
+t
+t
+t
+t
+
+Clave
+Descripción
+Existencia
+Mínimo a mantener de existencia
+Precio unitario
+Escriba un programa que efectúe las siguientes operaciones:
+
+a)
+
+Venta de un producto: se deben actualizar los campos que correspondan y verificar
+que la nueva existencia no esté por debajo del mínimo. (Datos: clave, cantidad vendida.)
+b) Reabastecimiento de un producto: se deben actualizar los campos que correspondan. (Datos: clave, cantidad comprada.)
+e) Actualizar el precio de un producto. (Datos: clave, porcentaje de aumento.)
+el) Informar sobre un producto: se deben proporcionar todos los datos relaCionados
+con un producto. (Dato: clave.)
+
+28. Al momento de su ingreso al hospital, a un paciente se le solicitan los siguientes
+datos:
+Nombre
+Edad
+Sexo
+Domicilio:
+
+t
+t
+
+• Calle
+• Número
+• Ciudad
+
+Teléfono
+Seguro (este campo tendrá el valor VERDADERO si el paciente tiene seguro médico y FALSO en otro caso)
+Escriba un programa que pueda llevar a cabo las siguientes operaciones:
+
+(/)
+!J)
+
+Listar los nombres de todos los pacientes hospitalizados.
+Obtener el porcentaje de pacientes hospitalizados en las siguientes categorías (dadas por la edad):
+
+Niños: hasta 13 años.
+Jóvenes: mayores de 13 años y menores de 30.
+Adultos: mayores de 30 años.
+()
+l)
+
+e)
+
+Obtener el porcentaje de hombres y de mujeres hospitalizados.
+Dado el nombre de un paciente, listar todos los datos relacionados con dicho paciente.
+Calcular el porcentaje de pacientes que poseen seguro médico.
+
+29. Una inmobiliaria tiene información sobre departamentos en renta. De cada departamento se conoce:
+•
+•
+•
+•
+•
+
+Clave: es un entero que identifica al inmueble.
+Extensión: superficie del departamento, en metros cuadrados.
+Ubicación: (excelente, buena, regular, mala).
+Precio: es un real.
+Disponible: VERDADERO si está disponible para la renta y FALSO si ya está ren-
+
+tado.
+Diariamente acuden muchos clientes a la inmobiliaria solicitando información.
+Escriba un programa capaz de realizar las siguientes operaciones sobre la información disponible:
+(.) Liste los datos de todos los departamentos disponibles que tengan un precio inferior
+o igual a cierto valor P.
+h) Liste los datos de los departamentos disponibles que tengan una superficie mayor o
+igual a un cierto valor dado E y una ubicación excelente.
+e) Liste el monto de la renta de todos los departamentos alquilados.
+d) Llega un cliente solicitando rentar un departamento. Si existe alguno con una superficie mayor o igual a la deseada, con precio y ubicación que se ajustan a las
+necesidades del cliente, el departamento se rentará. Actualizar los datos que correspondan.
+e) Se vence un contrato si no se renueva, actualizar los datos que correspondan.
+.f) Se ha decidido aumentar las rentas en un X%. Actualizar los precios de las rentas
+de los departamentos no alquilados.
+
+Problemas interesantes
+(Decida el lector qué estructura de datos debe utilizar para resolverlos.)
+
+30. Escriba un programa que lea un número romano e imprima su equivalente en arábigo.
+Recuerde que:
+1= 1
+v= 5
+
+50
+
+Capítulo 1
+
+ESTRUCTURAS FUNDAMENTALES DE DATOS
+
+x=
+
+10
+
+L =
+50
+e = 100
+D =
+500
+M= 1000
+
+31. Escriba un programa que calcule e imprima los números perfectos comprendidos
+entre dos números A y B. Un número es perfecto si la suma de sus divisores, excepto él mismo, es igual al propio número.
+32. Escriba un subprograma que reciba como datos el nombre de un día de la semana y
+un número entero N, positivo o negativo, e imprima el día de la semana correspondiente a N días después -positivo- o N días antes -negativo- del día dado.
+33. Lo mismo que en el problema 35, pero ahora con respecto a un mes.
+34. Escriba un programa que calcule e imprima los números primos menores que cierto
+número dado N.
+35. Escriba un programa que calcule e imprima los números primos gemelos menare
+que cierto número dado N. Dos números son primos gemelos si son números primos con una diferencia entre ellos de exactamente 2. Por ejemplo, 3 y 5 son primo
+gemelos.
+
+Capítulo
+ARREGLOS
+MULTIDIMENSIONALES
+REPRESENTADOS
+EN ARREGLOS
+UNIDI MENSIONALES
+2.1
+
+INTRODUCCiÓN
+
+Actualmente la mayoría de los lenguajes de programación de alto nivel proporcionan al
+usuario medios eficaces para almacenar y recuperar elementos de arreglos bidimensionales, tridimensionales e incluso de más de tres dimensiones. El usuario del lenguaje no
+debe preocuparse por detalles específicos del almacenamiento ni por el manejo físico
+del dato. Su atención se debe concentrar solamente en el tratamiento lógico de este
+último; es decir, en encontrar una estructura de datos que permita resolver ciertos problemas de manera óptima.
+Por otra parte, las computadoras no pueden almacenar directamente un arreglo multidimensional. Su representación en memoria debe ser lineal-a cada elemento le sigue
+un único elemento-, mediante un bloque de posiciones sucesivas.
+En este capítulo se estudiarán algunas técnicas utilizadas para el almacenamiento
+lineal de arreglos multidimensionales.
+
+2.2
+
+ARREGLOS BIDIMENSIONALES
+
+Los lenguajes de programación pueden representar un arreglo bidimensional A. de m x
+n elementos, mediante un bloque de m x n posiciones sucesivas. La distribución
+elementos se puede realizar de dos formas diferentes: renglón a renglón. 1l.a.u!.>LJt.::l 'I.:......~
+
+52
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+bién ordenación por renglones, que utilizan la mayoría de los lenguajes de programación, por ejemplo, BASIC, COBOL, PASCAL, C, etcétera, o bien columna a columna,
+llamada también ordenación por columnas, que utiliza FORTRAN.
+Sea el arreglo bidimensional A de 2 x 3 elementos (fig. 2.1a). Su representación en
+un arreglo unidimensional ordenado por renglones se observa en la figura 2.1b, mientras
+que el que corresponde a un arreglo unidimensional ordenado por columnas se observa
+en la figura 2.1c.
+Una vez almacenados los valores de manera lineal se requiere una fórmula que proporcione la posición en el arreglo unidimensional que le corresponde a cada elemento
+del arreglo bidimensional original.
+Sean, entonces, m el número de renglones y n el número de columnas de un arreglo
+bidimensional. Por otra parte, i y} indican el renglón y columna, respectivamente, de
+la posición del elemento que se quiere ubicar. La fórmula para localizar un elemento
+determinado, en un arreglo unidimensional ordenado por renglones, es la siguiente:
+
+LOC(A[i,}]) = POSINI + n * (i - 1) + (j - 1)
+
+Fórmula 2.1
+
+Donde POSINI, primer término de la fórmula 2.1, representa la posición del arreglo unidimensional a partir de la cual se encuentra almacenado el arreglo bidimensional. En general, para llegar a cualquier renglón i se deben contabilizar los elemento
+correspondientes a (i - 1) renglones completos. Este resultado se obtiene mediante la
+operación n * (i - 1), segundo término de la fórmula 2.1. Cuando se llega al renglón
+correspondiente se deben contabilizar los (j - 1) elementos necesarios para llegar a la
+columna}, tercer término de la fórmula 2.1. La suma de los tres términos proporciona la
+localización del elemento i,} correspondiente, en un arreglo unidimensional ordenado
+por renglones.
+Así, por ejemplo, si desearnos localizar el elemento A[2, 1] del arreglo de la figura
+2.1a hacemos:
+LOC(A[2, 1]) = 1 + 3 * (2 - 1) + (1 - 1) = 4
+F GURA 21
+Representación lineal de
+arreglos bidimensionales.
+al Arreglo bidimensional.
+bl Ordenación por
+renglones en un arreglo
+unidimensional.
+el Ordenación por
+columnas en un arreglo
+unidimensional.
+
+Arreglo bidimensional
+All,l]
+
+A[1,2J
+
+A[1,3]
+
+A[2,1]
+
+A[2,2J
+
+A[2,3]
+
+A[1..2, 1..3J
+a)
+
+Ordenación por renglones
+
+Ordenación por columnas
+
+I A[l,l] I A[2,1] I A[1,2] I A[2,2] I A[1,3] I A[2,3]
+b)
+
+e)
+
+2
+
+h
+
+Ahora bien, si el arreglo se encuentra almacenado por columnas, la fórmula para
+localizar un elemento determinado es:
+
+LOCCA[i,j]) = POSINI + m * (j - 1) + (i - 1)
+
+Fórmula 2.2
+
+En este caso, POSINI, primer término de la fórmula 2.2, representa, como en el
+caso anterior, la posición del arreglo unidimensional a partir de la cual se encuentra
+almacenado el arreglo bidimensional. En general, para llegar a cualquier columna j,
+primero se deben contabilizar los elementos correspondientes a (j - 1) columnas completas. Este resultado se obtiene con la operación m * (j - 1) segundo término de la
+fórmula 2.2. Luego que se llega a la columna deseada, se deben considerar los (i - 1)
+elementos necesarios para llegar al renglón i, tercer término de la fórmula 2.2. La suma
+de los tres términos define la localización del elemento i, j correspondiente, en un arreglo unidimensional ordenado por columnas.
+Así, por ejemplo, si se desea localizar el elemento A [1, 3] del arreglo presentado en
+la figura 2.la se hace:
+LOCCA[l, 3]) = 1 + 2 * (3 - 1) + (1 - 1) = 5
+
+emplo 2.1
+
+Considere el arreglo bidimensional COSTOS de 12 renglones y tres columnas, correspondiente a los costos mensuales de producción de tres departamentos: dulces, conservas y bebidas, de una fábrica. Considere también que aquél se encuentra ordenado
+por renglones a partir de la posición 180, en un arreglo unidimensional llamado COSo
+Analice los siguientes casos:
+({)
+
+Se necesita conocer el costo de producción del departamento de conservas, durante
+agosto.
+Se procede de esta forma:
+Hacer 1 ~ 8, J ~ 2
+Escribir COS[180 + 3 * (I - 1) + (J - 1)]
+{El resultado del cálculo es 202}
+
+b)
+
+Se necesita el costo de producción anual del departamento de bebidas.
+Los pasos a seguir son:
+HacerSUM ~ O
+Repetir con 1 desde 1 hasta 12
+Hacer SUM ~ SUM + COS[180 + 3 * (I - 1) + (3 - 1)]
+
+()
+
+Se necesita el costo total de producción de los tres departamentos, durante septiembre.
+Los pasos a seguir son:
+HacerSUM ~ O
+Repetir con J desde 1 hasta 3
+Hacer SUM ~ SUM + COS[180 - 3 * (9 - 1) + (J - 1)]
+
+54
+
+Capítulo 2
+
+Ejemplo 2.2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+Supongamos que se tiene almacenado el arreglo bidimensionalA[1..6, 1..4] en dos arreglos unidimensionales diferentes. El primero ordenado por renglones a partir de la posición 1, y el segundo ordenado por columnas a partir de la posición 20. Considere los
+siguientes casos:
+a)
+
+Se necesita obtener la posición del elemento A[5, 3] en el arreglo unidimensional
+ordenado por renglones.
+Se procede de esta forma:
+
+b)
+
+Se necesita obtener la posición del elemento A[4, 3] en el arreglo unidimensional
+ordenado por columnas.
+LOC(A[4,3]) = ~ + ~*(3-l);+-(4-l),= 35
+POSINI m (j -1)
+(¡ -1)
+
+2.3
+
+ARREGLOS DE MÁS DE DOS DIMENSIONES
+
+Los lenguajes de programación de alto nivel almacenan un arreglo A de N dimensiones, siendo N> 2 y, por tanto, de mi x m 2 x oo. X mil elementos, mediante un bloque de
+mi x m 2 x oo. X mil posiciones sucesivas. Esta representación, al igual que en el caso de
+arreglos bidimensionales, se puede realizar de dos formas diferentes: renglón a renglón.
+llamada también ordenación por renglones, y columna a columna, llamada también
+ordenación por columnas.
+Sea A un arreglo tridimensional de 2 x 3 x 2 elementos (fig. 2.2a). Su representación en un arreglo unidimensional ordenado por renglones puede observarse en 1
+figura 2.2b, mientras que la que corresponde a un arreglo unidimensional ordenado po
+columnas se observa en la figura 2.2c.
+Una vez almacenados los valores de manera lineal, se requiere calcular la posición
+de cualesquiera de los elementos guardados en el arreglo unidimensional. Para ello ~
+necesita primero obtener los índices (K), los tamaños de las dimensiones (1') y los índices efectivos (lE) correspondientes. Cabe aclarar que un índice efectivo (lE) se calcul~
+como la diferencia del índice K¡ correspondiente y el límite inferior de la dimensión i.
+donde i varía desde 1 hasta N, siendo N el número de dimensiones del arreglo multidimensional.
+La forma de localizar un elemento determinado en un arreglo ordenado por rengl~
+nes es:
+
+Fórmula 2':
+
+2 3
+
+ARRE"
+
+S;:le
+
+Arreglo tridimensional
+
+::iURA 2.2
+esentación lineal de
+_ los de más de dos
+:ensiones, a) Arreglo trisional. b) Ordenación
+'eI1glones en un arreglo
+ensional. c) Orde'litXlI1 por columnas en un
+unidimensional.
+
+A[I,I,2] A[I,2,2] A[~,J;2Íl
+PLANOS
+
+A[2,l,2] A[2,2,2] A(2,3,2]
+
+, A[1..2, 1..3, 1..2]
+A(l,l,l] A[1,2,l] A[l,3,1]
+RENGLONES
+[
+
+A[2,J,l] A[2,2,1] A[2,3,l]
+I
+
+COLUMNAS
+
+a)
+
+Ordenación por renglones
+
+b)
+
+Ordenación por columnas
+
+e)
+
+Supongamos que se desea localizar el elemento A[2, 3, 1] del arreglo presentado
+en la figura 2.2a. En primer lugar, se realizan los siguientes cálculos para obtener los ~
+y los lE;:
+TI =límsup¡ -líminf¡ + 1 = 2 - 1 + 1 = 2
+T2 = límsuP2 - lírninf2 + 1 = 3 - 1 + 1 = 3
+T3 = límsuP3 - líminf3 + 1 = 2 - 1 + 1 = 2
+
+IE I = K¡ - líminf¡ = 2 - 1 = 1
+IE2 =K 2 - líminf2 = 3 - 1 = 2
+IE3 =K 3 -líminf3 = 1 - 1 = O
+Luego se aplica la fórmula 2.3 para obtener la posición correspondiente del elemento en un arreglo unidimensional ordenado por renglones. Se procede así:
+LOC(A[2, 3, 1]) = 1 + ((l * 3 + 2) * 2 + O) = 11
+Para calcular la posición del elemento A[l, 2, 2] se realizan las siguientes operaciones para obtener los ~ -se usan los generados en el caso anterior- los IE.~
+
+56
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+IE¡ = K¡ - líminf¡ = 1 - 1 = O
+IEz = Kz - líminfz = 2 - 1 = 1
+IE3 = K 3 - líminf3 = 2 - 1 = 1
+. y luego se aplica la fórmula 2.3 para obtener la posición requerida.
+
+LOC(A[l, 2, 2]) = 1 + ((O *3 + 1) * 2 + 1) = 4
+Ahora bien, si el arreglo se encuentra almacenado por columnas, la forma de localizar un elemento es:
+.................................................................................................................................................................. ·····················T
+
+LOC( A
+
+[~J) = POSINI + (( ((lEn * Tn_¡ + IEn_¡) * Tn_ + IE * Tz + ... + IE z ) * 1; + IE¡) Fórmula 2.4
+Z
+
+3)
+
+Supongamos que se desea encontrar el elemento A[2, 3, 1] del arreglo presentado
+en la figura 2.2a. Se tienen que calcular primero los -se usan los generados anteriormente- y los IE¡ correspondientes:
+
+r;
+
+IE¡ = K¡ - líminf¡ = 2 - 1 = 1
+IEz = K z - líminf2 = 3 - 1 = 2
+IE3 = K 3 - líminf3 = 1 - 1 = O
+y posteriormente se aplica la fórmula 2.4 para obtener la posición del elemento A[2, 3.
+1], en un arreglo unidimensional ordenado por columnas.
+
+LOC(A[2, 3, 1]) = 1 + ((O * 3 + 2) * 2 + 1) = 6
+Si se quiere calcular la posición del elemento A[l, 2, 2], se realizan las siguiente_
+operaciones para obtener los -se usan los generados anteriormente- y los IE¡:
+
+r;
+
+TI =2
+Tz = 3
+
+T 3 =2
+
+IE¡ = K¡ - líminf¡ = 1 - 1 =O
+IEz = Kz - líminfz = 2 - 1 = 1
+IE3 = K3 - líminf3 = 2 - 1 = 1
+
+y luego se aplica la fórmula 2.4 para obtener la posición requerida.
+
+LOC(A[l, 2, 2]) = 1 + ((1 * 3 + 1) * 2 + O) = 9
+
+Ejemplo 2.3
+
+Considere el arreglo tridimensional COSTOS de 12 x 3 x 5, correspondiente a los cotos de producción mensuales en tres departamentos: dulces, conservas y bebidas, de
+una fábrica, en los últimos cinco años, desde 2001 hasta 2005. Considere también que
+aquél se encuentra ordenado por renglones a partir de la primera posición en un arregle
+unidimensional llamado COSo Analice los siguientes casos:
+a)
+
+Se necesita la posición en el arreglo COS donde se encuentra el costo de producciódel departamento de bebidas, durante agosto y durante el año de 2004.
+
+2.3
+
+A-
+
+57
+
+Se obtienen los ~ y los IE¡ correspondientes:
+TI = límsuPI -líminf¡ + 1 = 12 - 1 + 1 = 12
+T2 = límsuP2 - líminf2 + 1 = 3 - 1 + 1 = 3
+T3 = límsuP3 - líminf3 + 1 = 5 - 1 + 1 = 5
+
+IE I = K¡ - líminfl = 8 - 1 =7
+IE 2 = K2 - líminf2 = 3 - 1 =2
+IE3 =K 3 - líminf3 =4 - 1 = 3
+y luego se procede de la siguiente forma:
+
+LOC(COSTOS[8, 3,4]) = 1 + ((7 * 3 + 2) * 5 + 3) = 119
+h
+
+Se necesita el costo de producción del departamento de conservas, durante 2003.
+Se obtienen los ~ -se usan los generados en el inciso a)- y los IE¡ correspondientes:
+TI = 12 IE I = 1 desde O hasta 11
+T2 = 3 IE2 = K 2 - liminf2 = 2 - 1 = 1
+T) = 5 lE) =K 3 - liminf3 = 3 - 1 = 2
+y luego se realizan los siguientes pasos:
+
+Hacer SUM E- O
+Repetir con l desde Ohasta 11
+Hacer SUM E- SUM + COS(l + ((1 * 3 + 1) * 5 + 2)]
+el
+
+Se necesita el costo total de producción de los tres departamentos, durante septiembre de 2005.
+Se obtienen los ~ -se usan los generados en el inciso a}- y lo lE, correspondientes:
+TI = 12 IE I =K I - líminf¡ = 9 - 1 = 8
+T2 = 3 IE2 =l desde O hasta 2
+T3 = 5 IE3 = K3 - líminf3 = 5 - 1 = 4
+y luego se aplican los siguientes pasos:
+
+Hacer SUM E- O
+Repetir con l desde Ohasta 2
+Hacer SUM E- SUM + COS(l + ((8 * 3 + l) * - + 4)]
+d)
+
+Se necesita el costo total de producción de los tres departamentos durante todo
+2004.
+Se obtienen los ~ -se usan los generados en el inciso a)- y los IE¡ correspondientes:
+
+e
+
+58
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+= 12 IE¡ =1 desde Ohasta 11
+T2 = 3 IE2 =J desde Ohasta 2
+T3 = 5 IE3 = K 3 -líminf3 = 4 - 1 = 3
+
+TI
+
+y luego se aplican los siguientes pasos:
+
+Hacer SUM -- O
+Repetir con 1 desde O hasta 11
+Repetir con J desde O hasta 2
+Hacer SUM -- SUM + COS(l + ((I * 3 + 1] * 5 + 3)]
+
+Ejemplo 2.4
+
+Supongamos que se tiene almacenado el arreglo de cuatro dimensiones A[1..11, 1..5.
+1..3, 1..5] en dos arreglos unidimensionales diferentes. El primero ordenado por renglones a partir de la posición 1 y el segundo por columnas a partir de la posición 820.
+Considere los siguientes casos:
+a)
+
+Se necesita la posición del elemento A[9, 2, 2, 4] en el arreglo unidimensional ordenado por renglones.
+Primero se obtienen los ~ y los IE¡ correspondientes:
+
+T¡
+
+=límsup¡ -límínf¡ + 1 = 11 - 1 + 1 = 11
+
+T2 = límsuP2 - líminf2 + 1 = 5 - 1 + 1 = 5
+T3 = límsuP3 - lírninf3 + 1 = 3 - 1 + 1 = 3
+T4 = límsuP4 -lírninf4 + 1 = 5 - 1 + 1 = 5
+
+IE¡ = K¡ - Iírninf¡ = 9 - 1 = 8
+[E2 = K 2 - lírninfl = 2 - 1 = 1
+IE3 =K 3 - Iírninf3 =2 - 1 = 1
+IE4 =K 4 - lírninf4 =4 - 1 = 3
+y luego se procede de esta manera:
+
+LOC(A[4, O, 2,8]) = 1 + (((8 * 5 + 1) * 3 + 1) * 5 + 3) = 624
+b)
+
+Se necesita la posición del elemento A[10, 1, 2, 1] en el arreglo unidimensioIl!..
+ordenado por columnas.
+Primero se obtienen los ~ -se usan los generados en el inciso a)- y los fE
+correspondientes:
+TI = 11
+T2 = 5
+T3 = 3
+T4 = 5
+
+IE I = K¡ -líminfl = 10 - 1 = 9
+IEl = Kl -líminf2 = 1 - 1 = O
+IE3 = K3 - líminf3 = 2 - 1 = 1
+[E4 =K 4 -lírninf4 = 1 - 1 =O
+
+y luego se procede así:
+
+LOC(A[5, - 1, 2, 5]) = 820 + (((O * 3 + 1) * 5 + O) * 11 + 9) = 884
+
+2.4
+
+2.4
+
+59
+
+MATRICES POCO DENSAS
+
+Matriz representa un término matemático que se utiliza para indicar un conjunto de elementos organizados por medio de renglones y columnas. Es equivalente al término arreglo bidimensional utilizado en computación. Este término se emplea en esta sección,
+fundamentalmente porque a los arreglos bidimensionales poco densos se les conoce
+mucho más como matrices poco densas.
+Poco denso índica proporción muy alta de ceros entre los elementos de la matriz.
+Observe la matriz A de 5 x 7 elementos de la figura 2.3.
+Es fácil darse cuenta de que esta matriz tiene gran cantidad de ceros. Siendo precisos, 71 % de sus elementos son ceros. Piense el lector qué ocurriría si en lugar de tener
+una matriz de 5 x 7 se tuviera una matriz de 500 x 800 y la mayoría de sus elementos
+fueran iguales a cero. Con el porcentaje anterior y para este caso en particular, se tendrían 284 000 elementos iguales a cero.
+Una situación como ésta exige que se haga un uso más eficiente del espacio de
+memoria. Con ese propósito existen diversos métodos para almacenar sólo los valores
+diferentes de cero de una matriz poco densa. A continuación presentamos dos de los
+más usados.
+
+Arreglo de registros
+Se utiliza un arreglo unidimensional, donde cada elemento representa un registro formado por tres campos: uno para guardar el renglón donde se encontró el valor diferente
+de cero; otro para guardar la columna, y el tercero para guardar el valor del elemento
+distinto de cero de la matriz.
+En la tabla 2.1 se muestra la forma de almacenar los elementos de la matriz poco
+densa que se observa en la figura 2.3.
+- 21
+
+Renglón
+
+Columna
+
+1
+1
+
+1
+
+1
+
+5
+3
+6
+3
+
+6
+8
+5
+
+1
+
+4
+3
+9
+2
+8
+
+2
+2
+3
+4
+4
+4
+5
+5
+
+-- 7.
+
+Valor
+
+7
+
+2
+7
+3
+7
+
+O
+
+O
+
+O
+
+6
+
+O
+
+O
+
+O
+
+O
+
+8
+
+O
+
+O
+
+5
+
+O
+
+O
+
+O
+
+7
+
+O
+
+O
+
+O
+
+O
+
+4
+
+3
+
+O
+
+O
+
+O
+
+O
+
+9
+
+O
+
+O
+
+2
+
+O
+
+O
+
+O
+
+8
+
+A[1..5, 1..7]
+
+60
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+Es pertinente aclarar que puede resultar muy conveniente almacenar el total de
+renglones y de columnas de la matriz original.
+A continuación se presenta un algoritmo muy simple que almacena en un arreglo
+unidimensional los elementos distintos de cero de una matriz poco densa.
+Algoritmo 2.1
+
+Almacena_matriz_poco_densa
+
+{El algoritmo almacena los elementos distintos de cero de una matriz poco densa en un arreglo
+unidimensional. MAT constituye un arreglo unidimensional de registros. Los campos del
+registro son RENGLÓN, COLUMNA y VALOR}
+{Fl, ca, l, J y K son variables de tipo entero. VAL es una variable de tipo real}
+
+1. Leer el número de renglones y de columnas de la matriz (FI y Ca)
+2. Hacer MAT[O].RENGLÓN ~ FI,
+MAT[O].COLUMNA ~ ca y K ~ 1
+3. Repetir con 1 desde 1 hasta FI
+3.1 Repetir con J desde 1 hasta ca
+Leer información (VAL)
+3.1.1 (Si VAL .. O) entonces
+Hacer MAT[K].RENGLÓN ~ l,
+MAT[K].COLUMNA ~ J,
+MAT[K].VALOR ~ VAL ~ Y K ~ K + 1
+3.1.2 {Fin del condicional del paso 3.1.1}
+3.2 {Fin del ciclo del paso 3.l}
+~. {Fin del ciclo del paso 3}
+5 Hacer MAT[O].VALOR ~ K - 1
+
+{En MAT[O].RENGLÓN y MAT[O].COLUMNA quedan almacenados el número de renglones
+y de columnas, respectivamente, de la matriz. En MAT[O].VALOR queda almacenado el total
+de elementos diferentes de cero de la matriz}
+
+Arreglo de listas
+Se sugiere que antes de estudiar este método usado para el almacenamiento de matrices
+poco densas consulte el capítulo 5.
+La representación de la matriz poco densa se realiza por medio de un arreglo de
+listas. Es decir, en el elemento i de un arreglo unidimensional se tiene un registro que
+almacena en uno de sus campos el total de elementos diferentes de cero encontrados el:
+el renglón i de la matriz, y en otro campo la dirección al primer nodo de una lista. Cadz
+nodo de la lista almacenará: la columna de la matriz en la que se encuentra el valor diferente de cero, el propio valor y la dirección al siguiente nodo de la lista.
+
+:IGURA 2.4
+;¡reglo de listas.
+
+2
+3
+
+4
+5
+
+En la figura 2.4 se presenta un esquema de esta estructura de datos que se aplica a
+la matriz poco densa de la figura 2.3.
+
+2.4.1
+
+Matrices cuadradas poco densas
+Las matrices cuadradas son aquellas que tienen igual número de renglones y de columnas. Si además estas matrices tienen una proporción muy alta de ceros, se denominan poco densas.
+Por otra parte, las matrices cuadradas en las que los elementos que se encuentran
+arriba o debajo de la diagonal principal son iguales a cero, se llaman matrices triangulares. Éstas, según la ubicación de los ceros, se clasifican en matriz triangular inferior
+si los elementos iguales a cero se encuentran sobre la diagonal principal (fig. 2.5a), y en
+matriz triangular superior si los elementos iguales a cero se encuentran debajo de la
+diagonal principal (fig. 2.5b).
+
+2.4.2
+
+Matriz triangular inferior
+Supongamos que se desea almacenar en un arreglo unidimensional B (fig. 2.6) la matriz
+triangular inferior de la figura 2.5a.
+Es fácil observar que el arreglo B tendrá:
+1+2+3+4+ ... +n
+
+•• ", 2.5
+cuadradas poco
+
+al Matriz triangular
+bl Matriz triangular
+
+I:~l
+l2
+4
+
+7
+
+a)
+
+'< .
+
+'> .
+
+I-}
+
+I-}
+
+5
+
+b)
+
+r
+62
+
+Capítulo 2
+
+FIGURA 2.6
+Almacenamiento de una
+matriz triangular inferior en
+un arreglo unidimensional.
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+A[l,l]
+
+A[2,l]
+
+"
+4
+
+A[2,2]
+
+A(3,1]
+
+A[3,2]
+
+...
+
+~
+
+1
+
+3
+
+-6
+
+2
+
+3
+
+4
+
+A[3,3]
+
+A[4,l]
+
+A[4,2]
+
+A[4,3]
+
+t
+
+A[4,4]
+y
+
+O
+
+8
+
+2
+
+4
+
+7
+
+5
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+l'>
+
+1-,
+
+elementos, que es igual a:
+
+n*(n+l)
+2
+por el principio de inducción matemática. Cabe señalar que en lo que resta de este capítulo, así como en los siguientes, se hará uso de este principio.
+Asumiendo que los elementos de la matriz triangular inferior fueron almacenad
+en un arreglo unidimensional, se requiere encontrar una fórmula que permita localizar
+cada uno de ellos. En primer lugar, se debe considerar a POSINI, que indica la posici "
+a partir de la cual se encuentra almacenado el arreglo -primer término de la fórmulaEn general, para llegar a cualquier renglón i se deben contabilizar los elementos correspondientes a (i - 1) renglones. Se debe tener en cuenta entonces:
+1 + 2 + ... + (i - 1)
+
+elementos, lo que es igual a:
+
+(i - 1) * i (segundo término de la fórmula)
+2
+Una vez en el renglón i deseado, se deben contabilizar los U- 1) elementos necesarios para llegar a la colurnnaj -tercer término de la fórmula-o La suma de los tr
+términos determina la localización del elemento i, j de la matriz triangular inferior, eun arreglo unidimensional. La fórmula es:
+
+LOC( A[i,j]) == POSINI +
+
+(i-l)*i
++ (j -1)
+2
+
+Fórmula 2.3
+
+Así, por ejemplo, si se desea localizar la posición del elemento A[3, 2] del arregl
+presentado en la figura 2.5a almacenado en un arreglo unidimensional, aplicando L
+fórmula 2.5 se tiene:
+LOC(A[3,2])==I+
+
+(3-1)*3
++(2-1)==5
+2
+
+Si, en cambio, se desea localizar la posición del elemento A[4, 3] del arreglo pr sentado en la figura 2.5a, al aplicar la fórmula 2.5 se tiene:
+LOC(A[4,3])==I+
+
+(4-1)*4
+2
+
++(3-1)==
+
+2-
+
+2.4.3
+
+63
+
+Matriz triangular superior
+Para el caso de la matriz triangular superior de la figura 2.5b, si se almacena en un arreglo unidimensional B (fig. 2.7), éste tendrá:
+n+ ... +4+3+2+1
+elementos, que es igual a:
+n*(n+l)
+2
+Se requiere, entonces, de una fórmula para localizar la posición de un elemento
+de una matriz triangular superior, en un arreglo unidimensional. A diferencia del caso
+anterior -matriz triangular inferior-, el proceso es más complicado.
+En primer lugar, se debe considerar a POSINI, que representa la posición a partir
+de la cual se encuentra almacenado el arreglo -primer término de la fórmula-o En
+segundo lugar, se deben contabilizar los elementos necesarios para llegar a un renglón
+i cualquiera, esto es, los elementos correspondientes a los (i - 1) renglones anteriores
+a i. Este cálculo se puede realizar en dos partes. Primero se contabilizan los elementos
+correspondientes a (i - 1) renglones completos: (n * (i - 1)) Y luego se restan a este
+resultado los que son ceros en los (i - 1) renglones anteriores a i.
+Si:
+i = 1 -... tenemos Oceros en los renglones anteriores.
+i = 2 -... tenemos Oceros en los renglones anteriores.
+i = 3 -... tenemos 1 cero en los renglones anteriores.
+i 4 -... tenemos 1 + 2 ceros en los renglones anteriores.
+
+=
+
+En general, podemos afirmar que para (i - 1) renglones se tienen:
+
+O+ O + 1 + 2 + ... + (i - 2)
+ceros, que es igual a:
+
+(i-2)*(i-l)
+2
+La expresión obtenida en la primera parte menos la fórmula obtenida en la segunda,
+da como resultado el segundo término de la fórmula 2.6.
+
+64
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+n * (i -1) _ ~(i_----,,2)_*-,-(i_--!..1)
+2
+Por último, y una vez en el renglón i deseado, se deben contabilizar los (j - i
+elementos necesarios para llegar a la columna j -tercer término de la fórmula-o La
+suma de los tres términos indica la localización del elemento i,j de la matriz triangular
+superior, en un arreglo unidimensional. La fórmula es la siguiente:
+..... "'T
+
+LOC(A[i,j])=POSIN1+ ( n*(i-1)-
+
+(i-2)*(i-l))
+2
++(j-i)
+
+Fórmula 2.
+
+Así, por ejemplo, si se desea localizar la posición del elemento A[2, 3], del arregl
+presentado en la figura 2.5b, en un arreglo unidimensional, se realiza lo siguiente:
+
+LOC([2,3])=1+ ( 4*(2-1)-
+
+(2-2)*(2-1))
+2
++(3-2)=6
+
+Si, en cambio, se desea localizar la posición del elemento A[3, 4] del arreglo presentado en la figura 2.4b:
+
+LOC(A[3,4]) = 1+(4* (3-1)- (3- 2);(3-1))+(4- 3) = 9
+
+Ejemplo 2.5
+
+Supongamos que se tiene una matriz triangular inferior A con la siguiente dimensióc
+A[1..8, 1..8], almacenada en un arreglo unidimensional B a partir de la posición 10.
+
+Analice los siguientes casos:
+(
+
+Se necesita la posición donde se encuentra almacenado el elemento A[5, 4]. Se
+procede de esta forma:
+
+LOC(A[5,4]) = 10+ (5-1)*5 +(4-1)=10+10+3=23
+2
+Se necesita la posición del elemento A[6, 3]. Se procede así:
+
+LOC(A[6,3]) = 10+ (6-1)*6 +(3-1)=10+15+2=27
+2
+
+Ejemplo 2.6
+
+Supongamos que se tiene una matriz triangular superior A con la siguiente dimensió
+A[1..lO, 1..10], almacenada en un arreglo unidimensional B a partir de la posición 50.
+
+Analice los siguientes casos:
+
+65
+Se necesita la posición del elemento A[l, 9]. Se procede de esta forma:
+
+Se necesita la posición donde se encuentra almacenado el elemento A[7, 9]. Se
+procede así:
+
+LOC(A(7,9])=50+ ( 10*(7-1)-
+
+2.4.4
+
+Matnz tndld
+
+(7-2)*(7-1))
+2
++(9-7)=97
+
+al
+
+Se dice que una matriz es tridiagonal si los elementos distintos de cero se encuentran
+localizados en la diagonal principal y en las diagonales por encima y por debajo de ésta.
+Por tanto, el valor absoluto del índice i menos el índice j será menor o igual que 1. En la
+figura 2.8 el lector puede observar una matriz tridiagonal.
+Supongamos que se desea almacenar en un arreglo unidimensional B (figura 2.9) la
+matriz tridiagonal presentada anteriormente.
+Es fácil observar que el arreglo A tiene n elementos en la diagonal principal y (n
+- 1) elementos en las diagonales por encima y debajo de ésta. Por tanto, el número de
+elementos de una matriz tridiagonal se calcula como:
+n + 2 * (n - 1)
+
+Al hacer las operaciones queda:
+
+3*n-2
+Con el propósito de localizar la posición de un elemento de la matriz tridiagonal,
+almacenada en un arreglo unidimensional, se requiere de una fórmula. En primer lugar,
+se debe considerar a POSINI, que indica la posición inicial, a partir de la cual se encuentra almacenado el arreglo -primer término de la fórmula-o En segundo lugar, se
+deben contabilizar los elementos necesarios para llegar a un renglón i cualquiera; esto
+es, los elementos correspondientes a los (i - 1) renglones anteriores. Se calcula como la
+suma de los elementos de la primera fila (2), más tres elementos por (i - 2) renglones.
+Por tanto, el segundo término de la fórmula es:
+2 + 3 * (i - 2)
+
+triz tridiagonal.
+
+66
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+A[l,l]
+
+A[I,2]
+
+A[2,1]
+
+A[2,2]
+
+A(2,3]
+
+A[3,2]
+
+A[3,3]
+
+6
+
+7
+
+4
+
+8
+
+3
+
+9
+
+2
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+A[3,4]
+
+A(4,3]
+
+A[4,4]
+
+8
+8
+
+9
+
+FIGURA 2 9
+Almacenamiento de una
+matriz tridiagonal en un
+arreglo unidimensional.
+
+Por último, y una vez en el renglón i deseado, se deben contabilizar los element
+correspondientes a las columnas. Con este fin se sigue el siguiente criterio.
+i >j i =j i <j -
+
+no se tiene que contabilizar ningún elemento.
+se debe contabilizar un elemento.
+se tienen que contabilizar dos elementos.
+
+Con lo cual se obtiene la siguiente expresión:
+(j - i + 1) tercer término de la fórmula
+Observe que esta expresión contempla los tres casos enunciados. Si:
+i > j, a lo sumo lo será en una unidad; por tanto, la expresión da cero elementos.
+i = j, los mismos se anulan, quedando un elemento.
+i <j, a lo sumo lo será en una unidad; por tanto, la expresión da dos elementos.
+
+Nuevamente la suma de los tres términos da la localización del elemento i, j de
+matriz tridiagonal en un arreglo unidimensional. Por tanto:
+LOC(A(i,j]) =POSINI + (2 + 3 * (i - 2)) + (j - i + 1)
+operando queda:
+
+LOC(A(i,j]) = POSINI + 2i + j - 3
+
+Fórmula .
+
+Así, por ejemplo, si se desea localizar la posición del elemento A[3, 3], del arr~
+presentado en la figura 2.8, en un arreglo unidimensional se hace:
+LOC(A[3, 3]) = 1 + 2 * 3 + 3 - 3 = 7
+
+Si, en cambio, se desea localizar la posición del elemento A[4, 3] del arreglo
+sentado en la misma figura, se hace:
+LOC(A[4, 3]) = 1 + 2 * 4 + 3 - 3 = 9
+
+Se debe tener en cuenta, además, que si el renglón que se evalúa es igual a l.
+puede aplicar la siguiente fórmula:
+
+2.4
+
+'v1v _-5 "OCO Do 5':'5
+
+67
+
+.
+
+Fórmula 2.8
+
+Es importante aclarar que la fórmula anterior (2.7), aunque un poco más larga,
+también funciona para este caso.
+
+Ejemplo 2.7
+
+Supongamos que se tiene una matriz tridiagonal A con la dimensión A[1..8, 1..8], almacenada en un arreglo unidimensional B a partir de la posición 40. Analicemos los
+siguientes casos:
+a)
+
+Se necesita la posición donde se encuentra el elemento A[6, 7]. Se procede así:
+LOC([6, 7]) = 40 + 2 * 6 + 7 - 3 = 56
+
+b)
+
+Si se necesita la posición donde se encuentra el elementoA[3, 2], se procede de esta
+forma:
+LOC([3, 2]) = 40 + 2 * 3 + 2 - 3 = 45
+
+2.4.5
+
+Matrices simétricas y antisimétricas
+Una matriz A de n x n elementos es simétrica si A[i,jJ es igual a AU, iJ, y esto último se
+cumple para todo i y para todo j. En la figura 2.10 se presentan dos ejemplos de matrices
+simétricas.
+Por otra parte, una matriz A de n x n elementos es antisimétrica si A[i, Jl es igual
+a -AU, iJ, y lo anterior se cumple para todo i y para todo j; considerando a i ;o' j. En la
+figura 2.11 se observan dos ejemplos de matrices antisimétricas.
+Supongamos ahora que se desea almacenar en un arreglo unidimensional B la matriz simétrica de la figura 2.1Oa. Esto último se puede hacer al almacenar únicamente
+los elementos de la matriz triangular inferior o superior. En la figura 2.12 se presenta un
+arreglo unidimensional B que almacena la matriz triangular inferior de la matriz simétrica mostrada en la figura 2.1Oa.
+Para localizar cualquier elemento de la matriz simétrica se debe aplicar la fórmula
+2.5, presentada anteriormente, para matriz triangular inferior. Cabe aclarar que si en un
+
+caso
+'trica
+ca
+
+l~ ~]
+4
+
+O
+
+O
+
+O
+
+O
+
+8
+
+6
+
+9
+
+a)
+
+8
+
+5
+
+O
+
+O
+
+3
+
+5
+
+6
+
+3
+
+O
+
+9
+
+O
+
+3
+
+O
+
+7
+
+O
+
+O
+
+7
+
+8
+
+O
+
+3
+
+9
+
+O
+
+O
+
+b)
+
+.~
+
+68
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+FIGURA
+Matrices antisimétricas.
+a) Matriz antisimétrica
+de 4 x 4.
+b) Matriz antisimétrica
+de 5 x 5.
+
+~ ~]
+4
+
+O
+
+O
+
+O
+
+O
+
+8
+
+-6
+
+-9
+
+8
+
+-5
+
+O
+
+O
+
+3
+
+5
+
+6
+
+-3
+
+O
+
+9
+
+O
+
+3
+
+O
+
+7
+
+O
+
+O -7
+
+8
+
+O
+
+-3
+
+-9
+
+O
+
+O
+
+-1
+b)
+
+a)
+
+determinado momento se necesitara localizar un elemento de la matriz simétrica tal qtr
+el índice j sea mayor que el índice i, se necesitarían invertir los mismos y aplicar posteriormente la misma fórmula. Por ejemplo, si se desea localizar el elemento A[l, 2],
+
+tendrá que buscar el elemento A[2, 1].
+Si ahora se desea almacenar en un arreglo unidimensional B los elementos de
+matriz antisimétrica de la figura 2.11 a, se procede de manera similar que en el caso anterior. Se almacenan en un arreglo unidimensional solamente los elementos de la matri:
+triangular inferior o superior. En la figura 2.13 se presenta un arreglo unidimensional':'
+que almacena la matriz triangular superior de la matriz antisimétrica de la figura 2.1 Ck
+Para localizar, en este caso, un elemento de la matriz antisimétrica, se debe apli
+la fórmula 2.6 para matriz triangular superior. Es importante señalar que si se tuvie _
+que localizar un elemento de la matriz antisimétrica, tal que el índice i sea mayor que
+índice j, se necesitaría invertir los mismos y aplicar la misma fórmula. Posteriormentel contenido de la celda i, j se debe multiplicar por -1. Por ejemplo, si nos interesa localizar el elemento A[3, 1], se buscará la posición del elemento A[l, 3] Yel contenido re
+dicha posición se multiplicará por -1.
+
+FIGURA 2.12
+Almacenamiento de una
+matriz simétrica en un
+arreglo unidimensional.
+
+fiGURA 2.13
+Almacenamiento de una
+matriz antisimétrica en un
+arreglo unidimensional.
+
+A[l,l]
+
+O
+
+A[l,l]
+
+O
+
+A[4,4]
+
+....
+
+.,.I
+
+1 1 1 1 1 1
+
+4
+
+O
+
+O
+
+O
+
+8
+
+O
+
+6
+
+9
+
+O
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+A[1,2]
+
+A[1,3]
+
+A[1,4]
+
+A[2,2]
+
+A[2,3]
+
+A[2,4]
+
+A[3,3]
+
+A[3,4]
+
+A[4,4]
+
+I
+
+1 1 1 1 1
+
+1
+
+1
+
+4
+
+O
+
+O
+
+O
+
+O
+
+6
+
+8
+
+9
+
+O
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+1 1
+
+'1'
+
+A[3,3]
+
+A[4,3]
+
+A[3,l]
+
+1 1
+
+A[3,2]
+
+A[4,2]
+
+A[2,2]
+
+A[2,1]
+
+A[4,1]
+
+li
+
+2
+
+.
+
+li~.
+
+~.
+
+T
+
+69
+
+EJERCICIOS
+Arreglos multidimensionales
+1. Considere que el arreglo bidimensional A[1..7, 1..7] se encuentra almacenado renglón por renglón en el arreglo unidimensional VEC, a partir de la posición l. Considere, además, que el arreglo bidimensional B[1..9, 1..4] también se encuentra
+almacenado en el arreglo VEC, columna a columna, a partir de la posición 100.
+Calcule lo siguiente:
+a)
+
+/J)
+e)
+
+d)
+
+La posición del elemento A[2, 6] en el arreglo VEC.
+La posición del elemento A[5, 7] en el arreglo VEC.
+La posición del elemento B[8, 1] en el arreglo VEC.
+La posición del elemento B[3, 3] en el arreglo VEC.
+
+2. Considere los arreglos multidimensionales AM y BM declarados de la siguiente
+forma:
+AM[1..5, 1..5, 1..15] Y BM[1..8, 1..6, 1..8, 1..4]
+AM está almacenado renglón por renglón en el arreglo unidimensional VEAM, a
+partir de la primera posición. BM está almacenado, columna a columna, en el arreglo unidimensional VEBM, a partir de la posición 65. Calcule lo siguiente:
+a)
+
+h)
+e)
+
+d)
+
+La posición del elemento AM[5, 3, 10] en el arreglo VEAM.
+La posición del elemento AM[l, 2, 5] en el arreglo VEAM.
+La posición del elemento BM[3, 6, 4, 2] en el arreglo VEBM.
+La posición del elemento BM[6, 5, 8, 1] en el arreglo VEBM.
+
+3. Consideremos que los arreglos bidimensionales A y B de m x n elementos se encuentran almacenados en un arreglo unidimensional VEC de 2 x m x n elementos.
+A está almacenado renglón por renglón a partir de la primera posición. B está almacenado columna a columna a partir de la posición Cm * n) + 1. Escriba un programa
+que realice lo siguiente:
+a)
+
+b)
+
+Obtenga la suma de los arreglos bidimensionales almacenados en VEC yalmacénela en el arreglo unidimensional SUM, ordenado por renglones, a partir de la primera
+posición.
+Imprima el resultado de la suma, almacenado en SUM, en forma de matriz.
+
+4. Sean los arreglos bidimensionales A y B de m x n y n x p elementos, respectivamente, ambos almacenados en un arreglo unidimensional VEC. A está almacenado
+renglón por renglón a partir de la posición 1 y B también se encuentra ordenado por
+renglones a partir de la posición Cm * n) + 1. Escriba un procedimiento que
+lo siguiente:
+
+70
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+a)
+
+b)
+
+Obtenga el producto de los arreglos bidimensionales A y B almacenados en VEC.
+guarde el resultado en el mismo arreglo, columna a columna, a partir de la posici
+(m * n) + (n * p) + 1.
+Imprima el resultado del producto, almacenado en VEC, en forma de matriz.
+
+5. Sea CAL un arreglo bidimensional de 30 x 6 correspondiente a las calificacion
+de 30 alumnos en seis exámenes diferentes. CAL se encuentra almacenado rengl'
+por renglón, a partir de la posición 185, en el arreglo unidimensional UNJ. Escri
+un procedimiento que obtenga lo siguiente:
+a)
+b)
+
+e)
+
+El promedio de calificaciones de los 30 alumnos en los seis exámenes.
+El alumno que obtuvo la mayor calificación en el tercer examen. Observe que PUfde haber más de un alumno con la más alta calificación.
+El examen en el que el promedio de los 30 alumnos fue el más alto.
+
+6. Considere el arreglo tridimensional ATRI de m x n x p elementos almacenados
+columna a columna, en el arreglo unidimensional AUNI a partir de la primera po
+ción. Escriba un procedimiento que imprima lo siguiente:
+a)
+b)
+e)
+
+El renglón y la columna donde se encuentran elementos nulos (usted debe trabaj
+con el arreglo AUNI).
+El total de elementos nulos.
+El porcentaje de elementos nulos, con respecto al número total de elementos
+arreglo tridimensional.
+
+7. Los elementos de un arreglo bidimensional de 4 x 4 elementos se almacenaron, renglón por renglón, en un arreglo unidimensional A. Escriba un subprograma que:
+a)
+
+b)
+
+Intercambie los elementos del renglón 1 con los del renglón N y los del renglón':'
+con los del renglón (N - 1), Yasí sucesivamente.
+Imprima el arreglo resultante, en forma de matriz.
+
+Matrices poco densas
+8. Sea VEC un arreglo unidimensional que almacena los elementos distintos de cerr
+de una matriz poco densa A de cuatro renglones y seis columnas. Cada elemento d
+arreglo VEC es un registro que contiene el renglón, la columna y el valor distinto ~
+cero de la matriz. Escriba subprogramas que realicen lo siguiente:
+a)
+
+b)
+
+Determine el valor del elemento i,j de la matriz. Tome en cuenta que la búsqueda:
+realizar en el arreglo VEC debe ser óptima.
+Imprima la matriz poco densa A, a partir del arreglo VEC.
+
+E ERCIClOS
+
+71
+
+A de4X6
+
+o
+
+O
+
+O
+
+O
+
+8
+
+O
+
+o
+
+O
+
+2
+
+O
+
+O
+
+O
+
+o
+
+O
+
+O
+
+O
+
+O
+
+7
+
+8
+
+4
+
+O
+
+O
+
+O
+
+O
+
+VEC
+
+2
+
+3
+
+4
+
+5
+
+9. Supongamos que existen dos matrices poco densas A y B de 3 x 4 elementos, que
+tienen almacenados sus valores distintos de cero en los arreglos unidimensionales
+VECl y VEC2, respectivamente. Ejemplo:
+A
+
+B
+
+... ~
+
+VEC 1
+
+2
+
+3
+
+... ~
+
+VEC2
+
+2
+
+3
+
+Escriba un subprograma que obtenga la suma de dichas matrices poco densas, utilizando solamente los arreglos VECl y VEC2, y almacene el resultado -considere
+solamente los elementos distintos de cero- en el arreglo unidimensional VEC3.
+
+10. Considere las matrices poco densas A y B, declaradas de la siguiente forma:
+A[1..6, 1..3] Y B[1..3, 1..4]
+A se encuentra almacenada en el arreglo unidimensional VECl y B en el arreglo
+unidimensional VEC2. Escriba un subprograma que obtenga el producto de A _B -utilizando solamente los arreglos VECl y VEC2- y almacene el resultado.
+columna a columna, en el arreglo unidimensional VEC3.
+
+72
+
+Capítulo 2
+
+ARREGLOS MULTIDIMENSIONALES REPRESENTADOS EN ARREGLOS UNIDIMENSIONALES
+
+11. Se tienen los datos de la producción agrícola, por tipo de cultivo -en total 10-.
+las 32 entidades del país. No todos los estados tienen todos los cultivos. En aque
+casos en los cuales un estado no cultiva ciertos productos, habrá ceros en las p ciones correspondientes. Escriba un programa que:
+
+(/)
+/J)
+()
+d)
+
+()
+
+Almacene los datos diferentes de cero, en un arreglo unidimensional.
+Encuentre el estado que obtuvo mayor producción agrícola, considerando todos
+cultivos.
+Encuentre el producto, si existiera, que se cultiva en todos los estados.
+Encuentre el estado, si existiera, que cultiva todos los productos.
+Encuentre el estado, si existiera, que cultiva sólo los cultivos de tipos 3 y 6.
+
+12. Las matrices cuadradas poco densas A y B de orden 4 fueron almacenadas en _
+arreglo unidimensional UNI a partir de la primera y decimoprimera posición. ~
+forma respectiva. De la matriz A solamente se almacenaron los elementos corr _
+pondientes a la matriz triangular inferior. De la matriz B, en cambio, se almace
+ron sólo los elementos de la matriz triangular superior. Escriba un subprograma
+sume dichas matrices y almacene el resultado, columna a columna, en el arre:
+unidimensional SUMA a partir de la primera posición.
+
+Matrices simétricas y antisimétricas
+13. Las matrices simétricas A y B de dimensión 6 fueron almacenadas en un arre~'
+unidimensional VEC a partir de las posiciones 1 y 22, respectivamente. Sólo
+almacenaron los elementos pertenecientes a la matriz triangular inferior. Escri"un subprograma que sume dichas matrices y almacene el resultado, renglón
+renglón, en el arreglo SUMSIM a partir de la posición 32.
+14. La matriz simétrica A de dimensión 5 y la matliz antisimétrica B, de la misr.::
+dimensión, fueron almacenadas en el arreglo unidimensional VEC a partir de I.:c
+posiciones 1 y 16, respectivamente. De la matriz A solamente se almacenaron 1
+elementos correspondientes a la matriz triangular inferior. De la matriz B sólo
+almacenaron los elementos de la matriz triangular superior. Escriba un subpro _
+ma que obtenga la suma de dichas matrices y almacene el resultado, renglón
+renglón, en el arreglo unidimensional SUMA a partir de la primera posición.
+
+15. Una persona tiene que viajar de una ciudad a otra, vía terrestre, en la Repúbli
+mexicana y desea realizar el recorrido en el menor tiempo posible. Los datos reff
+rentes a los tiempos entre ciudades se encuentran dados de la siguiente forma:
+
+73
+
+o
+TIEMP0 2,1
+
+o
+
+TIEMP0 3. 1
+
+TIEMP0 3,2
+
+o
+
+TIEMPO". 1
+
+TIEMPO". 2
+
+TIEMPO", ,,-1
+
+o
+
+Puede suceder que entre dos ciudades no exista una carretera directa y, por tanto, el tiempo entre ambas sea representado como O. Sin embargo, es posible llegar a
+una ciudad intermedia y desde ahí trasladarse hasta la ciudad destino. Por ejemplo,
+si de la ciudad 3 a la 2 no hay carretera directa, se podría ir primero a la ciudad 1
+-si existe carretera entre la 3 y la 1- y luego de la ciudad 1 a la 2 -si entre ellas
+existen carreteras-o Escriba un programa que realice lo siguiente:
+u)
+
+/J)
+
+e)
+
+d)
+
+Lea los tiempos entre las distintas ciudades y las almacene en un arreglo unidimensional.
+Lea la ciudad origen y la ciudad destino.
+Determine el menor tiempo de traslado entre dichas ciudades.
+Presente la ruta a seguir.
+
+16. Se tiene información sobre costos de boletos aéreos entre N ciudades del paí . El
+costo del boleto para ir de la ciudad i a la ciudad} es igual al costo del boleto para
+ir de la ciudad} a la i. Por tanto, se puede ahorrar espacio de memoria -recuerde
+lo visto sobre matrices simétricas- utilizando un arreglo unidimensional para almacenar todos los costos. Escriba un programa que:
+a)
+b)
+
+e)
+
+d)
+
+Lea el número de ciudades.
+Lea los costos y los almacene usando un arreglo unidimensional.
+Dado el número de una ciudad origen y de una ciudad destino, imprima el
+boleto correspondiente.
+Dado el número de una ciudad, imprima los números de todas las ciudade a 1
+hay vuelo, partiendo de la ciudad específica.
+
+e
+
+Capítulo
+PILAS Y
+COLAS
+3.1
+
+INTRODUCCiÓN
+
+Cuando se presentaron los arreglos, en el capítulo 1, se mencionó que eran estructuras
+lineales. Es decir, cada componente tiene un único sucesor y un único predecesor con
+excepción del primero y del último, respectivamente. Por otra parte, al analizar las operaciones de inserción y eliminación, se observó que los elementos se podían insertar o
+eliminar en cualquier posición del arreglo. Cabe señalar, sin embargo, que existen problemas que por su naturaleza requieren que los elementos se agreguen o se quiten sólo
+por un extremo. Este capítulo se dedica al estudio de pilas y colas, que son estructuras
+de datos lineales con restricciones en cuanto a la posición en la cual se pueden llevar a
+cabo las operaciones de inserción y eliminación de componentes.
+
+3.2
+
+PILAS
+
+Una pila representa una estructura lineal de datos en la que se puede agregar o quitar
+elementos únicamente por uno de los dos extremos. En consecuencia, los elementos de
+una pila se eliminan en orden inverso al que se insertaron; es decir, el último elemento
+que se mete en la pila es el primero que se saca. Debido a esta característica, se le conoce como estructura LIFO (Last-Input, First-Output: el último en entrar es el primero
+en salir).
+Existen numerosos casos prácticos en los que se utiliza el concepto de pila; por
+ejemplo, una pila de platos, una pila de latas en un supermercado, una pila de libros que
+se exhiben en una librería, etcétera. En la figura 3.1 se observa una pila de platos. Es de
+suponer que si el cocinero necesita un plato limpio, tomará el que está encima de todos,
+que es el último que se colocó en la pila.
+Las pilas son estructuras de datos lineales, como los arreglos, ya que los componentes ocupan lugares sucesivos en la estructura y cada uno de ellos tiene un único sucesor y un único predecesor, con excepción del último y del primero, respectivamente.
+Una pila se define formalmente como una colección de datos a los cuales se puede
+acceder mediante un extremo, que se conoce generalmente como tope.
+
+76
+
+Capítulo 3
+
+PILAS y COLAS
+
+FIGURA.) 1
+Ejemplos prácticos de pilas.
+
+3.2.1
+
+Representación de pilas
+Las pilas no son estructuras fundamentales de datos; es decir, no están definidas ca
+tales en los lenguajes de programación. Para su representación requieren el uso de otI'2
+estructuras de datos, como:
+
+t
+
+Arreglos
+Listas
+
+En este libro se utilizarán arreglos. En consecuencia, es importante definir el tarDéño máximo de la pila, así como una variable auxiliar a la que se denomina TOPE. E
+variable se utiliza para indicar el último elemento que se insertó en la pila. En la figun
+3.2 se presentan dos alternativas de representación de una pila, utilizando arreglos.
+
+ro
+
+PILA
+
+Representación de pilas.
+
+MAX
+
+R
+PILA
+
+TOPE
+
+4
+
+444
+
+3
+
+333
+
+2
+
+222
+
+2
+
+111
+
+3
+
+...=0
+4
+
+TOPE
+
+MAX
+
+.2
+
+MAX
+
+PILA
+
+MAX
+
+TOPE
+
+3
+
+333
+
+2
+
+222
+111
+
+PILA
+
+MAX
+
+R
+
+2
+
+77
+
+PILA
+
+R
+3
+
+3
+
+TOPE
+
+p J'J
+
+222
+
+2
+
+111
+
+TOPE=Q
+a)
+
+b)
+
+e)
+
+En la figura 3.3 se presentan ejemplos de a) pila llena, b) pila con algunos elementos y e) pila vacía.
+Al utilizar arreglos para implementar pilas se tiene la limitación de que se debe
+reservar espacio de memoria con anticipación, característica propia de los arreglos. Una
+vez dado un máximo de capacidad a la pila no es posible insertar un número de elementos mayor al máximo establecido. Si la pila estuviera llena y se intentara insertar un
+nuevo elemento, se producirá un error conocido como desbordamiento -overflow-o
+Por ejemplo, si en la pila que se presenta en la figura 3.3a, donde TOPE = MAX, se
+quisiera insertar un nuevo elemento, se producirá un error de este tipo. La pila está llena
+y el espacio de memoria reservado es fijo, no se puede expandir ni contraer.
+Una posible solución a este tipo de inconvenientes consiste en definir pilas de gran
+tamaño, pero esto último resultaría ineficiente y costoso si sólo se utilizaran algunos
+elementos. No siempre es viable saber con exactitud cuál es el número de elementos a
+tratar; por tanto, siempre existe la posibilidad de cometer un error de desbordamiento
+-si se reserva menos espacio del que efectivamente se usará- o bien de hacer uso ineficiente de la memoria -si se reserva más espacio del que realmente se necesita-o
+Existe otra alternativa de solución a este problema. Consiste en usar espacios compartidos de memoria para la implementación de pilas. Supongamos que se necesitan
+dos pilas, cada una de ellas con un tamaño máximo de N elementos. Se definirá entonces un solo arreglo unidimensional de 2 * N elementos, en lugar de dos arreglos de N
+elementos cada uno.
+Como se ilustra en la figura 3.4, la PILAI ocupará desde la posición 1 en adelante
+(2, 3, ...), mientras que la PILA2 ocupará desde la posición 2*N hacia atrás (2*N - 1.
+2*N - 2, ...). Si en algún punto del proceso la PILAl necesitara más espacio del que
+realmente tiene -N- y en ese momento la PILA2 no tuviera ocupados sus lugares..
+entonces sería posible agregar elementos a la PILAI sin caer en un error de destlOO:!a-miento (figura 3.5). Algo similar podría suceder para la PILA2, si ésta necesitara
+N espacios y la PILAl tuviera lugares disponibles (figura 3.5b).
+
+78
+
+Capítulo 3
+
+PILAS y COLAS
+
+FIGURA 3.4
+
+PILAl
+
+Representación de pilas en
+espacios compartidos.
+
+~
+
+PILA2
+
+O=O="'~"'IIJ
+2
+
+N
+
+3
+
+N+l
+
+2N-l
+
+i
+
+TOPEl
+
+2N
+
+TOPE2
+
+Otro error que se puede presentar al trabajar con pilas es tratar de eliminar un elemento de una pila vacía. Este tipo de error se conoce cómo subdesbordamiento -UTr
+derflow-. Por ejemplo, si en la pila que se presenta en la figura 3.3c, donde TOPE < ~
+se deseara eliminar un elemento, se presentaría un error de este tipo.
+
+3.2.2
+
+Operaciones con pilas
+La definición de una estructura de datos queda completa al incluir las operaciones que pueden realizar en ella. Para el caso de las pilas, las operaciones básicas que se puede::
+llevar a cabo son:
+
+t
+t
+
+Insertar un elemento -Push- en la pila
+Eliminar un elemento -Pop- de la pila
+
+FIGURA 3.5
+Representación de pilas
+en espacios compartidos.
+a) PILA1 tiene más de N
+elementos y PlLA2 tiene
+menos de N elementos.
+b) PlLA2 tiene más de N
+elementos y PILA1 tiene
+menos de N elementos.
+
+PILAl
+
+-------=-=::...:..::..------+~
+
+A
+
+I
+
+PILA2
+
+0=0=.. ·IIEC···IIJ
+i
+2
+
+3
+
+N
+
+2N-l
+
+N+l N+2
+
+TOPEl
+
+2N
+
+TOPE2
+
+PILA2
+
+PILAl
+
+0=0=.. ·IIII···IIJ
+1
+
+2
+
+a)
+
+3
+
+N-l
+~
+
+TOPEl
+
+TOPE2
+
+N
+
+N+l
+
+2N-l
+
+2N
+
+b)
+
+3.2
+
+P
+
+79
+
+y las operaciones auxiliares:
+t
+
+Pila_vacía
+Pila_llena
+
+Considerando que se tiene una pila con capacidad para almacenar un número máximo de elementos -MAX-, y que el último de ellos se indica con TOPE, a continuación se presentan los algoritmos correspondientes a las operaciones mencionadas. Si la
+pila está vacía, entonces TOPE es igual a O.
+AIgoritf'1o .
+
+Pila_vaCla (PILA, TOPE, BANm
+(Este algoritmo verifica si una estructura tipo pila -PILA- está vacía, asignando a BAND el
+valor de verdad correspondiente. La pila se implementa en un arreglo unidimensional. TOPE
+es un parámetro de tipo entero. BAND es un parámetro de tipo booleano)
+Si (TOPE =O) (Verifica si no hay elementos almacenados en la pila)
+entonces
+Hacer BAND oE- VERDADERO (La pila está vacía)
+si no
+Hacer BAND oE- FALSO (La pila no está vacía)
+(Fin del condicional del paso 1)
+
+Algoritmo 3.~
+
+Pila_llena
+
+Pila_llena (PILA, TOPE, MAX, BAND)
+{Este algoritmo verifica si una estructura tipo pila -PILA- está llena, asignando a B~ ;O
+valor de verdad correspondiente. La pila se implementa en un arreglo unidimensional de _ t-\..X
+elementos. TOPE es un parámetro de tipo entero. BAND es un parámetro de tipo boo
+
+¿.
+
+Si (TOPE =MAX)
+entonces
+Hacer BAND oE- VERDADERO (La pila está llena)
+si no
+Hacer BAND oE- FALSO (La pila no está llena)
+(Fin del condicional del paso 1)
+
+80
+
+Capítulo 3
+
+PILAS y COLAS
+
+Algoritmo 3.3
+
+Pone
+
+Pone (PILA, TOPE, MAX, DATO)
+{Este algoritmo agrega el elemento DATO en una estructura tipo pila -PILA-, si la misma
+no está llena. Actualiza el valor de TOPE. MAX representa el número máximo de elementos
+que puede almacenar PILA. TOPE es un parámetro de tipo entero }
+l. Llamar a Pila_llena con PILA, TOPE, MAX YBAND
+2. Si (BAND = VERDADERO)
+entonces
+Escribir "Desbordamiento - Pila llena"
+si no
+Hacer TOPE +- TOPE + 1 y PILA[TOPE] +- DATO
+{Actualiza TOPE e inserta el nuevo elemento en el TOPE de PILA}
+3. {Fin del condicional del paso 2}
+
+Algoritmo 3.4
+
+Quita
+
+Quita (PILA, TOPE, DATO)
+{Este algoritmo saca un elemento -DATO- de una estructura tipo pila -PILA-, si ésta n
+se encuentra vacía. El elemento que se elimina es el que se encuentra en la posición indicada
+por TOPE}
+
+1. Llamar a Pila_vacía con PILA, TOPE YBAND
+2. Si (BAND = VERDADERO)
+entonces
+Escribir "Subdesbordarniento - Pila vacía"
+si no
+Hacer DATO ~ PILA [TOPE] YTOPE ~ TOPE - 1 {Actualiza TOPE}
+3. {Fin del condicional del paso 2}
+
+A continuación se presenta un ejemplo para ilustrar el funcionamiento de las op:
+raciones de inserción y eliminación en pilas.
+
+Ejemplo 3.1
+
+Si se insertaran los elementos lunes, martes, miércoles, jueves y viernes en PILA,
+estructura quedaría tal y como se muestra en la figura 3.6a. Ahora bien, si se elimina::..
+el elemento viernes, el TOPE apuntaría ahora a jueves (fig. 3.6b).
+Si en algún momento se quisiera eliminar al elemento martes, esto no sería posi
+ya que sólo se puede tener acceso al elemento que se encuentra en la cima de la p'
+
+PILA
+
+PILA
+MAX
+
+R
+
+4
+
+Jueves
+
+Miércoles
+
+3
+
+Miércoles
+
+Martes
+
+2
+
+Martes
+
+MAX
+
+R
+
+TOPE - - 5
+
+Viernes
+
+4
+
+Jueves
+
+3
+2
+
+TOPE -
+
+Lunes
+
+Lunes
+
+a)
+
+b)
+
+Una forma de resolver este problema es eliminar primeramente los elementos jueves y
+miércoles, de esta manera martes quedaría ubicado en la cima de PILA y ahora sería
+posible extraerlo (figuras 3.7a, 3.7b y 3.7c).
+
+3.2.3
+
+Aplicaciones de pilas
+Las pilas son una estructura de datos muy usada en la solución de diversos tipos de
+problemas, en el área de la computación. Ahora se analizarán algunos de los casos más
+representativos de aplicación de las mismas:
+
+PILA
+
+eliminación.
+
+_ :e sacar jueves.
+:e sacar miér-
+
+MAX
+
+=~desacar
+
+R
+
+PILA
+MAX
+
+R
+
+PILA
+MAX
+
+5
+
+5
+
+5
+
+4
+
+4
+
+4
+
+3
+
+TOPE-- 3
+
+Miércoles
+
+3
+
+2
+
+Martes
+
+TOPE-- 2
+
+Martes
+
+2
+
+Lunes
+
+Lunes
+
+TOPE-- 1
+
+a)
+
+b)
+
+R
+Lunes
+e)
+
+82
+
+Capítulo 3
+
+PILAS y COLAS
+
+t
+t
+t
+t
+
+Llamadas a subprogramas
+Recursividad
+Tratamiento de expresiones aritméticas
+Ordenación
+
+L amadas a subprogramas
+Cuando se tiene un programa que llama a un subprograma, también conocido co
+módulo o función, internamente se usan pilas para guardar el estado de las variabl
+del programa, así como las instrucciones pendientes de ejecución en el momento que hace la llamada. Cuando termina la ejecución del subprograma, los valores almacenad
+en la pila se recuperan para continuar con la ejecución del programa en el punto en ~
+cual fue interrumpido. Además de las variables se recupera la dirección del programa
+la que se hizo la llamada, porque a esa posición se regresa el control del proceso.
+Supongamos, por ejemplo, que se tiene un programa principal (PP) que llama _
+los subprogramas UNO y.DOS. A su vez, el subprograma DOS llama al TRES. Caevez que la ejecución de uno de los subprogramas concluye, se regresa el control al ni\~
+inmediato superior (fig. 3.8).
+Cuando el programa PP llama a UNO, se guarda en una pila la posición en la q
+se hizo la llamada (fig. 3.9a). Al terminar UNO, el control se regresa a PP recuperan'
+previamente la dirección de la pila (fig. 3.9b). Al llamar a DOS, nuevamente se guarC...
+la dirección de PP en la pila (fig. 3.9c). Cuando DOS llama a TRES, se pone en la pi:la dirección de DOS (fig. 3.9d). Después de procesar TRES, se recupera la posición'
+DOS para continuar con su ejecución (fig. 3.ge). Al terminar DOS se regresa el con
+a PP, obteniendo previamente la dirección guardada en la pila (fig. 3.9j).
+Finalmente podemos concluir que las pilas son necesarias en este tipo de aplicacicnes por lo siguiente:
+
+1,
+
+•
+FIGURA J.8
+Llamada a subprogramas.
+
+pp
+
+/
+
+;)e
+
+pilas: lIama-
+
+R
+
+a)
+
+18;;. '5:I:D'1Jgra mas.
+
+R
+
+e)
+
+R
+
+b)
+
+3
+
+3
+
+3
+
+2
+
+2
+
+2
+
+pp
+
+TOPE
+
+pp
+
+TOPE
+TOPE=O
+
+R
+
+d)
+
+3
+
+TOPE
+
+2
+
+DOS
+pp
+
+R
+
+e)
+
+TOPE
+
+R
+
+fJ
+
+3
+
+3
+
+2
+
+2
+pp
+
+TOPE=O
+
+•
+
+Penniten guardar la dirección del programa, o subprograma, desde donde se hizo la
+llamada a otros subprogramas, para regresar posteriormente y seguir ejecutándolo a
+partir de la instrucción inmediata a la llamada.
+Penniten guardar el estado de las variables en el momento en que se hace la llamada, para seguir ocupándolas al regresar del subprograma.
+
+•
+
+e
+El capítulo 4 está dedicado al estudio de la recursividad. Se dejará para entonces la aplicación de pilas en procesos recursivos.
+
+ratamlen
+
+e expresiones aritméticas
+
+Un problema interesante en computación consiste en convertir expresiones en notación
+infija a su equivalente en notación prefija o posfija o prefija. Se presenta primero una
+breve introducción a estos conceptos.
+•
+
+Dada la expresión A + B se dice que ésta se encuentra en notación infija.
+operador (+) se encuentra entre los operandos (A y B).
+
+Capítulo 3
+
+PILAS y COLAS
+
+t
+
+t
+
+Dada la expresión AB+ se dice que ésta se encuentra en notación postfija, po
+el operador (+) se encuentra después de los operandos (A y B).
+Dada la expresión +AB se dice que ésta se encuentra en notación prefija, porque =
+operador (+) está precediendo a los operandos (A y B).
+
+La ventaja de usar expresiones en notación postfija o prefija radica en que no
+necesarios los paréntesis para indicar orden de operación, ya que éste queda establecí::.
+por la ubicación de los operadores con respecto a los operandos.
+Para convertir una expresión dada en notación infija a una en notación postfij~
+prefija se establecen primero ciertas condiciones:
+
+t
+
+Solamente se manejarán los siguientes operadores -se presentan de mayor a Gl:
+nor según sea su prioridad de ejecución-:
+•
+
+t
+
+t
+
+I
+
+•
+
+"
+
+Potencia
+
+* /
+
+Multiplicación y división
+
++ -
+
+Suma y resta
+
+Los operadores de más alta prioridad se ejecutan primero.
+Si hubiera en una expresión dos o más operadores de igual prioridad, entonces
+procesarán de izquierda a derecha.
+Las subexpresiones que se encuentran entre paréntesis tendrán más prioridad
+cualquier operador.
+
+Se presentan a continuación, paso a paso, algunos ejemplos de conversión de ex
+siones infijas a notación posfija.
+
+Ejemplo 3.2
+
+En este ejemplo se exponen dos casos de traducción de notación infija a posfija. El
+mero de ellos es una expresión simple, mientras que el segundo presenta mayor grad
+complejidad. En la tabla 3.1 se muestran los pasos necesarios para lograr la traduccj
+de la primera expresión, yen la tabla 3.2 los correspondientes a la segunda expresió:.
+(/)
+
+Expresión infija: X + Z * W
+Expresión posfija: XZW*+
+
+El primer operador que se procesa durante la traducción de la expresión es la re..
+tiplicación, paso 1, debido a que es el de más alta prioridad. Se coloca el operador
+fABLA
+Traducción de infija
+a posfija
+
+o
+1
+
+2
+
+x+z*w
+x+zw*.
+xzw*+
+
+3.2
+
+P'cAS
+
+85
+
+tal manera que los operandos afectados por él lo precedan. Para el operador de suma se
+sigue el mismo criterio, los dos operandos lo preceden. En este caso el primer operando
+es X y el segundo es ZW*.
+b)
+
+Expresión infija: (X + 2)* W I T" Y - V
+Expresión postfija: XZ+W*TY"IV-
+
+3.2
+.. n de expresión
+posfija.
+
+-=
+
+o
+
+(X + 2)* WIT" y - V
+
+XZ + *WIT" Y-V
+
+2
+
+XZ + *WITY" - V
+
+3
+
+XZ+ W*ITY"- V
+
+4
+
+XZ+ w* TY"I- V
+
+5
+
+XZ+W*TY"IV-
+
+En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis por ser
+la de más alta prioridad. Luego se sigue con el operador de potencia, paso 2, y así con
+los demás, según su jerarquía. Como consecuencia de que la multiplicación y la división tienen igual prioridad, se procesa primero la multiplicación por encontrarse más a
+la izquierda en la expresión, paso 3. El operador de la resta es el último que se mueve,
+paso 5. A continuación se presenta el algoritmo que traduce una expresión infija a otra
+posfija.
+Algoritmo 3.5
+
+Conv_postfija
+
+Conv_postfija (El, EPOS)
+{Este algoritmo traduce una expresión infija -EI- a postfija -EPOS-, haciendo uso de
+una pila -PILA-. MAX es el número máximo de elementos que puede almacenar la pila}
+
+1. Hacer TOPE +- O
+2 Mientras (El sea diferente de la cadena vacía) Repetir
+Tomar el símbolo más a la izquierda de El. Recortar luego la expresión
+2.1 Si (el símbolo es paréntesis izquierdo)
+entonces {Poner símbolo en PILA. Se asume que hay espacio en PILA}
+Llamar a Pone con PILA, TOPE, MAX y símbolo
+si no
+Si (el sÚTIbolo es paréntesis derecho)
+entonces
+21. .1 Mientras (PILA[TOPE] .. paréntesis izquierdo) Repetir
+Llamar a Quita con PILA, TOPE YDATO
+Hacer EPOS +- EPOS + DATO
+
+86
+
+Capítulo 3
+
+PILAS y COLAS
+
+::'.1.
+
+{Fin del ciclo del paso 2.1.1.1}
+Llamar a Quita con PILA, TOPE YDATO
+{Se quita el paréntesis izquierdo de PILA y no se agrega
+a EPaS}
+si no
+2.1. ~ Si (el símbolo es un operando)
+entonces
+Agregar símbolo a EPaS
+si no {Es un operador}
+Llamar Pila_vacía con PILA, TOPE YBAND
+2 1.1.3. Mientras (BAND =FALSO) Y(la prioridad del
+operador sea menor o igual que la prioridad
+del operador que está en la cima de PILA)
+Repetir
+Llamar a Quita con PILA, TOPE YDATO
+Hacer EPaS ~ EPaS + DATO
+Llamar a Pila_vacía con PILA, TOPE YBAND
+2.1.1.
+{Fin del ciclo del paso 2.1.1.3A}
+Llamar a Pone con PILA, TOPE, MAX Ysímbolo
+{Fin del condicional del paso 2.1.1.3}
+{Fin del condicional del paso 2.1.1}
+{Fin del condicional del paso 2.1}
+j. {Fin del ciclo del paso 2}
+Llamar a Pila_vacía con PILA, TOPE YBAND
+::l Mientras (BAND = FALSO) Repetir
+Llamar a Quita con PILA, TOPE YDATO
+Hacer EPaS ~ EPaS + DATO
+Llamar a Pila_vacía con PILA, TOPE YBAND
+r. {Fin del ciclo del paso 5}
+Escribir EPaS
+
+.'It
+
+Cabe señalar que para este algoritmo se maneja la escala de prioridades presentae.
+al inicio de esta sección.
+
+Ejemplo 3.3
+
+En este ejemplo se retoman los casos del ejemplo 3.2 para ilustrar el funcionamiento d::
+algoritmo Conv_posfija.
+c.)
+
+Expresión infija: X + Z * W
+Expresión posfija: XZW*+
+
+En la tabla 3.3 se presentan los pasos necesarios para lograr la traducción deseae..
+siguiendo el algoritmo 3.5.
+En los pasos 1, 3 Y5 el símbolo analizado -un operando- se agrega directamen::
+a EPOS. Al analizar el operador +, paso 2, se verifica si en PILA hay operadores e
+mayor o igual prioridad. En este caso, PILA está vacía; por tanto, se pone el símbo'
+en el tope de ella. Con el operador *, paso 4, sucede algo similar. En PILA no exist
+
+~ 2
+
+o
+
+X+Z*W
+X
+
+2
+
++z*w
+Z*W
+*W
+W
+
+3
+4
+
+5
+
+X
+
++
+
+X
+
+Z
+
++
+
+XL
+
+*
+
++*
+
+XZ
+
+W
+
++*
+
+XZW
+
++
+
+XZW*
+XZW*+
+
++
+
+6
+
+87
+
+7
+
+operadores de mayor o igual prioridad -la suma tiene menor prioridad que la multiplicación-, por lo que se agrega el operador * a PILA. En los dos últimos pasos, 6 y 7, se
+extraen de PILA sus elementos, agregándolos a EPOS.
+Expresión infija: (X + 2)* W / T 1\ Y - V
+Expresión postfija: XZ+W*TYI\NEn la tabla 3.4 se presentan los pasos necesarios para lograr la traducción deseada,
+siguiendo el algoritmo 3.5.
+Los pasos que se consideran más relevantes son: en el paso 5, al analizar el paréntesis derecho se extraen repetidamente todos los elementos de PILA (en este caso
+sólo el operador +), agregándolos a EPOS hasta encontrar un paréntesis izquierdo. El
+paréntesis izquierdo se quita de PILA pero no se incluye en EPOS -recuerde que las
+expresiones en notación polaca no necesitan de paréntesis para indicar prioridades-o
+Cuando se trata el operador de división, paso 8, se quita de PILA el operador * y se
+agrega a EPOS, ya que la multiplicación tiene igual prioridad que la división. Al analizar el operador de resta, paso 12, se extraen de PILA y se incorporan a EPOS todos los
+operadores de mayor o igual prioridad, en este caso son todos los que están en ella -la
+potencia y la división-, agregando finalmente el símbolo en PILA. Luego de agregar a
+EPOS el último operando, y habiendo revisado toda la expresión inicial, se vacía PILA
+y se incorporan los operadores (en este caso el operador -) a la expresión postfija.
+A continuación se presenta el algoritmo para convertir expresiones infijas a expresiones escritas en notación prefija.
+~~l1Plo 3.4
+
+En este ejemplo se exponen dos casos de traducción de notación infija a prefija. El primero de ellos es una expresión simple, mientras que el segundo presenta mayor grado
+de complejidad.
+Expresión infija: X + Z * W
+Expresión prefija: + X*ZW
+
+88
+
+Capítulo 3
+
+PILAS y COLAS
+
+TABLA 3.4
+Traducción de expresión
+infija a postfija
+
+O
+
+(X + 2)* W / T" Y - V
+
+1
+
+X + 2)* W / T" Y - V
+
+2
+
++ 2)* W / T" Y - V
+
+X
+
+3
+
+2)* W/T" Y- V
+
++
+
+(+
+
+4
+
+)* W/T" Y- V
+
+Z
+
+(+
+
+5
+
+*W/T"Y-V
+
+X
+X
+XZ
+
+XZ+
+XZ+
+
+6
+
+W/T" Y- V
+
+*
+
+*
+
+XZ+
+
+7
+
+/T"Y-V
+
+W
+
+*
+
+XZ+W
+
+8
+
+T" Y- V
+
+9
+
+"Y- V
+
+T
+
+10
+
+Y- V
+
+"
+
+/"
+
+11
+
+-V
+
+Y
+
+/"
+
+XZ+W*
+XZ+W*
+XZ+W*T
+XZ+ W* T
+XZ+ W* TY
+XZ+ W* TY"
+
+V
+
+12
+
+XZ+W*TY"/
+XZ+ w* TY"/
+V
+
+13
+
+XZ+W*TY"/V
+XZ+W*TY"/V-
+
+14
+
+En la tabla 3.5 se presentan los pasos necesarios para lograr la traducción desea
+Como en el caso de la notación postfija, ejemplo 3.2, aquí también el operador
+multiplicación se procesa primero. De la traducción de la expresión, paso 1, resulta ~
+operador precediendo a los operandos. Lo mismo para el operador de suma, paso 2.
+b)
+
+Expresión infija: (X + 2)* W / T 1\ Y - V
+Expresión prefija: -/*+XZWI\TYV
+
+En la tabla 3.6 se presentan los pasos necesarios para lograr la traducción desead:.
+Lo primero que se procesa en este caso es la subexpresión que se encuentra ent::
+paréntesis, paso 1. El orden en que se procesan los operadores es el mismo que se sigui
+
+TABLA 3.5
+Traducción de expresión
+infija a prefija
+
+Paso
+
+Expresión
+
+O
+
+X+Z*W
+
+2
+
++x*ZW
+
+X+*zw
+
+89
+:1
+
+6
+
+ción de expresión
+a prefija
+
+O
+
+(X + Z) * W / T" Y - V
+
++XZ*W/T"Y-V
+2
+
++XZ* W/" TY- V
+
+3
+
+*+XZW/"TY-V
+
+4
+
+/*+XZW"TY-V
+
+5
+
+-/ * + XZW " TYV
+
+para la conversión de infija a posfija. Por tanto, sería reiterativo volver a explicar paso a
+paso el contenido de la tabla 3.6. Sin embargo, es de destacar la posición que ocupan los
+operadores con respecto a los operandos: los primeros preceden a los segundos.
+A continuación se incluye el algoritmo de conversión de notación infija a prefija.
+Este algoritmo se diferencia del anterior básicamente en el hecho de que los elementos
+de la expresión en notación infija se recorrerán de derecha a izquierda.
+Algontmo 3.)
+
+Conv_prefija
+
+Con prefija (El, EPRE)
+{Este algoritmo traduce una expresión en notación infija, El a prefija, EPRE, haciendo uso de
+una pila -PILA-}
+{TOPE es una variable de tipo entero y MAX representa el máximo número de elementos que
+puede almacenar la pila}
+Hacer TOPE ....... O
+... Mientras (El sea diferente de la cadena vacía) Repetir
+Tomar el símbolo más a la derecha de El recortando luego la expresión
+_.1 Si (el símbolo es paréntesis derecho)
+entonces {Poner símbolo en pila}
+Llamar a Pone con PILA, TOPE, MAX Ysímbolo
+si no
+2 1 Si (símbolo es paréntesis izquierdo)
+entonces
+21. .1 Mientras (pILA[TOPE] .. paréntesis derecho) Repetir
+Llamar a Quita con PILA, TOPE YDATO
+Hacer EPRE ....... EPRE + DATO
+2.1.1.2 {Fin del ciclo del paso 2.1.1.1}
+{Sacamos el paréntesis derecho de PILA y no se agrega a EPRE}
+Llamar a Quita con PILA, TOPE YDATO
+si no
+.. 1.1 3 Si (símbolo es un operando)
+entonces
+Agregar símbolo a EPRE
+
+92
+
+Capítulo 3
+
+PILAS y COLAS
+
+dad; por tanto, permanecerá en PILA hasta el final del proceso de conversión, pas _
+Cuando se encuentra un paréntesis derecho, paso 9, se agrega directamente a PIL
+mientras que cuando el símbolo analizado es un paréntesis izquierdo, paso 13, se e
+repetidamente cada elemento de PILA agregándolo a EPRE, hasta que se encuentre
+paréntesis derecho. Éste se retira de PILA y no se agrega a EPRE. Cuando ya se
+lizaron todos los símbolos de la expresión se procede a quitar de PILA sus eleme
+añadiéndolos a EPRE. Finalmente se invierte EPRE para obtener la expresión en
+ción prefija, paso 17. Para evitar el último paso del algoritmo, invertir la expresión.
+podrían ir concatenando los símbolos en EPRE en orden inverso.
+
+Ordenación
+Otra aplicación de las pilas se puede ver en el método de ordenación rápida. Co
+tema de ordenación es ampliamente tratado en el capítulo 8, se sugiere remitirse a é'
+
+3.2.4
+
+la clase Pila
+La clase Pila tiene atributos y métodos. Los atributos son la colección de element~
+el TOPE. Los métodos, por otra parte, son todas aquellas operaciones analizadas e
+sección anterior -Pila_vacía, Pila_llena, Pone y Quita-. En la figura 3.10 se pu
+observar gráficamente la clase Pila.
+Se tiene acceso a los miembros de un objeto de la clase Pila por medio de la n _
+ción de puntos. Al asumir que la variable PIOBJ representa un objeto de la clase
+previamente creado, se puede hacer:
+PIOBJ.Pila_llena para invocar el método que determina si la pila está llena o
+En este método no hay argumentos, ya que todos los valores requeridos son miemb
+de la clase.
+PIOBJ.Pone(argumento) para insertar un nuevo elemento en la pila. En este métoo..
+sólo hay un argumento que indica el valor a guardar en la pila; los demás valores requ=
+ridos son miembros de la clase.
+
+F GURA 3 J
+Clase Pila.
+
+Pila
+
+}
+
+TOPE = entero
+}
+Datos = ARREGLO [1..MAX]
+Pila_vacía O
+Pila_llena O
+Pone (argumento)
+Quita (argumento)
+
+Nombre de la clase
+Atributo,
+
+Métodos
+
+3.3
+
+3.3
+
+COLAS
+
+93
+
+COLAS
+
+Una cola constituye una estructura lineal de datos en la que los nuevos elementos se
+introducen por un extremo y los ya existentes se eliminan por el otro. Es importante
+señalar que los componentes de la cola se eliminan en el mismo orden en el cual se
+insertaron. Es decir, el primer elemento que se introduce en la estructura será el que
+se eliminará en primer orden. Debido a esta característica, las colas también reciben el
+nombre de estructuras FIFü (First-In, First-Out: el primero en entrar es el primero en
+salir).
+
+- RA 3.11
+os prácticos
+
+s.
+
+rti P-.
+1
+l
+
+~'
+
+:"->
+
+\
+
+v
+\
+
+,
+-.-
+
+v' ,
+
+94
+
+Capítulo 3
+
+PILAS y COLAS
+
+Existen numerosos casos de la vida real en los cuales se usa este concepto. Peejemplo, la cola de los bancos en las que los clientes esperan para ser atendidos -;..
+primera persona de la cola será la primera en recibir el servicio-, la cola de los niño.
+que esperan a veces pacientemente para subir a un juego mecánico, las colas de 1 vehículos esperando la luz verde del semáforo, las colas para entrar a un cine, teatro'
+estadio de fútbol, etcétera.
+
+3.3.1
+
+Representación de colas
+Las colas, al igual que las pilas, no existen como estructuras de datos estándar en lo
+lenguajes de programación. Este tipo de estructura de datos se puede representar filOdiante el uso de:
+•
+•
+
+Arreglos
+Listas'
+
+Al igual que en el caso de las pilas, en este libro se utilizarán arreglos para fi05trar su funcionamiento. Sin embargo, la implementación mediante listas es incluso ~
+sencilla. El lector puede implementar los algoritmos necesarios para colas, después ci:
+estudiar el capítulo que se dedica a la estructura lineal de datos.
+Cuando se implementan con arreglos unidimensionales, es importante definir
+tamaño máximo para la cola y dos variables auxiliares. Una de ellas para que al
+cene la posición del primer elemento de la cola -FRENTE- y otra para que guaro:
+la posición del último elemento de la cola -FINAL-. En la figura 3.12 se muesr::
+la representación de una cola en la cual se han insertado tres elementos: 111, 222 _
+333, en ese orden.
+El elemento 111 está en el FRENTE ya que fue el primero que se insertó; rnien
+que el elemento 333, que fue el último en entrar, está en el FINAL de la cola.
+
+FIGL A 3.12
+Representación de colas,
+
+~"'=r=J
+1
+2
+3
+MAX
+t
+t
+.. .
+~,
+
+,,-
+
+FRENTE
+
+FINAL
+
+111
+
+1 +- FRENTE
+
+222
+
+2
+
+333
+
+3 +- FINAL
+
+8
+
+MAX
+
+95
+
+.'n de colas,
+. b) Cola con
+entos. e) Cola
+
+FRENTE = FINAL = O
+FRENTE -
+
+111
+
+2
+
+222
+
+3
+
+333
+
+111
+
+FRENTE
+
+FINAL
+
+2
+
+222
+
+2
+
+3
+
+333
+
+3
+
+FINAL
+a)
+
+b)
+
+e)
+
+En la figura 3.13, por otra parte, se presentan ejemplos de: a) cola llena, b) cola con
+algunos elementos y e) cola vacía.
+
+3.3.2
+
+Operaciones con colas
+La definición de la estructura de datos tipo cola queda completa al incluir las operaciones que se pueden realizar en ella. Las operaciones básicas que pueden efectuarse son:
+•
+•
+
+Insertar un elemento en la cola
+Eliminar un elemento de la cola
+
+Las inserciones se llevarán a cabo por el FINAL de la cola, mientras que las eliminaciones se harán por el FRENTE -recuerde que el primero en entrar es el primero en
+salir-,
+Considerando que una cola puede almacenar un máximo número de elementos y
+que además FRENTE indica la posición del primer elemento y FINAL la posición del
+último, se presentan a continuación los algoritmos correspondientes a las operaciones
+mencionadas.
+A1ron''110 ~
+
+Inserta_cola (COLA, MA ,FREl TE, FI AL, DATO)
+{Este algoritmo inserta el elemento DATO al final de una estructura tipo cola. fREI.'TE ~.
+FINAL son los punteros que indican, respectivamente, el inicio y fin de COLA. La pri.meIa vez
+FRENTE y FINAL tienen el valor O, ya que la cola está vacía. MAX es el máximo nm'lDelro (k
+elementos que puede almacenar la cola)
+
+96
+
+Capítulo 3
+
+PILAS y COLAS
+
+1. Si (FINAL < MAX) {Verifica que hay espacio libre}
+entonces
+Hacer FINAL +- FINAL + 1 {Actualiza FINAL} y COLA[FINAL] +- DATO
+1.1 Si (FINAL = 1) entonces {Se insertó el primer elemento de COLA}
+Hacer FRENTE +- 1
+1.2 {Fin del condicional del paso 1.1}
+si no
+Escribir "Desbordamiento - Cola llena"
+2. {Fin del condicional del paso l}
+
+AlgOlitmo 3.8
+
+Elimina301a
+
+Elimina_cola (COLA, FRENTE, FINAL, DATO)
+{Este algoritmo elimina el primer elemento de una estructura tipo cola y lo almacena en DATO.
+FRENTE YFINAL son los punteros que indican, respectivamente, el inicio y fin de la cola}
+
+~I
+
+1. Si (FRENTE,. O) {Verifica que la cola no esté vacía}
+entonces
+Hacer DATO +- COLA [FRENTE]
+1.1 Si (FRENTE = FINAL) {Si hay un solo elemento}
+entonces
+Hacer FRENTE +- O y FINAL +- O {Indica COLA vacía}
+si no
+Hacer FRENTE +- FRENTE + 1
+1.2 {Fin del condicional del paso l.l}
+si no
+Escribir "Subdesbordamiento - Cola vacía"
+2. {Fin del condicional del paso l}
+
+Es posible definir algoritmos auxiliares para determinar si una cola está llena o \ ~
+cía. A partir de estos algoritmos se podrían reescribir los algoritmos 3.7 y 3.8.
+A continuación se presentan los algoritmos que permiten verificar el estado de
+cola, quedando como tarea sugerida la reescritura de los dos algoritmos anteriores.
+Algoritmo 3.9
+
+Cola_vacía
+
+Cola_vacía (COLA, FRENTE, BAND)
+{Este algoritmo determina si una estructura de datos tipo cola está vacía, asignando a B~
+el valor de verdad correspondiente}
+1. Si (FRENTE =O)
+
+97
+
+entonces
+Hacer BAND +- VERDADERO
+si no
+Hacer BAND +- FALSO
+2 {Fin del condicional del paso l}
+
+Algoritmo 3 10 Cola_llena
+Cola_llena (COLA, FINAL, l\lAX, BAND)
+{Este algoritmo determina si una estructura de datos tipo cola está llena, asignando a BAND
+el valor de verdad correspondiente. MAX es el número máximo de elementos que puede
+almacenar COLA}
+
+. Si (FINAL = MAX)
+entonces
+Hacer BAND +- VERDADERO
+si no
+Hacer BAND +- FALSO
+{Fin del condicional del paso l}
+
+Aquí se incluye un ejemplo para ilustrar el ful).cionarniento de las operaciones de
+inserción y eliminación en colas.
+
+emplo 3.6
+
+Retome el ejemplo 3.1 de la sección 3.1.2. Se insertan en COLA los elementos: lunes,
+martes, miércoles, jueves y viernes -en ese orden-, de modo que la estructura queda
+como se muestra en la figura 3.14. Para este ejemplo MAX =7.
+
+COLA
+
+• y eliminación
+
+Lunes
+
+FRENTE
+2
+
+Martes
+
+3 Miércoles
+
+FINAL
+
+4
+
+Jueves
+
+5
+
+Viernes
+
+6
+
+7
+MAX
+
+

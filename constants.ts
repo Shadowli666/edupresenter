@@ -30,6 +30,12 @@ import { PROG_MODULE_9 } from './data/prog_module9';
 import { PROG_MODULE_10 } from './data/prog_module10';
 import { PROG_MODULE_11 } from './data/prog_module11';
 import { PROG_MODULE_12 } from './data/prog_module12';
+import { PROG_MODULE_13 } from './data/prog_module13';
+import { PROG_MODULE_14 } from './data/prog_module14';
+import { PROG_MODULE_15 } from './data/prog_module15';
+import { PROG_MODULE_16 } from './data/prog_module16';
+import { PROG_MODULE_17 } from './data/prog_module17';
+import { PROG_MODULE_18 } from './data/prog_module18';
 
 // Import Non-Numerical Programming modules
 import { PNN_MODULE_1 } from './data/pnn_module1';
@@ -90,7 +96,7 @@ export const PROGRAMMING_COURSE: Course = {
   teacherName: 'Ing. Luis Felipe Moreno Oropeza',
   teacherEmail: '27758801@psm.edu.ve',
   modules: [
-    PROG_MODULE_1,
+  PROG_MODULE_1,
     PROG_MODULE_2,
     PROG_MODULE_3,
     PROG_MODULE_4,
@@ -101,7 +107,13 @@ export const PROGRAMMING_COURSE: Course = {
     PROG_MODULE_9,
     PROG_MODULE_10,
     PROG_MODULE_11,
-    PROG_MODULE_12
+  PROG_MODULE_12,
+  PROG_MODULE_13,
+  PROG_MODULE_14,
+  PROG_MODULE_15,
+  PROG_MODULE_16,
+  PROG_MODULE_17,
+  PROG_MODULE_18
   ]
 };
 
