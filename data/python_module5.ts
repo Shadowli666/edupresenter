@@ -45,6 +45,139 @@ export const PYTHON_MODULE_5: Module = {
       `
     },
     {
+      id: 'py5-6',
+      title: '5.1 Diseño de Menú (Diagrama)',
+      contentHtml: `
+        <div class="space-y-6">
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2">Flujo del sistema de menú</h4>
+            <div class="mermaid">
+              flowchart TD
+                A[Inicio] --> B[Mostrar Menú]
+                B --> C{Opción}
+                C -- 1 --> S[Mostrar saldo]
+                C -- 2 --> R[Retirar]
+                C -- 3 --> D[Depositar]
+                C -- 4 --> E[Salir]
+                S --> B
+                R --> B
+                D --> B
+                E --> F[Fin]
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py5-7',
+      title: '6. Entrada robusta (opcional try/except)',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700">Para entradas numéricas, es común validar y manejar errores con <code>try/except</code> (opcional).</p>
+          <div class="bg-slate-900 p-3 rounded font-mono text-xs text-slate-300">
+            <span class="text-gray-500"># Convierte y valida que sea positivo</span><br>
+            <span class="text-purple-400">def</span> leer_monto():<br>
+            &nbsp;&nbsp;<span class="text-purple-400">while</span> <span class="text-blue-400">True</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">try</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m = <span class="text-purple-400">float</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Monto: "</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">if</span> m > <span class="text-blue-400">0</span>: <span class="text-purple-400">return</span> m<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">print</span>(<span class="text-green-400">"Debe ser positivo"</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">except</span> <span class="text-blue-400">ValueError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">print</span>(<span class="text-green-400">"Entrada inválida"</span>)
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py5-8',
+      title: '7. Mini-Proyecto: Gestor de Tareas',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700">Construye un gestor simple con una lista en memoria. Opciones: agregar, listar, completar, eliminar, salir.</p>
+          <details class="group">
+            <summary class="inline-flex items-center cursor-pointer text-xs font-bold text-blue-600 bg-blue-50 px-3 py-2 rounded hover:bg-blue-100 transition-colors">Mostrar solución</summary>
+            <div class="mt-3 bg-slate-900 p-4 rounded-lg font-mono text-xs text-slate-300 overflow-x-auto max-h-72 overflow-y-auto">
+              tareas = []<br>
+              <br>
+              <span class="text-purple-400">while</span> <span class="text-blue-400">True</span>:<br>
+              &nbsp;&nbsp;<span class="text-blue-400">print</span>(<span class="text-green-400">"\n1) Agregar  2) Listar  3) Completar  4) Eliminar  5) Salir"</span>)<br>
+              &nbsp;&nbsp;op = <span class="text-blue-400">input</span>(<span class="text-green-400">"Elige: "</span>)<br>
+              &nbsp;&nbsp;<span class="text-purple-400">if</span> op == <span class="text-green-400">"1"</span>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;txt = <span class="text-blue-400">input</span>(<span class="text-green-400">"Tarea: "</span>)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;tareas.append({<span class="text-green-400">"t"</span>: txt, <span class="text-green-400">"done"</span>: <span class="text-blue-400">False</span>})<br>
+              &nbsp;&nbsp;<span class="text-purple-400">elif</span> op == <span class="text-green-400">"2"</span>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">for</span> i, t <span class="text-purple-400">in</span> <span class="text-blue-400">enumerate</span>(tareas, start=<span class="text-blue-400">1</span>):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estado = <span class="text-green-400">"✔"</span> <span class="text-purple-400">if</span> t[<span class="text-green-400">"done"</span>] <span class="text-purple-400">else</span> <span class="text-green-400">"✘"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">print</span>(f<span class="text-green-400">"{i}. [{estado}] {t['t']}"</span>)<br>
+              &nbsp;&nbsp;<span class="text-purple-400">elif</span> op == <span class="text-green-400">"3"</span>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;idx = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Número: "</span>)) - <span class="text-blue-400">1</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">if</span> <span class="text-blue-400">0</span> <= idx < <span class="text-blue-400">len</span>(tareas):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tareas[idx][<span class="text-green-400">"done"</span>] = <span class="text-blue-400">True</span><br>
+              &nbsp;&nbsp;<span class="text-purple-400">elif</span> op == <span class="text-green-400">"4"</span>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;idx = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Número: "</span>)) - <span class="text-blue-400">1</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">if</span> <span class="text-blue-400">0</span> <= idx < <span class="text-blue-400">len</span>(tareas):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tareas.pop(idx)
+            </div>
+          </details>
+        </div>
+      `
+    },
+    {
+      id: 'py5-9',
+      title: '8. Mini-Proyecto: Generador de Contraseñas',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700">Pide longitud y genera una contraseña con letras y dígitos.</p>
+          <details class="group">
+            <summary class="inline-flex items-center cursor-pointer text-xs font-bold text-blue-600 bg-blue-50 px-3 py-2 rounded hover:bg-blue-100 transition-colors">Mostrar solución</summary>
+            <div class="mt-3 bg-slate-900 p-4 rounded-lg font-mono text-xs text-slate-300 overflow-x-auto">
+              <span class="text-gray-500"># Nota: para aleatorio, usa el módulo random</span><br>
+              <span class="text-purple-400">import</span> random, string<br>
+              n = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Longitud: "</span>))<br>
+              alfabeto = string.ascii_letters + string.digits
+              pwd = <span class="text-blue-400">""</span>.join(random.choice(alfabeto) <span class="text-purple-400">for</span> _ <span class="text-purple-400">in</span> <span class="text-blue-400">range</span>(n))<br>
+              <span class="text-blue-400">print</span>(pwd)
+            </div>
+          </details>
+        </div>
+      `
+    },
+    {
+      id: 'py5-10',
+      title: '9. Mini Quiz de Integración',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2">1) ¿Qué imprime el siguiente menú si el usuario elige 4?</h4>
+            <p class="text-sm text-slate-600">Debe terminar el programa con un mensaje de despedida.</p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py5-qa',
+      title: '10. Preguntas y Respuestas',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-12 text-center space-y-4">
+          <h2 class="text-3xl font-bold text-slate-900">¿Dudas de integración?</h2>
+          <p class="text-slate-600">Vemos validaciones, menús, juegos y mini-proyectos.</p>
+        </div>
+      `
+    },
+    {
+      id: 'py5-end',
+      title: '11. ¡Gracias!',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-16 text-center">
+          <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">Fin del Módulo 5</h3>
+          <p class="text-slate-600">Cerramos el corte con la entrega de notas.</p>
+        </div>
+      `
+    },
+    {
       id: 'py5-2',
       title: '2. Práctica: Validador Robusto',
       contentHtml: `

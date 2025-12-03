@@ -56,7 +56,7 @@ export const PROG_MODULE_11: Module = {
         <h3 class="text-xl font-bold text-slate-800 mb-4">Colas de Prioridad en C++</h3>
         <p class="text-gray-600 mb-4">C++ nos da <code>std::priority_queue</code> en la librería <code>&lt;queue&gt;</code>. Por defecto, funciona como un "max-heap": el elemento mayor tiene la mayor prioridad.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 
@@ -86,7 +86,7 @@ int main() {
         <h3 class="text-xl font-bold text-slate-800 mb-4">Colas de Prioridad en Python</h3>
         <p class="text-gray-600 mb-4">Python usa el módulo <code>heapq</code>. Funciona sobre una lista normal y, por defecto, la trata como un "min-heap": el elemento <strong>más pequeño</strong> tiene la mayor prioridad.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-python">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 import heapq
 
 # heapq trabaja sobre una lista normal
@@ -161,7 +161,7 @@ while pq:
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 struct Paciente {
     std::string nombre;
     int id;
@@ -178,7 +178,7 @@ struct Paciente {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 import itertools
 
 class Paciente:
@@ -204,7 +204,7 @@ class Paciente:
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">Esqueleto en C++</h3>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include <iostream>
 #include <queue>
 #include <list>
@@ -244,7 +244,7 @@ int main() {
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">Esqueleto en Python</h3>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-python">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 import heapq
 from collections import deque
 

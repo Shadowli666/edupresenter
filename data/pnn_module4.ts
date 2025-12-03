@@ -1,382 +1,429 @@
-
 import { Module } from '../types';
 
 export const PNN_MODULE_4: Module = {
   id: 'pnn-mod-4',
-  title: '4. Ordenamiento: Sortmerge',
-  description: 'Algoritmo Merge Sort: Teoría, Traza, Código y Ejemplos.',
+  title: '4. Merge Sort: El Poder de Dividir y Conquistar',
+  description: 'Algoritmo de ordenamiento eficiente, análisis de complejidad y aplicaciones.',
   evaluation: '10% - Ejecución de Algoritmos',
   slides: [
     {
       id: 'pnn4-1',
-      title: '1. Fundamentos Teóricos',
+      title: 'Merge Sort: Fundamentos del Algoritmo',
+      notes: 'Introducción al Merge Sort como un algoritmo Divide y Conquista.',
       contentHtml: `
-        <div class="space-y-8">
-          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg shadow-sm">
-            <h3 class="text-xl font-bold text-amber-900 mb-2">Definición Formal</h3>
-            <p class="text-amber-800 text-lg italic font-serif">
-              "Merge Sort es un algoritmo de ordenamiento recursivo que divide repetidamente una lista en sublistas hasta que cada una contiene un solo elemento (problema pequeño), para luego mezclarlas ordenadamente (solución) hasta reconstruir la lista completa."
+        <div class="space-y-6">
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm">
+            <h3 class="text-xl font-bold text-amber-900 mb-2">Definición</h3>
+            <p class="text-amber-800 text-lg">
+              Merge Sort es un algoritmo de ordenamiento que sigue el paradigma <strong>Divide y Conquista</strong>. Funciona dividiendo repetidamente una lista en sublistas hasta que cada una tiene un solo elemento, y luego las fusiona (combina) de forma ordenada hasta obtener la lista completamente ordenada.
             </p>
           </div>
 
           <div class="bg-white p-6 border rounded-xl shadow-sm">
-             <h4 class="font-bold text-slate-800 mb-4 text-lg border-b pb-2">Estrategia: Divide y Vencerás</h4>
+             <h4 class="font-bold text-slate-800 mb-4 text-lg border-b pb-2">Recordando Divide y Conquista</h4>
              <div class="grid md:grid-cols-3 gap-6 text-center">
                 <div class="p-4 bg-blue-50 rounded-lg">
                    <div class="text-3xl mb-2">🔪</div>
                    <strong class="block text-blue-900 mb-2">1. Dividir</strong>
-                   <p class="text-sm text-blue-800">Partir el problema grande en dos subproblemas (n/2).</p>
+                   <p class="text-sm text-blue-800">Partir el arreglo en dos mitades aproximadamente iguales.</p>
                 </div>
                 <div class="p-4 bg-purple-50 rounded-lg">
                    <div class="text-3xl mb-2">⚔️</div>
                    <strong class="block text-purple-900 mb-2">2. Conquistar</strong>
-                   <p class="text-sm text-purple-800">Llamada recursiva. Si n=1, está resuelto (Caso Base).</p>
+                   <p class="text-sm text-purple-800">Ordenar recursivamente cada una de las dos mitades.</p>
                 </div>
                 <div class="p-4 bg-green-50 rounded-lg">
                    <div class="text-3xl mb-2">🔗</div>
                    <strong class="block text-green-900 mb-2">3. Combinar (Merge)</strong>
-                   <p class="text-sm text-green-800">La función 'Mezclar' une dos listas ordenadas en una sola.</p>
+                   <p class="text-sm text-green-800">Mezclar las dos mitades ordenadas para producir un arreglo final ordenado.</p>
                 </div>
              </div>
           </div>
-
-          <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200 flex gap-4 items-center">
-             <div class="bg-indigo-100 p-2 rounded text-indigo-600 font-bold text-xl">🧠</div>
-             <div>
-               <h5 class="font-bold text-indigo-900 text-sm">Conexión con Árboles: Recorrido Post-Orden</h5>
-               <p class="text-xs text-indigo-800 mt-1">
-                 El flujo de ejecución del Merge Sort es idéntico a un recorrido <strong>Post-Orden</strong> (LRN) en un árbol binario: 
-                 Primero resuelve la Izquierda (Left), luego la Derecha (Right), y finalmente Mezcla (Root/Node).
-               </p>
-             </div>
+          <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+             <h5 class="font-bold text-indigo-900 text-sm">Analogía: Post-Orden</h5>
+             <p class="text-xs text-indigo-800 mt-1">
+               El flujo de ejecución de Merge Sort se parece a un recorrido <strong>Post-Orden</strong> en un árbol binario. Primero se resuelven los subproblemas izquierdo y derecho (conquistar), y luego se combinan (raíz).
+             </p>
           </div>
         </div>
       `
     },
     {
       id: 'pnn4-2',
-      title: '2. Algoritmo y Traza',
+      title: 'Merge Sort: Algoritmo Principal',
+      notes: 'Pseudocódigo del algoritmo mergeSort recursivo.',
       contentHtml: `
-        <div class="space-y-6">
-          
-          <!-- Pseudocódigo -->
-          <div class="bg-white p-4 border rounded-lg shadow-sm mb-6">
-             <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-               Lógica del Algoritmo
-             </h4>
-             
-             <div class="bg-blue-50 p-3 rounded border border-blue-100 text-xs text-blue-800 mb-3 flex gap-4">
-                <div><span class="font-bold">arr:</span> Arreglo a ordenar.</div>
-                <div><span class="font-bold">low:</span> Índice inicial (Izquierda).</div>
-                <div><span class="font-bold">high:</span> Índice final (Derecha).</div>
-             </div>
-
-             <div class="font-mono text-xs bg-slate-900 text-gray-300 p-4 rounded border border-slate-700">
-               <span class="text-purple-400">Funcion</span> mergeSort(arr, low, high)<br>
-               &nbsp;&nbsp;<span class="text-blue-400">Si</span> low < high <span class="text-blue-400">Entonces</span> <span class="text-gray-500">// Si hay más de 1 elemento (Validación)</span><br>
-               &nbsp;&nbsp;&nbsp;&nbsp;mid = (low + high) / 2<br>
-               &nbsp;&nbsp;&nbsp;&nbsp;mergeSort(arr, low, mid) &nbsp;&nbsp;&nbsp;<span class="text-gray-500">// 1. Recursión Izquierda</span><br>
-               &nbsp;&nbsp;&nbsp;&nbsp;mergeSort(arr, mid+1, high) <span class="text-gray-500">// 2. Recursión Derecha</span><br>
-               &nbsp;&nbsp;&nbsp;&nbsp;merge(arr, low, mid, high) <span class="text-gray-500">// 3. Combinar (Post-Orden)</span><br>
-               &nbsp;&nbsp;<span class="text-blue-400">FinSi</span><br>
-               <span class="text-purple-400">FinFuncion</span>
-             </div>
-          </div>
-
-          <!-- Traza Visual -->
-          <div class="flex flex-col items-center w-full overflow-x-auto pb-4">
-             <h4 class="font-bold text-slate-800 mb-6 sticky left-0 bg-white px-2">Traza de Ejecución: [38, 27, 43, 3, 9, 82, 10]</h4>
-             
-             <div class="relative flex flex-col items-center gap-6 min-w-[600px]">
-                
-                <!-- Fase de División -->
-                <div class="flex flex-col items-center gap-4 w-full">
-                   
-                   <!-- Nivel 0 -->
-                   <div class="bg-slate-200 px-3 py-1 rounded font-mono text-xs font-bold shadow-sm border border-slate-300">
-                     [38, 27, 43, 3, 9, 82, 10]
-                   </div>
-                   <div class="h-4 w-px bg-slate-300"></div>
-
-                   <!-- Nivel 1 -->
-                   <div class="flex justify-between w-3/4">
-                      <div class="bg-blue-50 px-2 py-1 rounded font-mono text-xs border border-blue-100">[38, 27, 43, 3]</div>
-                      <div class="bg-blue-50 px-2 py-1 rounded font-mono text-xs border border-blue-100">[9, 82, 10]</div>
-                   </div>
-
-                   <!-- Nivel 2 -->
-                   <div class="flex justify-between w-full px-4 relative">
-                      <div class="flex gap-4">
-                         <div class="bg-white px-2 py-1 rounded font-mono text-[10px] border border-slate-200 shadow-sm">[38, 27]</div>
-                         <div class="bg-white px-2 py-1 rounded font-mono text-[10px] border border-slate-200 shadow-sm">[43, 3]</div>
-                      </div>
-                      <div class="flex gap-4">
-                         <div class="bg-white px-2 py-1 rounded font-mono text-[10px] border border-slate-200 shadow-sm">[9, 82]</div>
-                         <div class="bg-white px-2 py-1 rounded font-mono text-[10px] border border-slate-200 shadow-sm">[10]</div>
-                      </div>
-                   </div>
-
-                   <!-- Nivel 3 (Atomico) -->
-                   <div class="flex justify-between w-full gap-2 px-2">
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">38</span>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">27</span>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">43</span>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">3</span>
-                      <div class="w-4"></div>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">9</span>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">82</span>
-                      <span class="bg-yellow-100 px-1 rounded border border-yellow-300 text-[10px] font-bold">10</span>
-                   </div>
-                </div>
-
-                <div class="w-full border-t border-dashed border-slate-300 my-2 relative">
-                   <span class="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-white px-2 text-[10px] text-slate-400 font-bold">Fase de Mezcla (Sort)</span>
-                </div>
-
-                <!-- Fase de Mezcla -->
-                <div class="flex flex-col items-center gap-4 w-full">
-                   <!-- Mezcla 1 -->
-                   <div class="flex justify-between w-full px-4 text-green-800 font-bold">
-                      <div class="flex gap-4">
-                         <div class="bg-green-50 px-2 py-1 rounded font-mono text-[10px] border border-green-200">[27, 38]</div>
-                         <div class="bg-green-50 px-2 py-1 rounded font-mono text-[10px] border border-green-200">[3, 43]</div>
-                      </div>
-                      <div class="flex gap-4">
-                         <div class="bg-green-50 px-2 py-1 rounded font-mono text-[10px] border border-green-200">[9, 82]</div>
-                         <div class="bg-green-50 px-2 py-1 rounded font-mono text-[10px] border border-green-200">[10]</div>
-                      </div>
-                   </div>
-
-                   <!-- Mezcla 2 -->
-                   <div class="flex justify-between w-3/4 text-green-800 font-bold">
-                      <div class="bg-green-100 px-2 py-1 rounded font-mono text-xs border border-green-300">[3, 27, 38, 43]</div>
-                      <div class="bg-green-100 px-2 py-1 rounded font-mono text-xs border border-green-300">[9, 10, 82]</div>
-                   </div>
-
-                   <!-- Final -->
-                   <div class="bg-green-600 text-white px-4 py-2 rounded font-mono text-sm font-bold shadow-lg border border-green-700 transform scale-110">
-                     [3, 9, 10, 27, 38, 43, 82]
-                   </div>
-                </div>
-
-             </div>
-          </div>
-
-          <!-- Mini-quiz interactivo -->
-          <div class="bg-white p-4 rounded-xl border shadow-sm">
-            <h4 class="font-semibold text-slate-800 mb-2">Preguntas rápidas</h4>
-            <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
-              <li>¿En qué paso se aplica el caso base?</li>
-              <li>Si el arreglo ya está ordenado, ¿la traza cambia? ¿Por qué?</li>
-              <li>¿Merge Sort es estable? ¿Qué implica eso en datos con claves iguales?</li>
-            </ul>
-          </div>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">La Función <code>mergeSort</code></h3>
+        <p class="text-gray-600 mb-4">Esta función recursiva es la que implementa la lógica de Divide y Conquista.</p>
+        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
+           <h5 class="text-gray-400 mb-2">// Pseudocódigo</h5>
+           <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
+FUNCIÓN mergeSort(arr, bajo, alto):
+  SI bajo < alto:             // Caso Base: si hay más de un elemento
+    medio = (bajo + alto) / 2
+    mergeSort(arr, bajo, medio)     // Dividir y Conquistar (parte izquierda)
+    mergeSort(arr, medio + 1, alto) // Dividir y Conquistar (parte derecha)
+    merge(arr, bajo, medio, alto)   // Combinar (mezclar las dos mitades)
+            </code></pre>
         </div>
+        <p class="text-sm text-gray-700 mt-4">El verdadero "trabajo" del ordenamiento ocurre en la función <code>merge</code>.</p>
       `
     },
     {
       id: 'pnn4-3',
-      title: '3. Análisis de Complejidad',
+      title: 'Función <code>merge</code>: El Corazón del Algoritmo',
+      notes: 'Detallar la función merge con pseudocódigo y ejemplo.',
       contentHtml: `
-        <div class="space-y-8">
-           <div class="bg-white border-l-4 border-blue-600 p-6 rounded shadow-sm">
-             <h3 class="text-xl font-bold text-blue-900 mb-4">Relación de Recurrencia</h3>
-             <p class="text-gray-700 mb-4 text-sm">
-               Para calcular el tiempo que toma el algoritmo <span class="font-mono font-bold text-blue-800">T(n)</span>, sumamos el tiempo de sus partes. Asumiendo que el tiempo base es constante:
-             </p>
-             
-             <div class="flex justify-center mb-6">
-                <div class="bg-slate-900 text-white px-6 py-3 rounded-lg font-mono text-lg shadow-lg">
-                  T(n) = <span class="text-yellow-400">2T(n/2)</span> + <span class="text-green-400">n</span>
-                </div>
-             </div>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Uniendo Sublistas Ordenadas</h3>
+        <p class="text-gray-600 mb-4">La función <code>merge</code> toma dos sub-arreglos que ya están ordenados y los combina en un único arreglo ordenado.</p>
+        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 my-4">
+          <h5 class="font-bold text-blue-900">Pasos Clave de <code>merge</code></h5>
+          <ol class="list-decimal pl-5 text-sm text-blue-800 mt-2">
+            <li>Se crean dos arreglos temporales para las mitades.</li>
+            <li>Se comparan los elementos de las dos mitades, colocando el menor en el arreglo original.</li>
+            <li>Se copian los elementos restantes de cualquiera de las mitades al arreglo original.</li>
+          </ol>
+        </div>
+        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+          <h5 class="text-gray-400 mb-2">// Pseudocódigo simplificado de <code>merge</code></h5>
+           <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
+FUNCIÓN merge(arr, bajo, medio, alto):
+  n1 = medio - bajo + 1
+  n2 = alto - medio
+  
+  // Crear arreglos temporales L[] y R[]
+  L[] = arr[bajo...medio]
+  R[] = arr[medio+1...alto]
 
-             <div class="grid grid-cols-2 gap-4 text-sm">
-               <div class="bg-yellow-50 p-3 rounded border border-yellow-200">
-                 <strong class="text-yellow-800 block mb-1">2T(n/2)</strong>
-                 <p class="text-slate-600">El algoritmo se llama a sí mismo 2 veces, cada vez con la mitad de los datos (Izquierda y Derecha).</p>
-               </div>
-               <div class="bg-green-50 p-3 rounded border border-green-200">
-                 <strong class="text-green-800 block mb-1">n</strong>
-                 <p class="text-slate-600">El tiempo que toma la función <code>merge</code> en combinar los datos es lineal (recorre los n elementos).</p>
-               </div>
-             </div>
-           </div>
-
-           <div class="grid md:grid-cols-2 gap-8">
-             <div class="bg-slate-50 p-4 rounded border border-slate-200">
-               <h4 class="font-bold text-slate-800 mb-2 border-b pb-1">Resultado (Teorema Maestro)</h4>
-               <div class="text-3xl font-mono font-bold text-green-600 mb-2">θ(n log n)</div>
-               <p class="text-xs text-gray-600">
-                 Aplicando el Caso 2 del Teorema Maestro.
-                 <br>El árbol tiene una altura de <strong>log n</strong> y en cada nivel se hace un trabajo de <strong>n</strong>.
-               </p>
-             </div>
-             <div class="bg-slate-50 p-4 rounded border border-slate-200">
-               <h4 class="font-bold text-slate-800 mb-2 border-b pb-1">Espacio (Space)</h4>
-               <div class="text-3xl font-mono font-bold text-orange-600 mb-2">O(n)</div>
-               <p class="text-xs text-gray-600">
-                 Requiere memoria adicional para los arreglos temporales durante la mezcla. No es "in-place".
-               </p>
-             </div>
-           </div>
+  // Mezclar L[] y R[] de vuelta en arr[]
+  i = 0, j = 0, k = bajo
+  MIENTRAS i < n1 Y j < n2:
+    SI L[i] <= R[j]:
+      arr[k] = L[i]; i++
+    SINO:
+      arr[k] = R[j]; j++
+    k++
+  // Copiar elementos restantes de L[] o R[]
+  MIENTRAS i < n1: arr[k] = L[i]; i++; k++
+  MIENTRAS j < n2: arr[k] = R[j]; j++; k++
+            </code></pre>
         </div>
       `
     },
     {
-      id: 'pnn4-4',
-      title: '4. Implementación (Código)',
+      id: 'pnn4-4-trace',
+      title: 'Merge Sort: Traza Visual de Ejecución',
+      notes: 'Demostración paso a paso del algoritmo.',
       contentHtml: `
-        <div class="space-y-4">
-          <p class="text-gray-600 mb-2">A continuación, la implementación estándar en <strong>Python</strong>. Observe las dos funciones principales: la recursiva y la de mezcla.</p>
-          
-          <div class="bg-slate-900 text-slate-300 p-6 rounded-xl font-mono text-xs overflow-x-auto shadow-lg border border-slate-700">
-<pre>
-<span class="text-purple-400">def</span> <span class="text-blue-400">merge_sort</span>(lista):
-    <span class="text-gray-500"># 1. Caso Base: Si la lista tiene 0 o 1 elemento, ya está ordenada</span>
-    <span class="text-purple-400">if</span> <span class="text-blue-400">len</span>(lista) <= 1:
-        <span class="text-purple-400">return</span> lista
+        <h3 class="text-xl font-bold text-slate-800 mb-4">¿Cómo se Ordena un Arreglo?</h3>
+        <p class="text-gray-600 mb-4">Sigamos el camino de Merge Sort con un ejemplo: <code>[38, 27, 43, 3, 9, 82, 10]</code>.</p>
+        <div class="flex flex-col items-center w-full overflow-x-auto pb-4">
+          <div class="relative flex flex-col items-center gap-6 min-w-[700px] py-4">
+                
+                <!-- Nivel 0 -->
+                <div class="bg-slate-200 px-4 py-2 rounded font-mono text-sm font-bold shadow-sm border border-slate-300 animate-fade-in">
+                  [38, 27, 43, 3, 9, 82, 10]
+                </div>
+                <div class="h-4 w-px bg-slate-300"></div>
+
+                <!-- Nivel 1 (División) -->
+                <div class="flex justify-around w-full">
+                   <div class="bg-blue-50 px-3 py-2 rounded font-mono text-sm border border-blue-100 animate-slide-in-left">[38, 27, 43, 3]</div>
+                   <div class="bg-blue-50 px-3 py-2 rounded font-mono text-sm border border-blue-100 animate-slide-in-right">[9, 82, 10]</div>
+                </div>
+
+                <!-- Nivel 2 (División) -->
+                <div class="flex justify-around w-full">
+                    <div class="flex justify-around w-1/2">
+                       <div class="bg-white px-2 py-1 rounded font-mono text-xs border border-slate-200 shadow-sm animate-fade-in">[38, 27]</div>
+                       <div class="bg-white px-2 py-1 rounded font-mono text-xs border border-slate-200 shadow-sm animate-fade-in">[43, 3]</div>
+                    </div>
+                    <div class="flex justify-around w-1/2">
+                       <div class="bg-white px-2 py-1 rounded font-mono text-xs border border-slate-200 shadow-sm animate-fade-in">[9, 82]</div>
+                       <div class="bg-white px-2 py-1 rounded font-mono text-xs border border-slate-200 shadow-sm animate-fade-in">[10]</div>
+                    </div>
+                </div>
+
+                <!-- Nivel 3 (División - Atomic) -->
+                <div class="flex justify-around w-full text-xs font-bold">
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">38</span>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">27</span>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">43</span>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">3</span>
+                    <div class="w-4"></div>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">9</span>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">82</span>
+                    <span class="bg-yellow-100 px-1 rounded border border-yellow-300 animate-pop-in">10</span>
+                </div>
+
+                <div class="w-full border-t-2 border-dashed border-slate-400 my-4 relative">
+                   <span class="absolute top-[-15px] left-1/2 -translate-x-1/2 bg-white px-3 text-sm text-slate-600 font-bold">Fase de Combinación (Merge)</span>
+                </div>
+
+                <!-- Nivel 3 (Combinación) -->
+                <div class="flex justify-around w-full text-xs font-bold">
+                    <div class="bg-green-50 px-2 py-1 rounded font-mono border border-green-200 animate-pop-in">[27, 38]</div>
+                    <div class="bg-green-50 px-2 py-1 rounded font-mono border border-green-200 animate-pop-in">[3, 43]</div>
+                    <div class="w-4"></div>
+                    <div class="bg-green-50 px-2 py-1 rounded font-mono border border-green-200 animate-pop-in">[9, 82]</div>
+                    <div class="bg-green-50 px-2 py-1 rounded font-mono border border-green-200 animate-pop-in">[10]</div>
+                </div>
+
+                <!-- Nivel 2 (Combinación) -->
+                <div class="flex justify-around w-full">
+                    <div class="bg-green-100 px-3 py-2 rounded font-mono text-sm border border-green-300 animate-slide-in-left">[3, 27, 38, 43]</div>
+                    <div class="bg-green-100 px-3 py-2 rounded font-mono text-sm border border-green-300 animate-slide-in-right">[9, 10, 82]</div>
+                </div>
+
+                <!-- Nivel 1 (Combinación - Final) -->
+                <div class="bg-green-600 text-white px-5 py-3 rounded-lg font-mono text-base font-bold shadow-lg border border-green-700 animate-pop-in">
+                  [3, 9, 10, 27, 38, 43, 82]
+                </div>
+
+             </div>
+          </div>
+          <style>
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes slideInLeft { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+            .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+            .animate-slide-in-left { animation: slideInLeft 0.5s ease-out forwards; }
+            .animate-slide-in-right { animation: slideInRight 0.5s ease-out forwards; }
+            .animate-pop-in { animation: popIn 0.3s ease-out forwards; }
+          </style>
+        </div>
+      `
+    },
+    {
+      id: 'pnn4-5-merge-code',
+      title: 'Implementación: La Función <code>merge</code> (C++/Python)',
+      notes: 'Código de la función merge para C++ y Python.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Cómo Unir Dos Arreglos Ordenados</h3>
+        <p class="text-gray-600 mb-4">Esta es la función auxiliar clave que se encarga de combinar las sublistas ordenadas.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2">// C++</h5>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
+void merge(std::vector<int>& arr, int low, int mid, int high) {
+    int n1 = mid - low + 1;
+    int n2 = high - mid;
+
+    std::vector<int> L(n1), R(n2);
+    for (int i = 0; i < n1; ++i) L[i] = arr[low + i];
+    for (int j = 0; j < n2; ++j) R[j] = arr[mid + 1 + j];
+
+    int i = 0, j = 0, k = low;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++];
+        } else {
+            arr[k++] = R[j++];
+        }
+    }
+    while (i < n1) arr[k++] = L[i++];
+    while (j < n2) arr[k++] = R[j++];
+}
+            </code></pre>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Python</h5>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
+def merge(izquierda, derecha):
+    resultado = []
+    i = j = 0
+    while i < len(izquierda) and j < len(derecha):
+        if izquierda[i] < derecha[j]:
+            resultado.append(izquierda[i])
+            i += 1
+        else:
+            resultado.append(derecha[j])
+            j += 1
+    resultado.extend(izquierda[i:])
+    resultado.extend(derecha[j:])
+    return resultado
+            </code></pre>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn4-6-mergesort-full-code',
+      title: 'Implementación: Merge Sort Completo (C++/Python)',
+      notes: 'Código completo del Merge Sort para C++ y Python.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Uniendo Todo: El Algoritmo Completo</h3>
+        <p class="text-gray-600 mb-4">Aquí se muestra el algoritmo Merge Sort recursivo junto con su función <code>merge</code> auxiliar.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2">// C++</h5>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
+#include <iostream>
+#include <vector>
+#include <algorithm> // For std::min, std::max if needed
+
+// (La función merge de la slide anterior iría aquí)
+
+void mergeSort(std::vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int mid = low + (high - low) / 2; // Prevenir overflow
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
+    }
+}
+
+// int main() {
+//    std::vector<int> arr = {38, 27, 43, 3, 9, 82, 10};
+//    mergeSort(arr, 0, arr.size() - 1);
+//    // Imprimir arr
+// }
+            </code></pre>
+          </div>
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+            <h5 class="text-gray-400 mb-2"># Python</h5>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
+# (La función merge de la slide anterior iría aquí)
+
+def merge_sort(lista):
+    if len(lista) <= 1:
+        return lista
     
-    <span class="text-gray-500"># 2. Dividir</span>
-    medio = <span class="text-blue-400">len</span>(lista) // 2
+    medio = len(lista) // 2
     izquierda = merge_sort(lista[:medio])
     derecha = merge_sort(lista[medio:])
     
-    <span class="text-gray-500"># 3. Combinar (Llamada a función auxiliar)</span>
-    <span class="text-purple-400">return</span> mezclar(izquierda, derecha)
+    return merge(izquierda, derecha)
 
-<span class="text-purple-400">def</span> <span class="text-blue-400">mezclar</span>(lista_izq, lista_der):
-    resultado = []
-    i = 0
-    j = 0
-    
-    <span class="text-gray-500"># Comparar elementos de ambas sublistas</span>
-    <span class="text-purple-400">while</span> i < <span class="text-blue-400">len</span>(lista_izq) <span class="text-purple-400">and</span> j < <span class="text-blue-400">len</span>(lista_der):
-        <span class="text-purple-400">if</span> lista_izq[i] < lista_der[j]:
-            resultado.append(lista_izq[i])
-            i += 1
-        <span class="text-purple-400">else</span>:
-            resultado.append(lista_der[j])
-            j += 1
-            
-    <span class="text-gray-500"># Agregar elementos restantes (si quedan)</span>
-    resultado.extend(lista_izq[i:])
-    resultado.extend(lista_der[j:])
-    <span class="text-purple-400">return</span> resultado
-
-<span class="text-gray-500"># --- Prueba ---</span>
-lista = [38, 27, 43, 3, 9, 82, 10]
-print(<span class="text-green-400">f"Original: {lista}"</span>)
-print(<span class="text-green-400">f"Ordenada: {merge_sort(lista)}"</span>)
-</pre>
+# lista = [38, 27, 43, 3, 9, 82, 10]
+# print(merge_sort(lista))
+            </code></pre>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn4-5',
-      title: '5. Ejemplos y Aplicaciones',
+      id: 'pnn4-7-complexity',
+      title: 'Análisis de Complejidad: Merge Sort',
+      notes: 'Análisis de tiempo y espacio, usando la relación de recurrencia.',
       contentHtml: `
-        <div class="space-y-10">
-          
-          <!-- Analogía Visual -->
-          <div class="bg-white p-6 border rounded-xl shadow-sm">
-             <h3 class="font-bold text-indigo-800 mb-6 flex items-center gap-2 border-b pb-2">
-                <span class="text-2xl">🃏</span> Analogía Visual: Mazo de Cartas
-             </h3>
-             
-             <div class="flex flex-col items-center gap-8">
-                <!-- Step A -->
-                <div class="flex flex-col items-center">
-                   <span class="text-xs text-slate-400 uppercase font-bold mb-2">1. Dividir el Mazo</span>
-                   <div class="flex gap-8">
-                      <div class="flex -space-x-6">
-                         <div class="w-12 h-16 bg-white border-2 border-slate-300 rounded-lg shadow flex items-center justify-center font-bold text-slate-800">8</div>
-                         <div class="w-12 h-16 bg-white border-2 border-slate-300 rounded-lg shadow flex items-center justify-center font-bold text-slate-800 z-10">3</div>
-                      </div>
-                      <div class="text-slate-300 text-2xl">/</div>
-                      <div class="flex -space-x-6">
-                         <div class="w-12 h-16 bg-white border-2 border-slate-300 rounded-lg shadow flex items-center justify-center font-bold text-slate-800">5</div>
-                         <div class="w-12 h-16 bg-white border-2 border-slate-300 rounded-lg shadow flex items-center justify-center font-bold text-slate-800 z-10">1</div>
-                      </div>
-                   </div>
-                </div>
-
-                <!-- Step B -->
-                <div class="flex flex-col items-center w-full">
-                   <span class="text-xs text-slate-400 uppercase font-bold mb-2">2. Mezclar Ordenadamente (Merge)</span>
-                   <div class="bg-green-50 w-full p-4 rounded-lg border border-green-100 flex justify-center gap-2">
-                      <!-- Result Cards -->
-                      <div class="w-12 h-16 bg-white border-2 border-green-500 rounded-lg shadow-md flex items-center justify-center font-bold text-green-700">1</div>
-                      <div class="w-12 h-16 bg-white border-2 border-green-500 rounded-lg shadow-md flex items-center justify-center font-bold text-green-700">3</div>
-                      <div class="w-12 h-16 bg-white border-2 border-green-500 rounded-lg shadow-md flex items-center justify-center font-bold text-green-700">5</div>
-                      <div class="w-12 h-16 bg-white border-2 border-green-500 rounded-lg shadow-md flex items-center justify-center font-bold text-green-700">8</div>
-                   </div>
-                </div>
-             </div>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Eficiencia Garantizada: O(N log N)</h3>
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded my-4">
+            <h4 class="font-bold text-blue-900 mb-2">Relación de Recurrencia</h4>
+            <p class="text-sm text-blue-800">El tiempo de ejecución de Merge Sort se describe mediante la relación:</p>
+            <div class="text-center bg-slate-900 text-white px-4 py-2 rounded-lg font-mono text-lg shadow-lg mt-3">
+              T(n) = <span class="text-yellow-400">2T(n/2)</span> + <span class="text-green-400">O(n)</span>
+            </div>
+            <p class="text-xs text-blue-800 mt-2">Donde <code>2T(n/2)</code> es por las dos llamadas recursivas y <code>O(n)</code> es por el tiempo de la función <code>merge</code>.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+            <div class="bg-slate-50 p-4 rounded border">
+                <h5 class="font-bold text-slate-800">Complejidad Temporal</h5>
+                <p class="text-3xl font-mono font-bold text-green-600">θ(N log N)</p>
+                <p class="text-xs text-gray-600">En el mejor, promedio y peor caso. Muy consistente.</p>
+            </div>
+            <div class="bg-slate-50 p-4 rounded border">
+                <h5 class="font-bold text-slate-800">Complejidad Espacial</h5>
+                <p class="text-3xl font-mono font-bold text-orange-600">O(N)</p>
+                <p class="text-xs text-gray-600">Debido a los arreglos temporales que usa la función <code>merge</code>.</p>
+            </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn4-8-external-sort',
+      title: 'Merge Sort 2: Ordenamiento Externo',
+      notes: 'Explicar la aplicación de Merge Sort para datos grandes (Sortmerge 2).',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Manejando Datos Masivos Fuera de la RAM</h3>
+        <p class="text-gray-600 mb-4">El Merge Sort es ideal para el <strong>Ordenamiento Externo</strong> (External Sorting), que es cuando los datos a ordenar son tan grandes que no caben en la memoria RAM y deben residir en almacenamiento secundario (como un disco duro).</p>
+        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+          <h5 class="font-bold text-green-900">¿Cómo Funciona el Ordenamiento Externo?</h5>
+          <ol class="list-decimal pl-5 text-sm text-green-800 mt-2">
+            <li><strong>Dividir en "runs":</strong> La lista se divide en bloques que sí caben en memoria, se ordenan internamente (con Merge Sort o Quick Sort), y se escriben en disco.</li>
+            <li><strong>Fusionar "runs":</strong> Se leen varios bloques ordenados del disco y se fusionan (usando la lógica de <code>merge</code>) en un bloque ordenado más grande, que se vuelve a escribir en disco. Esto se repite hasta que todos los bloques se hayan fusionado en uno solo.</li>
+          </ol>
+        </div>
+        <p class="text-sm text-gray-700 mt-4">Esta es la "Merge Sort 2" mencionada en el temario, un proceso clave en bases de datos y procesamiento de Big Data.</p>
+      `
+    },
+    {
+      id: 'pnn4-9-pros-cons',
+      title: 'Ventajas y Desventajas de Merge Sort',
+      notes: 'Resumir los pros y contras del algoritmo.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">¿Cuándo Elegir Merge Sort?</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+             <h5 class="font-bold text-green-900">Ventajas</h5>
+             <ul class="list-disc pl-5 text-sm text-green-800">
+               <li><strong>Estable:</strong> Mantiene el orden relativo de elementos iguales.</li>
+               <li><strong>Rendimiento Consistente:</strong> O(N log N) en todos los casos (mejor, promedio, peor).</li>
+               <li>Ideal para <strong>ordenamiento externo</strong>.</li>
+               <li>Fácil de paralelizar.</li>
+             </ul>
           </div>
-
-          <!-- Aplicaciones Reales -->
-          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-             <h3 class="font-bold text-slate-800 mb-4 border-b pb-2 flex items-center gap-2">
-               <span class="text-2xl">🌍</span> Casos de Uso en el Mundo Real
-             </h3>
-             
-             <div class="grid md:grid-cols-2 gap-4">
-                 <div class="bg-white p-4 rounded border hover:shadow-md transition-all">
-                   <strong class="block text-slate-900 mb-1">🎵 Listas de Reproducción (MP3)</strong>
-                   <p class="text-xs text-gray-600">Cuando ordenas canciones por "Artista" y luego por "Álbum", Merge Sort mantiene el orden previo (Estabilidad), algo que QuickSort no garantiza.</p>
-                 </div>
-
-                 <div class="bg-white p-4 rounded border hover:shadow-md transition-all">
-                   <strong class="block text-slate-900 mb-1">🛒 E-Commerce</strong>
-                   <p class="text-xs text-gray-600">Mostrar miles de productos ordenados por "Precio: Menor a Mayor" requiere un algoritmo predecible y rápido como este.</p>
-                 </div>
-
-                 <div class="bg-white p-4 rounded border hover:shadow-md transition-all">
-                   <strong class="block text-slate-900 mb-1">💾 Bases de Datos (External Sorting)</strong>
-                   <p class="text-xs text-gray-600">Para ordenar Terabytes de datos que no caben en la RAM. Merge Sort puede mezclar bloques leídos desde el disco duro eficientemente.</p>
-                 </div>
-                 
-                 <div class="bg-white p-4 rounded border hover:shadow-md transition-all">
-                   <strong class="block text-slate-900 mb-1">🔍 Google PageRank</strong>
-                   <p class="text-xs text-gray-600">Los motores de búsqueda lo utilizan para ordenar los resultados por relevancia de forma masiva.</p>
-                 </div>
-             </div>
+          <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+             <h5 class="font-bold text-red-900">Desventajas</h5>
+             <ul class="list-disc pl-5 text-sm text-red-800">
+               <li>No es "in-place": Requiere <strong>O(N) de espacio adicional</strong> para los arreglos temporales.</li>
+               <li>Puede ser más lento que Quick Sort en el caso promedio debido a la sobrecarga de copiar a arreglos temporales.</li>
+             </ul>
           </div>
-
+        </div>
+      `
+    },
+    {
+      id: 'pnn4-10-practice',
+      title: 'Práctica: Implementa Merge Sort',
+      notes: 'Ejercicio de codificación para implementar Merge Sort.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: Ordena una Lista de Tareas</h3>
+        <p class="text-gray-600 mb-4">Implementa el algoritmo <strong>Merge Sort</strong> en C++ o Python para ordenar una lista de números enteros. Asegúrate de que tu implementación incluya tanto la función recursiva <code>mergeSort</code> como la función auxiliar <code>merge</code>.</p>
+        <div class="bg-white border rounded-lg p-6">
+          <h4 class="font-bold text-slate-800 mb-2">Instrucciones</h4>
+          <ul class="text-sm list-disc pl-5 text-gray-700">
+              <li>Crea una lista de al menos 10 números aleatorios.</li>
+              <li>Imprime la lista original.</li>
+              <li>Llama a tu función <code>mergeSort</code> para ordenar la lista.</li>
+              <li>Imprime la lista ordenada.</li>
+          </ul>
+        </div>
+      `
+    },
+    {
+      id: 'pnn4-11-resources',
+      title: 'Herramientas Visuales y Recursos',
+      notes: 'Proporcionar a los estudiantes herramientas externas para reforzar su aprendizaje.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Visualizando el Merge Sort</h3>
+        <p class="text-gray-600 mb-4">Explora cómo Merge Sort divide y combina el arreglo paso a paso con simuladores interactivos:</p>
+        <div class="bg-white border rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+          <h4 class="font-bold text-blue-700 text-lg">VisuAlgo - Merge Sort</h4>
+          <p class="text-sm text-gray-600 my-2">Observa las fases de división y fusión de este algoritmo de ordenamiento.</p>
+          <a href="https://visualgo.net/es/sorting" target="_blank" class="text-blue-600 font-bold hover:underline">Ir a VisuAlgo (Sorting) &rarr;</a>
         </div>
       `
     },
     {
       id: 'pnn4-end-questions',
       title: '¿Preguntas?',
+      notes: 'Espacio para dudas.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12">
-          <div class="text-6xl font-bold text-slate-300 mb-6 select-none">?</div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Sobre Merge Sort</h3>
-          <p class="text-center text-gray-600 max-w-md">
-            Es una pieza fundamental de la ingeniería de software. ¿Dudas sobre la recursión o la mezcla?
-          </p>
+        <div class="flex flex-col items-center justify-center h-full">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">¿Dudas sobre Divide, Conquista o Merge?</h3>
         </div>
       `
     },
     {
       id: 'pnn4-end-thanks',
-      title: 'Gracias por su atención',
+      title: 'Gracias y Próxima Clase',
+      notes: 'Cierre y adelanto.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12 text-center">
-          <h2 class="text-4xl font-bold text-slate-900 mb-8">Fin de la Clase</h2>
-          <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-indigo-500 shadow-sm max-w-2xl">
-            <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
-              "Organizar es lo que haces antes de hacer algo, para que cuando lo hagas, no esté todo hecho un lío."
-            </p>
-            <footer class="flex items-center justify-center gap-2">
-              <div class="h-px w-8 bg-slate-300"></div>
-              <cite class="not-italic font-bold text-slate-900">A.A. Milne</cite>
-            </footer>
-          </blockquote>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Fin del Módulo 4</h2>
+          <p class="text-gray-600 text-lg">Hemos cubierto Merge Sort. En la próxima clase, veremos otro algoritmo fundamental de Divide y Conquista: <b>Quick Sort</b>.</p>
         </div>
       `
     }

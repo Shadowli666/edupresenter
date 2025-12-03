@@ -112,7 +112,7 @@ None (Python).</p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++ con struct</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 struct NodoArbol {
     int dato;
     NodoArbol* izquierdo;
@@ -126,7 +126,7 @@ struct NodoArbol {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python con class</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 class NodoArbol:
     def __init__(self, dato):
         self.dato = dato
@@ -290,7 +290,7 @@ void postorden(NodoArbol* nodo) {
         <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
               <h5 class="text-gray-400 mb-2">Salidas Esperadas:</h5>
-              <pre class="font-mono text-sm"><code>Pre-orden: F B A D C E G I H
+              <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>Pre-orden: F B A D C E G I H
 In-orden: A B C D E F G H I
 Post-orden: A C E D B H I G F</code></pre>
             </div>

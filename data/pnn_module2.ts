@@ -95,9 +95,9 @@ export const PNN_MODULE_2: Module = {
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
           <h5 class="font-bold text-blue-900">Calculando Padres e Hijos (Base 0)</h5>
           <ul class="list-disc list-inside text-blue-800 text-sm mt-2">
-            <li>Padre de un nodo en índice `i`: `(i - 1) / 2` (división entera).</li>
-            <li>Hijo izquierdo de un nodo en índice `i`: `2 * i + 1`.</li>
-            <li>Hijo derecho de un nodo en índice `i`: `2 * i + 2`.</li>
+            <li>Padre de un nodo en índice <code>i</code>: <code>(i - 1) / 2</code> (división entera).</li>
+            <li>Hijo izquierdo de un nodo en índice <code>i</code>: <code>2 * i + 1</code>.</li>
+            <li>Hijo derecho de un nodo en índice <code>i</code>: <code>2 * i + 2</code>.</li>
           </ul>
         </div>
         <div class="flex justify-center my-4 bg-white p-6 rounded-xl border shadow-sm">
@@ -129,7 +129,7 @@ export const PNN_MODULE_2: Module = {
         </ol>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
           <h5 class="text-gray-400 mb-2">// Pseudocódigo para Sift-Up (Max-Heap)</h5>
-          <pre><code>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
 FUNCIÓN sift_up(arreglo, indice):
   PADRE_INDICE = (indice - 1) / 2
   MIENTRAS indice > 0 Y arreglo[indice] > arreglo[PADRE_INDICE]:
@@ -156,7 +156,7 @@ FUNCIÓN sift_up(arreglo, indice):
         </ol>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
           <h5 class="text-gray-400 mb-2">// Pseudocódigo para Sift-Down (Max-Heap)</h5>
-          <pre><code>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
 FUNCIÓN sift_down(arreglo, indice, tamaño_heap):
   MIENTRAS VERDADERO:
     IZQUIERDA_INDICE = 2 * indice + 1
@@ -186,12 +186,12 @@ FUNCIÓN sift_down(arreglo, indice, tamaño_heap):
         <h3 class="text-xl font-bold text-slate-800 mb-4">Convirtiendo un Arreglo en un Heap Eficientemente</h3>
         <p class="text-gray-600 mb-4">El algoritmo <strong>Heapify</strong> toma un arreglo desordenado y lo transforma en un Heap en tiempo <strong>O(N)</strong>, lo cual es muy eficiente.</p>
         <ol class="list-decimal pl-5 text-sm space-y-2">
-          <li>Itera desde el último nodo no-hoja hacia la raíz (es decir, desde `(N/2) - 1` hasta `0`).</li>
+          <li>Itera desde el último nodo no-hoja hacia la raíz (es decir, desde <code>(N/2) - 1</code> hasta <code>0</code>).</li>
           <li>Para cada uno de estos nodos, aplica la operación <strong>"Sift-Down"</strong> para asegurar que el sub-árbol enraizado en ese nodo cumple la propiedad del Heap.</li>
         </ol>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
           <h5 class="text-gray-400 mb-2">// Pseudocódigo para Heapify (Max-Heap)</h5>
-          <pre><code>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
 FUNCIÓN build_heap(arreglo):
   N = tamaño del arreglo
   PARA i DESDE N/2 - 1 HASTA 0 (de forma descendente):
@@ -210,7 +210,7 @@ FUNCIÓN build_heap(arreglo):
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++: std::priority_queue (Max-Heap por defecto)</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;queue&gt;
 std::priority_queue&lt;int&gt; pq; // Max-Heap
 pq.push(10); pq.push(30); pq.push(20);
@@ -219,7 +219,7 @@ std::cout &lt;&lt; pq.top(); // Imprime 30
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python: heapq (Min-Heap)</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 import heapq
 pq = [] // Lista se usa como heap
 heapq.heappush(pq, 10); heapq.heappush(pq, 30); heapq.heappush(pq, 20);

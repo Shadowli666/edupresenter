@@ -3,7 +3,7 @@ import { Module } from '../types';
 export const PROG_MODULE_7: Module = {
   id: 'prog-mod-7',
   title: '7. Listas Enlazadas Avanzadas',
-  description: 'Listas Doblemente Enlazadas y Listas Circulares.',
+  description: 'Listas Doblemente Enlazadas, Aplicaciones Reales y Listas Circulares.',
   evaluation: '0% - Ejercicio Práctico',
   slides: [
     {
@@ -42,26 +42,23 @@ export const PROG_MODULE_7: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
-struct NodoDoble {
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">struct NodoDoble {
     int dato;
     NodoDoble* siguiente;
     NodoDoble* anterior; // El nuevo puntero
 
     NodoDoble(int d) : 
       dato(d), siguiente(nullptr), anterior(nullptr) {}
-};
-            </code></pre>
+};</code></pre>
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
-class NodoDoble:
-    def __init__(self, dato):
-        self.dato = dato
-        self.siguiente = None
-        self.anterior = None # El nuevo puntero
-            </code></pre>
+  <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">class NodoDoble:
+  def __init__(self, dato):
+    self.dato = dato
+    self.siguiente = None
+    self.anterior = None # El nuevo puntero
+</code></pre>
           </div>
         </div>
       `
@@ -72,13 +69,18 @@ class NodoDoble:
       notes: 'Explicar la complejidad de re-enlazar 4 punteros.',
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">El Baile de los Cuatro Punteros</h3>
-        <p class="text-gray-600 mb-4">Insertar un nodo (ej. <code>N</code>) entre <code>A</code> y <code>B</code> es más complejo. Implica actualizar <strong>4 enlaces</strong> para mantener la integridad de la lista.</p>
+        <p class="text-gray-600 mb-4">Insertar un nodo (ej. <code>N</code>) entre <code>A</code> y <code>B</code> requiere cuidado. Debemos actualizar <strong>4 enlaces</strong>.</p>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 text-sm text-yellow-800">
+            <strong>¡Cuidado con el orden!</strong> Primero conecta el nuevo nodo (N) a sus vecinos (A y B). Solo después desconecta A y B entre sí. Si rompes el enlace antes de tiempo, perderás el resto de la lista.
+        </div>
+
         <div class="grid md:grid-cols-2 gap-6">
           <ol class="list-decimal pl-5 text-sm space-y-3">
-            <li>El <code>siguiente</code> de <code>N</code> apunta a <code>B</code>.</li>
-            <li>El <code>anterior</code> de <code>N</code> apunta a <code>A</code>.</li>
-            <li>El <code>siguiente</code> de <code>A</code> ahora apunta a <code>N</code>.</li>
-            <li>El <code>anterior</code> de <code>B</code> ahora apunta a <code>N</code>.</li>
+            <li><code>N.siguiente = B</code></li>
+            <li><code>N.anterior = A</code></li>
+            <li><code>A.siguiente = N</code> (Ahora A apunta a N)</li>
+            <li><code>B.anterior = N</code> (Ahora B apunta atrás a N)</li>
           </ol>
           <div class="bg-white p-4 border rounded-lg flex items-center justify-center">
             <div class="mermaid">
@@ -97,19 +99,21 @@ class NodoDoble:
       title: 'Operación: Eliminación en Lista Doble',
       notes: 'Mostrar la ventaja de poder eliminar sin buscar el previo.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Eliminación Eficiente</h3>
-        <p class="text-gray-600 mb-4">Si tenemos un puntero al nodo que queremos eliminar (ej. <code>B</code>), la eliminación es O(1). No necesitamos buscar su nodo anterior.</p>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Eliminación Eficiente (O(1))</h3>
+        <p class="text-gray-600 mb-4">Si tenemos un puntero directo al nodo a eliminar (<code>B</code>), no necesitamos recorrer la lista para encontrar el anterior (como en listas simples). ¡Ya tenemos el puntero <code>anterior</code>!</p>
         <div class="grid md:grid-cols-2 gap-6">
           <ol class="list-decimal pl-5 text-sm space-y-3">
-            <li>Hacemos que el <code>siguiente</code> del nodo <code>A</code> apunte al nodo <code>C</code>. <br><code>A.siguiente = C</code></li>
-            <li>Hacemos que el <code>anterior</code> del nodo <code>C</code> apunte al nodo <code>A</code>. <br><code>C.anterior = A</code></li>
-            <li>Liberamos la memoria del nodo <code>B</code>.</li>
+            <li>Accedemos al nodo anterior: <code>A = B.anterior</code></li>
+            <li>Accedemos al nodo siguiente: <code>C = B.siguiente</code></li>
+            <li>Conectamos A con C: <code>A.siguiente = C</code></li>
+            <li>Conectamos C con A: <code>C.anterior = A</code></li>
+            <li>Borramos <code>B</code>.</li>
           </ol>
            <div class="bg-white p-4 border rounded-lg flex items-center justify-center">
             <div class="mermaid">
                 graph LR
                 A <--> C
-                subgraph " "
+                subgraph "Eliminado"
                  B
                 end
                 style B fill:#fee2e2,stroke:#ef4444,stroke-dasharray: 5 5
@@ -119,7 +123,52 @@ class NodoDoble:
       `
     },
     {
-      id: 'p7-5-practice-double',
+      id: 'p7-5-real-world',
+      title: 'Caso de Uso: Historial del Navegador',
+      notes: 'Ejemplo práctico de Back/Forward.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">¿Cómo funcionan los botones "Atrás" y "Adelante"?</h3>
+        <p class="text-gray-600 mb-4">El historial de tu navegador es una aplicación clásica de una <strong>Lista Doblemente Enlazada</strong>. Cada página visitada es un nodo.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 border rounded-lg shadow-sm">
+                <div class="mermaid">
+                    graph LR
+                    G[Google] <--> W[Wikipedia] <--> Y[YouTube]
+                    style Y fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                    linkStyle 2,3 stroke-width:2px,fill:none,stroke:blue;
+                </div>
+                <p class="text-xs text-center mt-2 text-gray-500">Estás en YouTube. 'prev' es Wikipedia.</p>
+            </div>
+            <div class="space-y-2 text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-xs">Atrás</span>
+                    <span>Mueve el puntero <code>actual</code> a <code>actual.anterior</code>.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-mono text-xs">Adelante</span>
+                    <span>Mueve el puntero <code>actual</code> a <code>actual.siguiente</code>.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-mono text-xs">Visitar</span>
+                    <span>Elimina todo lo que esté adelante (si hubo 'Atrás') y añade nuevo nodo.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+            <h5 class="text-gray-400 mb-2 text-xs">// Lógica simplificada del botón "Atrás"</h5>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">void Navegador::irAtras() {
+    if (paginaActual && paginaActual->anterior) {
+        paginaActual = paginaActual->anterior;
+        renderizarPagina(paginaActual->url);
+    }
+}</code></pre>
+        </div>
+      `
+    },
+    {
+      id: 'p7-6-practice-double',
       title: 'Práctica: Recorrido Inverso',
       notes: 'Un ejercicio para practicar el uso del puntero "anterior".',
       contentHtml: `
@@ -134,7 +183,7 @@ class NodoDoble:
       `
     },
      {
-      id: 'p7-6',
+      id: 'p7-7',
       title: 'Parte 2: Listas Circulares',
       notes: 'Introducir el concepto de ciclo.',
       contentHtml: `
@@ -152,50 +201,47 @@ class NodoDoble:
                  style C fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
             </div>
           </div>
-          <p class="text-center text-sm text-gray-500"><strong>Aplicaciones:</strong> Round-robin en sistemas operativos, turnos en juegos, playlists en bucle.</p>
+          <p class="text-center text-sm text-gray-500"><strong>Aplicaciones:</strong> Round-robin en sistemas operativos (turnos de CPU), playlists en bucle, buffers circulares.</p>
         </div>
       `
     },
     {
-      id: 'p7-7-traverse-circular',
+      id: 'p7-8-traverse-circular',
       title: 'Operación: Recorrido en Círculo',
       notes: 'El bucle "do-while" es ideal aquí.',
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">¿Cómo Paramos de Dar Vueltas?</h3>
-        <p class="text-gray-600 mb-4">Un bucle <code>while (aux != cabeza)</code> no funcionaría para el primer elemento. Un bucle <code>do-while</code> es perfecto para esto, ya que ejecuta el cuerpo al menos una vez antes de comprobar la condición.</p>
+        <p class="text-gray-600 mb-4">Un bucle <code>while (aux != cabeza)</code> no funcionaría para el primer elemento (porque al inicio son iguales). Un bucle <code>do-while</code> es perfecto.</p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++ con do-while</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
-void mostrar(Nodo* cabeza) {
-    if (!cabeza) return;
-    Nodo* aux = cabeza;
-    do {
-        std::cout << aux->dato << " ";
-        aux = aux->siguiente;
-    } while (aux != cabeza);
-}
-            </code></pre>
+  <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">void mostrar(Nodo* cabeza) {
+  if (!cabeza) return;
+  Nodo* aux = cabeza;
+  do {
+    std::cout << aux->dato << " ";
+    aux = aux->siguiente;
+  } while (aux != cabeza);
+}</code></pre>
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python con while y break</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
-def mostrar(self):
-    if not self.cabeza:
-        return
-    actual = self.cabeza
-    while True:
-        print(actual.dato)
-        actual = actual.siguiente
-        if actual == self.cabeza:
-            break
-            </code></pre>
+  <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">def mostrar(self):
+  if not self.cabeza:
+    return
+  actual = self.cabeza
+  while True:
+    print(actual.dato)
+    actual = actual.siguiente
+    if actual == self.cabeza:
+      break
+</code></pre>
           </div>
         </div>
       `
     },
     {
-      id: 'p7-8-practice-josephus',
+      id: 'p7-9-practice-josephus',
       title: 'Práctica: El Problema de Josephus',
       notes: 'Un problema clásico y divertido para listas circulares.',
       contentHtml: `

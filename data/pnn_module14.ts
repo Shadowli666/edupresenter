@@ -41,7 +41,7 @@ export const PNN_MODULE_14: Module = {
             Consideremos 4 ciudades: A, B, C y D, con la siguiente matriz de costos (distancias):
           </p>
           <div class="bg-white p-4 rounded-xl border text-xs font-mono inline-block">
-<pre>
+<pre class="font-mono text-sm max-w-full overflow-x-auto">
      A  B  C  D
 A | 0  2  9  10
 B | 1  0  6   4
@@ -51,7 +51,7 @@ D | 6  3 12   0
           </div>
           <div class="bg-slate-50 p-4 rounded-xl border text-xs font-mono">
             <p class="font-bold mb-2">Explorando estados g(i, S) (inicio A)</p>
-            <pre>
+            <pre class="font-mono text-sm max-w-full overflow-x-auto">
 Definición: g(i, S) = costo mínimo para partir desde i y visitar S (subconjunto restante), regresando al origen al final.
 
 Ejemplo:

@@ -61,7 +61,7 @@ export const PROG_MODULE_8: Module = {
         <p class="text-gray-600 mb-4">Podemos usar un arreglo y una variable <code>tope</code> que actúa como índice para saber dónde está el último elemento.</p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <pre><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #define MAX_SIZE 100
 
 class Pila {
@@ -114,7 +114,7 @@ public:
             <ul><li>Consume un poco más de memoria por los punteros.</li></ul>
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <pre><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 class Pila {
 private:
     Nodo* tope; // La "cabeza" de la lista es el tope
@@ -152,7 +152,7 @@ public:
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++: std::stack</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;stack&gt;
 std::stack&lt;int&gt; mi_pila;
 
@@ -164,7 +164,7 @@ mi_pila.pop(); // Saca el 20
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python: list</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 mi_pila = []
 
 mi_pila.append(10) # push
@@ -211,7 +211,7 @@ valor = mi_pila.pop() # pop (valor es 20)
         <p class="text-gray-600 mb-4">La computadora usa una pila para gestionar las llamadas a funciones. Cada vez que llamas a una función, se crea un "marco" (stack frame) y se apila.</p>
         <div class="grid md:grid-cols-2 gap-6 items-center">
             <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-              <pre><code class="language-cpp">
+              <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 void func_B() { ... }
 void func_A() {
     func_B();

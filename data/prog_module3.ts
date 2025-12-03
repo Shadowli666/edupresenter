@@ -76,16 +76,16 @@ export const PROG_MODULE_3: Module = {
           <div class="bg-white p-4 border rounded-lg">
             <h4 class="font-mono font-bold text-blue-700 text-lg">Operador & (Address-of)</h4>
             <p class="text-sm text-gray-600">Obtiene la dirección de memoria de una variable.</p>
-            <div class="bg-gray-800 text-white p-2 rounded mt-2 font-mono text-xs overflow-x-auto">
-              <pre><code class="language-cpp">int edad = 42;
+              <div class="bg-gray-800 text-white p-2 rounded mt-2 font-mono text-xs overflow-x-auto">
+              <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">int edad = 42;
 int* p_edad = &edad; // p_edad ahora contiene la dirección de 'edad'</code></pre>
             </div>
           </div>
           <div class="bg-white p-4 border rounded-lg">
             <h4 class="font-mono font-bold text-purple-700 text-lg">Operador * (Dereferencia)</h4>
             <p class="text-sm text-gray-600">Accede al <strong>valor</strong> almacenado en la dirección a la que apunta el puntero.</p>
-            <div class="bg-gray-800 text-white p-2 rounded mt-2 font-mono text-xs overflow-x-auto">
-              <pre><code class="language-cpp">std::cout &lt;&lt; *p_edad; // Imprime 42
+              <div class="bg-gray-800 text-white p-2 rounded mt-2 font-mono text-xs overflow-x-auto">
+              <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">std::cout &lt;&lt; *p_edad; // Imprime 42
 *p_edad = 25; // Cambia el valor de 'edad' a 25</code></pre>
             </div>
           </div>
@@ -100,7 +100,7 @@ int* p_edad = &edad; // p_edad ahora contiene la dirección de 'edad'</code></pr
         <h3 class="text-xl font-bold text-slate-800 mb-4">Ejemplo Completo en C++</h3>
         <p class="text-gray-600 mb-4">Observa cómo un puntero puede leer y modificar una variable.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;iostream&gt;
 
 int main() {
@@ -133,7 +133,7 @@ int main() {
         <h3 class="text-xl font-bold text-slate-800 mb-4"><code>new</code> y <code>delete</code>: El Poder y la Responsabilidad</h3>
         <p class="text-gray-600 mb-4">Así pedimos y liberamos memoria en el Heap para una sola variable.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 // 1. Pedimos memoria para un entero en el Heap.
 int* p_dinamico = new int;
 
@@ -159,7 +159,7 @@ p_dinamico = nullptr;
         <h3 class="text-xl font-bold text-slate-800 mb-4">Arreglos de Tamaño Variable</h3>
         <p class="text-gray-600 mb-4">La principal ventaja de la memoria dinámica: crear arreglos cuyo tamaño se conoce en tiempo de ejecución.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 int N;
 std::cout &lt;&lt; "Introduce el tamaño del arreglo: ";
 std::cin &gt;&gt; N;

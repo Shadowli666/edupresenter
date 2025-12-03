@@ -68,7 +68,7 @@ export const PROG_MODULE_10: Module = {
             <p>Ambas operaciones son <strong>O(1)</strong>.</p>
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <pre><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 class Cola {
 private:
     Nodo* frente;
@@ -119,7 +119,7 @@ public:
         <p class="text-gray-600 mb-4">Una <strong>cola circular</strong> resuelve el problema tratando el arreglo como un círculo. Cuando el índice <code>frente</code> o <code>final</code> llega al final, simplemente "da la vuelta" y continúa desde el inicio (<code>0</code>). Esto se logra con el operador módulo (<code>%</code>).</p>
         <div class="grid md:grid-cols-2 gap-6">
             <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-              <pre><code class="language-cpp">
+              <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 class ColaCircular {
 private:
     int datos[MAX_SIZE];
@@ -159,7 +159,7 @@ public:
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++: std::queue</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;queue&gt;
 std::queue&lt;int&gt; mi_cola;
 
@@ -171,7 +171,7 @@ mi_cola.pop();    // Dequeue (saca el 10)
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python: collections.deque</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 from collections import deque
 mi_cola = deque()
 
