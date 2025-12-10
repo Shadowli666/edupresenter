@@ -95,6 +95,45 @@ export const PROG_MODULE_7: Module = {
       `
     },
     {
+      id: 'p7-3a-insert-mermaid',
+      title: 'Inserción: Protocolo de Seguridad (Mermaid)',
+      notes: 'Contenido removido por problemas de sintaxis en Mermaid.',
+      contentHtml: `
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
+          <p class="text-sm text-amber-800">El diagrama Mermaid fue retirado temporalmente por inconsistencias de sintaxis. Mantén el orden seguro: configurar N (next, prev) y luego re-enlazar A y B.</p>
+        </div>
+      `
+    },
+    {
+      id: 'p7-3b-insert-completo',
+      title: 'Inserción: Código C++ (sin Mermaid)',
+      notes: 'Ejemplo de inserción entre dos nodos con el orden seguro de punteros.',
+      contentHtml: `
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+          <h5 class="text-gray-400 mb-2">// C++: Inserción entre dos nodos</h5>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">struct Nodo {
+    int dato; Nodo* siguiente; Nodo* anterior;
+    Nodo(int d): dato(d), siguiente(nullptr), anterior(nullptr) {}
+};
+
+void insertarDespuesDe(Nodo*& cabeza, Nodo*& cola, int valorRef, int valor){
+    Nodo* actual = cabeza;
+    while(actual && actual->dato != valorRef) actual = actual->siguiente;
+    if(!actual) return; // no encontrado
+    if(actual == cola){ // insertar al final
+        Nodo* nuevo = new Nodo(valor);
+        cola->siguiente = nuevo; nuevo->anterior = cola; cola = nuevo; return;
+    }
+    Nodo* nuevo = new Nodo(valor);
+    Nodo* sig = actual->siguiente;
+    nuevo->siguiente = sig; nuevo->anterior = actual; // configurar nuevo
+    actual->siguiente = nuevo; sig->anterior = nuevo;  // re-enlazar vecinos
+}
+          </code></pre>
+        </div>
+      `
+    },
+    {
       id: 'p7-4-delete',
       title: 'Operación: Eliminación en Lista Doble',
       notes: 'Mostrar la ventaja de poder eliminar sin buscar el previo.',
@@ -119,6 +158,114 @@ export const PROG_MODULE_7: Module = {
                 style B fill:#fee2e2,stroke:#ef4444,stroke-dasharray: 5 5
             </div>
           </div>
+        </div>
+      `
+    },
+    {
+      id: 'p7-4a-delete-mermaid',
+      title: 'Eliminación: Puenteo (Mermaid)',
+      notes: 'Contenido removido por problemas de sintaxis en Mermaid.',
+      contentHtml: `
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
+          <p class="text-sm text-amber-800">El diagrama Mermaid fue retirado temporalmente. Recuerda: enlaza A.next=C y C.prev=A, luego libera B.</p>
+        </div>
+      `
+    },
+    {
+      id: 'p7-4b-delete-completo',
+      title: 'Eliminación: Estrategia Visual + Código C++',
+      notes: 'Diagrama Mermaid y código C++ que puentea A y C para eliminar B.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Eliminar B conectando A↔C</h3>
+        <div class="bg-white p-4 border rounded-lg mb-4">
+          <div class="mermaid">
+graph LR
+    subgraph "Lista Original"
+    A1[A] <--> B1[B] <--> C1[C]
+    style B1 fill:#fee2e2,stroke:#ef4444
+    end
+
+    subgraph "Resultado en Memoria"
+    A[A]
+    C[C]
+    B[B (A eliminar)]
+
+    style B fill:#fee2e2,stroke:#ef4444,stroke-dasharray: 5 5
+
+    %% El Puente
+    A -- "next" --> C
+    C -- "prev" --> A
+    
+    %% Nodos huerfanos
+    B -.-> A
+    B -.-> C
+    end
+          </div>
+        </div>
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+          <h5 class="text-gray-400 mb-2">// C++: Eliminación de nodo por valor</h5>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">void eliminar(Nodo*& cabeza, Nodo*& cola, int valor){
+    if(!cabeza) return; Nodo* b = cabeza;
+    while(b && b->dato != valor) b = b->siguiente;
+    if(!b) return; // no encontrado
+
+    if(b->anterior) b->anterior->siguiente = b->siguiente; else cabeza = b->siguiente;
+    if(b->siguiente) b->siguiente->anterior = b->anterior; else cola = b->anterior;
+    delete b;
+}
+          </code></pre>
+        </div>
+      `
+    },
+    {
+      id: 'p7-4c-delete-main',
+      title: 'Caso de Prueba: Historia en main()',
+      notes: 'Construir, insertar, recorrer y eliminar con salida explicativa.',
+      contentHtml: `
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+          <h5 class="text-gray-400 mb-2">// C++: main con narrativa</h5>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">int main(){
+    Nodo* cabeza = nullptr; Nodo* cola = nullptr;
+
+    auto insertarFinal = [&](int v){
+        Nodo* n = new Nodo(v);
+        if(!cabeza){cabeza = cola = n; return;} 
+        cola->siguiente = n; n->anterior = cola; cola = n;
+    };
+
+    std::cout << "--- 1. Construyendo Lista ---\n";
+    insertarFinal(10); insertarFinal(30); insertarFinal(40);
+    // imprimir adelante
+    {
+      std::cout << "Inicio -> Fin: ";
+      for(Nodo* t=cabeza; t; t=t->siguiente) std::cout << "["<<t->dato<<"] <-> ";
+      std::cout << "NULL\n";
+    }
+
+    std::cout << "\n--- 2. Insertando 20 entre 10 y 30 ---\n";
+    insertarDespuesDe(cabeza, cola, 10, 20);
+    {
+      std::cout << "Inicio -> Fin: ";
+      for(Nodo* t=cabeza; t; t=t->siguiente) std::cout << "["<<t->dato<<"] <-> ";
+      std::cout << "NULL\n";
+    }
+    // recorrido inverso
+    {
+      std::cout << "Fin -> Inicio: ";
+      for(Nodo* t=cola; t; t=t->anterior) std::cout << "["<<t->dato<<"] <-> ";
+      std::cout << "NULL\n";
+    }
+
+    std::cout << "\n--- 3. Eliminando el nodo 30 (El Puente) ---\n";
+    eliminar(cabeza, cola, 30);
+    {
+      std::cout << "Inicio -> Fin: ";
+      for(Nodo* t=cabeza; t; t=t->siguiente) std::cout << "["<<t->dato<<"] <-> ";
+      std::cout << "NULL\n";
+    }
+    return 0;
+}
+          </code></pre>
         </div>
       `
     },
@@ -202,6 +349,16 @@ export const PROG_MODULE_7: Module = {
             </div>
           </div>
           <p class="text-center text-sm text-gray-500"><strong>Aplicaciones:</strong> Round-robin en sistemas operativos (turnos de CPU), playlists en bucle, buffers circulares.</p>
+        </div>
+      `
+    },
+    {
+      id: 'p7-7a-circular-mermaid',
+      title: 'Visualización: Lista Doble Circular (Mermaid)',
+      notes: 'Contenido removido por problemas de sintaxis en Mermaid.',
+      contentHtml: `
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
+          <p class="text-sm text-amber-800">El diagrama Mermaid de lista doble circular fue retirado. Concepto: tail.next = head y head.prev = tail.</p>
         </div>
       `
     },

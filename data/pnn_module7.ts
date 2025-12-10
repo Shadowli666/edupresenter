@@ -3,7 +3,7 @@ import { Module } from '../types';
 export const PNN_MODULE_7: Module = {
   id: 'pnn-mod-7',
   title: '7. Algoritmos Voraces: La Elección Óptima Local',
-  description: 'Introducción a los algoritmos Greedy y su aplicación al problema de almacenamiento óptimo en cintas.',
+  description: 'Introducción a los algoritmos Greedy con foco en el problema del cambio y otro caso práctico en Python.',
   evaluation: '0% - Introducción Magistral',
   slides: [
     {
@@ -89,22 +89,16 @@ export const PNN_MODULE_7: Module = {
     },
     {
       id: 'pnn7-4',
-      title: '4. Problema: Almacenamiento Óptimo en Cintas Magnéticas',
-      notes: 'Describir el problema y la función objetivo (MRT).',
+      title: '4. Problema del Cambio: Planteamiento',
+      notes: 'Definir entradas y objetivo del problema del cambio.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Minimizando el Tiempo de Recuperación (MRT)</h3>
-  <p class="text-gray-600 mb-4">Imagina que tienes <strong>N programas</strong> con diferentes longitudes (<code>l1, l2, ..., ln</code>) que deben almacenarse en una cinta magnética (secuencialmente). Cuando un programa se recupera, la cinta debe rebobinarse hasta el inicio y avanzar hasta la posición del programa.</p>
-        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500 my-4">
-          <h5 class="font-bold text-orange-900">Función Objetivo: Minimizar el Tiempo Medio de Recuperación (MRT)</h5>
-          <p class="text-sm text-orange-800 mt-2">
-            El tiempo de recuperación de un programa depende de su posición en la cinta y de la longitud de todos los programas que lo preceden. Queremos organizar los programas para que el tiempo total de espera sea el menor posible.
-          </p>
-          <div class="font-mono text-xs bg-slate-900 text-white p-2 rounded mt-3">
-             Tiempo de recuperación de P<sub>i</sub> = <span class="text-yellow-400">∑</span><sub>j=1</sub><sup>i</sup> l<sub>j</sub>
-          </div>
-          <p class="text-xs text-orange-800 mt-1">El MRT es la suma de todos los tiempos de recuperación dividida por N.</p>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Dar cambio con el menor número de monedas</h3>
+        <p class="text-gray-600 mb-4">Entrada: un monto <code>M</code> y un sistema de monedas <code>[m1, m2, ..., md]</code>. Objetivo: usar la menor cantidad de monedas para sumar exactamente <code>M</code>.</p>
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg my-4">
+          <h5 class="font-bold text-blue-900">Estrategia Greedy</h5>
+          <p class="text-sm text-blue-800 mt-2">Ordena las monedas de mayor a menor y toma repetidamente la mayor ≤ restante.</p>
         </div>
-  <p class="text-sm text-gray-700 mt-4"><strong>Ejemplo:</strong> Programas con longitudes <code>[5, 10, 3]</code>. Si ordenamos <code>[3, 5, 10]</code>, ¿cuál es el MRT?</p>
+        <p class="text-sm text-gray-700">Para sistemas canónicos (como 1,5,10,25) esta estrategia es óptima.</p>
       `
     },
     {
@@ -136,90 +130,64 @@ export const PNN_MODULE_7: Module = {
       `
     },
     {
-      id: 'pnn7-6',
-      title: '6. Algoritmo: Almacenamiento Óptimo (Pseudocódigo)',
-      notes: 'Pseudocódigo del algoritmo Greedy.',
+      id: 'pnn7-5a',
+      title: '5. Código Python: Cambio Greedy',
+      notes: 'Implementación del cambio en Python con trazas.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Traducir la Estrategia a Pasos</h3>
-        <p class="text-gray-600 mb-4">El algoritmo es sencillo y directo:</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo para Almacenamiento Óptimo</h5>
-          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
-FUNCIÓN almacenamiento_optimo(longitudes_programas):
-  // Paso 1: Ordenar las longitudes de los programas de forma ascendente
-  ordenar(longitudes_programas) // Esto es la elección voraz
+          <h5 class="text-gray-400 mb-2"># Python</h5>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">from typing import List
 
-  tiempo_recuperacion_total = 0
-  tiempo_actual_en_cinta = 0
-  
-  // Paso 2: Calcular el MRT basado en el orden voraz
-  PARA cada longitud_programa EN longitudes_programas:
-    tiempo_actual_en_cinta = tiempo_actual_en_cinta + longitud_programa
-    tiempo_recuperacion_total = tiempo_recuperacion_total + tiempo_actual_en_cinta
-  
-  MRT = tiempo_recuperacion_total / número_de_programas
-  
-  RETORNAR MRT, longitudes_programas_ordenadas
+def cambio_greedy(monto: int, monedas: List[int]) -> List[int]:
+    # Ordenar de mayor a menor
+    monedas = sorted(monedas, reverse=True)
+    resultado = []
+    restante = monto
+    for m in monedas:
+        while restante >= m:
+            resultado.append(m)
+            restante -= m
+    return resultado
+
+print(cambio_greedy(37, [25,10,5,1]))  # [25, 10, 1, 1]
           </code></pre>
         </div>
-        <p class="text-sm text-gray-700 mt-4">La parte crucial es el algoritmo de ordenamiento, que debe ser eficiente.</p>
+      `
+    },
+    {
+      id: 'pnn7-6',
+      title: '6. Cambio: Paso a paso',
+      notes: 'Trazas manuales con montos distintos.',
+      contentHtml: `
+        <div class="space-y-3">
+          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 63 → [25, 25, 10, 1, 1, 1]</p>
+          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 99 → [25, 25, 25, 10, 10, 1, 1, 1, 1]</p>
+          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 32 → [25, 5, 1, 1]</p>
+        </div>
       `
     },
     {
       id: 'pnn7-7',
-      title: '7. Práctica: Almacenamiento Óptimo (C++/Python)',
-      notes: 'Código de implementación del algoritmo Greedy.',
+      title: '7. Segundo ejemplo práctico: Selección de actividades (Python)',
+      notes: 'Caso clásico Greedy en Python.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Implementando la Solución Voraz</h3>
-        <p class="text-gray-600 mb-4">Aquí, el código que calcula el MRT y muestra el orden óptimo de los programas.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
-#include <iostream>
-#include <vector>
-#include <algorithm> // Para std::sort
-
-double calcularMRT(std::vector<int>& programas) {
-    std::sort(programas.begin(), programas.end()); // Estrategia Greedy
-    
-    double tiempoTotalRecuperacion = 0;
-    double tiempoActualEnCinta = 0;
-
-    for (int longitud : programas) {
-        tiempoActualEnCinta += longitud;
-        tiempoTotalRecuperacion += tiempoActualEnCinta;
-    }
-    return tiempoTotalRecuperacion / programas.size();
-}
-
-int main() {
-    std::vector<int> longitudes = {5, 10, 3, 7};
-    std::cout << "MRT: " << calcularMRT(longitudes) << std::endl;
-    // Imprime: 10.75 (Orden: 3, 5, 7, 10)
-    return 0;
-}
-            </code></pre>
-          </div>
+        <div class="space-y-4">
+          <p class="text-gray-700">Dado un conjunto de actividades (inicio, fin), selecciona el máximo número de actividades compatibles ordenando por tiempo de fin.</p>
           <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
-def calcular_mrt(programas):
-    programas.sort() # Estrategia Greedy
-    
-    tiempo_total_recuperacion = 0
-    tiempo_actual_en_cinta = 0
-    
-    for longitud in programas:
-        tiempo_actual_en_cinta += longitud
-        tiempo_total_recuperacion += tiempo_actual_en_cinta
-        
-    return tiempo_total_recuperacion / len(programas)
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">from typing import List, Tuple
 
-# --- Prueba ---
-longitudes = [5, 10, 3, 7]
-print(f"MRT: {calcular_mrt(longitudes)}")
-# Salida: 10.75 (Orden: 3, 5, 7, 10)
+def seleccionar_actividades(act: List[Tuple[int,int]]) -> List[Tuple[int,int]]:
+    act = sorted(act, key=lambda x: x[1])  # ordenar por fin
+    res: List[Tuple[int,int]] = []
+    fin_actual = -10**9
+    for inicio, fin in act:
+        if inicio >= fin_actual:
+            res.append((inicio, fin))
+            fin_actual = fin
+    return res
+
+print(seleccionar_actividades([(1,4),(3,5),(0,6),(5,7),(8,9)]))
             </code></pre>
           </div>
         </div>
@@ -231,18 +199,33 @@ print(f"MRT: {calcular_mrt(longitudes)}")
       notes: 'Análisis de tiempo y espacio del algoritmo Greedy.',
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">Eficiencia del Algoritmo Greedy</h3>
-        <p class="text-gray-600 mb-4">La complejidad de este algoritmo Greedy está dominada por el paso de ordenamiento de los programas.</p>
+        <p class="text-gray-600 mb-4">La complejidad de los ejemplos vistos está dominada por el ordenamiento.</p>
         <div class="grid md:grid-cols-2 gap-6 mt-4">
             <div class="bg-slate-50 p-4 rounded border">
                 <h5 class="font-bold text-slate-800">Complejidad Temporal</h5>
                 <p class="text-3xl font-mono font-bold text-green-600">O(N log N)</p>
-                <p class="text-xs text-gray-600">Debido al ordenamiento (ej. con Merge Sort o Quick Sort). Los bucles son O(N).</p>
+                <p class="text-xs text-gray-600">Debido al ordenamiento (ej. con sort). Los bucles son O(N).</p>
             </div>
             <div class="bg-slate-50 p-4 rounded border">
                 <h5 class="font-bold text-slate-800">Complejidad Espacial</h5>
                 <p class="text-3xl font-mono font-bold text-blue-600">O(1) o O(N)</p>
-                <p class="text-xs text-gray-600">Depende del algoritmo de ordenamiento. Si es in-place (como Heap Sort), O(1). Si usa memoria auxiliar (como Merge Sort), O(N).</p>
+                <p class="text-xs text-gray-600">Depende del algoritmo de ordenamiento y estructura auxiliar usada.</p>
             </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn7-9-contr',
+      title: '9. Contraejemplo: Monedas no canónicas',
+      notes: 'Mostrar que Greedy puede fallar en ciertos sistemas de monedas.',
+      contentHtml: `
+        <div class="space-y-4">
+          <p class="text-gray-700">Sistema de monedas: <code>[10, 9, 1]</code>; monto: <code>18</code>.</p>
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <p class="text-sm text-slate-700"><strong>Greedy</strong>: toma 10 y luego ocho monedas de 1 → total <strong>9</strong> monedas.</p>
+            <p class="text-sm text-slate-700"><strong>Óptimo</strong>: 9 + 9 → total <strong>2</strong> monedas.</p>
+          </div>
+          <p class="text-sm text-slate-600">Lección: Greedy es óptimo en sistemas canónicos, pero no en cualquier conjunto de denominaciones. Si no puedes probar optimalidad, considera DP.</p>
         </div>
       `
     },
@@ -273,20 +256,7 @@ print(f"MRT: {calcular_mrt(longitudes)}")
         </div>
       `
     },
-    {
-      id: 'pnn7-10-resources',
-      title: '10. Herramientas Visuales y Recursos',
-      notes: 'Proporcionar recursos externos para visualización.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Visualizando Algoritmos Voraces</h3>
-        <p class="text-gray-600 mb-4">Explora cómo los algoritmos voraces toman decisiones paso a paso con simuladores interactivos:</p>
-        <div class="bg-white border rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-          <h4 class="font-bold text-blue-700 text-lg">VisuAlgo - Algoritmos Greedy</h4>
-          <p class="text-sm text-gray-600 my-2">Observa ejemplos como el problema de la mochila fraccional y el cambio de monedas.</p>
-          <a href="https://visualgo.net/en/greedy" target="_blank" class="text-blue-600 font-bold hover:underline">Ir a VisuAlgo (Greedy) &rarr;</a>
-        </div>
-      `
-    },
+    
     {
       id: 'pnn7-end-questions',
       title: '¿Preguntas?',
