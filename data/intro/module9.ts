@@ -1,7 +1,7 @@
 
 
 
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const MODULE_9: Module = {
   id: 'mod-9',

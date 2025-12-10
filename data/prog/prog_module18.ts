@@ -1,4 +1,4 @@
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const PROG_MODULE_18: Module = {
   id: 'prog-mod-18',

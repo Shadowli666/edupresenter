@@ -3,7 +3,7 @@
 
 
 
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const MODULE_4: Module = {
   id: 'mod-4',

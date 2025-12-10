@@ -1,4 +1,4 @@
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const MODULE_18: Module = {
   id: 'mod-18',

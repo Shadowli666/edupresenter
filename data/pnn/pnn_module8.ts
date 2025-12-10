@@ -1,4 +1,4 @@
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const PNN_MODULE_8: Module = {
   id: 'pnn-mod-8',

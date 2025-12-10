@@ -1,5 +1,5 @@
 
-import { Module } from '../types';
+import { Module } from '../../types';
 
 export const PYTHON_MODULE_8: Module = {
   id: 'py-mod-8',
