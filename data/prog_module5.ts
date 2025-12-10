@@ -67,7 +67,7 @@ export const PROG_MODULE_5: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++ con struct y puntero</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 struct Nodo {
     int dato;
     Nodo* siguiente;
@@ -82,7 +82,7 @@ struct Nodo {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python con class y referencia</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 class Nodo:
     def __init__(self, dato):
         self.dato = dato
@@ -104,9 +104,9 @@ class Nodo:
           <li>Hacer que el puntero <code>siguiente</code> del nuevo nodo apunte a la cabeza (<code>head</code>) actual de la lista.</li>
           <li>Actualizar la cabeza de la lista para que ahora sea el nuevo nodo.</li>
         </ol>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
           <h5 class="text-gray-400 mb-2">// Pseudocódigo</h5>
-          <pre><code>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
 FUNCIÓN insertar_al_inicio(cabeza, valor):
   nuevo_nodo = crear_nodo(valor)
   nuevo_nodo.siguiente = cabeza
@@ -129,9 +129,9 @@ FUNCIÓN insertar_al_inicio(cabeza, valor):
           <li>Si no, usar un puntero auxiliar para recorrer la lista hasta el final.</li>
           <li>Enlazar el <code>siguiente</code> del último nodo al nuevo nodo.</li>
         </ol>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <h5 class="text-gray-400 mb-2"># Python</h5>
-          <pre><code class="language-python">
+      <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+      <h5 class="text-gray-400 mb-2"># Python</h5>
+      <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 def insertar_al_final(self, dato):
     nuevo = Nodo(dato)
     if self.cabeza is None:
@@ -160,9 +160,9 @@ def insertar_al_final(self, dato):
           <li>Si se encuentra, hacer que <code>previo.siguiente</code> apunte a <code>actual.siguiente</code>.</li>
           <li>Liberar la memoria del nodo eliminado (en C++ con <code>delete</code>).</li>
         </ol>
-         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
+        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
           <h5 class="text-gray-400 mb-2">// Pseudocódigo para eliminar</h5>
-          <pre><code>
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
 // ... búsqueda para encontrar previo y actual ...
 previo.siguiente = actual.siguiente
 liberar_memoria(actual) // En C++: delete actual;
@@ -180,7 +180,7 @@ liberar_memoria(actual) // En C++: delete actual;
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 void mostrar(Nodo* cabeza) {
     Nodo* aux = cabeza;
     while (aux != nullptr) {
@@ -193,7 +193,7 @@ void mostrar(Nodo* cabeza) {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 def mostrar(self):
     actual = self.cabeza
     while actual:

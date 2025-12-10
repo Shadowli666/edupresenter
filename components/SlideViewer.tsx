@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import mermaid from 'mermaid';
+// Carga dinámica de mermaid para reducir el bundle inicial
 import { Slide } from '../types';
 
 interface SlideViewerProps {
@@ -17,22 +17,31 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
 }) => {
   
   useEffect(() => {
-    // Initialize mermaid configuration
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'neutral',
-      securityLevel: 'loose',
-      fontFamily: 'Inter',
-      flowchart: {
-        htmlLabels: true,
-        curve: 'basis'
-      }
-    });
+    const hasMermaid = typeof slide.contentHtml === 'string' && (
+      slide.contentHtml.includes('<div class="mermaid"') ||
+      slide.contentHtml.includes('```mermaid') ||
+      slide.contentHtml.includes('<code class="language-mermaid"')
+    );
+    if (!hasMermaid) return;
 
-    // Run mermaid on all elements with class 'mermaid'
-    mermaid.run({
-      querySelector: '.mermaid'
-    });
+    let isMounted = true;
+    (async () => {
+      const mermaid = await import('mermaid');
+      if (!isMounted) return;
+      mermaid.default.initialize({
+        startOnLoad: false,
+        theme: 'neutral',
+        securityLevel: 'loose',
+        fontFamily: 'Inter',
+        flowchart: {
+          htmlLabels: true,
+          curve: 'basis'
+        }
+      });
+      mermaid.default.run({ querySelector: '.mermaid' });
+    })();
+
+    return () => { isMounted = false; };
   }, [slide]);
 
   return (

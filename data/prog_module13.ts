@@ -85,7 +85,7 @@ export const PROG_MODULE_13: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 struct NodoArbol {
     int dato;
     NodoArbol* izquierdo;
@@ -98,7 +98,7 @@ struct NodoArbol {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm"><code class="language-python">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 class NodoArbol:
     def __init__(self, dato):
         self.dato = dato

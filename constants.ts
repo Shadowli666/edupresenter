@@ -64,6 +64,12 @@ import { PYTHON_MODULE_3 } from './data/python_module3';
 import { PYTHON_MODULE_4 } from './data/python_module4';
 import { PYTHON_MODULE_5 } from './data/python_module5';
 import { PYTHON_MODULE_6 } from './data/python_module6';
+import { PYTHON_MODULE_7 } from './data/python_module7';
+import { PYTHON_MODULE_8 } from './data/python_module8';
+import { PYTHON_MODULE_9 } from './data/python_module9';
+import { PYTHON_MODULE_10 } from './data/python_module10';
+import { PYTHON_MODULE_11 } from './data/python_module11';
+import { PYTHON_MODULE_12 } from './data/python_module12';
 
 export const INTRO_TO_CS_COURSE: Course = {
   id: 'intro-cs-001',
@@ -159,7 +165,13 @@ export const PYTHON_COURSE: Course = {
     PYTHON_MODULE_3,
     PYTHON_MODULE_4,
     PYTHON_MODULE_5,
-    PYTHON_MODULE_6
+    PYTHON_MODULE_6,
+    PYTHON_MODULE_7,
+    PYTHON_MODULE_8,
+    PYTHON_MODULE_9,
+    PYTHON_MODULE_10,
+    PYTHON_MODULE_11,
+    PYTHON_MODULE_12
   ]
 };
 

@@ -47,6 +47,98 @@ export const PYTHON_MODULE_3: Module = {
       `
     },
     {
+      id: 'py3-6',
+      title: '6. match-case (Python 3.10+ opcional)',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700"><code>match</code> permite un enrutamiento por patrones similar a <em>switch</em> de otros lenguajes, con más poder.</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Sintaxis básica</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+cmd = input("Comando: ")
+match cmd:
+    case "saludar":
+        print("Hola!")
+    case "salir":
+        print("Adiós")
+    case _:
+        print("Comando desconocido")
+              </pre>
+            </div>
+            <div class="bg-blue-50 p-4 rounded border border-blue-200 text-sm">
+              <h4 class="font-bold text-blue-900 mb-2">Cuándo usarlo</h4>
+              <ul class="list-disc list-inside text-blue-800 text-xs space-y-1">
+                <li>Cuando hay muchas ramas <code>elif</code> por igualdad.</li>
+                <li>Para mejorar legibilidad en menús simples.</li>
+                <li>No reemplaza lógica compleja; úsalo con moderación.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py3-7',
+      title: '7. Patrones y Buenas Prácticas',
+      contentHtml: `
+        <div class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Guard Clauses (salidas tempranas)</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+def dividir(a, b):
+    if b == 0:
+        return "Error: división por 0"
+    return a / b
+              </pre>
+              <p class="text-xs text-slate-600 mt-2">Evitan indentaciones profundas y facilitan la lectura.</p>
+            </div>
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Membership y rangos</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+vocales = {'a','e','i','o','u'}
+ch = input("Letra: ")
+if ch.lower() in vocales:
+    print("Vocal")
+              </pre>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py3-8',
+      title: '8. Mini-Quiz de Condicionales',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2">1) ¿Cuál imprime "Sí"?</h4>
+            <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+x = 0
+if x:
+    print("Sí")
+            </pre>
+            <details class="mt-2">
+              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
+              <p class="text-sm">Ninguna, <code>0</code> es falsy; no imprime nada.</p>
+            </details>
+          </div>
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2">2) Resultado</h4>
+            <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+nota = 85
+print("A") if nota >= 90 else print("B") if nota >= 80 else print("C")
+            </pre>
+            <details class="mt-2">
+              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
+              <p class="text-sm">Imprime <code>B</code>.</p>
+            </details>
+          </div>
+        </div>
+      `
+    },
+    {
       id: 'py3-2',
       title: '2. Sentencia IF y Operadores',
       contentHtml: `
@@ -518,6 +610,30 @@ export const PYTHON_MODULE_3: Module = {
                <p class="text-sm text-gray-600">En el próximo módulo veremos <strong>Bucles</strong> para repetir estas decisiones automáticamente.</p>
              </div>
           </div>
+        </div>
+      `
+    }
+    ,
+    {
+      id: 'py3-qa',
+      title: '8. Preguntas y Respuestas',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-12 text-center space-y-4">
+          <h2 class="text-3xl font-bold text-slate-900">¿Dudas con if/elif/else?</h2>
+          <p class="text-slate-600">Revisamos casos límite, anidamiento, y operadores lógicos.</p>
+        </div>
+      `
+    },
+    {
+      id: 'py3-thanks',
+      title: '9. ¡Gracias!',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-16 text-center">
+          <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">Fin del Módulo 3</h3>
+          <p class="text-slate-600">Siguiente: Bucles y Ciclos.</p>
         </div>
       `
     }

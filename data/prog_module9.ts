@@ -88,7 +88,7 @@ export const PROG_MODULE_9: Module = {
         <h3 class="text-xl font-bold text-slate-800 mb-4">Implementando la Calculadora RPN</h3>
         <p class="text-gray-600 mb-4">Esta función de Python toma una lista de tokens y la evalúa.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-python">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
 def evaluar_postfija(expresion):
     pila = []
     for token in expresion.split():
@@ -123,7 +123,7 @@ print(f"El resultado de '{expresion}' es: {resultado}") # 14
         <h3 class="text-xl font-bold text-slate-800 mb-4">Implementando el Validador de Símbolos</h3>
         <p class="text-gray-600 mb-4">Este código C++ usa un <code>std::stack</code> para verificar el balanceo.</p>
         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <pre><code class="language-cpp">
+          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
 #include &lt;string&gt;
@@ -172,7 +172,7 @@ bool estaBalanceada(std::string expr) {
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// Factorial Recursivo</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 int factorial(int n) {
     if (n == 0) return 1;
     return n * factorial(n - 1);
@@ -181,7 +181,7 @@ int factorial(int n) {
           </div>
           <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
             <h5 class="text-gray-400 mb-2">// Factorial Iterativo con Pila</h5>
-            <pre class="font-mono text-sm"><code class="language-cpp">
+            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
 int factorial_iter(int n) {
     std::stack&lt;int&gt; pila;
     while (n > 0) {

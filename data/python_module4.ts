@@ -388,6 +388,167 @@ export const PYTHON_MODULE_4: Module = {
 
         </div>
       `
+    },
+    {
+      id: 'py4-6',
+      title: '7. Cláusula else en for/while',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700">En Python, los bucles pueden tener <code>else</code>. Se ejecuta cuando el bucle termina <em>sin</em> encontrar un <code>break</code>.</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Ejemplo con for</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+nums = [2, 4, 6, 8]
+for n in nums:
+    if n % 2 == 1:
+        print("Impar encontrado")
+        break
+else:
+    print("No hay impares")  # Se ejecuta porque no hubo break
+              </pre>
+            </div>
+            <div class="bg-blue-50 p-4 rounded border border-blue-200 text-sm">
+              <h4 class="font-bold text-blue-900 mb-2">Útil para</h4>
+              <ul class="list-disc list-inside text-blue-800 text-xs space-y-1">
+                <li>Búsquedas con verificación de éxito/fracaso.</li>
+                <li>Validaciones en colecciones.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py4-7',
+      title: '8. enumerate, range avanzado y zip',
+      contentHtml: `
+        <div class="space-y-6">
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">enumerate</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+frutas = ["manzana","pera","uva"]
+for i, f in enumerate(frutas, start=1):
+    print(i, f)
+              </pre>
+            </div>
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">range paso negativo</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+for i in range(10, 0, -2):
+    print(i)  # 10, 8, 6, ...
+              </pre>
+            </div>
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">zip</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+nombres = ["Ana","Luis"]
+edades = [20, 21]
+for n, e in zip(nombres, edades):
+    print(n, e)
+              </pre>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py4-8',
+      title: '9. Errores comunes en bucles',
+      contentHtml: `
+        <div class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Off-by-one</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-red-200 p-3 rounded">
+# Esperas 1..5
+for i in range(1, 5):
+    print(i)  # 1..4 (hasta n-1)
+              </pre>
+              <p class="text-xs text-slate-600">Recuerda que <code>range(stop)</code> no incluye el tope.</p>
+            </div>
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Ciclo infinito</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-red-200 p-3 rounded">
+i = 0
+while i < 3:
+    print(i)
+    # i += 1  # Olvidado -> bucle infinito
+              </pre>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py4-9',
+      title: '10. List Comprehensions (introducción)',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-gray-700">Ahorra código para construir listas a partir de iteraciones y filtros.</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded border shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Ejemplo</h4>
+              <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+cuadrados = [x*x for x in range(1,6)]  # [1,4,9,16,25]
+pares = [x for x in range(10) if x % 2 == 0]
+              </pre>
+            </div>
+            <div class="bg-blue-50 p-4 rounded border border-blue-200 text-sm">
+              <h4 class="font-bold text-blue-900 mb-2">Cuándo evitar</h4>
+              <ul class="list-disc list-inside text-blue-800 text-xs space-y-1">
+                <li>Cuando la lógica es extensa (prefiere un bucle normal).</li>
+                <li>Evita anidar demasiados niveles por legibilidad.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py4-10',
+      title: '11. Mini Quiz de Bucles',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-white p-4 rounded border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2">1) ¿Qué imprime?</h4>
+            <pre class="font-mono text-xs max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
+for i in range(3):
+    if i == 1:
+        continue
+    print(i)
+            </pre>
+            <details class="mt-2">
+              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
+              <p class="text-sm">Imprime 0, 2.</p>
+            </details>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py4-qa',
+      title: '12. Preguntas y Respuestas',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-12 text-center space-y-4">
+          <h2 class="text-3xl font-bold text-slate-900">¿Dudas de bucles?</h2>
+          <p class="text-slate-600">Repasamos while/for, break/continue/else y comprensiones.</p>
+        </div>
+      `
+    },
+    {
+      id: 'py4-end',
+      title: '13. ¡Gracias!',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-16 text-center">
+          <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">Fin del Módulo 4</h3>
+          <p class="text-slate-600">A continuación: Taller de Integración.</p>
+        </div>
+      `
     }
   ]
 };
