@@ -1,75 +1,28 @@
+import { Course, Module } from './types';
 
+// Helper function to load and sort modules from a glob import
+const loadModules = (modulesGlob: Record<string, unknown>): Module[] => {
+  return Object.values(modulesGlob)
+    .map((mod: any) => {
+      // Extract the first exported object that looks like a Module
+      const exportedModule = Object.values(mod).find((val: any) => val && val.id && val.title && val.slides) as Module;
+      return exportedModule;
+    })
+    .filter(Boolean) // Remove undefined if any
+    .sort((a, b) => {
+      // Extract number from ID for sorting (e.g., "module1" -> 1, "module10" -> 10)
+      // Assumes ID format ends with number or contains number
+      const numA = parseInt(a.id.replace(/\D/g, ''), 10) || 0;
+      const numB = parseInt(b.id.replace(/\D/g, ''), 10) || 0;
+      return numA - numB;
+    });
+};
 
-
-
-
-import { Course } from './types';
-import { MODULE_1 } from './data/module1';
-import { MODULE_2 } from './data/module2';
-import { MODULE_3 } from './data/module3';
-import { MODULE_4 } from './data/module4';
-import { MODULE_5 } from './data/module5';
-import { MODULE_6 } from './data/module6';
-import { MODULE_7 } from './data/module7';
-import { MODULE_8 } from './data/module8';
-import { MODULE_9 } from './data/module9';
-import { MODULE_10 } from './data/module10';
-import { MODULE_11 } from './data/module11';
-import { MODULE_12 } from './data/module12';
-
-// Import new course modules
-import { PROG_MODULE_1 } from './data/prog_module1';
-import { PROG_MODULE_2 } from './data/prog_module2';
-import { PROG_MODULE_3 } from './data/prog_module3';
-import { PROG_MODULE_4 } from './data/prog_module4';
-import { PROG_MODULE_5 } from './data/prog_module5';
-import { PROG_MODULE_6 } from './data/prog_module6';
-import { PROG_MODULE_7 } from './data/prog_module7';
-import { PROG_MODULE_8 } from './data/prog_module8';
-import { PROG_MODULE_9 } from './data/prog_module9';
-import { PROG_MODULE_10 } from './data/prog_module10';
-import { PROG_MODULE_11 } from './data/prog_module11';
-import { PROG_MODULE_12 } from './data/prog_module12';
-import { PROG_MODULE_13 } from './data/prog_module13';
-import { PROG_MODULE_14 } from './data/prog_module14';
-import { PROG_MODULE_15 } from './data/prog_module15';
-import { PROG_MODULE_16 } from './data/prog_module16';
-import { PROG_MODULE_17 } from './data/prog_module17';
-import { PROG_MODULE_18 } from './data/prog_module18';
-
-// Import Non-Numerical Programming modules
-import { PNN_MODULE_1 } from './data/pnn_module1';
-import { PNN_MODULE_2 } from './data/pnn_module2';
-import { PNN_MODULE_3 } from './data/pnn_module3';
-import { PNN_MODULE_4 } from './data/pnn_module4';
-import { PNN_MODULE_5 } from './data/pnn_module5';
-import { PNN_MODULE_6 } from './data/pnn_module6';
-import { PNN_MODULE_7 } from './data/pnn_module7';
-import { PNN_MODULE_8 } from './data/pnn_module8';
-import { PNN_MODULE_9 } from './data/pnn_module9';
-import { PNN_MODULE_10 } from './data/pnn_module10';
-import { PNN_MODULE_11 } from './data/pnn_module11';
-import { PNN_MODULE_12 } from './data/pnn_module12';
-import { PNN_MODULE_13 } from './data/pnn_module13';
-import { PNN_MODULE_14 } from './data/pnn_module14';
-import { PNN_MODULE_15 } from './data/pnn_module15';
-import { PNN_MODULE_16 } from './data/pnn_module16';
-import { PNN_MODULE_17 } from './data/pnn_module17';
-import { PNN_MODULE_18 } from './data/pnn_module18';
-
-// Import Python Modules
-import { PYTHON_MODULE_1 } from './data/python_module1';
-import { PYTHON_MODULE_2 } from './data/python_module2';
-import { PYTHON_MODULE_3 } from './data/python_module3';
-import { PYTHON_MODULE_4 } from './data/python_module4';
-import { PYTHON_MODULE_5 } from './data/python_module5';
-import { PYTHON_MODULE_6 } from './data/python_module6';
-import { PYTHON_MODULE_7 } from './data/python_module7';
-import { PYTHON_MODULE_8 } from './data/python_module8';
-import { PYTHON_MODULE_9 } from './data/python_module9';
-import { PYTHON_MODULE_10 } from './data/python_module10';
-import { PYTHON_MODULE_11 } from './data/python_module11';
-import { PYTHON_MODULE_12 } from './data/python_module12';
+// Load modules dynamically using Vite's import.meta.glob
+const introModules = loadModules(import.meta.glob('./data/intro/*.ts', { eager: true }));
+const progModules = loadModules(import.meta.glob('./data/prog/*.ts', { eager: true }));
+const pnnModules = loadModules(import.meta.glob('./data/pnn/*.ts', { eager: true }));
+const pythonModules = loadModules(import.meta.glob('./data/python/*.ts', { eager: true }));
 
 export const INTRO_TO_CS_COURSE: Course = {
   id: 'intro-cs-001',
@@ -78,20 +31,7 @@ export const INTRO_TO_CS_COURSE: Course = {
   description: 'Fundamentos de la informática, desde el hardware hasta la metodología de resolución de problemas.',
   teacherName: 'Ing. Luis Felipe Moreno Oropeza',
   teacherEmail: '27758801@psm.edu.ve',
-  modules: [
-    MODULE_1,
-    MODULE_2,
-    MODULE_3,
-    MODULE_4,
-    MODULE_5,
-    MODULE_6,
-    MODULE_7,
-    MODULE_8,
-    MODULE_9,
-    MODULE_10,
-    MODULE_11,
-    MODULE_12
-  ]
+  modules: introModules
 };
 
 export const PROGRAMMING_COURSE: Course = {
@@ -101,26 +41,7 @@ export const PROGRAMMING_COURSE: Course = {
   description: 'Manejo avanzado de estructuras de datos: Archivos, Memoria Dinámica, Punteros, Arreglos, Listas, Pilas y Colas.',
   teacherName: 'Ing. Luis Felipe Moreno Oropeza',
   teacherEmail: '27758801@psm.edu.ve',
-  modules: [
-  PROG_MODULE_1,
-    PROG_MODULE_2,
-    PROG_MODULE_3,
-    PROG_MODULE_4,
-    PROG_MODULE_5,
-    PROG_MODULE_6,
-    PROG_MODULE_7,
-    PROG_MODULE_8,
-    PROG_MODULE_9,
-    PROG_MODULE_10,
-    PROG_MODULE_11,
-  PROG_MODULE_12,
-  PROG_MODULE_13,
-  PROG_MODULE_14,
-  PROG_MODULE_15,
-  PROG_MODULE_16,
-  PROG_MODULE_17,
-  PROG_MODULE_18
-  ]
+  modules: progModules
 };
 
 export const NON_NUMERIC_COURSE: Course = {
@@ -130,26 +51,7 @@ export const NON_NUMERIC_COURSE: Course = {
   description: 'Algoritmos avanzados: Árboles, Heaps, Recursividad, Divide y Vencerás, Ordenamiento (Quicksort/Mergesort).',
   teacherName: 'Ing. Luis Felipe Moreno Oropeza',
   teacherEmail: '27758801@psm.edu.ve',
-  modules: [
-    PNN_MODULE_1,
-    PNN_MODULE_2,
-    PNN_MODULE_3,
-    PNN_MODULE_4,
-    PNN_MODULE_5,
-    PNN_MODULE_6,
-    PNN_MODULE_7,
-    PNN_MODULE_8,
-    PNN_MODULE_9,
-    PNN_MODULE_10,
-    PNN_MODULE_11,
-    PNN_MODULE_12,
-    PNN_MODULE_13,
-    PNN_MODULE_14,
-    PNN_MODULE_15,
-    PNN_MODULE_16,
-    PNN_MODULE_17,
-    PNN_MODULE_18
-  ]
+  modules: pnnModules
 };
 
 export const PYTHON_COURSE: Course = {
@@ -159,20 +61,7 @@ export const PYTHON_COURSE: Course = {
   description: 'Fundamentos de programación moderna usando Python. Desde sintaxis básica hasta estructuras de control.',
   teacherName: 'Ing. Luis Felipe Moreno Oropeza',
   teacherEmail: '27758801@psm.edu.ve',
-  modules: [
-    PYTHON_MODULE_1,
-    PYTHON_MODULE_2,
-    PYTHON_MODULE_3,
-    PYTHON_MODULE_4,
-    PYTHON_MODULE_5,
-    PYTHON_MODULE_6,
-    PYTHON_MODULE_7,
-    PYTHON_MODULE_8,
-    PYTHON_MODULE_9,
-    PYTHON_MODULE_10,
-    PYTHON_MODULE_11,
-    PYTHON_MODULE_12
-  ]
+  modules: pythonModules
 };
 
 // Array for the main menu selection
