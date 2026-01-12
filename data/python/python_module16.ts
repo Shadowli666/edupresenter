@@ -1,230 +1,130 @@
-import { Module } from "../../types";
+import { Module } from '../../types';
 
-export const python_module16: Module = {
-  id: "python_module16",
-  title: "Programación en Python - Semana 16",
-  description: "Manejo de Archivos y Persistencia",
-  evaluation: "Evaluación Continua",
+export const PYTHON_MODULE_16: Module = {
+  id: 'py-mod-16',
+  title: '16. Persistencia de Datos (Archivos)',
+  description: 'Guardando información más allá de la ejecución.',
+  evaluation: 'Taller Práctico',
   slides: [
     {
-      id: "pm16-s1",
-      title: "Manejo de Archivos en Python",
-      contentHtml: "<h1>Manejo de Archivos en Python</h1><h2>Lectura, Escritura y Persistencia de Datos</h2>",
+      id: 'py16-1-ram-vs-disk',
+      title: 'Memoria Volátil vs Persistente',
+      notes: '¿Por qué se borran mis datos?',
+      contentHtml: `
+        <div class="flex flex-col h-full items-center justify-center space-y-8">
+          <div class="grid md:grid-cols-2 gap-12 w-full max-w-4xl">
+            <!-- RAM -->
+            <div class="bg-red-50 p-6 rounded-xl border border-red-200 flex flex-col items-center text-center opacity-70">
+              <div class="text-6xl mb-4">⚡</div>
+              <h3 class="text-2xl font-bold text-red-900">RAM</h3>
+              <p class="text-sm text-red-700 mt-2">
+                Rápida pero <strong>volátil</strong>.
+                <br>Si apagas el PC o cierras el programa, los datos desaparecen.
+              </p>
+              <div class="mt-4 bg-white px-4 py-2 rounded border border-red-100 text-xs font-mono text-red-500">
+                variables = [...]
+              </div>
+            </div>
+
+            <!-- Disk -->
+            <div class="bg-green-50 p-6 rounded-xl border-2 border-green-500 flex flex-col items-center text-center transform scale-105 shadow-xl">
+              <div class="text-6xl mb-4">💾</div>
+              <h3 class="text-2xl font-bold text-green-900">Disco Duro</h3>
+              <p class="text-sm text-green-700 mt-2">
+                Lento pero <strong>persistente</strong>.
+                <br>Los datos sobreviven a reinicios y cierres.
+              </p>
+              <div class="mt-4 bg-white px-4 py-2 rounded border border-green-100 text-xs font-mono text-green-600">
+                archivo.txt
+              </div>
+            </div>
+          </div>
+        </div>
+      `
     },
     {
-      id: "pm16-s2",
-      title: "¿Por qué usar archivos?",
+      id: 'py16-2-open-modes',
+      title: 'Modos de Apertura',
+      notes: 'Lectura (r), Escritura (w), Append (a).',
       contentHtml: `
-        <h2>¿Por qué usar archivos?</h2>
-        <p>Hasta ahora, todos los datos de nuestros programas se pierden al cerrar la ejecución (están en RAM).</p>
-        <p>Los archivos nos permiten <strong>persistencia</strong>: guardar datos en el disco duro para usarlos después.</p>
-        <ul>
-            <li>Logs de errores.</li>
-            <li>Configuraciones de usuario.</li>
-            <li>Bases de datos simples (CSV, JSON).</li>
-        </ul>
-      `,
+        <div class="flex flex-col h-full space-y-6 justify-center">
+          <h3 class="text-2xl font-bold text-slate-800 text-center">La función <code>open()</code></h3>
+          
+          <div class="grid grid-cols-3 gap-6">
+            <!-- Read -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:bg-blue-50 transition-colors">
+              <div class="text-4xl mb-2 text-center">📖</div>
+              <div class="font-mono text-center font-bold text-blue-700 text-xl mb-2">'r'</div>
+              <h4 class="font-bold text-slate-700 text-center">Read (Leer)</h4>
+              <p class="text-xs text-slate-500 text-center mt-2">
+                Solo lectura. Error si no existe. El puntero inicia al principio.
+              </p>
+            </div>
+
+            <!-- Write -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500 hover:bg-red-50 transition-colors">
+              <div class="text-4xl mb-2 text-center">✍️</div>
+              <div class="font-mono text-center font-bold text-red-700 text-xl mb-2">'w'</div>
+              <h4 class="font-bold text-slate-700 text-center">Write (Escribir)</h4>
+              <p class="text-xs text-slate-500 text-center mt-2">
+                Sobreescribe TODO. Crea el archivo si no existe. ¡Cuidado!
+              </p>
+            </div>
+
+            <!-- Append -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500 hover:bg-green-50 transition-colors">
+              <div class="text-4xl mb-2 text-center">➕</div>
+              <div class="font-mono text-center font-bold text-green-700 text-xl mb-2">'a'</div>
+              <h4 class="font-bold text-slate-700 text-center">Append (Anexar)</h4>
+              <p class="text-xs text-slate-500 text-center mt-2">
+                Agrega al final sin borrar. Crea el archivo si no existe.
+              </p>
+            </div>
+          </div>
+        </div>
+      `
     },
     {
-      id: "pm16-s3",
-      title: "La función open()",
+      id: 'py16-3-context-manager',
+      title: 'Context Manager (with)',
+      notes: 'La forma segura de abrir archivos.',
       contentHtml: `
-        <h2>La función open()</h2>
-        <p>Para trabajar con un archivo, primero debemos abrirlo.</p>
-        <pre><code class="language-python">archivo = open("datos.txt", "r")</code></pre>
-        <p>El segundo argumento es el <strong>modo</strong>:</p>
-        <ul>
-            <li><code>'r'</code>: Lectura (Read) - Default. Falla si no existe.</li>
-            <li><code>'w'</code>: Escritura (Write) - Crea o sobrescribe.</li>
-            <li><code>'a'</code>: Anexar (Append) - Agrega al final.</li>
-            <li><code>'x'</code>: Crear - Falla si ya existe.</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm16-s4",
-      title: "Lectura de Archivos",
-      contentHtml: `
-        <h2>Lectura de Archivos</h2>
-        <p>Métodos principales para leer contenido:</p>
-        <pre><code class="language-python">f = open("poema.txt", "r")
+        <div class="grid md:grid-cols-2 gap-8 h-full items-center">
+          <div class="space-y-6">
+            <div class="bg-red-50 p-4 rounded-xl border border-red-200 opacity-60">
+              <h4 class="font-bold text-red-900 mb-2">❌ Forma Antigua (Peligrosa)</h4>
+              <div class="font-mono text-xs text-red-800">
+                f = open("data.txt", "w")<br>
+                f.write("Hola")<br>
+                <span class="font-bold"># Si falla aquí, f nunca se cierra!</span><br>
+                f.close()
+              </div>
+            </div>
 
-# Lee TODO el archivo como un string
-contenido = f.read()
+            <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500 shadow-lg">
+              <h4 class="font-bold text-green-900 mb-2">✅ Forma Pythonica (Segura)</h4>
+              <p class="text-sm text-green-800 mb-4">
+                Usando <code>with</code>, Python garantiza que el archivo se cierre automáticamente, incluso si hay errores.
+              </p>
+              <div class="bg-slate-900 p-4 rounded-lg font-mono text-sm text-slate-300">
+                <span class="text-purple-400">with</span> <span class="text-blue-400">open</span>(<span class="text-green-400">"data.txt"</span>, <span class="text-green-400">"w"</span>) <span class="text-purple-400">as</span> f:<br>
+                &nbsp;&nbsp;f.write(<span class="text-green-400">"Hola Mundo"</span>)<br>
+                <span class="text-gray-500"># ¡Se cierra solo aquí!</span>
+              </div>
+            </div>
+          </div>
 
-# Lee una sola línea
-linea = f.readline()
-
-# Lee todas las líneas en una lista
-lineas = f.readlines()
-
-f.close() # ¡Importante cerrar!</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s5",
-      title: "Escritura de Archivos",
-      contentHtml: `
-        <h2>Escritura de Archivos</h2>
-        <p>Usamos <code>write()</code>. Recuerda que el modo 'w' borra el contenido anterior.</p>
-        <pre><code class="language-python">f = open("notas.txt", "w")
-f.write("Hola Mundo\\n")
-f.write("Esta es una nueva línea.")
-f.close()</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s6",
-      title: "Context Managers (with)",
-      contentHtml: `
-        <h2>Context Managers (with)</h2>
-        <p>Es la forma recomendada de trabajar con archivos. Se encarga de cerrar el archivo automáticamente, incluso si ocurre un error.</p>
-        <pre><code class="language-python">with open("datos.txt", "r") as f:
-    contenido = f.read()
-    print(contenido)
-# Aquí el archivo ya está cerrado automáticamente</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s7",
-      title: "Iterando sobre líneas",
-      contentHtml: `
-        <h2>Iterando sobre líneas</h2>
-        <p>La forma más eficiente de leer archivos grandes línea por línea.</p>
-        <pre><code class="language-python">with open("libro_gigante.txt", "r") as f:
-    for linea in f:
-        print(linea.strip()) # strip() quita el salto de línea</code></pre>
-        <p>Esto no carga todo el archivo en memoria, solo una línea a la vez.</p>
-      `,
-    },
-    {
-      id: "pm16-s8",
-      title: "Manejo de Errores",
-      contentHtml: `
-        <h2>Manejo de Errores</h2>
-        <p>Siempre debemos anticipar que el archivo podría no existir o no tener permisos.</p>
-        <pre><code class="language-python">try:
-    with open("no_existe.txt", "r") as f:
-        print(f.read())
-except FileNotFoundError:
-    print("El archivo no fue encontrado.")
-except PermissionError:
-    print("No tienes permiso para leer este archivo.")</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s9",
-      title: "Archivos CSV",
-      contentHtml: `
-        <h2>Archivos CSV</h2>
-        <p>CSV (Comma Separated Values) es un formato común para tablas.</p>
-        <pre><code class="language-python">import csv
-
-# Escribir
-with open('usuarios.csv', 'w', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerow(["Nombre", "Edad"])
-    writer.writerow(["Ana", 25])
-
-# Leer
-with open('usuarios.csv', 'r') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        print(row) # ['Nombre', 'Edad']...</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s10",
-      title: "Archivos JSON",
-      contentHtml: `
-        <h2>Archivos JSON</h2>
-        <p>JSON es el estándar para intercambio de datos en la web. Python lo soporta nativamente.</p>
-        <pre><code class="language-python">import json
-
-datos = {"nombre": "Juan", "hobbies": ["fútbol", "código"]}
-
-# Guardar (Serializar)
-with open("data.json", "w") as f:
-    json.dump(datos, f)
-
-# Cargar (Deserializar)
-with open("data.json", "r") as f:
-    datos_cargados = json.load(f)
-    print(datos_cargados["hobbies"][0])</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s11",
-      title: "Rutas de Archivos (os.path)",
-      contentHtml: `
-        <h2>Rutas de Archivos (os.path)</h2>
-        <p>Para manejar rutas de forma compatible entre Windows/Linux/Mac.</p>
-        <pre><code class="language-python">import os
-
-ruta = os.path.join("carpeta", "subcarpeta", "archivo.txt")
-print(ruta) 
-# Linux: carpeta/subcarpeta/archivo.txt
-# Windows: carpeta\\subcarpeta\\archivo.txt
-
-if os.path.exists(ruta):
-    print("El archivo existe")</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s12",
-      title: "Ejercicio 1: Diario Personal",
-      contentHtml: `
-        <h2>Ejercicio 1: Diario Personal</h2>
-        <p>Crea un programa que:</p>
-        <ol>
-            <li>Pregunte al usuario qué quiere escribir hoy.</li>
-            <li>Guarde el texto en <code>diario.txt</code> agregando la fecha y hora actual.</li>
-            <li>Use el modo 'a' (append) para no borrar entradas anteriores.</li>
-        </ol>
-      `,
-    },
-    {
-      id: "pm16-s13",
-      title: "Solución Ejercicio 1",
-      contentHtml: `
-        <h2>Solución Ejercicio 1</h2>
-        <pre><code class="language-python">import datetime
-
-entrada = input("Querido diario: ")
-fecha = datetime.datetime.now()
-
-with open("diario.txt", "a") as f:
-    f.write(f"[{fecha}] {entrada}\\n")
-
-print("Guardado.")</code></pre>
-      `,
-    },
-    {
-      id: "pm16-s14",
-      title: "Ejercicio 2: Contador de Palabras",
-      contentHtml: `
-        <h2>Ejercicio 2: Contador de Palabras</h2>
-        <p>Crea un archivo <code>texto.txt</code> con varias líneas. Luego escribe un script que:</p>
-        <ol>
-            <li>Lea el archivo.</li>
-            <li>Cuente cuántas palabras tiene en total.</li>
-            <li>Imprima el resultado.</li>
-        </ol>
-        <p><em>Pista: usa <code>split()</code> para separar palabras.</em></p>
-      `,
-    },
-    {
-      id: "pm16-s15",
-      title: "Resumen",
-      contentHtml: `
-        <h2>Resumen</h2>
-        <ul>
-            <li><strong>open():</strong> Abre archivos. Usar siempre con <strong>with</strong>.</li>
-            <li><strong>Modos:</strong> 'r' (leer), 'w' (escribir/borrar), 'a' (anexar).</li>
-            <li><strong>Formatos:</strong> Texto plano (.txt), CSV, JSON.</li>
-            <li><strong>Persistencia:</strong> Clave para aplicaciones reales.</li>
-        </ul>
-      `,
-    },
-  ],
+          <div class="flex flex-col items-center justify-center">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 w-64 text-center">
+              <div class="text-4xl mb-4">🛡️</div>
+              <h3 class="font-bold text-slate-800">Gestión Automática</h3>
+              <p class="text-xs text-slate-500 mt-2">
+                El Context Manager se encarga de liberar los recursos del sistema operativo, evitando "memory leaks" o archivos bloqueados.
+              </p>
+            </div>
+          </div>
+        </div>
+      `
+    }
+  ]
 };

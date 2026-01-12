@@ -1,129 +1,199 @@
-
 import { Module } from '../../types';
 
 export const PNN_MODULE_16: Module = {
   id: 'pnn-mod-16',
-  title: '16. Problema de las N Reinas',
-  description: 'Aplicación clásica de Backtracking sobre el tablero de ajedrez.',
+  title: '16. N-Reinas (N-Queens)',
+  description: 'El problema clásico de satisfacción de restricciones en un tablero de ajedrez.',
   evaluation: '0% - Práctica Guiada',
   slides: [
     {
       id: 'pnn16-1',
-      title: 'Las N Reinas',
+      title: 'El Desafío Real',
+      notes: 'Definición.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            <strong>Problema:</strong> Colocar <em>N</em> reinas en un tablero de ajedrez de <em>NxN</em> de tal manera que ninguna reina ataque a otra (no pueden compartir fila, columna ni diagonal).
-          </p>
-
-          <div class="flex flex-col md:flex-row gap-6 items-center">
-            <div class="bg-white p-4 border rounded shadow-sm">
-               <div class="grid grid-cols-4 gap-1 w-32 h-32 border-2 border-slate-800">
-                 <!-- Tablero 4x4 simplificado -->
-                 <div class="bg-white"></div><div class="bg-slate-300 flex items-center justify-center">♛</div><div class="bg-white"></div><div class="bg-slate-300"></div>
-                 <div class="bg-slate-300"></div><div class="bg-white"></div><div class="bg-slate-300"></div><div class="bg-white flex items-center justify-center">♛</div>
-                 <div class="bg-white flex items-center justify-center">♛</div><div class="bg-slate-300"></div><div class="bg-white"></div><div class="bg-slate-300"></div>
-                 <div class="bg-slate-300"></div><div class="bg-white"></div><div class="bg-slate-300 flex items-center justify-center">♛</div><div class="bg-white"></div>
-               </div>
-               <p class="text-center text-xs mt-2 font-bold">Solución 4-Reinas</p>
-            </div>
-
-            <div class="flex-1">
-              <h4 class="font-bold text-purple-900 mb-2">Enfoque Backtracking</h4>
-              <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2">
-                <li>Colocar una reina en la primera fila, columna 1.</li>
-                <li>Pasar a la siguiente fila. Intentar colocar reina en una columna segura.</li>
-                <li>Si encontramos un lugar seguro, avanzar.</li>
-                <li>Si no hay lugar seguro en la fila actual, <strong>retroceder (backtrack)</strong> a la fila anterior y mover esa reina.</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn16-2',
-      title: 'Pseudocódigo para N Reinas',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-slate-900 text-slate-100 p-4 rounded-lg text-xs font-mono shadow-lg max-w-xl mx-auto">
-<pre>
-procedimiento NReinas(fila):
-  si fila > N:
-    imprimir solución
-    retornar
-
-  para col en 1..N:
-    si esSeguro(fila, col):
-      colocar reina en (fila, col)
-      NReinas(fila + 1)
-      quitar reina de (fila, col)
-
-función esSeguro(fila, col):
-  verificar columna, diagonal principal y secundaria
-</pre>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn16-3',
-      title: 'Actividad: Árbol de Búsqueda para 4 Reinas',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Para N = 4, dibujen una parte del árbol de búsqueda que representa las decisiones de colocar reinas fila por fila.
-          </p>
-          <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 bg-slate-50 p-4 rounded-lg border">
-            <li>Representar cada nodo como "fila actual, columnas ocupadas".</li>
-            <li>Marcar las ramas que se podan por conflicto.</li>
-            <li>Identificar al menos una rama que llegue a una solución válida.</li>
-          </ol>
-          <div class="bg-white p-4 rounded-xl border text-xs font-mono">
-            <p class="font-bold mb-2">Guía de decisión (N = 4)</p>
-            <pre>
-Fila 1: probar columnas 1..4
-  Si eliges col=2 (columna segura), pasa a fila 2
-Fila 2: evita columnas atacadas por (1,2): col=2 (misma col), col=1 y col=3 (diagonales)
-  Candidatas seguras: col=4
-Fila 3: evita ataques desde (1,2) y (2,4)
-  Candidatas seguras: col=1
-Fila 4: evita ataques desde (1,2), (2,4), (3,1)
-  Candidatas seguras: col=3  -> solución (2,4,1,3)
-            </pre>
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">El Problema de las N-Reinas</h1>
+            <p class="text-lg text-slate-700">
+              Colocar $N$ reinas en un tablero de $N \\times N$ de modo que <strong>ninguna se ataque entre sí</strong>.
+            </p>
           </div>
           
+          <div class="bg-white p-4 rounded-lg shadow-xl border border-slate-300">
+            <!-- Tablero 4x4 -->
+            <div class="grid grid-cols-4 w-64 h-64 border-2 border-slate-800">
+              <!-- Fila 0 -->
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl text-white">♛</div>
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              
+              <!-- Fila 1 -->
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              <div class="bg-white flex items-center justify-center text-2xl text-slate-900">♛</div>
+              
+              <!-- Fila 2 -->
+              <div class="bg-white flex items-center justify-center text-2xl text-slate-900">♛</div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              
+              <!-- Fila 3 -->
+              <div class="bg-slate-800 flex items-center justify-center text-2xl"></div>
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+              <div class="bg-slate-800 flex items-center justify-center text-2xl text-white">♛</div>
+              <div class="bg-white flex items-center justify-center text-2xl"></div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-500">Solución válida para N=4.</p>
         </div>
       `
     },
     {
-      id: 'pnn16-end-questions',
-      title: '¿Preguntas?',
+      id: 'pnn16-2-constraints',
+      title: 'Modelando las Restricciones',
+      notes: 'Filas, Columnas y Diagonales.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12">
-          <div class="text-6xl font-bold text-indigo-600 mb-6 select-none">?</div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Problema de las N Reinas</h3>
-          <p class="text-center text-gray-600 max-w-md">
-            ¿Preguntas sobre la función esSeguro, el tamaño del espacio de búsqueda o cómo optimizar la implementación?
-          </p>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Reglas de Ataque</h3>
+            <ul class="space-y-4 text-slate-600">
+              <li class="flex items-start gap-3">
+                <div class="bg-red-100 p-1 rounded text-red-600 font-bold">1</div>
+                <div>
+                  <strong>Misma Fila:</strong> Trivial si decidimos colocar una reina por fila (i).
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="bg-red-100 p-1 rounded text-red-600 font-bold">2</div>
+                <div>
+                  <strong>Misma Columna:</strong> Usamos un array <code>cols[j]</code> para marcar columnas ocupadas.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="bg-red-100 p-1 rounded text-red-600 font-bold">3</div>
+                <div>
+                  <strong>Diagonales:</strong> Aquí está el truco matemático.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow border border-slate-200 flex flex-col items-center justify-center">
+            <h4 class="font-bold text-slate-700 mb-4">Matemática de Diagonales</h4>
+            <div class="grid grid-cols-4 gap-1 text-xs font-mono text-center mb-4">
+              <div class="bg-blue-100 p-2">0,0</div><div class="bg-green-100 p-2">0,1</div><div class="bg-blue-100 p-2">0,2</div><div class="bg-green-100 p-2">0,3</div>
+              <div class="bg-green-100 p-2">1,0</div><div class="bg-blue-100 p-2">1,1</div><div class="bg-green-100 p-2">1,2</div><div class="bg-blue-100 p-2">1,3</div>
+              <div class="bg-blue-100 p-2">2,0</div><div class="bg-green-100 p-2">2,1</div><div class="bg-blue-100 p-2">2,2</div><div class="bg-green-100 p-2">2,3</div>
+              <div class="bg-green-100 p-2">3,0</div><div class="bg-blue-100 p-2">3,1</div><div class="bg-green-100 p-2">3,2</div><div class="bg-blue-100 p-2">3,3</div>
+            </div>
+            <div class="text-sm text-slate-600 space-y-2">
+              <p><span class="bg-blue-100 px-1 rounded">Diagonal Principal (\)</span>: <code>row - col = cte</code></p>
+              <p><span class="bg-green-100 px-1 rounded">Diagonal Secundaria (/)</span>: <code>row + col = cte</code></p>
+            </div>
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn16-end-thanks',
-      title: 'Gracias por su atención',
+      id: 'pnn16-3-process',
+      title: 'Proceso de Backtracking',
+      notes: 'Visualización del algoritmo.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12 text-center">
-          <h2 class="text-4xl font-bold text-slate-900 mb-8">Fin de la Clase</h2>
-          <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-indigo-500 shadow-sm max-w-2xl">
-            <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
-              "Las N Reinas son un tablero perfecto para practicar la elegancia del backtracking." 
-            </p>
-            <footer class="flex items-center justify-center gap-2">
-              <div class="h-px w-8 bg-slate-300"></div>
-              <cite class="not-italic font-bold text-slate-900">Programación No Numérica II</cite>
-            </footer>
-          </blockquote>
+        <div class="flex flex-col h-full space-y-4">
+          <h3 class="text-xl font-bold text-slate-800">Exploración y Poda</h3>
+          
+          <div class="flex justify-center items-center gap-8 flex-1">
+            <!-- Paso 1 -->
+            <div class="flex flex-col items-center">
+              <div class="text-xs font-bold mb-2">Paso 1</div>
+              <div class="grid grid-cols-4 w-24 h-24 border border-slate-400">
+                <div class="bg-slate-800 text-white flex items-center justify-center text-xs">Q</div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div>
+                <div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div>
+              </div>
+              <div class="text-[10px] text-green-600 mt-1">OK</div>
+            </div>
+
+            <div class="text-2xl text-slate-300">→</div>
+
+            <!-- Paso 2 (Fallo) -->
+            <div class="flex flex-col items-center">
+              <div class="text-xs font-bold mb-2">Paso 2 (Intento)</div>
+              <div class="grid grid-cols-4 w-24 h-24 border border-slate-400">
+                <div class="bg-slate-800 text-white flex items-center justify-center text-xs">Q</div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white text-red-600 font-bold flex items-center justify-center text-xs bg-red-100">Q?</div><div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div>
+                <div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div>
+              </div>
+              <div class="text-[10px] text-red-600 mt-1">Ataque (Columna)</div>
+            </div>
+
+            <div class="text-2xl text-slate-300">→</div>
+
+            <!-- Paso 2 (Correcto) -->
+            <div class="flex flex-col items-center">
+              <div class="text-xs font-bold mb-2">Paso 2 (Corregido)</div>
+              <div class="grid grid-cols-4 w-24 h-24 border border-slate-400">
+                <div class="bg-slate-800 text-white flex items-center justify-center text-xs">Q</div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white text-white flex items-center justify-center text-xs bg-slate-800">Q</div><div class="bg-slate-800"></div>
+                <div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div>
+                <div class="bg-white"></div><div class="bg-slate-800"></div><div class="bg-white"></div><div class="bg-slate-800"></div>
+              </div>
+              <div class="text-[10px] text-green-600 mt-1">OK</div>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn16-4-code',
+      title: 'Implementación (Python)',
+      notes: 'Código optimizado.',
+      contentHtml: `
+        <div class="flex flex-col h-full">
+          <div class="bg-yellow-500 text-white px-4 py-2 rounded-t-lg font-bold text-sm">Python: N-Queens</div>
+          <div class="bg-slate-900 p-4 rounded-b-lg overflow-auto custom-scrollbar flex-1 text-xs font-mono text-yellow-100">
+<pre><code class="language-python">def solve_n_queens(n):
+    solutions = []
+    board = [-1] * n # board[row] = col
+    
+    # Sets para búsqueda O(1)
+    cols = set()
+    diag1 = set() # row - col
+    diag2 = set() # row + col
+    
+    def backtrack(row):
+        if row == n:
+            solutions.append(board[:])
+            return
+
+        for col in range(n):
+            if col in cols or (row - col) in diag1 or (row + col) in diag2:
+                continue
+                
+            # Do
+            board[row] = col
+            cols.add(col)
+            diag1.add(row - col)
+            diag2.add(row + col)
+            
+            # Recurse
+            backtrack(row + 1)
+            
+            # Undo
+            cols.remove(col)
+            diag1.remove(row - col)
+            diag2.remove(row + col)
+            
+    backtrack(0)
+    return len(solutions)
+
+print(f"Soluciones para N=8: {solve_n_queens(8)}") # 92</code></pre>
+          </div>
         </div>
       `
     }

@@ -27,8 +27,8 @@ export const MODULE_11: Module = {
                </div>
             </div>
 
-            <div class="flex justify-center">
-               <div class="mermaid">
+            <div class="flex flex-col gap-4">
+               <div class="mermaid flex justify-center">
                  flowchart TD
                    Start([Inicio]) --> Instr[Instrucciones]
                    Instr --> Cond{¿Condición?}
@@ -36,6 +36,15 @@ export const MODULE_11: Module = {
                    Cond -- V --> End([Fin])
                    style Instr fill:#dcfce7,stroke:#16a34a,stroke-width:2px
                    style Cond fill:#ffedd5,stroke:#ea580c,stroke-width:2px
+               </div>
+
+               <!-- Visual Metaphor -->
+               <div class="bg-orange-50 p-3 rounded border border-orange-100 text-sm text-orange-800 flex items-center gap-3">
+                 <div class="text-2xl">🍽️</div>
+                 <div>
+                   <strong>Metáfora del Buffet:</strong><br>
+                   Primero te sirves comida (Ejecutas), y luego decides si quieres repetir (Condición). ¡Siempre comes al menos un plato!
+                 </div>
                </div>
             </div>
           </div>
@@ -67,8 +76,8 @@ export const MODULE_11: Module = {
                </div>
             </div>
 
-            <div class="flex justify-center">
-               <div class="mermaid">
+            <div class="flex flex-col gap-4">
+               <div class="mermaid flex justify-center">
                  flowchart TD
                    Start([Inicio]) --> Init[i = 1]
                    Init --> Cond{i <= 10?}
@@ -78,6 +87,15 @@ export const MODULE_11: Module = {
                    Cond -- F --> End([Fin])
                    style Init fill:#dbeafe,stroke:#2563eb,stroke-width:2px
                    style Inc fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+               </div>
+
+               <!-- Visual Metaphor -->
+               <div class="bg-blue-50 p-3 rounded border border-blue-100 text-sm text-blue-800 flex items-center gap-3">
+                 <div class="text-2xl">📏</div>
+                 <div>
+                   <strong>Metáfora de la Regla:</strong><br>
+                   Sabes exactamente dónde empiezas (0cm) y dónde terminas (30cm). Avanzas paso a paso de forma controlada.
+                 </div>
                </div>
             </div>
           </div>
@@ -98,7 +116,10 @@ export const MODULE_11: Module = {
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 relative overflow-hidden">
             <div class="absolute top-0 right-0 bg-blue-200 text-blue-800 text-[10px] px-2 py-1 font-bold">Cuenta Sucesos</div>
-            <h3 class="text-lg font-bold text-blue-900 mb-2">Contador</h3>
+            <div class="flex justify-between items-start mb-2">
+               <h3 class="text-lg font-bold text-blue-900">Contador</h3>
+               <span class="text-2xl">🧮</span>
+            </div>
             <p class="text-sm text-blue-800 mb-3">Variable que se incrementa en un valor <strong>constante</strong> (generalmente +1).</p>
             <div class="bg-white p-2 rounded border border-blue-200 text-xs font-mono text-center">
                c = c + 1
@@ -112,7 +133,10 @@ export const MODULE_11: Module = {
 
           <div class="bg-green-50 p-5 rounded-xl border border-green-100 relative overflow-hidden">
             <div class="absolute top-0 right-0 bg-green-200 text-green-800 text-[10px] px-2 py-1 font-bold">Suma Valores</div>
-            <h3 class="text-lg font-bold text-green-900 mb-2">Acumulador</h3>
+            <div class="flex justify-between items-start mb-2">
+               <h3 class="text-lg font-bold text-green-900">Acumulador</h3>
+               <span class="text-2xl">🐖</span>
+            </div>
             <p class="text-sm text-green-800 mb-3">Variable que se incrementa en un valor <strong>variable</strong>.</p>
             <div class="bg-white p-2 rounded border border-green-200 text-xs font-mono text-center">
                suma = suma + precio

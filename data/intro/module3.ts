@@ -16,7 +16,31 @@ export const MODULE_3: Module = {
             <p class="text-lg italic text-gray-700">"Conjunto ordenado y finito de operaciones que permite hallar la solución de un problema."</p>
           </div>
 
-          <h3 class="font-bold text-xl mt-6 text-gray-900">Características</h3>
+          <!-- Analogy Section -->
+          <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+            <h4 class="font-bold text-orange-800 mb-2">Analogía: Una Receta de Cocina</h4>
+            <div class="flex gap-4 items-center text-sm text-orange-900">
+              <div class="text-4xl">🥘</div>
+              <div class="flex-1">
+                <div class="grid grid-cols-3 gap-2 text-center">
+                  <div class="bg-white/50 p-2 rounded">
+                    <div class="font-bold">Entrada</div>
+                    <div class="text-xs">Ingredientes</div>
+                  </div>
+                  <div class="bg-white/50 p-2 rounded">
+                    <div class="font-bold">Proceso</div>
+                    <div class="text-xs">Pasos (Batir, Hornear)</div>
+                  </div>
+                  <div class="bg-white/50 p-2 rounded">
+                    <div class="font-bold">Salida</div>
+                    <div class="text-xs">Plato final</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="font-bold text-xl mt-4 text-gray-900">Características</h3>
           <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
             <li><strong>Preciso:</strong> Cada paso debe estar claro y sin ambigüedad.</li>
             <li><strong>Finito:</strong> Debe tener un inicio y un fin determinado.</li>
@@ -33,11 +57,6 @@ export const MODULE_3: Module = {
                  style C fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
              </div>
           </div>
-          <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600">
-             <div>Datos iniciales</div>
-             <div>Operaciones Lógicas</div>
-             <div>Resultados</div>
-          </div>
         </div>
       `
     },
@@ -47,6 +66,29 @@ export const MODULE_3: Module = {
       contentHtml: `
         <div class="space-y-8">
           
+          <!-- Visual Metaphor: Variables as Boxes -->
+          <div class="flex justify-center gap-8 my-2">
+            <div class="flex flex-col items-center group">
+              <div class="w-24 h-24 bg-white border-4 border-t-0 border-slate-400 rounded-b-lg relative flex items-center justify-center shadow-inner">
+                <span class="text-3xl font-mono text-blue-600 font-bold group-hover:scale-110 transition-transform">18</span>
+                <div class="absolute -top-6 left-0 w-full text-center">
+                  <span class="bg-slate-200 text-slate-700 text-xs font-bold px-2 py-1 rounded shadow-sm">edad</span>
+                </div>
+              </div>
+              <span class="text-xs text-slate-400 mt-2">Entero</span>
+            </div>
+
+            <div class="flex flex-col items-center group">
+              <div class="w-24 h-24 bg-white border-4 border-t-0 border-slate-400 rounded-b-lg relative flex items-center justify-center shadow-inner">
+                <span class="text-xl font-mono text-green-600 font-bold group-hover:scale-110 transition-transform">"Ana"</span>
+                <div class="absolute -top-6 left-0 w-full text-center">
+                  <span class="bg-slate-200 text-slate-700 text-xs font-bold px-2 py-1 rounded shadow-sm">nombre</span>
+                </div>
+              </div>
+              <span class="text-xs text-slate-400 mt-2">Cadena</span>
+            </div>
+          </div>
+
           <!-- Definiciones Básicas -->
           <div class="grid md:grid-cols-2 gap-6">
             <div class="bg-blue-50 p-5 rounded-lg border border-blue-100">
@@ -54,7 +96,7 @@ export const MODULE_3: Module = {
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7h-7m0 10h7m-7-5h7M4 7h7m-7 10h7m-7-5h7"></path></svg>
                 Variables
               </h3>
-              <p class="text-slate-700 text-sm mb-2">Espacios de memoria reservados cuyo contenido <strong>puede cambiar</strong> durante la ejecución.</p>
+              <p class="text-slate-700 text-sm mb-2">Espacios de memoria (cajas) cuyo contenido <strong>puede cambiar</strong>.</p>
               <div class="font-mono text-xs bg-white p-2 rounded border border-blue-200 text-slate-600">
                 puntos = 0;<br>
                 puntos = puntos + 1; <span class="text-green-600">// Cambió a 1</span>
@@ -66,7 +108,7 @@ export const MODULE_3: Module = {
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 Constantes
               </h3>
-              <p class="text-slate-700 text-sm mb-2">Valores fijos que <strong>no cambian</strong> nunca durante la ejecución del programa.</p>
+              <p class="text-slate-700 text-sm mb-2">Valores fijos que <strong>no cambian</strong> nunca.</p>
               <div class="font-mono text-xs bg-white p-2 rounded border border-purple-200 text-slate-600">
                 PI = 3.1416;<br>
                 IVA = 0.16;

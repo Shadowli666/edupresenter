@@ -2,317 +2,190 @@ import { Module } from '../../types';
 
 export const PYTHON_MODULE_13: Module = {
   id: 'py-mod-13',
-  title: '13. Programación Orientada a Objetos (POO)',
-  description: 'Introducción a la metodología POO: Clases, Objetos, Atributos y Métodos.',
+  title: '13. Programación Orientada a Objetos',
+  description: 'El paradigma que domina el desarrollo de software moderno.',
   evaluation: 'Taller Práctico',
   slides: [
     {
-      id: 'py13-1',
-      title: 'Introducción al Paradigma',
+      id: 'py13-1-paradigm',
+      title: 'Cambio de Paradigma',
+      notes: 'De verbos (funciones) a sustantivos (objetos).',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-lg text-gray-700">
-            Hasta ahora hemos programado de forma <strong>secuencial</strong> y <strong>estructurada</strong> (funciones). Hoy cambiamos la forma de pensar.
-          </p>
-          <p class="text-gray-600">
-            La <strong>Programación Orientada a Objetos (POO)</strong> intenta modelar el software basándose en cosas del mundo real.
-          </p>
-          <div class="flex justify-center">
-            <div class="bg-indigo-100 p-4 rounded-lg text-indigo-800 font-bold">
-              Mundo Real ➡️ Código
+        <div class="flex flex-col h-full items-center justify-center space-y-8">
+          <div class="grid md:grid-cols-2 gap-12 w-full max-w-5xl">
+            <!-- Estructurada -->
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 opacity-60">
+              <h3 class="text-xl font-bold text-slate-600 mb-4 text-center">Programación Estructurada</h3>
+              <div class="flex flex-col gap-2">
+                <div class="bg-white p-3 rounded shadow-sm border border-slate-300 text-center">Datos (Variables)</div>
+                <div class="text-center text-2xl">⬇️</div>
+                <div class="bg-blue-100 p-3 rounded shadow-sm border border-blue-300 text-center font-mono text-sm">Función(Datos)</div>
+              </div>
+              <p class="text-xs text-center mt-4 text-slate-500">Los datos y la lógica están separados.</p>
             </div>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py13-2',
-      title: 'POO vs. Estructurada',
-      contentHtml: `
-        <div class="space-y-6">
-          <table class="min-w-full text-sm text-left text-gray-500">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                <th class="px-6 py-3">Estructurada</th>
-                <th class="px-6 py-3">Orientada a Objetos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-white border-b">
-                <td class="px-6 py-4">Se centra en acciones (verbos).</td>
-                <td class="px-6 py-4">Se centra en entidades (sustantivos).</td>
-              </tr>
-              <tr class="bg-white border-b">
-                <td class="px-6 py-4">Datos y funciones separados.</td>
-                <td class="px-6 py-4">Datos y funciones encapsulados juntos.</td>
-              </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4">Difícil de mantener en proyectos grandes.</td>
-                <td class="px-6 py-4">Más fácil de mantener y reutilizar.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `
-    },
-    {
-      id: 'py13-3',
-      title: 'Concepto Clave: La Clase',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-lg text-gray-700">
-            Una <strong>Clase</strong> es una plantilla, un molde o un plano. Define cómo serán los objetos, pero no es el objeto en sí.
-          </p>
-          <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-            <h4 class="font-bold text-yellow-800">Analogía</h4>
-            <p class="text-gray-700">El plano de una casa es la <strong>Clase</strong>. No puedes vivir en el plano.</p>
-          </div>
-          <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm">
-class Casa:
-    pass
-          </pre>
-        </div>
-      `
-    },
-    {
-      id: 'py13-4',
-      title: 'Concepto Clave: El Objeto',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-lg text-gray-700">
-            Un <strong>Objeto</strong> es una instancia concreta creada a partir de una clase. Es la "cosa" real que ocupa memoria.
-          </p>
-          <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-            <h4 class="font-bold text-green-800">Analogía</h4>
-            <p class="text-gray-700">La casa construida en la calle 5 es un <strong>Objeto</strong>. Puedes vivir en ella.</p>
-          </div>
-          <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm">
-mi_casa = Casa()
-otra_casa = Casa()
-          </pre>
-        </div>
-      `
-    },
-    {
-      id: 'py13-5',
-      title: 'Atributos (Estado)',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Los <strong>Atributos</strong> son las características o datos que describen al objeto. Son variables dentro de la clase.
-          </p>
-          <ul class="list-disc list-inside space-y-2 text-gray-600">
-            <li>Color</li>
-            <li>Tamaño</li>
-            <li>Marca</li>
-            <li>Edad</li>
-          </ul>
-          <p class="text-sm text-gray-500 italic">En Python, se definen usando <code>self.variable</code>.</p>
-        </div>
-      `
-    },
-    {
-      id: 'py13-6',
-      title: 'Métodos (Comportamiento)',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Los <strong>Métodos</strong> son las acciones que el objeto puede realizar. Son funciones dentro de la clase.
-          </p>
-          <ul class="list-disc list-inside space-y-2 text-gray-600">
-            <li>encender()</li>
-            <li>acelerar()</li>
-            <li>frenar()</li>
-          </ul>
-          <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm">
-def encender(self):
-    print("El motor está en marcha")
-          </pre>
-        </div>
-      `
-    },
-    {
-      id: 'py13-7',
-      title: 'El misterio de "self"',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Verás la palabra <code>self</code> en todos los métodos. ¿Qué es?
-          </p>
-          <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <p class="text-blue-900">
-              <strong>self</strong> es una referencia al propio objeto actual. Permite que el código sepa a <em>cuál</em> de todas las casas (objetos) nos referimos.
-            </p>
-          </div>
-          <p class="text-sm text-gray-600">Sin <code>self</code>, no podríamos distinguir entre el color de <code>mi_casa</code> y el de <code>otra_casa</code>.</p>
-        </div>
-      `
-    },
-    {
-      id: 'py13-8',
-      title: 'El Constructor (__init__)',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Es un método especial que se ejecuta <strong>automáticamente</strong> al crear un nuevo objeto. Se usa para inicializar los atributos.
-          </p>
-          <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm">
-class Perro:
-    def __init__(self, nombre, raza):
-        self.nombre = nombre  # Guarda el nombre en el objeto
-        self.raza = raza      # Guarda la raza en el objeto
-          </pre>
-        </div>
-      `
-    },
-    {
-      id: 'py13-9',
-      title: 'Ejemplo Completo',
-      contentHtml: `
-        <div class="space-y-6">
-          <pre class="bg-gray-800 text-white p-4 rounded-lg text-xs">
-class Celular:
-    def __init__(self, marca, bateria):
-        self.marca = marca
-        self.bateria = bateria
-    
-    def llamar(self, numero):
-        if self.bateria > 0:
-            print(f"{self.marca} llamando a {numero}...")
-            self.bateria -= 1
-        else:
-            print("Batería agotada")
 
-# Uso
-mi_cel = Celular("Samsung", 10)
-mi_cel.llamar("555-1234")
-print(mi_cel.bateria) # Imprime 9
-          </pre>
-        </div>
-      `
-    },
-    {
-      id: 'py13-10',
-      title: 'Quiz Rápido',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="font-bold text-gray-800">1. ¿Qué es una Clase?</p>
-          <ul class="list-none space-y-2 text-gray-600 pl-4">
-            <li>a) Un objeto real.</li>
-            <li>b) Una función especial.</li>
-            <li>c) Una plantilla para crear objetos. ✅</li>
-          </ul>
-          <p class="font-bold text-gray-800 mt-4">2. ¿Para qué sirve __init__?</p>
-          <ul class="list-none space-y-2 text-gray-600 pl-4">
-            <li>a) Para borrar el objeto.</li>
-            <li>b) Para inicializar atributos al crear el objeto. ✅</li>
-            <li>c) Para importar librerías.</li>
-          </ul>
-        </div>
-      `
-    },
-    {
-      id: 'py13-11',
-      title: 'Práctica 1: El Estudiante',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h4 class="font-bold text-gray-800 mb-4">Nivel Básico</h4>
-            <ol class="list-decimal list-inside space-y-2 text-gray-600">
-              <li>Define una clase <code>Estudiante</code>.</li>
-              <li>En el <code>__init__</code>, recibe <code>nombre</code> y <code>nota</code>.</li>
-              <li>Crea un método <code>aprobo()</code> que retorne <code>True</code> si la nota es >= 10.</li>
-              <li>Instancia un estudiante y prueba el método.</li>
-            </ol>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py13-12',
-      title: 'Práctica 2: Cuenta Bancaria',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h4 class="font-bold text-gray-800 mb-4">Nivel Intermedio</h4>
-            <p class="text-gray-600 mb-2">Crea una clase <code>CuentaBancaria</code> con:</p>
-            <ul class="list-disc list-inside space-y-1 text-gray-600">
-              <li>Atributo <code>saldo</code> (inicia en 0 o lo que se pase).</li>
-              <li>Método <code>depositar(cantidad)</code>.</li>
-              <li>Método <code>retirar(cantidad)</code> (validar que haya saldo suficiente).</li>
-              <li>Método <code>ver_saldo()</code>.</li>
-            </ul>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py13-13',
-      title: 'Errores Comunes',
-      contentHtml: `
-        <div class="space-y-6">
-          <ul class="space-y-4 text-gray-600">
-            <li class="flex items-start">
-              <span class="text-red-500 font-bold mr-2">❌</span>
-              <span>Olvidar el <code>self</code> en los argumentos del método.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-red-500 font-bold mr-2">❌</span>
-              <span>Intentar acceder a una variable local del <code>__init__</code> en otro método (usar <code>self.variable</code>).</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-red-500 font-bold mr-2">❌</span>
-              <span>Confundir Clase con Objeto (intentar llamar métodos desde la clase sin instanciar).</span>
-            </li>
-          </ul>
-        </div>
-      `
-    },
-    {
-      id: 'py13-14',
-      title: 'Resumen de la Sesión',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white p-4 rounded shadow-sm border">
-              <h3 class="font-bold text-indigo-600">Clase</h3>
-              <p class="text-sm">El molde.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-sm border">
-              <h3 class="font-bold text-indigo-600">Objeto</h3>
-              <p class="text-sm">La instancia real.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-sm border">
-              <h3 class="font-bold text-indigo-600">Atributo</h3>
-              <p class="text-sm">Dato (Variable).</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-sm border">
-              <h3 class="font-bold text-indigo-600">Método</h3>
-              <p class="text-sm">Acción (Función).</p>
+            <!-- POO -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-2 border-purple-500 transform scale-105">
+              <h3 class="text-xl font-bold text-purple-700 mb-4 text-center">Orientada a Objetos</h3>
+              <div class="bg-purple-50 p-6 rounded-full border-4 border-purple-200 flex flex-col items-center justify-center aspect-square w-48 mx-auto relative">
+                <span class="font-bold text-purple-900">OBJETO</span>
+                <div class="absolute top-2 right-8 text-xs bg-white px-2 py-1 rounded shadow text-slate-600">Datos</div>
+                <div class="absolute bottom-4 left-8 text-xs bg-blue-600 text-white px-2 py-1 rounded shadow">Métodos</div>
+              </div>
+              <p class="text-xs text-center mt-4 text-purple-600 font-bold">Encapsulamiento: Todo en uno.</p>
             </div>
           </div>
         </div>
       `
     },
     {
-      id: 'py13-questions',
-      title: 'Espacio de Preguntas',
+      id: 'py13-2-class-obj',
+      title: 'Clase vs Objeto',
+      notes: 'La analogía del plano y la casa.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-64 text-center">
-          <div class="text-6xl mb-4">🤔</div>
-          <h2 class="text-2xl font-bold text-gray-800">¿Alguna duda?</h2>
-          <p class="text-gray-600 mt-2">No hay preguntas tontas, solo tontos que no preguntan.</p>
+        <div class="grid md:grid-cols-2 gap-8 h-full items-center">
+          <!-- Concepto -->
+          <div class="space-y-6">
+            <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+              <h3 class="text-lg font-bold text-blue-900">La Clase (Class)</h3>
+              <p class="text-blue-800 text-sm">Es el <strong>plano</strong> o molde. Define qué atributos y comportamientos tendrán los objetos. No ocupa memoria real de datos.</p>
+            </div>
+            <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
+              <h3 class="text-lg font-bold text-green-900">El Objeto (Instance)</h3>
+              <p class="text-green-800 text-sm">Es la <strong>casa construida</strong>. Es una instancia concreta de la clase. Ocupa memoria y tiene sus propios valores.</p>
+            </div>
+          </div>
+
+          <!-- Visualización -->
+          <div class="flex flex-col items-center gap-4">
+            <!-- Blueprint -->
+            <div class="bg-blue-600 p-4 rounded shadow-lg w-40 text-white text-center text-xs font-mono border-2 border-white border-dashed">
+              <div class="font-bold border-b border-blue-400 mb-2 pb-1">class Casa</div>
+              color: ?<br>
+              pisos: ?
+            </div>
+
+            <div class="text-3xl text-slate-400">⬇️ Instanciación</div>
+
+            <div class="flex gap-4">
+              <!-- House 1 -->
+              <div class="bg-red-100 p-4 rounded-xl border-2 border-red-400 w-32 text-center shadow-md">
+                <div class="text-2xl">🏠</div>
+                <div class="font-bold text-red-800 text-sm">Casa 1</div>
+                <div class="text-xs text-red-600 mt-1">Rojo, 2 pisos</div>
+              </div>
+              <!-- House 2 -->
+              <div class="bg-yellow-100 p-4 rounded-xl border-2 border-yellow-400 w-32 text-center shadow-md">
+                <div class="text-2xl">🏡</div>
+                <div class="font-bold text-yellow-800 text-sm">Casa 2</div>
+                <div class="text-xs text-yellow-600 mt-1">Verde, 1 piso</div>
+              </div>
+            </div>
+          </div>
         </div>
       `
     },
     {
-      id: 'py13-thanks',
-      title: 'Gracias por asistir',
+      id: 'py13-3-syntax',
+      title: 'Sintaxis en Python',
+      notes: 'Definiendo clases y el constructor __init__.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-64 text-center">
-          <div class="text-6xl mb-4">👋</div>
-          <h2 class="text-2xl font-bold text-gray-800">¡Nos vemos en la próxima clase!</h2>
-          <p class="text-gray-600 mt-2">Tema siguiente: Herencia y Polimorfismo.</p>
+        <div class="flex flex-col h-full space-y-6">
+          <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-800">El Constructor <code>__init__</code></h3>
+            <p class="text-slate-600 text-sm">Es el método especial que se ejecuta automáticamente al crear un nuevo objeto. Aquí inicializamos los atributos.</p>
+          </div>
+
+          <div class="flex-1 grid md:grid-cols-2 gap-8">
+            <!-- Código -->
+            <div class="bg-slate-900 p-6 rounded-xl font-mono text-sm text-slate-300 overflow-auto custom-scrollbar shadow-inner">
+              <span class="text-purple-400">class</span> <span class="text-yellow-400">Perro</span>:<br>
+              &nbsp;&nbsp;<span class="text-gray-500"># Constructor</span><br>
+              &nbsp;&nbsp;<span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(<span class="text-red-400">self</span>, nombre, raza):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-red-400">self</span>.nombre = nombre<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-red-400">self</span>.raza = raza<br>
+              <br>
+              &nbsp;&nbsp;<span class="text-purple-400">def</span> <span class="text-blue-400">ladrar</span>(<span class="text-red-400">self</span>):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">print</span>(<span class="text-green-400">"Guau!"</span>)<br>
+              <br>
+              <span class="text-gray-500"># Instanciación</span><br>
+              firulais = <span class="text-yellow-400">Perro</span>(<span class="text-green-400">"Firulais"</span>, <span class="text-green-400">"Labrador"</span>)
+            </div>
+
+            <!-- Explicación Visual -->
+            <div class="flex flex-col gap-4 justify-center">
+              <div class="bg-red-50 p-4 rounded border-l-4 border-red-400">
+                <span class="font-bold text-red-700">self</span>
+                <p class="text-xs text-red-600">Referencia al objeto actual. Es como decir "mi nombre", "mi raza".</p>
+              </div>
+              <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-400">
+                <span class="font-bold text-yellow-700">Atributos</span>
+                <p class="text-xs text-yellow-600">Variables que viven DENTRO del objeto (self.nombre).</p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-400">
+                <span class="font-bold text-blue-700">Métodos</span>
+                <p class="text-xs text-blue-600">Funciones que pertenecen a la clase. Siempre reciben self como primer parámetro.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'py13-4-memory',
+      title: 'Modelo de Memoria',
+      notes: 'Referencias y objetos en el Heap.',
+      contentHtml: `
+        <div class="grid grid-cols-3 gap-4 h-full">
+          <!-- Stack -->
+          <div class="col-span-1 bg-slate-100 p-4 rounded-xl border border-slate-300 flex flex-col">
+            <h4 class="text-center font-bold text-slate-700 mb-4 border-b border-slate-300 pb-2">Stack (Variables)</h4>
+            <div class="flex-1 flex flex-col gap-2">
+              <div class="bg-white p-2 rounded shadow flex justify-between items-center">
+                <span class="font-mono text-xs">firulais</span>
+                <span class="text-xs text-blue-500">Ref #3A1</span>
+              </div>
+              <div class="bg-white p-2 rounded shadow flex justify-between items-center">
+                <span class="font-mono text-xs">rex</span>
+                <span class="text-xs text-blue-500">Ref #9B2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heap -->
+          <div class="col-span-2 bg-slate-50 p-4 rounded-xl border border-slate-300 relative overflow-hidden">
+            <h4 class="text-center font-bold text-slate-700 mb-4 border-b border-slate-300 pb-2">Heap (Objetos)</h4>
+            
+            <!-- Object 1 -->
+            <div class="absolute top-16 left-8 bg-yellow-100 p-3 rounded-lg border-2 border-yellow-400 w-48 shadow-lg">
+              <div class="text-xs text-slate-400 absolute -top-3 right-2 bg-white px-1">#3A1</div>
+              <div class="font-bold text-yellow-800 text-sm mb-2">Objeto: Perro</div>
+              <div class="text-xs font-mono text-slate-700">
+                nombre: "Firulais"<br>
+                raza: "Labrador"
+              </div>
+            </div>
+
+            <!-- Object 2 -->
+            <div class="absolute bottom-16 right-8 bg-yellow-100 p-3 rounded-lg border-2 border-yellow-400 w-48 shadow-lg">
+              <div class="text-xs text-slate-400 absolute -top-3 right-2 bg-white px-1">#9B2</div>
+              <div class="font-bold text-yellow-800 text-sm mb-2">Objeto: Perro</div>
+              <div class="text-xs font-mono text-slate-700">
+                nombre: "Rex"<br>
+                raza: "Pastor"
+              </div>
+            </div>
+
+            <!-- Arrows (SVG) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none">
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+                </marker>
+              </defs>
+              <!-- Lines would be drawn here in a real render, simulating pointers -->
+            </svg>
+          </div>
         </div>
       `
     }

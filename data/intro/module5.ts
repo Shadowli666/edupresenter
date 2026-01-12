@@ -16,6 +16,7 @@ export const MODULE_5: Module = {
         <div class="space-y-6">
           <p class="text-gray-700">Para que una computadora resuelva un problema, el programador debe seguir una metodología rigurosa.</p>
           
+          <!-- Visual Cycle -->
           <div class="flex justify-center mb-8">
              <div class="mermaid">
                flowchart TD
@@ -31,36 +32,43 @@ export const MODULE_5: Module = {
              </div>
           </div>
 
-          <ol class="relative border-l border-gray-200 ml-3">                  
-            <li class="mb-10 ml-6">            
-              <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white">
-                <span class="text-blue-800 font-bold">1</span>
-              </span>
-              <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Análisis del Problema</h3>
-              <p class="mb-4 text-base font-normal text-gray-500">Es la fase más importante. Se debe comprender qué se pide. Identificar: Datos de entrada, proceso necesario y resultado esperado.</p>
-            </li>
-            <li class="mb-10 ml-6">            
-              <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white">
-                <span class="text-blue-800 font-bold">2</span>
-              </span>
-              <h3 class="mb-1 text-lg font-semibold text-gray-900">Diseño del Algoritmo</h3>
-              <p class="text-base font-normal text-gray-500">Crear la solución utilizando herramientas como Pseudocódigo o Diagramas de Flujo. Es una solución independiente del lenguaje.</p>
-            </li>
-            <li class="mb-10 ml-6">            
-              <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white">
-                 <span class="text-blue-800 font-bold">3</span>
-              </span>
-              <h3 class="mb-1 text-lg font-semibold text-gray-900">Codificación</h3>
-              <p class="text-base font-normal text-gray-500">Traducir el algoritmo diseñado a un lenguaje de programación específico (C, Java, Python, JS) siguiendo su sintaxis.</p>
-            </li>
-            <li class="mb-10 ml-6">            
-              <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white">
-                 <span class="text-blue-800 font-bold">4</span>
-              </span>
-              <h3 class="mb-1 text-lg font-semibold text-gray-900">Prueba y Depuración</h3>
-              <p class="text-base font-normal text-gray-500">Ejecutar el programa para detectar errores (bugs) de sintaxis o lógica y corregirlos.</p>
-            </li>
-          </ol>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Phase 1 -->
+            <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+                <h3 class="font-bold text-slate-800">Análisis</h3>
+              </div>
+              <p class="text-sm text-gray-600"><strong>¿Qué me piden?</strong><br>Identificar Entradas, Procesos y Salidas. Es la fase de comprensión.</p>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-purple-100 text-purple-800 w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                <h3 class="font-bold text-slate-800">Diseño</h3>
+              </div>
+              <p class="text-sm text-gray-600"><strong>¿Cómo lo resuelvo?</strong><br>Crear el plan lógico usando Pseudocódigo o Diagramas de Flujo.</p>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="bg-white p-4 rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                <h3 class="font-bold text-slate-800">Codificación</h3>
+              </div>
+              <p class="text-sm text-gray-600"><strong>Traducir</strong><br>Escribir el algoritmo en un lenguaje real (Python, C++, Java).</p>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="bg-white p-4 rounded-lg border-l-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-yellow-100 text-yellow-800 w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span>
+                <h3 class="font-bold text-slate-800">Prueba</h3>
+              </div>
+              <p class="text-sm text-gray-600"><strong>Verificar</strong><br>Buscar errores (bugs) y corregirlos. Probar con casos extremos.</p>
+            </div>
+          </div>
         </div>
       `
     },
@@ -72,32 +80,64 @@ export const MODULE_5: Module = {
           <p class="text-gray-600 mb-6">Lea los siguientes enunciados y realice la <strong>Fase 1: Análisis</strong> (Definir Entrada, Proceso y Salida).</p>
 
           <!-- Case 1 -->
-          <div class="bg-white border rounded-lg p-6 shadow-sm">
-            <h3 class="font-bold text-slate-900 mb-2">Caso 1: Cambio de Divisas</h3>
-            <p class="text-sm text-gray-600 mb-4">Se requiere un programa que convierta una cantidad dada en Dólares a Pesos, sabiendo que 1 Dólar = 4000 Pesos.</p>
+          <div class="bg-white border rounded-lg p-6 shadow-sm group hover:border-blue-300 transition-colors">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <span class="text-2xl">💱</span> Caso 1: Cambio de Divisas
+                </h3>
+                <p class="text-sm text-gray-600 mb-4">Se requiere un programa que convierta una cantidad dada en Dólares a Pesos, sabiendo que 1 Dólar = 4000 Pesos.</p>
+              </div>
+            </div>
             
-            <details class="bg-slate-50 p-4 rounded border border-slate-100">
-              <summary class="text-sm font-semibold text-blue-600 cursor-pointer">Ver Análisis</summary>
-              <div class="mt-3 space-y-2 text-sm text-slate-700">
-                <p><strong>Entrada:</strong> Cantidad en Dólares.</p>
-                <p><strong>Proceso:</strong> Multiplicar la cantidad de dólares por 4000.</p>
-                <p><strong>Salida:</strong> Cantidad en Pesos.</p>
+            <details class="bg-slate-50 p-4 rounded border border-slate-100 group-open:bg-blue-50 group-open:border-blue-100 transition-colors">
+              <summary class="text-sm font-semibold text-blue-600 cursor-pointer select-none">Ver Análisis</summary>
+              <div class="mt-3 grid grid-cols-3 gap-4 text-sm text-slate-700 text-center">
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Entrada</div>
+                  <div>Cantidad ($)</div>
+                </div>
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Proceso</div>
+                  <div>$ * 4000</div>
+                </div>
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Salida</div>
+                  <div>Total (COP)</div>
+                </div>
               </div>
             </details>
           </div>
 
           <!-- Case 2 -->
-          <div class="bg-white border rounded-lg p-6 shadow-sm">
-            <h3 class="font-bold text-slate-900 mb-2">Caso 2: Pintura para una Pared</h3>
-            <p class="text-sm text-gray-600 mb-4">Calcular cuántos litros de pintura se necesitan para pintar una pared rectangular, sabiendo que 1 Litro cubre 10 metros cuadrados.</p>
-            
-            <details class="bg-slate-50 p-4 rounded border border-slate-100">
-              <summary class="text-sm font-semibold text-blue-600 cursor-pointer">Ver Análisis</summary>
-              <div class="mt-3 space-y-2 text-sm text-slate-700">
-                <p><strong>Entrada:</strong> Alto de la pared, Ancho de la pared.</p>
-                <p><strong>Proceso:</strong> <br>1. Calcular Area (Alto * Ancho).<br>2. Calcular Litros (Area / 10).</p>
-                <p><strong>Salida:</strong> Cantidad de Litros.</p>
+          <div class="bg-white border rounded-lg p-6 shadow-sm group hover:border-orange-300 transition-colors">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <span class="text-2xl">🎨</span> Caso 2: Pintura para Pared
+                </h3>
+                <p class="text-sm text-gray-600 mb-4">Calcular cuántos litros de pintura se necesitan para pintar una pared rectangular, sabiendo que 1 Litro cubre 10 metros cuadrados.</p>
               </div>
+            </div>
+            
+            <details class="bg-slate-50 p-4 rounded border border-slate-100 group-open:bg-orange-50 group-open:border-orange-100 transition-colors">
+              <summary class="text-sm font-semibold text-blue-600 cursor-pointer select-none">Ver Análisis</summary>
+              <div class="mt-3 grid grid-cols-3 gap-4 text-sm text-slate-700 text-center">
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Entrada</div>
+                  <div>Alto, Ancho</div>
+                </div>
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Proceso</div>
+                  <div class="text-xs">1. Area = Alto * Ancho<br>2. Litros = Area / 10</div>
+                </div>
+                <div class="bg-white p-2 rounded shadow-sm">
+                  <div class="font-bold text-xs text-slate-400 uppercase">Salida</div>
+                  <div>Litros</div>
+                </div>
+              </div>
+            </details>
+          </div>
             </details>
           </div>
 

@@ -8,26 +8,30 @@ export const PNN_MODULE_2: Module = {
   slides: [
     {
       id: 'pnn2-1',
-      title: 'Repaso: Teoremas de Árboles Binarios',
+      title: 'Repaso: Matemáticas de Árboles',
       notes: 'Recordar las propiedades matemáticas básicas de los árboles binarios.',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-gray-700 text-lg">Las propiedades matemáticas de los árboles binarios nos dan una idea de su eficiencia y capacidad.</p>
+          <p class="text-gray-600">Antes de construir montañas, revisemos los cimientos matemáticos.</p>
 
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-white p-5 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h4 class="font-bold text-blue-800 mb-1">Teorema I: Cantidad Máxima de Nodos</h4>
-              <p class="text-sm text-slate-600 mb-2">El número máximo de nodos (N) en un árbol binario de altura <em>h</em> (donde la raíz es nivel 0) es:</p>
-              <div class="bg-slate-100 p-2 rounded text-center font-mono font-bold text-lg text-slate-800">
-                N = 2<sup>h+1</sup> - 1
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-xl border-2 border-blue-100 shadow-sm relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-blue-100 text-blue-600 p-2 rounded-bl-xl text-2xl">📈</div>
+              <h4 class="font-bold text-blue-900 mb-2">Límite de Población</h4>
+              <p class="text-xs text-gray-500 mb-4">¿Cuántos nodos caben en una altura <em>h</em>?</p>
+              <div class="text-center">
+                <span class="text-3xl font-bold text-slate-800">N = 2<sup>h+1</sup> - 1</span>
+                <p class="text-[10px] text-gray-400 mt-1">Ej: Altura 3 -> 15 nodos máx.</p>
               </div>
             </div>
 
-            <div class="bg-white p-5 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h4 class="font-bold text-blue-800 mb-1">Teorema II: Relación Nodos/Aristas</h4>
-              <p class="text-sm text-slate-600 mb-2">En cualquier árbol con N nodos, el número de aristas (E) que los conectan es siempre uno menos que el número de nodos.</p>
-              <div class="bg-slate-100 p-2 rounded text-center font-mono font-bold text-lg text-slate-800">
-                E = N - 1
+            <div class="bg-white p-6 rounded-xl border-2 border-purple-100 shadow-sm relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-purple-100 text-purple-600 p-2 rounded-bl-xl text-2xl">🔗</div>
+              <h4 class="font-bold text-purple-900 mb-2">Ley de Conexiones</h4>
+              <p class="text-xs text-gray-500 mb-4">Relación entre Nodos (N) y Aristas (E).</p>
+              <div class="text-center">
+                <span class="text-3xl font-bold text-slate-800">E = N - 1</span>
+                <p class="text-[10px] text-gray-400 mt-1">Siempre hay una entrada para todos, menos la raíz.</p>
               </div>
             </div>
           </div>
@@ -36,249 +40,338 @@ export const PNN_MODULE_2: Module = {
     },
     {
       id: 'pnn2-2',
-      title: 'El HEAP (Montículo): Una Base para la Optimización',
+      title: 'El HEAP: La Pirámide del Poder',
       notes: 'Introducir la definición de Heap y sus propiedades clave.',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-gray-700 text-lg">Un <strong>Heap</strong> (montículo) es un tipo especial de <strong>Árbol Binario Completo</strong> que satisface la propiedad de orden del montículo.</p>
+          <p class="text-gray-600">
+            Un Heap no es solo un árbol. Es una <strong>Jerarquía Estricta</strong>.
+          </p>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-2">Propiedad de Orden del Max-Heap</h4>
-              <p class="text-sm text-red-800">El valor de cada nodo es <strong>mayor o igual</strong> que el valor de sus hijos. Esto implica que el elemento más grande siempre estará en la raíz.</p>
+            <div class="bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">👑</span>
+                <h4 class="font-bold text-red-900">Max-Heap (El Reino)</h4>
+              </div>
+              <p class="text-sm text-red-800 mb-2">
+                <strong>La Regla del Rey:</strong> Ningún hijo puede ser más grande que su padre.
+              </p>
+              <div class="bg-white/50 p-2 rounded text-center font-mono text-xs text-red-700">
+                Padre >= Hijos
+              </div>
             </div>
 
-            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-2">Propiedad de Orden del Min-Heap</h4>
-              <p class="text-sm text-green-800">El valor de cada nodo es <strong>menor o igual</strong> que el valor de sus hijos. Esto implica que el elemento más pequeño siempre estará en la raíz.</p>
+            <div class="bg-green-50 p-5 rounded-xl border border-green-200 shadow-sm">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">🪶</span>
+                <h4 class="font-bold text-green-900">Min-Heap (La Ligereza)</h4>
+              </div>
+              <p class="text-sm text-green-800 mb-2">
+                <strong>La Regla de la Pluma:</strong> Lo más ligero flota arriba. Ningún hijo es más pequeño que su padre.
+              </p>
+              <div class="bg-white/50 p-2 rounded text-center font-mono text-xs text-green-700">
+                Padre <= Hijos
+              </div>
             </div>
           </div>
-          <p class="text-sm text-gray-700 mt-4">La forma "Completa" del árbol binario y la propiedad de orden del montículo son claves para su eficiencia en algoritmos de optimización.</p>
+          
+          <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200 text-xs text-yellow-800 text-center">
+            ⚠️ <strong>Requisito Estructural:</strong> Debe ser un Árbol Completo (llenar de izq a der). ¡Sin huecos!
+          </div>
         </div>
       `
     },
     {
       id: 'pnn2-3-visual-heap',
-      title: 'Visualizando un Max-Heap',
+      title: 'Anatomía de un Max-Heap',
       notes: 'Ejemplo visual de un Max-Heap.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejemplo de Max-Heap</h3>
-        <p class="text-gray-600 mb-4">Observa cómo el valor de cada padre es siempre mayor que el de sus hijos.</p>
-        <div class="flex justify-center my-8 bg-white p-6 rounded-xl border shadow-sm">
-          <div class="mermaid">
-            graph TD
-              A((100)) --- B((80))
-              A --- C((90))
-              B --- D((40))
-              B --- E((70))
-              C --- F((85))
-              C --- G((75))
-              
-              style A fill:#fecaca,stroke:#ef4444,stroke-width:2px,transform:scale(1.1)
-              style B fill:#fff,stroke:#ef4444
-              style C fill:#fff,stroke:#ef4444
-              style D fill:#f5f3ff,stroke:#ef4444
-              style E fill:#f5f3ff,stroke:#ef4444
-              style F fill:#f5f3ff,stroke:#ef4444
-              style G fill:#f5f3ff,stroke:#ef4444
+        <div class="space-y-6">
+          <div class="flex justify-center items-center gap-4">
+             <div class="text-center">
+               <span class="text-4xl font-bold text-red-600">100</span>
+               <p class="text-xs text-gray-400">El Jefe Supremo</p>
+             </div>
           </div>
+
+          <div class="flex justify-center bg-white p-6 rounded-xl border shadow-sm">
+            <div class="mermaid">
+              graph TD
+                A((100)) --- B((80))
+                A --- C((90))
+                B --- D((40))
+                B --- E((70))
+                C --- F((85))
+                C --- G((75))
+                
+                style A fill:#fee2e2,stroke:#ef4444,stroke-width:4px
+                style B fill:#fff,stroke:#ef4444
+                style C fill:#fff,stroke:#ef4444
+                style D fill:#f8fafc,stroke:#94a3b8
+                style E fill:#f8fafc,stroke:#94a3b8
+                style F fill:#f8fafc,stroke:#94a3b8
+                style G fill:#f8fafc,stroke:#94a3b8
+            </div>
+          </div>
+          
+          <p class="text-center text-xs text-gray-500">
+            Nota cómo 90 es mayor que 80, pero está en el mismo nivel. <br>
+            En un Heap, <strong>no importa el orden entre hermanos</strong>, solo Padre vs Hijo.
+          </p>
         </div>
       `
     },
     {
       id: 'pnn2-4-array-rep',
-      title: 'Representación del Heap: ¡Como un Arreglo!',
+      title: 'Aplanando la Pirámide',
       notes: 'Explicar cómo un Heap se almacena eficientemente en un arreglo.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">La Magia del Árbol Binario Completo</h3>
-        <p class="text-gray-600 mb-4">Gracias a que un Heap es un Árbol Binario Completo, podemos almacenarlo de manera muy eficiente en un <strong>arreglo</strong>, sin usar punteros explícitos. Esto ahorra memoria y mejora el rendimiento.</p>
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-          <h5 class="font-bold text-blue-900">Calculando Padres e Hijos (Base 0)</h5>
-          <ul class="list-disc list-inside text-blue-800 text-sm mt-2">
-            <li>Padre de un nodo en índice <code>i</code>: <code>(i - 1) / 2</code> (división entera).</li>
-            <li>Hijo izquierdo de un nodo en índice <code>i</code>: <code>2 * i + 1</code>.</li>
-            <li>Hijo derecho de un nodo en índice <code>i</code>: <code>2 * i + 2</code>.</li>
-          </ul>
-        </div>
-        <div class="flex justify-center my-4 bg-white p-6 rounded-xl border shadow-sm">
-          <div class="mermaid">
-            graph TD
-              A((0)) --- B((1))
-              A --- C((2))
-              B --- D((3))
-              B --- E((4))
-              C --- F((5))
-              C --- G((6))
+        <div class="space-y-6">
+          <p class="text-gray-600">
+            Los punteros son costosos. Los Heaps usan un truco matemático para vivir dentro de un simple <strong>Array</strong>.
+          </p>
+
+          <div class="bg-slate-900 text-white p-4 rounded-xl shadow-lg font-mono text-sm flex justify-center gap-2 overflow-x-auto">
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">0</span><div class="border border-gray-600 p-2 w-10 text-center bg-red-900">100</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">1</span><div class="border border-gray-600 p-2 w-10 text-center">80</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">2</span><div class="border border-gray-600 p-2 w-10 text-center">90</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">3</span><div class="border border-gray-600 p-2 w-10 text-center">40</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">4</span><div class="border border-gray-600 p-2 w-10 text-center">70</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">5</span><div class="border border-gray-600 p-2 w-10 text-center">85</div></div>
+             <div class="flex flex-col items-center"><span class="text-gray-500 text-[10px]">6</span><div class="border border-gray-600 p-2 w-10 text-center">75</div></div>
           </div>
-          <pre class="font-mono text-xs bg-gray-100 p-2 rounded ml-4">Arreglo: [A, B, C, D, E, F, G]</pre>
+
+          <div class="grid grid-cols-3 gap-4 text-center">
+             <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+               <h5 class="font-bold text-blue-900 text-xs">Hijo Izquierdo</h5>
+               <code class="text-blue-700 font-bold text-lg">2*i + 1</code>
+             </div>
+             <div class="bg-purple-50 p-3 rounded-lg border border-purple-200">
+               <h5 class="font-bold text-purple-900 text-xs">Padre</h5>
+               <code class="text-purple-700 font-bold text-lg">(i-1) / 2</code>
+             </div>
+             <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+               <h5 class="font-bold text-blue-900 text-xs">Hijo Derecho</h5>
+               <code class="text-blue-700 font-bold text-lg">2*i + 2</code>
+             </div>
+          </div>
         </div>
       `
     },
     {
       id: 'pnn2-5-insert',
-      title: 'Operación: Insertar en un Heap (Sift-Up)',
+      title: 'Insertar: El Ascenso Corporativo',
       notes: 'Algoritmo de inserción y "flotar" un elemento.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Añadiendo un Nuevo Elemento al Heap</h3>
-        <p class="text-gray-600 mb-4">Para insertar un elemento en un Heap (Max-Heap):</p>
-        <ol class="list-decimal pl-5 text-sm space-y-2">
-          <li>Inserta el nuevo elemento en la <strong>siguiente posición libre</strong> del arreglo (manteniendo la propiedad de árbol binario completo).</li>
-          <li>Realiza la operación <strong>"Sift-Up"</strong> (o "Flotar"):
-            <ul><li>Compara el nuevo elemento con su padre. Si es mayor, intercámbialos.</li><li>Repite este proceso recursivamente (o iterativamente) hasta que el elemento sea menor o igual que su padre, o hasta que llegue a la raíz.</li></ul>
-          </li>
-        </ol>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo para Sift-Up (Max-Heap)</h5>
-          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
-FUNCIÓN sift_up(arreglo, indice):
-  PADRE_INDICE = (indice - 1) / 2
-  MIENTRAS indice > 0 Y arreglo[indice] > arreglo[PADRE_INDICE]:
-    intercambiar(arreglo[indice], arreglo[PADRE_INDICE])
-    indice = PADRE_INDICE
-    PADRE_INDICE = (indice - 1) / 2
-          </code></pre>
+        <div class="space-y-6">
+          <div class="flex items-center gap-4 bg-green-50 p-4 rounded-xl border border-green-200">
+             <div class="text-4xl">🧗</div>
+             <div>
+               <h4 class="font-bold text-green-900">Sift-Up (Flotar)</h4>
+               <p class="text-xs text-green-800">Entras como el último empleado (al final del array) y subes de puesto si eres mejor que tu jefe.</p>
+             </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+               <h5 class="font-bold text-slate-700 mb-2">Pasos:</h5>
+               <ol class="list-decimal list-inside text-sm text-gray-600 space-y-2">
+                 <li>Insertar al <strong>final</strong> (para mantener la forma completa).</li>
+                 <li>Comparar con el <strong>Padre</strong>.</li>
+                 <li>¿Soy mayor? <strong>Intercambiar</strong>.</li>
+                 <li>Repetir hasta ser menor que el padre o llegar a la cima (Raíz).</li>
+               </ol>
+            </div>
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-[10px] shadow-lg">
+              while (i > 0 && arr[i] > arr[parent(i)]) {<br>
+              &nbsp;&nbsp;swap(arr[i], arr[parent(i)]);<br>
+              &nbsp;&nbsp;i = parent(i);<br>
+              }
+            </div>
+          </div>
         </div>
       `
     },
     {
       id: 'pnn2-6-extract-max',
-      title: 'Operación: Extraer Máximo (Sift-Down)',
+      title: 'Extraer Máximo: La Sucesión',
       notes: 'Algoritmo para extraer el máximo y "hundir" un elemento.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Obteniendo el Elemento de Mayor Prioridad</h3>
-        <p class="text-gray-600 mb-4">Para extraer el elemento máximo (de la raíz en un Max-Heap):</p>
-        <ol class="list-decimal pl-5 text-sm space-y-2">
-          <li>El elemento máximo es la raíz. Retíralo.</li>
-          <li>Mueve el <strong>último elemento del Heap</strong> a la posición de la raíz.</li>
-          <li>Realiza la operación <strong>"Sift-Down"</strong> (o "Hundir"):
-            <ul><li>Compara el nuevo elemento de la raíz con sus hijos. Si es menor que alguno, intercámbialo con el hijo más grande.</li><li>Repite este proceso hasta que el elemento sea mayor o igual que sus hijos, o sea una hoja.</li></ul>
-          </li>
-        </ol>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo para Sift-Down (Max-Heap)</h5>
-          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
-FUNCIÓN sift_down(arreglo, indice, tamaño_heap):
-  MIENTRAS VERDADERO:
-    IZQUIERDA_INDICE = 2 * indice + 1
-    DERECHA_INDICE = 2 * indice + 2
-    MAXIMO_INDICE = indice
+        <div class="space-y-6">
+          <div class="flex items-center gap-4 bg-red-50 p-4 rounded-xl border border-red-200">
+             <div class="text-4xl">📉</div>
+             <div>
+               <h4 class="font-bold text-red-900">Sift-Down (Hundir)</h4>
+               <p class="text-xs text-red-800">El Rey se va. Un plebeyo (el último nodo) toma el trono temporalmente y luego baja hasta encontrar su lugar.</p>
+             </div>
+          </div>
 
-    SI IZQUIERDA_INDICE < tamaño_heap Y arreglo[IZQUIERDA_INDICE] > arreglo[MAXIMO_INDICE]:
-      MAXIMO_INDICE = IZQUIERDA_INDICE
-
-    SI DERECHA_INDICE < tamaño_heap Y arreglo[DERECHA_INDICE] > arreglo[MAXIMO_INDICE]:
-      MAXIMO_INDICE = DERECHA_INDICE
-
-    SI MAXIMO_INDICE == indice:
-      ROMPER // El elemento ya está en su posición correcta
-    
-    intercambiar(arreglo[indice], arreglo[MAXIMO_INDICE])
-    indice = MAXIMO_INDICE
-          </code></pre>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+               <h5 class="font-bold text-slate-700 mb-2">Pasos:</h5>
+               <ol class="list-decimal list-inside text-sm text-gray-600 space-y-2">
+                 <li>Sacar la <strong>Raíz</strong> (Máximo).</li>
+                 <li>Mover el <strong>último elemento</strong> a la Raíz.</li>
+                 <li>Comparar con los <strong>Hijos</strong>.</li>
+                 <li>¿Algún hijo es mayor? Intercambiar con el <strong>mayor</strong> de los hijos.</li>
+                 <li>Repetir hasta ser mayor que los hijos o ser hoja.</li>
+               </ol>
+            </div>
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-[10px] shadow-lg">
+              max = i;<br>
+              if (L < N && arr[L] > arr[max]) max = L;<br>
+              if (R < N && arr[R] > arr[max]) max = R;<br>
+              if (max != i) {<br>
+              &nbsp;&nbsp;swap(arr[i], arr[max]);<br>
+              &nbsp;&nbsp;siftDown(max);<br>
+              }
+            </div>
+          </div>
         </div>
       `
     },
     {
       id: 'pnn2-7-heapify',
-      title: 'Algoritmo: Heapify (Construyendo el Heap)',
+      title: 'Heapify: Construcción Eficiente',
       notes: 'Algoritmo eficiente para construir un Heap desde un arreglo desordenado.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Convirtiendo un Arreglo en un Heap Eficientemente</h3>
-        <p class="text-gray-600 mb-4">El algoritmo <strong>Heapify</strong> toma un arreglo desordenado y lo transforma en un Heap en tiempo <strong>O(N)</strong>, lo cual es muy eficiente.</p>
-        <ol class="list-decimal pl-5 text-sm space-y-2">
-          <li>Itera desde el último nodo no-hoja hacia la raíz (es decir, desde <code>(N/2) - 1</code> hasta <code>0</code>).</li>
-          <li>Para cada uno de estos nodos, aplica la operación <strong>"Sift-Down"</strong> para asegurar que el sub-árbol enraizado en ese nodo cumple la propiedad del Heap.</li>
-        </ol>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto mt-4">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo para Heapify (Max-Heap)</h5>
-          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code>
-FUNCIÓN build_heap(arreglo):
-  N = tamaño del arreglo
-  PARA i DESDE N/2 - 1 HASTA 0 (de forma descendente):
-    sift_down(arreglo, i, N) // Asegura que el sub-árbol en i sea un Heap
-          </code></pre>
+        <div class="space-y-6">
+          <p class="text-gray-600">
+            ¿Cómo convertir un caos en orden? No insertes uno por uno (Lento: O(N log N)). Usa <strong>Heapify</strong> (Rápido: O(N)).
+          </p>
+
+          <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 text-center">
+             <h4 class="font-bold text-indigo-900 text-lg mb-2">Estrategia "Bottom-Up"</h4>
+             <p class="text-sm text-indigo-800 mb-4">
+               Empieza desde los últimos padres y arréglalos hacia abajo. Como corregir una pirámide desde la base hacia la punta.
+             </p>
+             <div class="flex justify-center gap-2">
+                <div class="bg-white px-3 py-1 rounded border text-xs">Nivel 3 (Hojas) ✅</div>
+                <span class="text-gray-400">→</span>
+                <div class="bg-white px-3 py-1 rounded border text-xs font-bold text-indigo-600">Nivel 2 (Arreglar)</div>
+                <span class="text-gray-400">→</span>
+                <div class="bg-white px-3 py-1 rounded border text-xs font-bold text-indigo-600">Nivel 1 (Arreglar)</div>
+             </div>
+          </div>
         </div>
       `
     },
     {
       id: 'pnn2-8-app-priority-queue',
-      title: 'Aplicación: Colas de Prioridad',
+      title: 'Aplicación: La Cola VIP',
       notes: 'Conectar Heaps con Colas de Prioridad.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">La Implementación Secreta de las Colas de Prioridad</h3>
-        <p class="text-gray-600 mb-4">Como vimos en el módulo de Colas, las <strong>Colas de Prioridad</strong> son estructuras donde los elementos son atendidos según su prioridad, no por su orden de llegada. La forma más eficiente de implementar una Cola de Prioridad es usando un <strong>Heap</strong>.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
-            <h5 class="text-gray-400 mb-2">// C++: std::priority_queue (Max-Heap por defecto)</h5>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-cpp">
-#include &lt;queue&gt;
-std::priority_queue&lt;int&gt; pq; // Max-Heap
-pq.push(10); pq.push(30); pq.push(20);
-std::cout &lt;&lt; pq.top(); // Imprime 30
-            </code></pre>
+        <div class="space-y-6">
+          <div class="flex items-center gap-4 bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+             <div class="text-4xl">🎟️</div>
+             <div>
+               <h4 class="font-bold text-yellow-900">Priority Queue</h4>
+               <p class="text-xs text-yellow-800">No es FIFO (First-In, First-Out). Es "El más importante pasa primero".</p>
+             </div>
           </div>
-          <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
-            <h5 class="text-gray-400 mb-2"># Python: heapq (Min-Heap)</h5>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">
-import heapq
-pq = [] // Lista se usa como heap
-heapq.heappush(pq, 10); heapq.heappush(pq, 30); heapq.heappush(pq, 20);
-print(pq[0]) // Imprime 10 (el más pequeño)
-            </code></pre>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-xs shadow-lg relative">
+              <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">C++</div>
+              <span class="text-gray-500">// Max-Heap por defecto</span><br>
+              std::priority_queue&lt;int&gt; pq;<br>
+              pq.push(10);<br>
+              pq.push(50); <span class="text-green-400">// ¡VIP!</span><br>
+              cout << pq.top(); <span class="text-gray-500">// 50</span>
+            </div>
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-xs shadow-lg relative">
+              <div class="absolute top-0 right-0 bg-yellow-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">Python</div>
+              <span class="text-gray-500"># Min-Heap por defecto</span><br>
+              import heapq<br>
+              heapq.heappush(pq, 10) <span class="text-green-400"># ¡VIP!</span><br>
+              heapq.heappush(pq, 50)<br>
+              print(pq[0]) <span class="text-gray-500"># 10</span>
+            </div>
           </div>
         </div>
       `
     },
     {
       id: 'pnn2-9-app-heap-sort',
-      title: 'Aplicación: Heap Sort (Ordenamiento por Montículos)',
+      title: 'Heap Sort: Ordenando con Estilo',
       notes: 'Introducir Heap Sort como un algoritmo eficiente.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Un Algoritmo de Ordenamiento Eficiente: Heap Sort</h3>
-        <p class="text-gray-600 mb-4">Heap Sort es un algoritmo de ordenamiento por comparación, eficiente y en el lugar (in-place), que utiliza la estructura de Heap.</p>
-        <ol class="list-decimal pl-5 text-sm space-y-2">
-          <li><strong>Fase de Construcción (Heapify):</strong> Primero, convierte el arreglo de entrada en un Max-Heap (usando el algoritmo Heapify que vimos). Esto coloca el elemento más grande en la raíz.</li>
-          <li><strong>Fase de Extracción:</strong>
-            <ul><li>Intercambia la raíz (el elemento más grande) con el último elemento del Heap.</li><li>Reduce el tamaño del Heap en uno.</li><li>Aplica "Sift-Down" a la nueva raíz para restablecer la propiedad del Heap.</li><li>Repite hasta que el Heap esté vacío. Los elementos extraídos y colocados al final del arreglo estarán ahora ordenados.</li></ul>
-          </li>
-        </ol>
-        <p class="text-sm text-gray-700 mt-4">La complejidad temporal de Heap Sort es <strong>O(N log N)</strong> en el peor, promedio y mejor caso.</p>
+        <div class="space-y-6">
+          <p class="text-gray-600">
+            Si puedes extraer el máximo eficientemente, ¡puedes ordenar!
+          </p>
+
+          <div class="flex flex-col gap-4">
+             <div class="flex items-center gap-4 p-3 border rounded-lg bg-gray-50">
+               <div class="bg-slate-800 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold">1</div>
+               <div class="text-sm">Construye un Max-Heap con todos los datos. <span class="text-xs text-gray-500">(El mayor sube a la cima)</span></div>
+             </div>
+             <div class="flex items-center gap-4 p-3 border rounded-lg bg-gray-50">
+               <div class="bg-slate-800 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold">2</div>
+               <div class="text-sm">Intercambia la Cima con el Final. <span class="text-xs text-gray-500">(El mayor ya está ordenado al fondo)</span></div>
+             </div>
+             <div class="flex items-center gap-4 p-3 border rounded-lg bg-gray-50">
+               <div class="bg-slate-800 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold">3</div>
+               <div class="text-sm">Reduce el tamaño del Heap y repara (Sift-Down). <span class="text-xs text-gray-500">(Repite)</span></div>
+             </div>
+          </div>
+          
+          <div class="text-center mt-2">
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold">Complejidad: O(N log N) siempre</span>
+          </div>
+        </div>
       `
     },
     {
       id: 'pnn2-10-practice',
-      title: 'Práctica: Implementa tu propio Max-Heap',
+      title: 'Reto: El Arquitecto de Montículos',
       notes: 'Ejercicio de codificación para implementar un Max-Heap.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: Construyendo un Max-Heap desde Cero</h3>
-        <p class="text-gray-600 mb-4">Implementa una clase <code>MaxHeap</code> en C++ o Python que use un arreglo (o lista) como almacenamiento interno. Tu clase debe incluir al menos los siguientes métodos:</p>
-        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-            <li><code>insertar(valor)</code>: Añade un elemento al Heap.</li>
-            <li><code>extraer_max()</code>: Elimina y devuelve el elemento máximo.</li>
-            <li><code>construir_heap(arreglo_desordenado)</code>: Un método para construir el heap a partir de un arreglo dado.</li>
-            <li><code>mostrar()</code>: Para ver el contenido actual del arreglo (no el árbol visual).</li>
-        </ul>
-        <p class="text-sm text-gray-500 mt-4"><b>Reto extra:</b> Implementa el algoritmo Heap Sort usando tu clase MaxHeap.</p>
+        <div class="space-y-6">
+          <div class="bg-indigo-600 text-white p-4 rounded-xl shadow-lg flex justify-between items-center">
+            <div>
+              <h3 class="font-bold text-lg">Misión: Clase MaxHeap</h3>
+              <p class="text-indigo-200 text-xs">Implementa la estructura desde cero usando un array.</p>
+            </div>
+            <div class="text-3xl">🏗️</div>
+          </div>
+
+          <div class="bg-white p-4 border rounded-xl shadow-sm">
+             <h5 class="font-bold text-slate-700 mb-2 text-sm">Requisitos:</h5>
+             <ul class="list-disc list-inside text-xs text-gray-600 space-y-2 font-mono">
+               <li>vector&lt;int&gt; almacenamiento;</li>
+               <li>void insertar(int val); // Usa Sift-Up</li>
+               <li>int extraerMax(); // Usa Sift-Down</li>
+               <li>void mostrar(); // Imprime el array</li>
+             </ul>
+          </div>
+          
+          <p class="text-center text-xs text-gray-500">
+            Tip: Recuerda las fórmulas de índices: <code>2*i+1</code> y <code>2*i+2</code>.
+          </p>
+        </div>
       `
     },
     {
       id: 'pnn2-11-resources',
-      title: 'Herramientas Visuales y Recursos',
+      title: 'Caja de Herramientas',
       notes: 'Proporcionar a los estudiantes herramientas externas para reforzar su aprendizaje.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Visualizando el Heap y Heap Sort</h3>
-        <p class="text-gray-600 mb-4">Explora estos simuladores para ver las operaciones de Heap y Heap Sort paso a paso:</p>
-        <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-white border rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <h4 class="font-bold text-blue-700 text-lg">VisuAlgo - Heap</h4>
-              <p class="text-sm text-gray-600 my-2">Visualiza las operaciones de inserción y extracción en un Heap.</p>
-              <a href="https://visualgo.net/es/heap" target="_blank" class="text-blue-600 font-bold hover:underline">Ir a VisuAlgo (Heap) &rarr;</a>
-            </div>
-            <div class="bg-white border rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <h4 class="font-bold text-green-700 text-lg">VisuAlgo - Heap Sort</h4>
-              <p class="text-sm text-gray-600 my-2">Observa cómo funciona el algoritmo Heap Sort.</p>
-              <a href="https://visualgo.net/es/sorting" target="_blank" class="text-green-600 font-bold hover:underline">Ir a VisuAlgo (Sorting) &rarr;</a>
-            </div>
+        <div class="space-y-6">
+          <p class="text-gray-600">Verlo en movimiento es entenderlo.</p>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <a href="https://visualgo.net/es/heap" target="_blank" class="group block bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-blue-500 transition-colors">
+              <h4 class="font-bold text-slate-800 group-hover:text-blue-600">VisuAlgo: Heap ↗</h4>
+              <p class="text-xs text-gray-500 mt-1">Mira cómo los elementos "flotan" y se "hunden" en tiempo real.</p>
+            </a>
+            
+            <a href="https://visualgo.net/es/sorting" target="_blank" class="group block bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-green-500 transition-colors">
+              <h4 class="font-bold text-slate-800 group-hover:text-green-600">VisuAlgo: Sorting ↗</h4>
+              <p class="text-xs text-gray-500 mt-1">Selecciona "Heap Sort" y disfruta del espectáculo.</p>
+            </a>
+          </div>
         </div>
       `
     },
@@ -287,19 +380,29 @@ print(pq[0]) // Imprime 10 (el más pequeño)
       title: '¿Preguntas?',
       notes: 'Espacio para dudas.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">¿Dudas sobre Heaps, Heapify o Sift-Up/Down?</h3>
+        <div class="flex flex-col items-center justify-center h-full space-y-4">
+          <div class="text-6xl">🤔</div>
+          <h3 class="text-2xl font-bold text-slate-900">¿Dudas sobre la Pirámide?</h3>
+          <p class="text-gray-500">¿Sift-Up vs Sift-Down? ¿Índices del array?</p>
         </div>
       `
     },
     {
       id: 'pnn2-end-thanks',
-      title: 'Gracias y Próxima Clase',
+      title: 'Próxima Clase: Divide y Vencerás',
       notes: 'Cierre y adelanto.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center">
-          <h2 class="text-3xl font-bold text-slate-900 mb-4">Fin del Módulo 2</h2>
-          <p class="text-gray-600 text-lg">Hemos visto cómo los Heaps optimizan el acceso al máximo/mínimo. En la próxima clase, exploraremos una potente estrategia algorítmica: <b>Divide y Conquista</b>.</p>
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-4xl">
+            ⚔️
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">Fin del Módulo 2</h2>
+            <p class="text-gray-600 mt-2">
+              Próxima parada: <strong>Divide y Conquista</strong>.<br>
+              Aprenderemos a romper problemas grandes en pedazos pequeños (Merge Sort, Quick Sort).
+            </p>
+          </div>
         </div>
       `
     }

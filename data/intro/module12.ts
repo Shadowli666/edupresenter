@@ -17,6 +17,21 @@ export const MODULE_12: Module = {
             <p class="text-indigo-800">Detalle de las actividades sumativas correspondientes al segundo corte (30% + acumulado).</p>
           </div>
 
+          <!-- Semester Progress Bar -->
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>Inicio Semestre</span>
+              <span>Corte I (30%)</span>
+              <span class="text-indigo-600">Corte II (60%)</span>
+              <span>Final (100%)</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div class="bg-indigo-600 h-4 rounded-full flex items-center justify-center text-[10px] text-white font-bold" style="width: 60%">
+                60% Completado
+              </div>
+            </div>
+          </div>
+
           <div class="flex justify-center bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
              <div class="mermaid">
                graph LR
@@ -75,13 +90,37 @@ export const MODULE_12: Module = {
       id: 's12-end-questions',
       title: 'Revisión Final',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12">
+        <div class="flex flex-col items-center justify-center py-12 space-y-8">
           <div class="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 mb-6">
              <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Firma y DACE</h3>
-          <p class="text-center text-gray-600 max-w-md">
-            Se procederá a la carga de notas en el sistema DACE. Verifique que su nota definitiva sea correcta antes de retirarse.
+          
+          <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-xl max-w-lg w-full">
+            <h3 class="text-lg font-bold text-yellow-800 mb-4 flex items-center gap-2">
+              <span>⚠️</span> Checklist de Verificación
+            </h3>
+            <ul class="space-y-3 text-sm text-yellow-900">
+              <li class="flex items-center gap-2">
+                <input type="checkbox" class="w-4 h-4 text-yellow-600 rounded focus:ring-yellow-500">
+                <span>Verificar que mi nombre y cédula estén correctos.</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <input type="checkbox" class="w-4 h-4 text-yellow-600 rounded focus:ring-yellow-500">
+                <span>Confirmar la nota del Parcial (20%).</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <input type="checkbox" class="w-4 h-4 text-yellow-600 rounded focus:ring-yellow-500">
+                <span>Confirmar la nota de Ejercicios (10%).</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <input type="checkbox" class="w-4 h-4 text-yellow-600 rounded focus:ring-yellow-500">
+                <span>Firmar el acta de conformidad.</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="text-center text-gray-500 text-xs max-w-md">
+            Una vez firmada el acta y cargada en DACE, no se aceptarán reclamos posteriores.
           </p>
         </div>
       `

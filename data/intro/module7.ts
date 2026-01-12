@@ -27,6 +27,9 @@ export const MODULE_7: Module = {
               <div class="mermaid">
                 flowchart LR
                   A[Entrada] --> B[Proceso] --> C[Salida]
+                  style A fill:#f1f5f9,stroke:#64748b
+                  style B fill:#dbeafe,stroke:#2563eb
+                  style C fill:#dcfce7,stroke:#16a34a
               </div>
             </div>
 
@@ -43,6 +46,10 @@ export const MODULE_7: Module = {
                   A[Entrada] --> B{¿Condición?}
                   B -- V --> C[Camino A]
                   B -- F --> D[Camino B]
+                  style A fill:#f1f5f9,stroke:#64748b
+                  style B fill:#fef9c3,stroke:#eab308,stroke-width:2px
+                  style C fill:#dcfce7,stroke:#16a34a
+                  style D fill:#fee2e2,stroke:#ef4444
               </div>
             </div>
           </div>
@@ -56,7 +63,7 @@ export const MODULE_7: Module = {
         <div class="space-y-12">
           
           <!-- Simple -->
-          <div class="grid md:grid-cols-2 gap-6 bg-white p-5 rounded-lg border shadow-sm">
+          <div class="grid md:grid-cols-2 gap-6 bg-white p-5 rounded-lg border shadow-sm hover:shadow-md transition-shadow">
             <div>
                 <div class="flex justify-between items-center mb-3 border-b pb-2">
                     <h4 class="font-bold text-slate-800">1. Condicional Simple (Si)</h4>
@@ -77,12 +84,14 @@ export const MODULE_7: Module = {
                     Cond -- Sí --> Acc[Llevar Paraguas]
                     Acc --> End((Fin))
                     Cond -- No --> End
+                    style Cond fill:#fef9c3,stroke:#eab308
+                    style Acc fill:#dbeafe,stroke:#2563eb
                 </div>
             </div>
           </div>
 
           <!-- Double -->
-          <div class="grid md:grid-cols-2 gap-6 bg-white p-5 rounded-lg border shadow-sm">
+          <div class="grid md:grid-cols-2 gap-6 bg-white p-5 rounded-lg border shadow-sm hover:shadow-md transition-shadow">
             <div>
                 <div class="flex justify-between items-center mb-3 border-b pb-2">
                     <h4 class="font-bold text-slate-800">2. Condicional Doble (Si-Sino)</h4>

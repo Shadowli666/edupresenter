@@ -21,20 +21,40 @@ export const MODULE_1: Module = {
             </div>
             <div class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm">
               <h3 class="text-lg font-bold text-gray-900 mb-2 border-b pb-2">Datos vs. Información</h3>
-              <ul class="space-y-2 text-gray-600">
-                <li class="flex items-start"><span class="font-semibold text-gray-800 w-24 flex-shrink-0">Dato:</span> <span>Representación simbólica (numérica, alfabética) sin contexto.</span></li>
-                <li class="flex items-start"><span class="font-semibold text-gray-800 w-24 flex-shrink-0">Información:</span> <span>Conjunto organizado de datos procesados que constituyen un mensaje.</span></li>
+              
+              <!-- Visual Analogy -->
+              <div class="grid grid-cols-[1fr_auto_1fr] gap-2 items-center text-center mb-4">
+                <div class="p-2 bg-yellow-50 rounded border border-yellow-200">
+                  <div class="text-2xl mb-1">🥚🌾</div>
+                  <div class="font-bold text-xs text-yellow-800">Datos</div>
+                  <div class="text-[10px] text-yellow-700 leading-tight">Materia prima<br>(Sin contexto)</div>
+                </div>
+                <div class="text-slate-400 text-xl">➜</div>
+                <div class="p-2 bg-green-50 rounded border border-green-200">
+                  <div class="text-2xl mb-1">🎂</div>
+                  <div class="font-bold text-xs text-green-800">Información</div>
+                  <div class="text-[10px] text-green-700 leading-tight">Resultado útil<br>(Con significado)</div>
+                </div>
+              </div>
+
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-start"><span class="font-semibold text-gray-800 w-16 flex-shrink-0">Dato:</span> <span>Símbolo aislado (ej. "25", "Rojo").</span></li>
+                <li class="flex items-start"><span class="font-semibold text-gray-800 w-16 flex-shrink-0">Info:</span> <span>Datos procesados (ej. "Temperatura: 25°C").</span></li>
               </ul>
             </div>
           </div>
 
           <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col items-center">
-             <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Ciclo de Procesamiento</h4>
+             <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Ciclo de Procesamiento de Información</h4>
              <div class="mermaid">
                flowchart LR
-                 A["Datos\n(Entrada)"] -->|Procesamiento| B("Información\n(Salida)")
+                 A["📥 Entrada\n(Datos)"] -->|Procesar| B["⚙️ Proceso\n(CPU)"]
+                 B -->|Generar| C["📤 Salida\n(Información)"]
+                 B -.->|Guardar| D[("💾 Almacenamiento")]
                  style A fill:#f1f5f9,stroke:#64748b,stroke-width:2px
                  style B fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+                 style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+                 style D fill:#fff7ed,stroke:#ea580c,stroke-width:2px
              </div>
           </div>
 
@@ -47,11 +67,11 @@ export const MODULE_1: Module = {
               </div>
               <div class="bg-white px-4 py-3 rounded border border-slate-200">
                 <dt class="text-sm font-medium text-slate-500">Virus (Malware)</dt>
-                <dd class="mt-1 text-sm text-slate-900">Software diseñado para infiltrarse o dañar un sistema sin consentimiento.</dd>
+                <dd class="mt-1 text-sm text-slate-900">Software dañino que se infiltra sin permiso.</dd>
               </div>
               <div class="bg-white px-4 py-3 rounded border border-slate-200">
                 <dt class="text-sm font-medium text-slate-500">Informática</dt>
-                <dd class="mt-1 text-sm text-slate-900">Ciencia que estudia el tratamiento automático de la información.</dd>
+                <dd class="mt-1 text-sm text-slate-900">Ciencia del tratamiento automático de la información.</dd>
               </div>
             </dl>
           </div>
@@ -62,36 +82,52 @@ export const MODULE_1: Module = {
       id: 's1-2',
       title: 'Evolución de las Computadoras',
       contentHtml: `
-        <div class="space-y-8">
-          <p class="text-gray-600">La historia de la computación se divide en generaciones, marcadas por el componente electrónico principal utilizado.</p>
+        <div class="space-y-6">
+          <p class="text-gray-600 text-sm">La historia se divide en generaciones según el componente electrónico principal.</p>
           
-          <div class="relative border-l-2 border-gray-200 ml-4 space-y-10">
-            <div class="ml-8 relative">
-              <span class="absolute -left-11 top-1 flex items-center justify-center w-6 h-6 bg-slate-200 rounded-full ring-4 ring-white font-bold text-xs text-slate-600">1</span>
-              <h3 class="text-lg font-bold text-gray-900">1ª Generación (1940-1956)</h3>
-              <p class="text-gray-500 mb-2 font-mono text-sm">Tecnología: Tubos de Vacío</p>
-              <p class="text-gray-700">Máquinas gigantescas que ocupaban habitaciones enteras (ej. ENIAC). Consumían mucha electricidad y generaban mucho calor. Se programaban en lenguaje máquina.</p>
+          <div class="relative border-l-4 border-blue-100 ml-4 space-y-6 py-2">
+            <!-- Gen 1 -->
+            <div class="ml-6 relative bg-white p-4 rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <span class="absolute -left-10 top-4 flex items-center justify-center w-8 h-8 bg-slate-600 rounded-full ring-4 ring-white text-white font-bold text-sm">1</span>
+              <div class="flex justify-between items-start">
+                  <h3 class="text-base font-bold text-slate-800">1ª Generación (1940-56)</h3>
+                  <span class="text-2xl" title="Tubos de Vacío">💡</span>
+              </div>
+              <p class="text-xs font-mono text-blue-600 mb-1">Tecnología: Tubos de Vacío</p>
+              <p class="text-gray-600 text-xs">Gigantescas, mucho calor, lenguaje máquina. <br><span class="italic text-slate-400">Ej: ENIAC</span></p>
             </div>
 
-            <div class="ml-8 relative">
-              <span class="absolute -left-11 top-1 flex items-center justify-center w-6 h-6 bg-slate-200 rounded-full ring-4 ring-white font-bold text-xs text-slate-600">2</span>
-              <h3 class="text-lg font-bold text-gray-900">2ª Generación (1956-1963)</h3>
-              <p class="text-gray-500 mb-2 font-mono text-sm">Tecnología: Transistores</p>
-              <p class="text-gray-700">El transistor reemplaza al tubo de vacío. Computadoras más pequeñas, rápidas y eficientes. Surgen los lenguajes simbólicos (Assembly) y de alto nivel (COBOL, FORTRAN).</p>
+            <!-- Gen 2 -->
+            <div class="ml-6 relative bg-white p-4 rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <span class="absolute -left-10 top-4 flex items-center justify-center w-8 h-8 bg-slate-600 rounded-full ring-4 ring-white text-white font-bold text-sm">2</span>
+              <div class="flex justify-between items-start">
+                  <h3 class="text-base font-bold text-slate-800">2ª Generación (1956-63)</h3>
+                  <span class="text-2xl" title="Transistor">📻</span>
+              </div>
+              <p class="text-xs font-mono text-blue-600 mb-1">Tecnología: Transistores</p>
+              <p class="text-gray-600 text-xs">Más pequeñas y rápidas. Lenguajes simbólicos (Assembly).</p>
             </div>
 
-            <div class="ml-8 relative">
-              <span class="absolute -left-11 top-1 flex items-center justify-center w-6 h-6 bg-slate-200 rounded-full ring-4 ring-white font-bold text-xs text-slate-600">3</span>
-              <h3 class="text-lg font-bold text-gray-900">3ª Generación (1964-1971)</h3>
-              <p class="text-gray-500 mb-2 font-mono text-sm">Tecnología: Circuitos Integrados</p>
-              <p class="text-gray-700">Miniaturización de componentes en chips de silicio. Nacen los Sistemas Operativos y la interacción mediante teclados y monitores.</p>
+            <!-- Gen 3 -->
+            <div class="ml-6 relative bg-white p-4 rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <span class="absolute -left-10 top-4 flex items-center justify-center w-8 h-8 bg-slate-600 rounded-full ring-4 ring-white text-white font-bold text-sm">3</span>
+              <div class="flex justify-between items-start">
+                  <h3 class="text-base font-bold text-slate-800">3ª Generación (1964-71)</h3>
+                  <span class="text-2xl" title="Chip">💾</span>
+              </div>
+              <p class="text-xs font-mono text-blue-600 mb-1">Tecnología: Circuitos Integrados (Chips)</p>
+              <p class="text-gray-600 text-xs">Miniaturización. Nacen los Sistemas Operativos, teclados y monitores.</p>
             </div>
 
-             <div class="ml-8 relative">
-              <span class="absolute -left-11 top-1 flex items-center justify-center w-6 h-6 bg-blue-600 rounded-full ring-4 ring-white font-bold text-xs text-white">4</span>
-              <h3 class="text-lg font-bold text-gray-900">4ª Generación (1971-Presente)</h3>
-              <p class="text-gray-500 mb-2 font-mono text-sm">Tecnología: Microprocesadores</p>
-              <p class="text-gray-700">Todos los componentes básicos en un solo chip (CPU). Nace la Computadora Personal (PC), las redes de computadoras e Internet.</p>
+            <!-- Gen 4 -->
+            <div class="ml-6 relative bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+              <span class="absolute -left-10 top-4 flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full ring-4 ring-white text-white font-bold text-sm">4</span>
+              <div class="flex justify-between items-start">
+                  <h3 class="text-base font-bold text-blue-900">4ª Generación (1971-Hoy)</h3>
+                  <span class="text-2xl" title="Microprocesador">💻</span>
+              </div>
+              <p class="text-xs font-mono text-blue-600 mb-1">Tecnología: Microprocesadores</p>
+              <p class="text-gray-700 text-xs">CPU en un chip. Nace la PC, Internet y la computación moderna.</p>
             </div>
           </div>
         </div>

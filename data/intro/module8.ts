@@ -17,7 +17,7 @@ export const MODULE_8: Module = {
 
           <div class="grid md:grid-cols-3 gap-6">
             <!-- Simple -->
-            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex flex-col items-center">
+            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex flex-col items-center hover:shadow-md transition-shadow">
               <h4 class="font-bold text-blue-900 mb-2 text-center">1. Simple (Si)</h4>
               <!-- Mini Diagram -->
               <div class="mermaid">
@@ -25,6 +25,8 @@ export const MODULE_8: Module = {
                   A{Cond} -->|Si| B[Accion]
                   A -->|No| C((Fin))
                   B --> C
+                  style A fill:#dbeafe,stroke:#2563eb
+                  style B fill:#fff,stroke:#94a3b8
               </div>
               <div class="bg-white p-2 rounded font-mono text-[10px] border border-blue-100 w-full mt-2">
                 <span class="text-purple-600">Si</span> (llueve) <span class="text-purple-600">Entonces</span><br>
@@ -34,7 +36,7 @@ export const MODULE_8: Module = {
             </div>
 
             <!-- Double -->
-            <div class="bg-orange-50 p-4 rounded-xl border border-orange-200 flex flex-col items-center">
+            <div class="bg-orange-50 p-4 rounded-xl border border-orange-200 flex flex-col items-center hover:shadow-md transition-shadow">
               <h4 class="font-bold text-orange-900 mb-2 text-center">2. Doble (Si-No)</h4>
               <!-- Mini Diagram -->
               <div class="mermaid">
@@ -43,6 +45,9 @@ export const MODULE_8: Module = {
                   A -->|No| C[B]
                   B --> D((Fin))
                   C --> D
+                  style A fill:#ffedd5,stroke:#ea580c
+                  style B fill:#fff,stroke:#94a3b8
+                  style C fill:#fff,stroke:#94a3b8
               </div>
               <div class="bg-white p-2 rounded font-mono text-[10px] border border-orange-100 w-full mt-2">
                 <span class="text-purple-600">Si</span> (ok) <span class="text-purple-600">Entonces</span><br>
@@ -54,13 +59,16 @@ export const MODULE_8: Module = {
             </div>
 
             <!-- Nested -->
-            <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 flex flex-col items-center">
+            <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 flex flex-col items-center hover:shadow-md transition-shadow">
               <h4 class="font-bold text-purple-900 mb-2 text-center">3. Anidada</h4>
               <!-- Mini Diagram -->
               <div class="mermaid">
                 flowchart TD
                   A{Cond1} -->|Si| B{Cond2}
                   B -->|Si| C[Accion]
+                  style A fill:#f3e8ff,stroke:#9333ea
+                  style B fill:#f3e8ff,stroke:#9333ea
+                  style C fill:#fff,stroke:#94a3b8
               </div>
               <div class="bg-white p-2 rounded font-mono text-[10px] border border-purple-100 w-full mt-2">
                 <span class="text-purple-600">Si</span> ... <span class="text-purple-600">Entonces</span><br>
@@ -84,19 +92,29 @@ export const MODULE_8: Module = {
 
           <div class="grid grid-cols-1 gap-4">
             
-            <div class="bg-white border p-4 rounded-lg shadow-sm">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Ejercicio 1</span>
-              <h4 class="font-bold text-slate-800 mb-2">Mayoría de Edad</h4>
-              <p class="text-sm text-slate-600">Solicite la edad de una persona. Si es mayor o igual a 18, muestre "Es mayor de edad". En caso contrario, muestre "Es menor de edad".</p>
+            <div class="bg-white border p-4 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Ejercicio 1</span>
+                  <h4 class="font-bold text-slate-800 mb-2">Mayoría de Edad</h4>
+                  <p class="text-sm text-slate-600">Solicite la edad de una persona. Si es mayor o igual a 18, muestre "Es mayor de edad". En caso contrario, muestre "Es menor de edad".</p>
+                </div>
+                <span class="text-2xl">🔞</span>
+              </div>
             </div>
 
-            <div class="bg-white border p-4 rounded-lg shadow-sm">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Ejercicio 2</span>
-              <h4 class="font-bold text-slate-800 mb-2">Aprobado o Reprobado</h4>
-              <p class="text-sm text-slate-600">Solicite la nota de un estudiante (escala 1-20). Si la nota es mayor o igual a 10, está Aprobado. Si no, está Reprobado.</p>
+            <div class="bg-white border p-4 rounded-lg shadow-sm hover:border-green-300 transition-colors">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Ejercicio 2</span>
+                  <h4 class="font-bold text-slate-800 mb-2">Aprobado o Reprobado</h4>
+                  <p class="text-sm text-slate-600">Solicite la nota de un estudiante (escala 1-20). Si la nota es mayor o igual a 10, está Aprobado. Si no, está Reprobado.</p>
+                </div>
+                <span class="text-2xl">📝</span>
+              </div>
             </div>
 
-            <div class="bg-white border p-4 rounded-lg shadow-sm">
+            <div class="bg-white border p-4 rounded-lg shadow-sm hover:border-purple-300 transition-colors">
               <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block">Ejercicio 3</span>
               <h4 class="font-bold text-slate-800 mb-2">División Segura</h4>
               <p class="text-sm text-slate-600">Solicite dos números (Dividendo y Divisor). Realice la división solo si el Divisor es diferente de cero. Si es cero, muestre "Error: No se puede dividir por 0".</p>

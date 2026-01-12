@@ -91,6 +91,30 @@ export const MODULE_2: Module = {
         <div class="space-y-6">
           <p class="text-lg text-gray-700">Soporte lógico de un sistema informático. Son las instrucciones que le dicen al hardware qué hacer.</p>
           
+          <!-- Layered View Visualization -->
+          <div class="flex flex-col items-center justify-center my-6 space-y-1 w-full max-w-md mx-auto">
+            <p class="text-xs text-gray-500 mb-2 w-full text-center">Capas de Abstracción</p>
+            <!-- User Layer -->
+            <div class="w-full bg-purple-100 border-2 border-purple-300 text-purple-900 p-3 rounded-t-xl text-center font-bold relative z-30 shadow-sm transform hover:-translate-y-1 transition-transform">
+              👤 Usuario
+            </div>
+            <!-- App Layer -->
+            <div class="w-[95%] bg-green-100 border-2 border-green-300 text-green-900 p-3 text-center font-bold relative z-20 shadow-sm -mt-2 pt-4 transform hover:-translate-y-1 transition-transform">
+              📱 Software de Aplicación
+              <div class="text-xs font-normal text-green-700">(Word, Chrome, Juegos)</div>
+            </div>
+            <!-- System Layer -->
+            <div class="w-[90%] bg-blue-100 border-2 border-blue-300 text-blue-900 p-3 text-center font-bold relative z-10 shadow-sm -mt-2 pt-4 transform hover:-translate-y-1 transition-transform">
+              ⚙️ Software de Sistema (OS)
+              <div class="text-xs font-normal text-blue-700">(Windows, Linux, Drivers)</div>
+            </div>
+            <!-- Hardware Layer -->
+            <div class="w-[85%] bg-slate-800 border-2 border-slate-600 text-slate-200 p-3 rounded-b-xl text-center font-bold relative z-0 shadow-sm -mt-2 pt-4">
+              🖥️ Hardware
+              <div class="text-xs font-normal text-slate-400">(CPU, RAM, Disco)</div>
+            </div>
+          </div>
+
           <div class="flex justify-center bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
              <div class="mermaid">
                graph TD

@@ -33,8 +33,8 @@ export const MODULE_10: Module = {
               </ul>
             </div>
             
-            <div class="flex justify-center">
-               <div class="mermaid">
+            <div class="flex flex-col gap-4">
+               <div class="mermaid flex justify-center">
                  flowchart TD
                    Start([Inicio]) --> Init[i = 1]
                    Init --> Cond{¿i <= 5?}
@@ -46,6 +46,15 @@ export const MODULE_10: Module = {
                    style Instr fill:#dcfce7,stroke:#16a34a,stroke-width:2px
                    style Upd fill:#fef9c3,stroke:#ca8a04,stroke-width:2px
                </div>
+               
+               <!-- Visual Metaphor -->
+               <div class="bg-blue-50 p-3 rounded border border-blue-100 text-sm text-blue-800 flex items-center gap-3">
+                 <div class="text-2xl">🚧</div>
+                 <div>
+                   <strong>Metáfora del Peaje:</strong><br>
+                   El "Mientras" es como un peaje. Antes de pasar (ejecutar), debes mostrar tu ticket (condición verdadera). Si no tienes ticket, no pasas ni una vez.
+                 </div>
+               </div>
             </div>
           </div>
         </div>
@@ -56,9 +65,12 @@ export const MODULE_10: Module = {
       title: 'Metodología: Prueba de Escritorio',
       contentHtml: `
         <div class="space-y-6">
-           <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-4">
-             <h4 class="font-bold text-indigo-900">¿Qué es una Prueba de Escritorio?</h4>
-             <p class="text-sm text-indigo-800">Es una técnica manual para simular la ejecución del algoritmo línea por línea, registrando cómo cambian los valores de las variables en cada paso.</p>
+           <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-4 flex justify-between items-center">
+             <div>
+               <h4 class="font-bold text-indigo-900">¿Qué es una Prueba de Escritorio?</h4>
+               <p class="text-sm text-indigo-800">Es una técnica manual para simular la ejecución del algoritmo línea por línea, registrando cómo cambian los valores de las variables en cada paso.</p>
+             </div>
+             <div class="text-4xl opacity-50">📝</div>
            </div>
            
            <div class="flex flex-col lg:flex-row gap-6">
@@ -106,6 +118,51 @@ export const MODULE_10: Module = {
     },
     {
       id: 's10-3',
+      title: 'Peligro: El Ciclo Infinito',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="bg-red-100 text-red-800 p-6 rounded-full text-6xl animate-pulse">
+            ♾️
+          </div>
+          
+          <h3 class="text-2xl font-bold text-red-700">¡Cuidado con el Ciclo Infinito!</h3>
+          
+          <p class="text-center text-gray-700 max-w-2xl">
+            Si olvidas <strong>actualizar la variable de control</strong> dentro del ciclo, la condición nunca se volverá falsa y el programa se quedará "colgado" para siempre.
+          </p>
+
+          <div class="grid grid-cols-2 gap-8 w-full max-w-3xl mt-4">
+            <div class="border-2 border-red-300 bg-red-50 p-4 rounded-xl relative">
+              <div class="absolute -top-3 -right-3 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">MAL</div>
+              <h4 class="font-bold text-red-800 mb-2">Código Incorrecto</h4>
+              <div class="font-mono text-sm text-red-900">
+                i = 1<br>
+                Mientras (i <= 5) Hacer<br>
+                &nbsp;&nbsp;Escribir i<br>
+                &nbsp;&nbsp;<span class="bg-red-200 font-bold px-1">MISSING!</span><br>
+                FinMientras
+              </div>
+              <p class="text-xs text-red-600 mt-2">'i' siempre será 1. 1 <= 5 es siempre Verdad.</p>
+            </div>
+
+            <div class="border-2 border-green-300 bg-green-50 p-4 rounded-xl relative">
+              <div class="absolute -top-3 -right-3 bg-green-500 text-white px-2 py-1 text-xs font-bold rounded">BIEN</div>
+              <h4 class="font-bold text-green-800 mb-2">Código Correcto</h4>
+              <div class="font-mono text-sm text-green-900">
+                i = 1<br>
+                Mientras (i <= 5) Hacer<br>
+                &nbsp;&nbsp;Escribir i<br>
+                &nbsp;&nbsp;<span class="bg-green-200 font-bold px-1">i = i + 1</span><br>
+                FinMientras
+              </div>
+              <p class="text-xs text-green-600 mt-2">Eventualmente 'i' será 6 y el ciclo terminará.</p>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 's10-4',
       title: 'Errores Comunes',
       contentHtml: `
         <div class="space-y-8">
@@ -143,7 +200,7 @@ export const MODULE_10: Module = {
       `
     },
     {
-      id: 's10-4',
+      id: 's10-5',
       title: 'Taller Guiado en Clase',
       contentHtml: `
         <div class="space-y-6">
@@ -231,7 +288,7 @@ export const MODULE_10: Module = {
       `
     },
     {
-      id: 's10-5',
+      id: 's10-6',
       title: 'Ejercicios Propuestos (Tarea)',
       contentHtml: `
         <div class="space-y-6">

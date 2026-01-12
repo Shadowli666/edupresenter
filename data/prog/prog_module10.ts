@@ -53,6 +53,51 @@ export const PROG_MODULE_10: Module = {
       `
     },
     {
+      id: 'p10-2-anim',
+      title: 'Visualización: Enqueue vs Dequeue',
+      notes: 'Animación de las operaciones básicas de cola.',
+      contentHtml: `
+        <style>
+          @keyframes enqueueAnim {
+            0% { transform: translateX(150%); opacity: 0; }
+            40% { transform: translateX(0); opacity: 1; }
+            80% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes dequeueAnim {
+            0% { transform: translateX(0); opacity: 1; }
+            20% { transform: translateX(0); opacity: 1; }
+            60% { transform: translateX(-150%); opacity: 0; }
+            100% { transform: translateX(-150%); opacity: 0; }
+          }
+          .queue-item-enqueue { animation: enqueueAnim 2s infinite; }
+          .queue-item-dequeue { animation: dequeueAnim 2s infinite; }
+        </style>
+        <div class="grid md:grid-cols-2 gap-12 h-64 items-center justify-center">
+          <!-- Enqueue Demo -->
+          <div class="flex flex-col items-center w-full">
+            <h4 class="font-bold text-blue-700 mb-4">Enqueue (Encolar)</h4>
+            <div class="flex items-center p-4 bg-slate-100 rounded-xl border w-full max-w-xs h-24 overflow-hidden relative justify-end">
+               <div class="w-12 h-12 bg-green-500 rounded shadow-sm mr-2 flex-shrink-0"></div>
+               <div class="w-12 h-12 bg-green-500 rounded shadow-sm mr-2 flex-shrink-0"></div>
+               <div class="w-12 h-12 bg-blue-500 rounded shadow-sm queue-item-enqueue flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">New</div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Entra por el final (derecha)</p>
+          </div>
+          <!-- Dequeue Demo -->
+          <div class="flex flex-col items-center w-full">
+            <h4 class="font-bold text-orange-700 mb-4">Dequeue (Desencolar)</h4>
+            <div class="flex items-center p-4 bg-slate-100 rounded-xl border w-full max-w-xs h-24 overflow-hidden relative">
+               <div class="w-12 h-12 bg-orange-500 rounded shadow-sm mr-2 queue-item-dequeue flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">Front</div>
+               <div class="w-12 h-12 bg-green-500 rounded shadow-sm mr-2 flex-shrink-0"></div>
+               <div class="w-12 h-12 bg-green-500 rounded shadow-sm flex-shrink-0"></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Sale por el frente (izquierda)</p>
+          </div>
+        </div>
+      `
+    },
+    {
       id: 'p10-3-list-impl',
       title: 'Implementación 1: Con Listas Enlazadas',
       notes: 'La implementación más flexible. Requiere puntero al final.',

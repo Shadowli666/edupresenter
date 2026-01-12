@@ -17,7 +17,7 @@ export const PROG_MODULE_8: Module = {
               <h3 class="text-2xl font-bold text-slate-900 mb-4">LIFO: El Último en Entrar, es el Primero en Salir</h3>
               <p class="text-gray-600">Imagina una pila de platos. Colocas uno encima (push). Cuando necesitas uno, tomas el de arriba (pop), que fue el último que pusiste. No puedes sacar uno del medio.</p>
             </div>
-            <div class="flex flex-col-reverse items-center p-6 bg-slate-100 rounded-xl border-b-8 border-slate-300 w-48 shadow-inner">
+            <div class="flex flex-col items-center p-6 bg-slate-100 rounded-xl border-b-8 border-slate-300 w-48 shadow-inner">
                <div class="w-32 h-8 bg-red-500 rounded mb-1 shadow-sm text-center text-white text-xs flex items-center justify-center animate-pulse">Tope (Top)</div>
                <div class="w-32 h-8 bg-blue-500 rounded mb-1 shadow-sm"></div>
                <div class="w-32 h-8 bg-blue-500 rounded mb-1 shadow-sm"></div>
@@ -50,6 +50,49 @@ export const PROG_MODULE_8: Module = {
           </div>
         </div>
         <p class="text-center text-sm text-gray-500 mt-6">También son comunes <code>isEmpty()</code> (¿está vacía?) y <code>isFull()</code> (¿está llena?, en implementaciones con arreglos).</p>
+      `
+    },
+    {
+      id: 'p8-2-anim',
+      title: 'Visualización: Push vs Pop',
+      notes: 'Animación de las operaciones básicas.',
+      contentHtml: `
+        <style>
+          @keyframes pushAnim {
+            0% { transform: translateY(-150%); opacity: 0; }
+            40% { transform: translateY(0); opacity: 1; }
+            80% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+          }
+          @keyframes popAnim {
+            0% { transform: translateY(0); opacity: 1; }
+            20% { transform: translateY(0); opacity: 1; }
+            60% { transform: translateY(-150%); opacity: 0; }
+            100% { transform: translateY(-150%); opacity: 0; }
+          }
+          .stack-item-push { animation: pushAnim 2s infinite; }
+          .stack-item-pop { animation: popAnim 2s infinite; }
+        </style>
+        <div class="grid md:grid-cols-2 gap-12 h-64 items-center justify-center">
+          <!-- Push Demo -->
+          <div class="flex flex-col items-center">
+            <h4 class="font-bold text-green-700 mb-4">Push (Apilar)</h4>
+            <div class="w-32 h-48 border-x-4 border-b-4 border-slate-400 rounded-b-lg flex flex-col-reverse p-2 gap-1 bg-slate-50 relative overflow-hidden">
+               <div class="w-full h-8 bg-blue-500 rounded shadow-sm"></div>
+               <div class="w-full h-8 bg-blue-500 rounded shadow-sm"></div>
+               <div class="w-full h-8 bg-green-500 rounded shadow-sm stack-item-push flex items-center justify-center text-white text-xs font-bold">New</div>
+            </div>
+          </div>
+          <!-- Pop Demo -->
+          <div class="flex flex-col items-center">
+            <h4 class="font-bold text-red-700 mb-4">Pop (Desapilar)</h4>
+            <div class="w-32 h-48 border-x-4 border-b-4 border-slate-400 rounded-b-lg flex flex-col-reverse p-2 gap-1 bg-slate-50 relative overflow-hidden">
+               <div class="w-full h-8 bg-blue-500 rounded shadow-sm"></div>
+               <div class="w-full h-8 bg-blue-500 rounded shadow-sm"></div>
+               <div class="w-full h-8 bg-red-500 rounded shadow-sm stack-item-pop flex items-center justify-center text-white text-xs font-bold">Top</div>
+            </div>
+          </div>
+        </div>
       `
     },
     {

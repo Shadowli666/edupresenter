@@ -2,279 +2,303 @@ import { Module } from '../../types';
 
 export const PNN_MODULE_7: Module = {
   id: 'pnn-mod-7',
-  title: '7. Algoritmos Voraces: La Elección Óptima Local',
-  description: 'Introducción a los algoritmos Greedy con foco en el problema del cambio y otro caso práctico en Python.',
+  title: '7. Algoritmos Voraces: El Estratega Impaciente',
+  description: 'Aprende a tomar decisiones óptimas locales para resolver problemas globales. Cambio de monedas y selección de actividades.',
   evaluation: '0% - Introducción Magistral',
   slides: [
     {
       id: 'pnn7-1',
-      title: '1. Concepto: Algoritmos Voraces (Greedy)',
-      notes: 'Definición de algoritmos Greedy, cuándo funcionan y cuándo no.',
+      title: 'La Filosofía de la Inmediatez',
+      notes: 'Introducción al concepto Greedy.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700 text-lg">
-            Un <strong>Algoritmo Voraz</strong> es un paradigma algorítmico que construye una solución paso a paso. En cada etapa, elige la opción que parece "mejor" o "más óptima" en ese momento (a nivel local), sin considerar las consecuencias futuras de esta elección.
-          </p>
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <h5 class="font-bold text-blue-900">La Filosofía del Voraz</h5>
-            <p class="text-blue-800 text-sm mt-2">
-              "Toma la mejor decisión posible en este instante, esperando que eso te lleve a la mejor solución global."
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-4xl font-bold text-emerald-900 mb-6">Algoritmos Voraces (Greedy)</h1>
+            <p class="text-xl text-slate-700 leading-relaxed">
+              Imagina que estás en un buffet y tienes un plato pequeño.
+              La estrategia <strong>Voraz</strong> consiste en tomar siempre la comida más deliciosa que tengas enfrente <em>en este momento</em>,
+              sin pensar si eso te dejará sin espacio para el postre más tarde.
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white p-4 rounded-lg shadow-sm border">
-               <strong class="block text-green-700 mb-1">Cuándo Funcionan</strong>
-               <p class="text-xs text-green-600">Cuando la elección localmente óptima conduce a una solución globalmente óptima (requiere prueba matemática).</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl items-center">
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-8 border-emerald-500 flex flex-col items-center">
+              <span class="text-6xl mb-4">😋</span>
+              <h3 class="text-2xl font-bold text-emerald-800">El Lema Greedy</h3>
+              <p class="text-center text-slate-600 mt-4 italic">
+                "Toma la mejor decisión posible AHORA MISMO."
+              </p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm border">
-               <strong class="block text-red-700 mb-1">Cuándo NO Funcionan</strong>
-               <p class="text-xs text-red-600">Cuando la elección localmente óptima impide encontrar la solución globalmente óptima.</p>
+            
+            <div class="bg-slate-100 p-6 rounded-xl border-2 border-slate-300">
+              <h4 class="font-bold text-slate-700 mb-2">¿Cómo funciona?</h4>
+              <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                <li>Analiza las opciones disponibles.</li>
+                <li>Elige la que parece mejor (Óptimo Local).</li>
+                <li>Nunca mires atrás (Irrevocable).</li>
+                <li>Repite hasta terminar.</li>
+              </ol>
             </div>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn7-2',
-      title: '2. Componentes de un Algoritmo Voraz',
-      notes: 'Describir la estructura de un algoritmo Greedy.',
+      id: 'pnn7-2-coins',
+      title: 'El Cajero Voraz',
+      notes: 'Ejemplo del cambio de monedas.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Anatomía de un Algoritmo Greedy</h3>
-        <p class="text-gray-600 mb-4">Todo algoritmo voraz se puede descomponer en los siguientes componentes:</p>
-        <div class="space-y-4">
-          <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
-            <h5 class="font-bold text-purple-900">1. Conjunto de Candidatos</h5>
-            <p class="text-sm text-gray-700">Los elementos de los que se construye la solución.</p>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="flex flex-col justify-center space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Problema del Cambio</h3>
+            <p class="text-slate-600">
+              Tienes que dar <strong>37¢</strong> de cambio usando la menor cantidad de monedas posible.
+              <br>Monedas disponibles: 25¢, 10¢, 5¢, 1¢.
+            </p>
+            
+            <div class="bg-yellow-50 p-6 rounded-xl border-2 border-yellow-400">
+              <h4 class="font-bold text-yellow-900 mb-4">Algoritmo:</h4>
+              <p class="text-yellow-800 mb-2">Mientras falte dinero:</p>
+              <p class="font-mono text-sm bg-white p-2 rounded border border-yellow-200">
+                1. Toma la moneda más grande que quepa.<br>
+                2. Resta su valor.<br>
+                3. Repite.
+              </p>
+            </div>
           </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
-            <h5 class="font-bold text-purple-900">2. Función de Selección</h5>
-            <p class="text-sm text-gray-700">Elige el "mejor" candidato de los restantes para añadir a la solución.</p>
-          </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
-            <h5 class="font-bold text-purple-900">3. Función de Factibilidad</h5>
-            <p class="text-sm text-gray-700">Verifica si un candidato puede ser parte de la solución actual.</p>
-          </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
-            <h5 class="font-bold text-purple-900">4. Función Objetivo</h5>
-            <p class="text-sm text-gray-700">Calcula el valor (óptimo) de la solución parcial o final.</p>
-          </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
-            <h5 class="font-bold text-purple-900">5. Función Solución</h5>
-            <p class="text-sm text-gray-700">Determina si un conjunto de candidatos forma una solución completa.</p>
+
+          <div class="bg-slate-900 p-8 rounded-xl shadow-2xl flex flex-col items-center justify-center relative">
+            <div class="text-white text-4xl font-bold mb-8">Objetivo: 37¢</div>
+            
+            <div class="flex flex-col gap-4 w-full">
+              <!-- Paso 1 -->
+              <div class="flex items-center justify-between bg-slate-800 p-3 rounded border border-slate-700">
+                <div class="flex items-center gap-2">
+                  <div class="w-12 h-12 rounded-full bg-yellow-400 border-4 border-yellow-600 flex items-center justify-center font-bold text-yellow-900 shadow-lg">25</div>
+                  <span class="text-green-400 font-bold">¡Cabe!</span>
+                </div>
+                <span class="text-slate-400">Faltan: 12¢</span>
+              </div>
+
+              <!-- Paso 2 -->
+              <div class="flex items-center justify-between bg-slate-800 p-3 rounded border border-slate-700">
+                <div class="flex items-center gap-2">
+                  <div class="w-10 h-10 rounded-full bg-slate-300 border-4 border-slate-400 flex items-center justify-center font-bold text-slate-700 shadow-lg">10</div>
+                  <span class="text-green-400 font-bold">¡Cabe!</span>
+                </div>
+                <span class="text-slate-400">Faltan: 2¢</span>
+              </div>
+
+              <!-- Paso 3 -->
+              <div class="flex items-center justify-between bg-slate-800 p-3 rounded border border-slate-700">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full bg-orange-400 border-4 border-orange-600 flex items-center justify-center font-bold text-white shadow-lg">1</div>
+                  <span class="text-green-400 font-bold">¡Cabe!</span>
+                </div>
+                <span class="text-slate-400">Faltan: 1¢</span>
+              </div>
+
+              <!-- Paso 4 -->
+              <div class="flex items-center justify-between bg-slate-800 p-3 rounded border border-slate-700">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full bg-orange-400 border-4 border-orange-600 flex items-center justify-center font-bold text-white shadow-lg">1</div>
+                  <span class="text-green-400 font-bold">¡Cabe!</span>
+                </div>
+                <span class="text-green-500 font-bold">¡LISTO!</span>
+              </div>
+            </div>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn7-3',
-      title: '3. Ejemplo Intuitivo: El Problema del Cambio',
-      notes: 'Ilustrar el Greedy con un ejemplo sencillo y cotidiano.',
+      id: 'pnn7-3-trap',
+      title: 'La Trampa de la Codicia',
+      notes: 'Contraejemplo donde Greedy falla.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Devolviendo el Cambio con Menos Monedas</h3>
-        <p class="text-gray-600 mb-4">Imagina que tienes que dar cambio (por ejemplo, 37 céntimos) usando la menor cantidad de monedas posible (1, 5, 10, 25 céntimos).</p>
-        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 my-4">
-          <h5 class="font-bold text-yellow-900">Estrategia Greedy</h5>
-          <p class="text-sm text-yellow-800">En cada paso, elige la moneda de mayor valor que sea menor o igual al cambio restante.</p>
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="bg-red-100 p-6 rounded-xl border-l-8 border-red-500 max-w-4xl w-full">
+            <h3 class="text-2xl font-bold text-red-900 mb-2">¡Cuidado! No siempre funciona</h3>
+            <p class="text-red-800">
+              Greedy es rápido, pero a veces miope. Si cambiamos las reglas (las monedas), puede fallar.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-4xl">
+            <!-- Escenario -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+              <h4 class="font-bold text-slate-700 mb-4 border-b pb-2">El Escenario</h4>
+              <ul class="space-y-2 text-slate-600">
+                <li><strong>Objetivo:</strong> 6¢</li>
+                <li><strong>Monedas:</strong> 4¢, 3¢, 1¢</li>
+              </ul>
+            </div>
+
+            <!-- Comparación -->
+            <div class="space-y-4">
+              
+              <!-- Greedy -->
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200 opacity-75">
+                <h5 class="font-bold text-red-800 text-sm uppercase">Estrategia Greedy</h5>
+                <div class="flex items-center gap-2 mt-2">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center font-bold text-xs">4</div>
+                  <span>+</span>
+                  <div class="w-6 h-6 rounded-full bg-orange-300 flex items-center justify-center font-bold text-xs">1</div>
+                  <span>+</span>
+                  <div class="w-6 h-6 rounded-full bg-orange-300 flex items-center justify-center font-bold text-xs">1</div>
+                </div>
+                <p class="text-right text-red-600 font-bold mt-2">3 Monedas 😞</p>
+              </div>
+
+              <!-- Óptimo -->
+              <div class="bg-green-50 p-4 rounded-lg border border-green-200 shadow-lg transform scale-105">
+                <h5 class="font-bold text-green-800 text-sm uppercase">Estrategia Óptima</h5>
+                <div class="flex items-center gap-2 mt-2">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center font-bold text-xs">3</div>
+                  <span>+</span>
+                  <div class="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center font-bold text-xs">3</div>
+                </div>
+                <p class="text-right text-green-600 font-bold mt-2">2 Monedas 🏆</p>
+              </div>
+
+            </div>
+          </div>
         </div>
-        <div class="space-y-3">
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Cambio = 37 céntimos</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Elige 25 céntimos (Cambio restante = 12)</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Elige 10 céntimos (Cambio restante = 2)</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Elige 1 céntimo (Cambio restante = 1)</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Elige 1 céntimo (Cambio restante = 0)</p>
-          <p class="bg-green-50 p-3 rounded shadow-sm font-bold text-green-900 text-sm">Resultado: 25, 10, 1, 1 (4 monedas)</p>
-        </div>
-        <p class="text-sm text-gray-700 mt-4">Para el sistema de monedas estándar, este algoritmo Greedy SIEMPRE da la solución óptima. Pero no funciona para todos los sistemas de monedas.</p>
       `
     },
     {
-      id: 'pnn7-4',
-      title: '4. Problema del Cambio: Planteamiento',
-      notes: 'Definir entradas y objetivo del problema del cambio.',
+      id: 'pnn7-4-activity',
+      title: 'El Ejecutivo Ocupado',
+      notes: 'Selección de actividades.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Dar cambio con el menor número de monedas</h3>
-        <p class="text-gray-600 mb-4">Entrada: un monto <code>M</code> y un sistema de monedas <code>[m1, m2, ..., md]</code>. Objetivo: usar la menor cantidad de monedas para sumar exactamente <code>M</code>.</p>
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg my-4">
-          <h5 class="font-bold text-blue-900">Estrategia Greedy</h5>
-          <p class="text-sm text-blue-800 mt-2">Ordena las monedas de mayor a menor y toma repetidamente la mayor ≤ restante.</p>
-        </div>
-        <p class="text-sm text-gray-700">Para sistemas canónicos (como 1,5,10,25) esta estrategia es óptima.</p>
-      `
-    },
-    {
-      id: 'pnn7-5',
-      title: '5. Estrategia Voraz para el Almacenamiento',
-      notes: 'Proponer la estrategia Greedy y justificar su optimalidad.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">La Elección Intuitiva y Óptima</h3>
-        <p class="text-gray-600 mb-4">Para minimizar el MRT, la estrategia voraz es simple y, en este caso, ¡demostrablemente óptima!</p>
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg my-4">
-          <h5 class="font-bold text-green-900">Estrategia Greedy: Ordenar por Longitud Ascendente</h5>
-          <p class="text-sm text-green-800 mt-2">
-            Almacena los programas en la cinta en orden de <strong>longitud creciente</strong> (del más corto al más largo).
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">Selección de Actividades</h3>
+          <p class="text-slate-600">
+            Tienes muchas reuniones posibles, pero solo una sala. ¿Cómo metes la mayor cantidad de reuniones?
+            <br><strong>Estrategia Greedy:</strong> Elige siempre la que <em>termine primero</em> (para dejar la sala libre lo antes posible).
           </p>
-        </div>
-        <p class="text-sm text-gray-700">
-          <strong>Justificación:</strong> Colocar los programas más cortos al principio de la cinta reduce su tiempo de recuperación (y el de todos los programas posteriores) más que si colocáramos un programa más largo. Esto minimiza el tiempo de espera acumulado.
-        </p>
-        <div class="bg-white p-4 rounded-lg shadow-sm border mt-4">
-          <h4 class="font-bold text-slate-800 mb-2">Mini-actividad</h4>
-          <p class="text-sm text-gray-700">Calcula el MRT para <code>[5, 10, 3]</code> ordenados como <code>[3, 5, 10]</code>.</p>
-          <ul class="list-disc list-inside text-xs text-gray-600 mt-2">
-            <li>P1 (3): T = 3</li>
-            <li>P2 (5): T = 3 + 5 = 8</li>
-            <li>P3 (10): T = 3 + 5 + 10 = 18</li>
-            <li>MRT = (3 + 8 + 18) / 3 = 29 / 3 ≈ 9.67</li>
-          </ul>
-        </div>
-      `
-    },
-    {
-      id: 'pnn7-5a',
-      title: '5. Código Python: Cambio Greedy',
-      notes: 'Implementación del cambio en Python con trazas.',
-      contentHtml: `
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <h5 class="text-gray-400 mb-2"># Python</h5>
-          <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">from typing import List
 
-def cambio_greedy(monto: int, monedas: List[int]) -> List[int]:
-    # Ordenar de mayor a menor
-    monedas = sorted(monedas, reverse=True)
-    resultado = []
-    restante = monto
-    for m in monedas:
-        while restante >= m:
-            resultado.append(m)
-            restante -= m
-    return resultado
-
-print(cambio_greedy(37, [25,10,5,1]))  # [25, 10, 1, 1]
-          </code></pre>
-        </div>
-      `
-    },
-    {
-      id: 'pnn7-6',
-      title: '6. Cambio: Paso a paso',
-      notes: 'Trazas manuales con montos distintos.',
-      contentHtml: `
-        <div class="space-y-3">
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 63 → [25, 25, 10, 1, 1, 1]</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 99 → [25, 25, 25, 10, 10, 1, 1, 1, 1]</p>
-          <p class="bg-white p-3 rounded shadow-sm text-sm">Monto 32 → [25, 5, 1, 1]</p>
-        </div>
-      `
-    },
-    {
-      id: 'pnn7-7',
-      title: '7. Segundo ejemplo práctico: Selección de actividades (Python)',
-      notes: 'Caso clásico Greedy en Python.',
-      contentHtml: `
-        <div class="space-y-4">
-          <p class="text-gray-700">Dado un conjunto de actividades (inicio, fin), selecciona el máximo número de actividades compatibles ordenando por tiempo de fin.</p>
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto"><code class="language-python">from typing import List, Tuple
-
-def seleccionar_actividades(act: List[Tuple[int,int]]) -> List[Tuple[int,int]]:
-    act = sorted(act, key=lambda x: x[1])  # ordenar por fin
-    res: List[Tuple[int,int]] = []
-    fin_actual = -10**9
-    for inicio, fin in act:
-        if inicio >= fin_actual:
-            res.append((inicio, fin))
-            fin_actual = fin
-    return res
-
-print(seleccionar_actividades([(1,4),(3,5),(0,6),(5,7),(8,9)]))
-            </code></pre>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn7-8',
-      title: '8. Análisis de Complejidad',
-      notes: 'Análisis de tiempo y espacio del algoritmo Greedy.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Eficiencia del Algoritmo Greedy</h3>
-        <p class="text-gray-600 mb-4">La complejidad de los ejemplos vistos está dominada por el ordenamiento.</p>
-        <div class="grid md:grid-cols-2 gap-6 mt-4">
-            <div class="bg-slate-50 p-4 rounded border">
-                <h5 class="font-bold text-slate-800">Complejidad Temporal</h5>
-                <p class="text-3xl font-mono font-bold text-green-600">O(N log N)</p>
-                <p class="text-xs text-gray-600">Debido al ordenamiento (ej. con sort). Los bucles son O(N).</p>
+          <div class="relative w-full h-48 bg-slate-100 rounded-xl border border-slate-300 overflow-hidden mt-8">
+            <!-- Línea de tiempo -->
+            <div class="absolute top-1/2 w-full h-1 bg-slate-300 transform -translate-y-1/2"></div>
+            
+            <!-- Actividades -->
+            <!-- A1: 1-3 (Seleccionada) -->
+            <div class="absolute top-4 left-[10%] w-[20%] h-12 bg-green-500 rounded shadow-lg flex items-center justify-center text-white font-bold text-xs z-10">
+              A1 (1-3) ✅
             </div>
-            <div class="bg-slate-50 p-4 rounded border">
-                <h5 class="font-bold text-slate-800">Complejidad Espacial</h5>
-                <p class="text-3xl font-mono font-bold text-blue-600">O(1) o O(N)</p>
-                <p class="text-xs text-gray-600">Depende del algoritmo de ordenamiento y estructura auxiliar usada.</p>
+
+            <!-- A2: 2-5 (Conflicto) -->
+            <div class="absolute bottom-4 left-[20%] w-[30%] h-12 bg-red-300 rounded shadow opacity-50 flex items-center justify-center text-white font-bold text-xs">
+              A2 (2-5) ❌
             </div>
+
+            <!-- A3: 4-7 (Seleccionada) -->
+            <div class="absolute top-4 left-[40%] w-[30%] h-12 bg-green-500 rounded shadow-lg flex items-center justify-center text-white font-bold text-xs z-10">
+              A3 (4-7) ✅
+            </div>
+
+            <!-- A4: 6-9 (Conflicto) -->
+            <div class="absolute bottom-4 left-[60%] w-[30%] h-12 bg-red-300 rounded shadow opacity-50 flex items-center justify-center text-white font-bold text-xs">
+              A4 (6-9) ❌
+            </div>
+             
+             <!-- A5: 8-10 (Seleccionada) -->
+            <div class="absolute top-4 left-[80%] w-[15%] h-12 bg-green-500 rounded shadow-lg flex items-center justify-center text-white font-bold text-xs z-10">
+              A5 ✅
+            </div>
+          </div>
+          
+          <div class="text-center text-sm text-slate-500">
+            Al elegir la que termina antes (A1), liberamos espacio para A3, y luego para A5.
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn7-9-contr',
-      title: '9. Contraejemplo: Monedas no canónicas',
-      notes: 'Mostrar que Greedy puede fallar en ciertos sistemas de monedas.',
+      id: 'pnn7-5-code',
+      title: 'Código: Selección de Actividades',
+      notes: 'Implementación en Python.',
       contentHtml: `
-        <div class="space-y-4">
-          <p class="text-gray-700">Sistema de monedas: <code>[10, 9, 1]</code>; monto: <code>18</code>.</p>
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <p class="text-sm text-slate-700"><strong>Greedy</strong>: toma 10 y luego ocho monedas de 1 → total <strong>9</strong> monedas.</p>
-            <p class="text-sm text-slate-700"><strong>Óptimo</strong>: 9 + 9 → total <strong>2</strong> monedas.</p>
+        <div class="grid md:grid-cols-2 gap-6 h-full">
+          <div class="flex flex-col justify-center space-y-4">
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900">La Clave</h4>
+              <p class="text-sm text-blue-800">
+                <code>act.sort(key=lambda x: x[1])</code>
+                <br>Ordenar por tiempo de finalización es el paso mágico.
+              </p>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+              <h4 class="font-bold text-slate-700">Complejidad</h4>
+              <p class="text-sm text-slate-600">
+                <strong>O(N log N)</strong> por el ordenamiento.
+                <br>El bucle es lineal O(N).
+              </p>
+            </div>
           </div>
-          <p class="text-sm text-slate-600">Lección: Greedy es óptimo en sistemas canónicos, pero no en cualquier conjunto de denominaciones. Si no puedes probar optimalidad, considera DP.</p>
-        </div>
-      `
-    },
-    {
-      id: 'pnn7-9',
-      title: '9. Ventajas y Desventajas de los Algoritmos Voraces',
-      notes: 'Resumen de los pros y contras de la estrategia Greedy.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">¿Cuándo Usar Greedy?</h3>
-        <p class="text-gray-600 mb-4">Los algoritmos voraces son atractivos por su simplicidad, pero no siempre funcionan.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-             <h5 class="font-bold text-green-900">Ventajas</h5>
-             <ul class="list-disc pl-5 text-sm text-green-800">
-               <li><strong>Simples de entender e implementar.</strong></li>
-               <li>Suelen ser <strong>muy eficientes</strong> computacionalmente.</li>
-               <li>Si funcionan, son la mejor opción.</li>
-             </ul>
-          </div>
-          <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
-             <h5 class="font-bold text-red-900">Desventajas</h5>
-             <ul class="list-disc pl-5 text-sm text-red-800">
-               <li><strong>No siempre garantizan la solución óptima global.</strong></li>
-               <li>Requieren una prueba de optimalidad para asegurar que funcionan correctamente.</li>
-               <li>A veces, una "mejor" elección local puede llevar a un callejón sin salida.</li>
-             </ul>
-          </div>
-        </div>
-      `
-    },
+
+          <div class="flex flex-col h-full">
+            <div class="bg-yellow-500 text-white px-4 py-2 rounded-t-lg font-bold text-sm">Python</div>
+            <div class="bg-slate-900 p-4 rounded-b-lg overflow-auto custom-scrollbar flex-1 text-xs font-mono text-yellow-100">
+<pre><code class="language-python">def seleccion_actividades(actividades):
+    # actividades = [(inicio, fin), ...]
     
-    {
-      id: 'pnn7-end-questions',
-      title: '¿Preguntas?',
-      notes: 'Espacio para dudas.',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">¿Dudas sobre Greedy o Almacenamiento Óptimo?</h3>
+    # 1. Ordenar por tiempo de fin (x[1])
+    actividades.sort(key=lambda x: x[1])
+    
+    seleccionadas = []
+    ultimo_fin = -1
+    
+    for inicio, fin in actividades:
+        # 2. Si la actividad empieza después 
+        # de que termine la última elegida...
+        if inicio >= ultimo_fin:
+            seleccionadas.append((inicio, fin))
+            ultimo_fin = fin
+            
+    return seleccionadas
+
+# Ejemplo
+reuniones = [(1,4), (3,5), (0,6), (5,7), (3,8), (5,9), (6,10), (8,11)]
+print(seleccion_actividades(reuniones))
+# Output: [(1, 4), (5, 7), (8, 11)]</code></pre>
+            </div>
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn7-end-thanks',
-      title: 'Gracias y Próxima Clase',
-      notes: 'Cierre y adelanto.',
+      id: 'pnn7-6-summary',
+      title: 'Resumen Voraz',
+      notes: 'Conclusión.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center">
-          <h2 class="text-3xl font-bold text-slate-900 mb-4">Fin del Módulo 7</h2>
-          <p class="text-gray-600 text-lg">Hemos introducido los algoritmos voraces. En la próxima clase, aplicaremos esta estrategia a otros problemas clásicos de optimización: la <b>Mochila Fraccional</b> y la <b>Intercalación Óptima</b>.</p>
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-8">
+          <h2 class="text-3xl font-bold text-slate-800">¿Cuándo ser Voraz?</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+            <div class="bg-green-50 p-6 rounded-xl border-2 border-green-200">
+              <span class="text-4xl">✅</span>
+              <h3 class="text-xl font-bold text-green-900 mt-4">Úsalo cuando...</h3>
+              <p class="text-green-800 mt-2 text-sm">
+                El problema tiene "subestructura óptima" y la "propiedad de elección voraz" (demostrable matemáticamente).
+                Ej: Cambio de monedas (sistemas estándar), Kruskal, Prim, Dijkstra.
+              </p>
+            </div>
+
+            <div class="bg-red-50 p-6 rounded-xl border-2 border-red-200">
+              <span class="text-4xl">🛑</span>
+              <h3 class="text-xl font-bold text-red-900 mt-4">Evítalo cuando...</h3>
+              <p class="text-red-800 mt-2 text-sm">
+                Las decisiones futuras afectan la validez de las decisiones actuales.
+                Ej: Problema de la Mochila (0/1 Knapsack), Cambio de monedas (sistemas raros).
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <p class="text-slate-500 italic">Próxima clase: Llenaremos mochilas con objetos fraccionables.</p>
+          </div>
         </div>
       `
     }

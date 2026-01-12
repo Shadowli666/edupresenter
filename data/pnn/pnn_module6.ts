@@ -2,52 +2,78 @@ import { Module } from '../../types';
 
 export const PNN_MODULE_6: Module = {
   id: 'pnn-mod-6',
-  title: '6. Repaso del Corte I: Fundamentos Algorítmicos',
-  description: 'Repaso de árboles, heaps, Divide y Conquista, y algoritmos de ordenamiento. Entrega de notas.',
+  title: '6. Repaso del Corte I: La Galería Algorítmica',
+  description: 'Un recorrido visual por las estructuras y algoritmos dominados. Entrega de notas.',
   evaluation: 'Cierre de Corte',
   slides: [
     {
       id: 'pnn6-1',
-      title: 'Repaso del Corte I: ¿Qué Hemos Construido?',
-      notes: 'Iniciar la clase con un resumen de alto nivel de los temas cubiertos.',
+      title: 'Bienvenido a la Galería',
+      notes: 'Introducción al repaso con metáfora de museo.',
       contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
-            <h3 class="text-xl font-bold text-orange-900 mb-2">Fundamentos de Algoritmos y Estructuras</h3>
-            <p class="text-orange-800">En este primer corte, hemos establecido las bases de cómo estructurar datos y resolver problemas de forma eficiente.</p>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-4xl font-bold text-slate-900 mb-6">La Galería del Corte I</h1>
+            <p class="text-xl text-slate-700 leading-relaxed">
+              Hemos recorrido un largo camino, desde las estructuras jerárquicas hasta los algoritmos de ordenamiento más veloces.
+              Hoy, pasearemos por esta galería para admirar nuestras herramientas antes de cerrar el capítulo.
+            </p>
           </div>
-          <ul class="list-decimal pl-5 space-y-2 text-gray-700">
-            <li><strong>Módulo 1: Teoría de Árboles.</strong> Conceptos, terminología, árboles binarios y su relevancia para la optimización.</li>
-            <li><strong>Módulo 2: Heaps.</strong> Estructura del montículo, propiedades, representación en arreglos, y algoritmos de inserción/heapify.</li>
-            <li><strong>Módulo 3: Divide y Conquista.</strong> Paradigma algorítmico, recursividad, búsqueda binaria, y algoritmos para encontrar máximos y mínimos.</li>
-            <li><strong>Módulo 4: Merge Sort.</strong> Algoritmo de ordenamiento por fusión, análisis de complejidad y concepto de ordenamiento externo.</li>
-            <li><strong>Módulo 5: Quick Sort.</strong> Algoritmo de ordenamiento rápido, función de partición, análisis de casos y estrategias de pivote.</li>
-          </ul>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-6xl">
+            <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-green-500 flex flex-col items-center transform hover:scale-105 transition-transform">
+              <span class="text-4xl mb-2">🌳</span>
+              <h3 class="font-bold text-slate-700">El Bosque</h3>
+              <p class="text-xs text-slate-500 text-center">Árboles y Heaps</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-500 flex flex-col items-center transform hover:scale-105 transition-transform">
+              <span class="text-4xl mb-2">⚔️</span>
+              <h3 class="font-bold text-slate-700">La Estrategia</h3>
+              <p class="text-xs text-slate-500 text-center">Divide y Conquista</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-purple-500 flex flex-col items-center transform hover:scale-105 transition-transform">
+              <span class="text-4xl mb-2">📚</span>
+              <h3 class="font-bold text-slate-700">El Orden</h3>
+              <p class="text-xs text-slate-500 text-center">Merge & Quick Sort</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-yellow-500 flex flex-col items-center transform hover:scale-105 transition-transform">
+              <span class="text-4xl mb-2">🏆</span>
+              <h3 class="font-bold text-slate-700">El Logro</h3>
+              <p class="text-xs text-slate-500 text-center">Tus Notas</p>
+            </div>
+          </div>
         </div>
       `
     },
     {
       id: 'pnn6-2-trees-heaps',
-      title: 'Conceptos Clave: Árboles y Heaps',
-      notes: 'Repasar la anatomía de un árbol y las propiedades del Heap.',
+      title: 'Sala 1: Jerarquías y Prioridades',
+      notes: 'Repaso de Árboles y Heaps.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Jerarquías para la Eficiencia</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500 shadow-sm">
-             <h4 class="font-bold text-blue-900 mb-2">Árboles Binarios</h4>
-             <ul class="list-disc pl-5 text-sm text-blue-800">
-               <li>Estructura no lineal con un nodo raíz y máximo dos hijos.</li>
-               <li>Terminología: Raíz, Nodo, Hoja, Padre, Hijo, Altura, Nivel, Grado.</li>
-               <li>Recorridos (Pre-orden, In-orden, Post-orden) para visitar nodos.</li>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="bg-green-50 p-8 rounded-xl border-2 border-green-200 flex flex-col items-center text-center">
+             <div class="text-6xl mb-4">🌳</div>
+             <h3 class="text-2xl font-bold text-green-900 mb-4">Árboles Binarios</h3>
+             <p class="text-green-800 mb-4">
+               La estructura fundamental para representar jerarquías.
+             </p>
+             <ul class="text-left text-sm text-green-900 space-y-2 bg-white p-4 rounded-lg shadow-sm w-full">
+               <li>✅ <strong>Raíz, Nodos, Hojas:</strong> El vocabulario básico.</li>
+               <li>✅ <strong>Recorridos:</strong> Pre-orden, In-orden, Post-orden.</li>
+               <li>✅ <strong>Aplicación:</strong> Estructura de archivos, DOM HTML.</li>
              </ul>
           </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-green-500 shadow-sm">
-             <h4 class="font-bold text-green-900 mb-2">Heaps (Montículos)</h4>
-             <ul class="list-disc pl-5 text-sm text-green-800">
-               <li>Árbol binario completo con propiedad de orden (Max-Heap o Min-Heap).</li>
-               <li>Representación eficiente en arreglos.</li>
-               <li>Operaciones básicas: Insertar (Sift-Up) y Extraer Max/Min (Sift-Down).</li>
-               <li>Aplicaciones: Colas de Prioridad, Heap Sort.</li>
+
+          <div class="bg-yellow-50 p-8 rounded-xl border-2 border-yellow-200 flex flex-col items-center text-center">
+             <div class="text-6xl mb-4">👑</div>
+             <h3 class="text-2xl font-bold text-yellow-900 mb-4">Heaps (Montículos)</h3>
+             <p class="text-yellow-800 mb-4">
+               Donde el "Jefe" (Max o Min) siempre está arriba.
+             </p>
+             <ul class="text-left text-sm text-yellow-900 space-y-2 bg-white p-4 rounded-lg shadow-sm w-full">
+               <li>✅ <strong>Propiedad de Orden:</strong> Padre >= Hijo (Max-Heap).</li>
+               <li>✅ <strong>Array Mágico:</strong> Se guarda en un arreglo simple.</li>
+               <li>✅ <strong>Aplicación:</strong> Colas de Prioridad (Urgencias).</li>
              </ul>
           </div>
         </div>
@@ -55,154 +81,228 @@ export const PNN_MODULE_6: Module = {
     },
     {
       id: 'pnn6-3-dnc',
-      title: 'Conceptos Clave: Divide y Conquista (D&C)',
-      notes: 'Repasar el paradigma D&C y la recursividad.',
+      title: 'Sala 2: El Arte de la Guerra',
+      notes: 'Repaso de Divide y Conquista.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">La Estrategia Maestra de Resolución de Problemas</h3>
-        <p class="text-gray-600 mb-4">Divide y Conquista es un paradigma para resolver problemas complejos:</p>
-        <div class="grid md:grid-cols-3 gap-4 text-center">
-            <div class="bg-blue-50 p-4 rounded-lg"><h5 class="font-bold text-blue-900">1. Dividir</h5><p class="text-sm text-blue-800">Problema en subproblemas.</p></div>
-            <div class="bg-purple-50 p-4 rounded-lg"><h5 class="font-bold text-purple-900">2. Conquistar</h5><p class="text-sm text-purple-800">Resolver recursivamente.</p></div>
-            <div class="bg-green-50 p-4 rounded-lg"><h5 class="font-bold text-green-900">3. Combinar</h5><p class="text-sm text-green-800">Unir soluciones.</p></div>
-        </div>
-        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mt-4">
-          <h4 class="font-bold text-yellow-900 mb-2">Recursividad</h4>
-          <p class="text-sm text-yellow-800">La recursividad es la herramienta para implementar D&C. Vital recordar el <strong>caso base</strong> para evitar Stack Overflow.</p>
+        <div class="flex flex-col items-center justify-center h-full">
+          <h3 class="text-3xl font-bold text-slate-800 mb-8">Divide y Conquista</h3>
+          
+          <div class="flex items-center gap-4 w-full max-w-4xl">
+            
+            <div class="flex-1 bg-blue-100 p-6 rounded-xl border-2 border-blue-300 text-center relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">1</div>
+              <h4 class="text-xl font-bold text-blue-900">Dividir</h4>
+              <p class="text-sm text-blue-800 mt-2">Romper el problema grande en pedazos pequeños.</p>
+              <div class="mt-4 flex justify-center gap-2">
+                <div class="w-8 h-8 bg-blue-300 rounded"></div>
+                <div class="w-8 h-8 bg-blue-300 rounded"></div>
+              </div>
+            </div>
+
+            <div class="text-4xl text-slate-300">➡️</div>
+
+            <div class="flex-1 bg-purple-100 p-6 rounded-xl border-2 border-purple-300 text-center relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">2</div>
+              <h4 class="text-xl font-bold text-purple-900">Conquistar</h4>
+              <p class="text-sm text-purple-800 mt-2">Resolver recursivamente (Caso Base es clave).</p>
+              <div class="mt-4 flex justify-center gap-2">
+                <div class="w-8 h-8 bg-purple-400 rounded animate-pulse"></div>
+                <div class="w-8 h-8 bg-purple-400 rounded animate-pulse"></div>
+              </div>
+            </div>
+
+            <div class="text-4xl text-slate-300">➡️</div>
+
+            <div class="flex-1 bg-green-100 p-6 rounded-xl border-2 border-green-300 text-center relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">3</div>
+              <h4 class="text-xl font-bold text-green-900">Combinar</h4>
+              <p class="text-sm text-green-800 mt-2">Unir las soluciones pequeñas en la solución final.</p>
+              <div class="mt-4 flex justify-center">
+                <div class="w-16 h-8 bg-green-500 rounded shadow-lg"></div>
+              </div>
+            </div>
+
+          </div>
         </div>
       `
     },
     {
       id: 'pnn6-4-sorting',
-      title: 'Algoritmos de Ordenamiento: Merge Sort vs. Quick Sort',
-      notes: 'Comparar los dos algoritmos de ordenamiento vistos.',
+      title: 'Sala 3: El Duelo de Titanes',
+      notes: 'Merge Sort vs Quick Sort.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Ordenando con Eficiencia</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white p-4 rounded-lg border-l-4 border-teal-500 shadow-sm">
-             <h4 class="font-bold text-teal-900 mb-2">Merge Sort</h4>
-             <ul class="list-disc pl-5 text-sm text-teal-800">
-               <li>Divide el arreglo en mitades y las fusiona ordenadamente.</li>
-               <li>Tiempo: <strong>O(N log N)</strong> en todos los casos.</li>
-               <li>Espacio: <strong>O(N)</strong> (no in-place). Estable.</li>
-               <li>Ideal para ordenamiento externo.</li>
-             </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-center">
+          
+          <!-- Merge Sort -->
+          <div class="bg-white p-6 rounded-xl shadow-lg border-t-8 border-indigo-500 h-full flex flex-col">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-4xl">🤐</span>
+              <div>
+                <h3 class="text-2xl font-bold text-indigo-900">Merge Sort</h3>
+                <span class="text-xs font-bold text-indigo-500 uppercase tracking-wide">El Bibliotecario</span>
+              </div>
+            </div>
+            <ul class="space-y-3 text-slate-600 flex-1">
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <span><strong>Estable:</strong> Mantiene el orden original de iguales.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <span><strong>Predecible:</strong> Siempre O(N log N).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-500 font-bold">✗</span>
+                <span><strong>Memoria:</strong> Usa O(N) extra (no es in-place).</span>
+              </li>
+            </ul>
+            <div class="mt-4 bg-indigo-50 p-3 rounded text-center text-sm font-bold text-indigo-800">
+              "Lento pero seguro."
+            </div>
           </div>
-          <div class="bg-white p-4 rounded-lg border-l-4 border-red-500 shadow-sm">
-             <h4 class="font-bold text-red-900 mb-2">Quick Sort</h4>
-             <ul class="list-disc pl-5 text-sm text-red-800">
-               <li>Particiona el arreglo alrededor de un pivote.</li>
-               <li>Tiempo: <strong>O(N log N)</strong> promedio, pero <strong>O(N²)</strong> peor caso.</li>
-               <li>Espacio: <strong>O(log N)</strong> (in-place). No estable.</li>
-               <li>Generalmente más rápido en la práctica.</li>
-             </ul>
+
+          <!-- Quick Sort -->
+          <div class="bg-white p-6 rounded-xl shadow-lg border-t-8 border-red-500 h-full flex flex-col">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-4xl">⚡</span>
+              <div>
+                <h3 class="text-2xl font-bold text-red-900">Quick Sort</h3>
+                <span class="text-xs font-bold text-red-500 uppercase tracking-wide">El Organizador</span>
+              </div>
+            </div>
+            <ul class="space-y-3 text-slate-600 flex-1">
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <span><strong>Rápido:</strong> Muy veloz en la práctica (cache-friendly).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <span><strong>In-Place:</strong> Solo usa pila de recursión O(log N).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-500 font-bold">✗</span>
+                <span><strong>Riesgo:</strong> O(N²) si el pivote es malo.</span>
+              </li>
+            </ul>
+            <div class="mt-4 bg-red-50 p-3 rounded text-center text-sm font-bold text-red-800">
+              "Rápido y furioso."
+            </div>
           </div>
+
         </div>
       `
     },
     {
-      id: 'pnn6-5-common-errors',
-      title: 'Errores Comunes a Evitar en el Primer Corte',
-      notes: 'Resaltar los errores típicos de esta sección.',
+      id: 'pnn6-5-challenge',
+      title: 'Sala 4: Desafío Mental',
+      notes: 'Mini-reto interactivo.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Cuidado con...</h3>
-        <ul class="list-disc pl-5 space-y-3 text-gray-700">
-            <li><strong>Casos Base Faltantes/Incorrectos:</strong> En recursividad, un caso base mal definido lleva a bucles infinitos y Stack Overflow.</li>
-            <li><strong>Propiedad del Heap Violada:</strong> No restaurar correctamente la propiedad del montículo después de <code>insert</code> o <code>extractMax/Min</code> (errores en Sift-Up/Sift-Down).</li>
-            <li><strong>Partición Incorrecta en Quicksort:</strong> Un error en la función <code>partition</code> puede llevar a un ordenamiento incorrecto o al peor caso de complejidad.</li>
-            <li><strong>Fugas de Memoria (C++):</strong> Olvidar <code>delete</code> o <code>delete[]</code> en estructuras dinámicas, especialmente en árboles o Heaps construidos manualmente.</li>
-        </ul>
-      `
-    },
-    {
-      id: 'pnn6-6-challenge',
-      title: 'Mini-Reto: El Mejor Algoritmo para la Tarea',
-      notes: 'Ejercicio conceptual integrador.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Piensa como un Ingeniero</h3>
-        <p class="text-gray-600 mb-4">Para cada escenario, ¿qué algoritmo/estructura sería la más adecuada y por qué?</p>
-        <div class="space-y-4">
-            <div class="p-4 border rounded-lg bg-white">
-                <p class="font-semibold">1. Ordenar una lista de estudiantes por calificación, manteniendo el orden de llegada si tienen la misma calificación.</p>
-                <p class="mt-1 text-blue-700 font-bold">&rarr; Merge Sort (es estable y eficiente).</p>
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">¿Qué herramienta usarías?</h3>
+          
+          <div class="grid gap-4">
+            
+            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-slate-400 hover:border-blue-500 transition-colors group">
+              <div class="flex justify-between items-center">
+                <p class="font-semibold text-slate-700">1. Sala de Urgencias: Atender al paciente más grave.</p>
+                <span class="opacity-0 group-hover:opacity-100 text-blue-600 font-bold transition-opacity">Max-Heap (Priority Queue)</span>
+              </div>
             </div>
-            <div class="p-4 border rounded-lg bg-white">
-                <p class="font-semibold">2. Encontrar el paciente con mayor urgencia en una sala de emergencias.</p>
-                <p class="mt-1 text-blue-700 font-bold">&rarr; Max-Heap (para implementar una Cola de Prioridad).</p>
+
+            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-slate-400 hover:border-indigo-500 transition-colors group">
+              <div class="flex justify-between items-center">
+                <p class="font-semibold text-slate-700">2. Ordenar exámenes por nota, manteniendo orden de entrega.</p>
+                <span class="opacity-0 group-hover:opacity-100 text-indigo-600 font-bold transition-opacity">Merge Sort (Estable)</span>
+              </div>
             </div>
-             <div class="p-4 border rounded-lg bg-white">
-                <p class="font-semibold">3. Buscar rápidamente un nombre en un directorio telefónico muy grande.</p>
-                <p class="mt-1 text-blue-700 font-bold">&rarr; Búsqueda Binaria (si está ordenado), o BST si se requieren inserciones/eliminaciones frecuentes.</p>
+
+            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-slate-400 hover:border-red-500 transition-colors group">
+              <div class="flex justify-between items-center">
+                <p class="font-semibold text-slate-700">3. Ordenar millones de datos en la memoria RAM lo más rápido posible.</p>
+                <span class="opacity-0 group-hover:opacity-100 text-red-600 font-bold transition-opacity">Quick Sort (Rápido & In-Place)</span>
+              </div>
             </div>
+
+          </div>
+          
+          <p class="text-center text-sm text-slate-500 mt-8">
+            (Pasa el mouse sobre las tarjetas para ver la respuesta)
+          </p>
         </div>
       `
     },
     {
-      id: 'pnn6-7-results',
-      title: 'Resultados del Corte I',
-      notes: 'Entrega formal de las calificaciones del primer corte.',
+      id: 'pnn6-6-results',
+      title: 'Sala 5: Resultados del Corte',
+      notes: 'Entrega de notas.',
       contentHtml: `
-        <div class="space-y-6">
-           <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
-            <h3 class="text-xl font-bold text-orange-900 mb-2">Resumen de Evaluaciones</h3>
-            <p class="text-orange-800">Ponderación oficial de las actividades realizadas en el primer corte.</p>
-          </div>
-          <div class="overflow-x-auto border rounded-xl shadow-sm">
-            <table class="min-w-full text-sm text-left">
-              <thead class="bg-slate-100 text-slate-700 font-bold">
-                <tr><th class="p-3">Actividad</th><th class="p-3">Tema</th><th class="p-3 text-center">Valor</th><th class="p-3 text-center">Estado</th></tr>
+        <div class="flex flex-col items-center justify-center h-full w-full">
+           <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-3xl border border-slate-200">
+            <div class="flex items-center justify-between mb-6 border-b pb-4">
+              <h3 class="text-2xl font-bold text-slate-800">Boletín Oficial: Corte I</h3>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">Estado: Finalizado</span>
+            </div>
+            
+            <table class="w-full text-left">
+              <thead class="bg-slate-50 text-slate-500 text-xs uppercase font-bold">
+                <tr>
+                  <th class="p-4 rounded-l-lg">Actividad</th>
+                  <th class="p-4">Tema</th>
+                  <th class="p-4 text-right rounded-r-lg">Ponderación</th>
+                </tr>
               </thead>
-              <tbody class="divide-y bg-white">
-                <tr>
-                  <td class="p-3">Taller Práctico</td><td class="p-3">Divide y Conquista</td><td class="p-3 text-center font-bold">10%</td><td class="p-3 text-center text-green-600">Calificado</td>
+              <tbody class="divide-y divide-slate-100">
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-4 font-medium text-slate-700">Taller Práctico</td>
+                  <td class="p-4 text-slate-500">Divide y Conquista</td>
+                  <td class="p-4 text-right font-bold text-blue-600">10%</td>
                 </tr>
-                <tr>
-                  <td class="p-3">Prueba Escrita</td><td class="p-3">Ordenamiento (Merge, Quick)</td><td class="p-3 text-center font-bold">20%</td><td class="p-3 text-center text-green-600">Calificado</td>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-4 font-medium text-slate-700">Prueba Escrita</td>
+                  <td class="p-4 text-slate-500">Ordenamiento (Merge & Quick)</td>
+                  <td class="p-4 text-right font-bold text-blue-600">20%</td>
                 </tr>
-                <tr class="bg-slate-50 font-bold"><td class="p-3" colspan="2">TOTAL CORTE I</td><td class="p-3 text-center text-lg">30%</td><td></td></tr>
+                <tr class="bg-slate-50">
+                  <td class="p-4 font-bold text-slate-900" colspan="2">NOTA FINAL CORTE I</td>
+                  <td class="p-4 text-right font-bold text-2xl text-indigo-600">30%</td>
+                </tr>
               </tbody>
             </table>
+
+            <div class="mt-6 text-center">
+              <p class="text-sm text-slate-500">
+                Por favor, acérquese al escritorio para revisar su nota individual.
+              </p>
+            </div>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn6-8-next',
-      title: 'Preparándonos para el Corte II: Algoritmos Voraces',
-      notes: 'Teaser de los próximos temas.',
+      id: 'pnn6-7-next',
+      title: 'Próxima Atracción: La Codicia',
+      notes: 'Teaser del siguiente tema.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Hacia la Toma de Decisiones Óptimas</h3>
-        <p class="text-gray-600 mb-6">Hemos explorado cómo dividir problemas. Ahora, nos enfocaremos en estrategias para tomar la "mejor decisión local" en cada paso, buscando una solución óptima global.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-            <div class="bg-white p-5 border rounded-lg shadow-sm">
-              <h4 class="font-bold text-emerald-700 text-lg">Algoritmos Voraces (Greedy)</h4>
-              <p class="text-sm text-gray-600">Enfocados en hacer la elección óptima en cada paso, sin mirar al futuro. ¿Funciona siempre?</p>
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+          <h2 class="text-3xl font-bold text-slate-800">Próximamente en el Corte II...</h2>
+          
+          <div class="bg-gradient-to-r from-emerald-500 to-teal-600 p-1 rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div class="bg-white p-8 rounded-xl">
+              <h3 class="text-2xl font-bold text-emerald-800 mb-2">Algoritmos Voraces (Greedy)</h3>
+              <p class="text-slate-600 mb-4">
+                ¿Es posible llegar a la mejor solución global tomando siempre la mejor decisión inmediata?
+              </p>
+              <div class="flex justify-center gap-4 text-4xl">
+                <span>💰</span>
+                <span>🏃</span>
+                <span>🎒</span>
+              </div>
             </div>
-            <div class="bg-white p-5 border rounded-lg shadow-sm">
-              <h4 class="font-bold text-sky-700 text-lg">Problemas de Optimización</h4>
-              <p class="text-sm text-gray-600">Aplicaremos Greedy a problemas clásicos como la mochila fraccional, árboles de costo mínimo y caminos más cortos.</p>
-            </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn6-end-questions',
-      title: 'Revisión de Calificaciones y Dudas',
-      notes: 'Espacio para consultas individuales.',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Consultas Individuales</h3>
-          <p class="text-center text-gray-600 max-w-md">Por favor, acérquese para revisar su nota del corte. Este es el momento de aclarar cualquier duda sobre las evaluaciones o el material cubierto.</p>
-        </div>
-      `
-    },
-    {
-      id: 'pnn6-end-thanks',
-      title: 'Fin del Corte I',
-      notes: 'Mensaje de cierre y motivación.',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center">
-          <h2 class="text-3xl font-bold text-slate-900 mb-4">¡Excelente Trabajo en este Primer Corte!</h2>
-          <p class="text-gray-600 text-lg">Sigan practicando y aplicando lo aprendido. Nos vemos en el segundo corte.</p>
+          </div>
+
+          <p class="text-slate-500 mt-8">
+            Prepárense para optimizar recursos, dar cambio y llenar mochilas.
+          </p>
         </div>
       `
     }

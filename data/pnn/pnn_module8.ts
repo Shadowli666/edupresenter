@@ -2,410 +2,441 @@ import { Module } from '../../types';
 
 export const PNN_MODULE_8: Module = {
   id: 'pnn-mod-8',
-  title: '8. Algoritmos Voraces: Knapsack Fraccional e Intercalación Óptima',
-  description: 'Aplicación de estrategias Greedy a problemas de la mochila fraccional y fusión óptima.',
+  title: '8. Aplicaciones Voraces: Mochila y Fusión',
+  description: 'Aplicación de estrategias Greedy a problemas clásicos: Mochila Fraccional e Intercalación Óptima.',
   evaluation: '0% - Ejercicios',
   slides: [
     {
       id: 'pnn8-1',
-      title: '1. Repaso: Algoritmos Voraces (Greedy)',
-      notes: 'Recordar el concepto de Greedy y sus componentes.',
+      title: 'Repaso: La Estrategia Voraz',
+      notes: 'Breve recordatorio del concepto Greedy.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700 text-lg">
-            Recordemos que un <strong>Algoritmo Voraz</strong> toma la decisión localmente óptima en cada paso, esperando que esto conduzca a una solución globalmente óptima.
-          </p>
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <h5 class="font-bold text-blue-900">Componentes Clave</h5>
-            <ul class="list-disc pl-5 text-sm text-blue-800 mt-2">
-              <li><strong>Función de Selección:</strong> Elige el mejor candidato.</li>
-              <li><strong>Función de Factibilidad:</strong> Verifica si el candidato es válido.</li>
-              <li><strong>Función Solución:</strong> Determina si la solución es completa.</li>
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">Algoritmos Voraces (Greedy)</h1>
+            <p class="text-lg text-slate-700">
+              Recordemos que un algoritmo voraz construye una solución paso a paso, eligiendo siempre la opción que ofrece el beneficio inmediato más alto (óptimo local).
+            </p>
+          </div>
+          
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500 max-w-3xl w-full">
+            <h3 class="font-bold text-blue-900 mb-2">Componentes Clave</h3>
+            <ul class="list-disc list-inside text-blue-800 space-y-1">
+              <li><strong>Criterio de Selección:</strong> ¿Qué define "lo mejor" en este momento?</li>
+              <li><strong>Factibilidad:</strong> ¿La elección respeta las restricciones?</li>
+              <li><strong>Solución:</strong> ¿Hemos alcanzado el objetivo?</li>
             </ul>
           </div>
-          <p class="text-gray-700 mt-4">La clave es probar la <strong>optimalidad</strong> del enfoque voraz para el problema específico.</p>
         </div>
       `
     },
     {
-      id: 'pnn8-2',
-      title: '2. Problema: La Mochila Fraccional (Fractional Knapsack)',
-      notes: 'Descripción del problema de la mochila fraccional.',
+      id: 'pnn8-2-knapsack-def',
+      title: 'Problema: La Mochila Fraccional',
+      notes: 'Definición formal del problema.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Maximizando el Valor en un Espacio Limitado</h3>
-        <p class="text-gray-600 mb-4">Imagina que tienes una mochila con una capacidad máxima (<code>W</code>) y una lista de objetos. Cada objeto tiene un <strong>peso</strong> (<code>wi</code>) y un <strong>valor</strong> (<code>vi</code>).</p>
-        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 my-4">
-          <h5 class="font-bold text-orange-900">Objetivo</h5>
-          <p class="text-sm text-orange-800 mt-2">Llenar la mochila de tal manera que la suma de los pesos no exceda <code>W</code> y la suma de los valores sea la máxima posible.</p>
-        </div>
-        <p class="text-gray-700">La variante <strong>Fraccional</strong> del problema permite tomar fracciones de un objeto. Esto es crucial, ya que si no se permite fraccionar, el problema se vuelve mucho más complejo (Programación Dinámica).</p>
-        <div class="flex justify-center my-4"><div class="mermaid">graph LR; A[Objeto 1: P=10, V=60] --> B[Objeto 2: P=20, V=100]; A --> C[Objeto 3: P=30, V=120];</div></div>
-      `
-    },
-    {
-      id: 'pnn8-3',
-      title: '3. Estrategia Voraz para Knapsack Fraccional',
-      notes: 'Explicar la estrategia Greedy y justificar su optimalidad.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">La Elección Más Lógica: Lo que "Rinde Más"</h3>
-        <p class="text-gray-600 mb-4">Para la versión fraccional del Knapsack, una estrategia voraz SIEMPRE conduce a la solución óptima.</p>
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg my-4">
-          <h5 class="font-bold text-green-900">Estrategia Greedy</h5>
-          <ol class="list-decimal pl-5 text-sm text-green-800 mt-2">
-            <li>Calcula la <strong>relación valor/peso</strong> (<code>vi/wi</code>) para cada objeto.</li>
-            <li><strong>Ordena</strong> los objetos en orden <strong>descendente</strong> según su relación valor/peso.</li>
-            <li>Itera por los objetos ordenados, añadiéndolos a la mochila:
-              <ul>
-                <li>Si el objeto cabe completo, añádelo y reduce la capacidad restante.</li>
-                <li>Si no cabe completo, toma la fracción que quepa y la mochila estará llena.</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-        <p class="text-sm text-gray-700 mt-4">Esta estrategia garantiza maximizar el valor total porque siempre prioriza los objetos que aportan más valor por cada unidad de peso.</p>
-      `
-    },
-    {
-      id: 'pnn8-4-knapsack-pseudo',
-      title: '4. Algoritmo: Knapsack Fraccional (Pseudocódigo)',
-      notes: 'Pseudocódigo del algoritmo Greedy para Knapsack Fraccional.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Paso a Paso hacia la Mochila Más Valiosa</h3>
-        <p class="text-gray-600 mb-4">Aquí el pseudocódigo que implementa la estrategia voraz para el problema de la mochila fraccional.</p>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo Knapsack Fraccional</h5>
-          <pre><code>
-FUNCIÓN knapsack_fraccional(capacidad_W, objetos):
-  // Cada objeto tiene (peso, valor)
-  
-  // Paso 1: Calcular relación valor/peso para cada objeto
-  PARA cada objeto en objetos:
-    objeto.ratio = objeto.valor / objeto.peso
-
-  // Paso 2: Ordenar objetos por ratio descendente
-  ordenar_descendente(objetos, por_ratio)
-  
-  valor_total = 0
-  peso_actual = 0
-  
-  // Paso 3: Iterar y llenar la mochila
-  PARA cada objeto en objetos:
-    SI peso_actual + objeto.peso <= capacidad_W:
-      peso_actual = peso_actual + objeto.peso
-      valor_total = valor_total + objeto.valor
-    SINO:
-      // Si el objeto no cabe completo, tomar una fracción
-      fraccion = (capacidad_W - peso_actual) / objeto.peso
-      valor_total = valor_total + (objeto.valor * fraccion)
-      peso_actual = capacidad_W // Mochila llena
-      ROMPER
-      
-  RETORNAR valor_total
-          </code></pre>
-        </div>
-      `
-    },
-    {
-      id: 'pnn8-5-knapsack-code',
-      title: '5. Práctica: Knapsack Fraccional (C++/Python)',
-      notes: 'Implementación del algoritmo en C++ y Python.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Implementando la Solución Greedy</h3>
-        <p class="text-gray-600 mb-4">Aquí el código para resolver el problema de la mochila fraccional.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre><code class="language-cpp">
-#include <iostream>
-#include <vector>
-#include <algorithm> // Para std::sort
-
-struct Objeto {
-    int peso;
-    int valor;
-    double ratio; // valor/peso
-
-    bool operator<(const Objeto& otro) const {
-        return ratio > otro.ratio; // Orden descendente por ratio
-    }
-};
-
-double knapsackFraccional(int capacidad, std::vector<Objeto>& objetos) {
-    for (auto& obj : objetos) {
-        obj.ratio = static_cast<double>(obj.valor) / obj.peso;
-    }
-    std::sort(objetos.begin(), objetos.end()); // Ordena por ratio
-
-    double valorTotal = 0.0;
-    int pesoActual = 0;
-
-    for (const auto& obj : objetos) {
-        if (pesoActual + obj.peso <= capacidad) {
-            pesoActual += obj.peso;
-            valorTotal += obj.valor;
-        } else {
-            double fraccion = static_cast<double>(capacidad - pesoActual) / obj.peso;
-            valorTotal += obj.valor * fraccion;
-            break;
-        }
-    }
-    return valorTotal;
-}
-
-// int main() {
-//    std::vector<Objeto> items = {{10, 60}, {20, 100}, {30, 120}};
-//    int W = 50;
-//    std::cout << knapsackFraccional(W, items); // Salida: 240
-// }
-            </code></pre>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Definición del Problema</h3>
+            <p class="text-slate-600">
+              Dado un conjunto de <i>n</i> objetos, donde cada objeto <i>i</i> tiene un peso <i>w<sub>i</sub></i> y un valor <i>v<sub>i</sub></i>, y una mochila con capacidad máxima <i>W</i>.
+            </p>
+            <div class="bg-slate-100 p-4 rounded border border-slate-300">
+              <h4 class="font-bold text-slate-700 mb-2">Objetivo</h4>
+              <p class="text-sm text-slate-600">
+                Maximizar el valor total &sum; <i>x<sub>i</sub> v<sub>i</sub></i> sujeto a &sum; <i>x<sub>i</sub> w<sub>i</sub></i> &le; <i>W</i>, donde 0 &le; <i>x<sub>i</sub></i> &le; 1 es la fracción del objeto <i>i</i> que tomamos.
+              </p>
+            </div>
+            <p class="text-sm text-slate-500 italic">
+              Nota: En la versión "Fraccional", podemos romper los objetos (como polvo de oro). En la versión "0/1" (lingotes), no podemos, y Greedy no funciona.
+            </p>
           </div>
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre><code class="language-python">
-class Objeto:
-    def __init__(self, peso, valor):
+
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center justify-center">
+            <div class="w-full max-w-xs bg-slate-200 h-48 rounded-lg border-2 border-slate-400 relative flex items-end justify-center overflow-hidden">
+              <span class="absolute top-2 right-2 text-xs font-bold text-slate-500">Capacidad W</span>
+              <div class="w-full bg-yellow-400 h-1/3 border-t border-yellow-500 flex items-center justify-center text-xs font-bold text-yellow-900">Objeto A (100%)</div>
+              <div class="w-full bg-blue-400 h-1/4 border-t border-blue-500 flex items-center justify-center text-xs font-bold text-blue-900">Objeto B (100%)</div>
+              <div class="w-full bg-red-400 h-1/6 border-t border-red-500 flex items-center justify-center text-xs font-bold text-red-900">Objeto C (50%)</div>
+            </div>
+            <p class="mt-4 text-center text-slate-600 text-sm">
+              Podemos llenar los huecos con fracciones de objetos.
+            </p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-3-strategy',
+      title: 'Estrategia: Densidad de Valor',
+      notes: 'Explicación del criterio de selección Greedy.',
+      contentHtml: `
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">El Criterio de Selección</h3>
+          <p class="text-slate-600">
+            Para maximizar el beneficio, no debemos mirar solo el valor total (<i>v<sub>i</sub></i>) ni solo el peso (<i>w<sub>i</sub></i>). Debemos mirar la <strong>proporción</strong>.
+          </p>
+          
+          <div class="flex justify-center gap-8 my-4">
+            <div class="bg-white p-6 rounded-lg shadow border-t-4 border-green-500 text-center">
+              <span class="text-4xl font-mono font-bold text-green-600">Ratio = <i>v<sub>i</sub></i> / <i>w<sub>i</sub></i></span>
+              <p class="text-sm text-slate-500 mt-2">Valor por unidad de peso (ej. $/kg)</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h4 class="font-bold text-slate-700 mb-4">Algoritmo Paso a Paso</h4>
+            <ol class="list-decimal list-inside space-y-2 text-slate-700">
+              <li><strong>Calcular Ratios:</strong> Obtener <i>r<sub>i</sub> = v<sub>i</sub> / w<sub>i</sub></i> para cada objeto.</li>
+              <li><strong>Ordenar:</strong> Organizar los objetos de mayor a menor ratio (descendente).</li>
+              <li><strong>Selección Voraz:</strong> Iterar por la lista ordenada:
+                <ul class="list-disc list-inside ml-6 text-sm text-slate-600 mt-1">
+                  <li>Si el objeto cabe completo, tómalo todo.</li>
+                  <li>Si no cabe completo, toma la fracción necesaria para llenar la mochila y termina.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-4-example',
+      title: 'Ejemplo Numérico',
+      notes: 'Traza del algoritmo.',
+      contentHtml: `
+        <div class="flex flex-col h-full">
+          <h3 class="text-xl font-bold text-slate-800 mb-4">Traza: Capacidad W = 50</h3>
+          
+          <table class="w-full text-sm text-left border-collapse mb-6">
+            <thead class="bg-slate-100 text-slate-700">
+              <tr>
+                <th class="p-2 border">Objeto</th>
+                <th class="p-2 border">Peso (<i>w<sub>i</sub></i>)</th>
+                <th class="p-2 border">Valor (<i>v<sub>i</sub></i>)</th>
+                <th class="p-2 border bg-yellow-50">Ratio (<i>v<sub>i</sub>/w<sub>i</sub></i>)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-2 border">A</td><td class="p-2 border">10</td><td class="p-2 border">60</td><td class="p-2 border font-bold text-green-600">6.0</td></tr>
+              <tr><td class="p-2 border">B</td><td class="p-2 border">20</td><td class="p-2 border">100</td><td class="p-2 border font-bold text-green-600">5.0</td></tr>
+              <tr><td class="p-2 border">C</td><td class="p-2 border">30</td><td class="p-2 border">120</td><td class="p-2 border font-bold text-green-600">4.0</td></tr>
+            </tbody>
+          </table>
+
+          <div class="space-y-2 font-mono text-sm bg-slate-900 text-green-400 p-4 rounded-lg">
+            <p>> Orden: A (6.0) -> B (5.0) -> C (4.0)</p>
+            <p>> Capacidad Restante: 50</p>
+            <p class="text-white">1. Tomar A (Peso 10). Restante: 40. Valor: 60.</p>
+            <p class="text-white">2. Tomar B (Peso 20). Restante: 20. Valor: 60 + 100 = 160.</p>
+            <p class="text-yellow-300">3. Objeto C pesa 30, pero solo queda espacio para 20.</p>
+            <p class="text-yellow-300">   Tomar fracción: 20/30 = 2/3 de C.</p>
+            <p class="text-yellow-300">   Valor añadido: 120 * (2/3) = 80.</p>
+            <p>> TOTAL VALOR: 60 + 160 + 80 = 240.</p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-4b-counterexample',
+      title: '¿Por qué falla en 0/1?',
+      notes: 'Contraejemplo para mochila 0/1.',
+      contentHtml: `
+        <div class="flex flex-col h-full space-y-6">
+          <div class="bg-red-50 border-l-4 border-red-500 p-4">
+            <h3 class="font-bold text-red-900">Limitación del Enfoque Voraz</h3>
+            <p class="text-red-800 text-sm">
+              Si NO podemos fraccionar objetos (Mochila 0/1), elegir por densidad puede llevarnos a un callejón sin salida donde desperdiciamos espacio valioso.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-bold text-slate-700 mb-2">Selección Voraz (Incorrecta)</h4>
+              <div class="bg-slate-100 p-4 rounded text-sm space-y-2">
+                <p>1. Elige A (Peso 10, Val 60). <br><span class="text-xs text-gray-500">Espacio: 40</span></p>
+                <p>2. Elige B (Peso 20, Val 100). <br><span class="text-xs text-gray-500">Espacio: 20</span></p>
+                <p class="text-red-600">3. C (Peso 30) NO CABE.</p>
+                <hr class="border-slate-300">
+                <p class="font-bold">Total: 160</p>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-slate-700 mb-2">Solución Óptima</h4>
+              <div class="bg-green-50 p-4 rounded text-sm space-y-2 border border-green-200">
+                <p>1. Ignora A.</p>
+                <p>2. Elige B (Peso 20, Val 100).</p>
+                <p>3. Elige C (Peso 30, Val 120).</p>
+                <p class="text-green-600">Suma Pesos: 20+30 = 50 (Lleno)</p>
+                <hr class="border-green-300">
+                <p class="font-bold text-green-700">Total: 220</p>
+              </div>
+            </div>
+          </div>
+          
+          <p class="text-center text-xs text-slate-500 italic mt-4">
+            Para resolver la Mochila 0/1 correctamente, necesitamos <strong>Programación Dinámica</strong> (próximas clases).
+          </p>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-5-code',
+      title: 'Implementación Paso a Paso',
+      notes: 'Código Python explicado con múltiples casos.',
+      contentHtml: `
+        <div class="grid md:grid-cols-2 gap-4 h-full">
+          <div class="bg-slate-900 p-4 rounded-lg overflow-auto custom-scrollbar text-xs font-mono text-blue-100">
+<pre><code class="language-python">class Objeto:
+    def __init__(self, nombre, peso, valor):
+        self.nombre = nombre
         self.peso = peso
         self.valor = valor
         self.ratio = valor / peso
 
 def knapsack_fraccional(capacidad, objetos):
-    # Ordenar objetos por relación valor/peso descendente
+    # 1. Ordenar por ratio descendente
     objetos.sort(key=lambda x: x.ratio, reverse=True)
     
     valor_total = 0.0
     peso_actual = 0
     
+    print(f"--- Mochila Capacidad: {capacidad} ---")
+    
     for obj in objetos:
         if peso_actual + obj.peso <= capacidad:
+            # Cabe completo
             peso_actual += obj.peso
             valor_total += obj.valor
+            print(f"Tomar {obj.nombre} (100%)")
         else:
-            fraccion = (capacidad - peso_actual) / obj.peso
+            # Fracción
+            restante = capacidad - peso_actual
+            fraccion = restante / obj.peso
             valor_total += obj.valor * fraccion
-            break
+            print(f"Tomar {obj.nombre} ({fraccion:.2%})")
+            peso_actual = capacidad
+            break 
             
     return valor_total
 
-# items = [Objeto(10, 60), Objeto(20, 100), Objeto(30, 120)]
-# W = 50
-# print(knapsack_fraccional(W, items)) # Salida: 240.0
-            </code></pre>
+# --- CASOS DE PRUEBA ---
+items = [
+    Objeto("A", 10, 60), 
+    Objeto("B", 20, 100), 
+    Objeto("C", 30, 120)
+]
+
+# Caso 1: Ejemplo de clase
+print(f"Total: {knapsack_fraccional(50, items.copy())}")
+
+# Caso 2: Mochila pequeña
+print(f"Total: {knapsack_fraccional(15, items.copy())}")
+
+# Caso 3: Todo cabe
+print(f"Total: {knapsack_fraccional(100, items.copy())}")
+</code></pre>
           </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn8-6',
-      title: '6. Problema: Intercalación Óptima (Optimal Merge Pattern)',
-      notes: 'Descripción del problema de fusión óptima de archivos/listas.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Fusionando Datos de Manera Eficiente</h3>
-        <p class="text-gray-600 mb-4">Imagina que tienes una colección de <strong>N archivos ordenados</strong> con diferentes tamaños (o listas ordenadas). Quieres fusionarlos todos en un único archivo grande y ordenado.</p>
-        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-          <h5 class="font-bold text-purple-900">Objetivo</h5>
-          <p class="text-sm text-purple-800 mt-2">Minimizar el número total de comparaciones (o el costo total de fusionar) al combinar todos los archivos.</p>
-        </div>
-        <p class="text-gray-700">El costo de fusionar dos archivos de tamaño <code>A</code> y <code>B</code> es <code>A + B</code>. Queremos elegir las fusiones en un orden que minimice el costo acumulado.</p>
-        <div class="flex justify-center my-4"><div class="mermaid">graph TD; A[F1:10] --- B[F2:20]; A --- C[F3:5]; B --- C;</div></div>
-      `
-    },
-    {
-      id: 'pnn8-7',
-      title: '7. Estrategia Voraz para Intercalación Óptima',
-      notes: 'Proponer la estrategia Greedy usando un Min-Heap.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Fusionando lo Más Pequeño Primero</h3>
-        <p class="text-gray-600 mb-4">Para la intercalación óptima, la estrategia voraz también es la solución correcta. Y aquí, ¡los Heaps (Min-Heaps) son nuestra mejor herramienta!</p>
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg my-4">
-          <h5 class="font-bold text-green-900">Estrategia Greedy con Min-Heap</h5>
-          <ol class="list-decimal pl-5 text-sm text-green-800 mt-2">
-            <li>Coloca el tamaño de todos los archivos en un <strong>Min-Heap</strong>.</li>
-            <li>Mientras haya más de un elemento en el Heap:
-              <ul>
-                <li>Extrae los dos archivos (tamaños) más pequeños del Heap.</li>
-                <li>Fusiónalos (sumando sus tamaños) y añade este costo al total.</li>
-                <li>Inserta el tamaño del archivo fusionado de nuevo en el Heap.</li>
+          
+          <div class="space-y-4 overflow-y-auto">
+            <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 text-sm">1. Estructura de Datos</h4>
+              <p class="text-xs text-blue-800">Usamos una clase para mantener juntos el peso, valor y ratio. El nombre ayuda a la depuración.</p>
+            </div>
+            
+            <div class="bg-purple-50 p-3 rounded border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 text-sm">2. Casos de Prueba</h4>
+              <ul class="list-disc list-inside text-xs text-purple-800">
+                <li><strong>Caso 1 (W=50):</strong> Toma A, B y 2/3 de C. Total 240.</li>
+                <li><strong>Caso 2 (W=15):</strong> Toma A completo y 1/4 de B. Total 60 + 25 = 85.</li>
+                <li><strong>Caso 3 (W=100):</strong> Toma todo (A, B, C). Sobra espacio. Total 280.</li>
               </ul>
-            </li>
-          </ol>
-        </div>
-        <p class="text-sm text-gray-700 mt-4">Esta estrategia minimiza el costo porque las fusiones más grandes (y caras) se realizan con los tamaños más grandes que ya se han acumulado, mientras que las más pequeñas se hacen al principio, cuando el costo por fusión es menor.</p>
-      `
-    },
-    {
-      id: 'pnn8-8-merge-pseudo',
-      title: '8. Algoritmo: Intercalación Óptima (Pseudocódigo)',
-      notes: 'Pseudocódigo del algoritmo con Min-Heap.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Paso a Paso con un Min-Heap</h3>
-        <p class="text-gray-600 mb-4">El algoritmo para la intercalación óptima utiliza un Min-Heap para seleccionar eficientemente los archivos más pequeños a fusionar.</p>
-        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-          <h5 class="text-gray-400 mb-2">// Pseudocódigo Intercalación Óptima</h5>
-          <pre><code>
-FUNCIÓN intercalacion_optima(tamaños_archivos):
-  // Paso 1: Inicializar un Min-Heap con todos los tamaños de archivos
-  min_heap = crear_MinHeap(tamaños_archivos)
-  
-  costo_total = 0
-  
-  // Paso 2: Fusionar archivos hasta que quede uno solo
-  MIENTRAS min_heap.tamaño() > 1:
-    // Extraer los dos archivos más pequeños
-    archivo1_tamaño = min_heap.extraer_min()
-    archivo2_tamaño = min_heap.extraer_min()
-    
-    // Calcular el costo de esta fusión
-    costo_fusion = archivo1_tamaño + archivo2_tamaño
-    costo_total = costo_total + costo_fusion
-    
-    // Insertar el archivo fusionado de nuevo en el heap
-    min_heap.insertar(costo_fusion)
-  
-  RETORNAR costo_total
-          </code></pre>
-        </div>
-      `
-    },
-    {
-      id: 'pnn8-9-merge-code',
-      title: '9. Práctica: Intercalación Óptima (C++/Python)',
-      notes: 'Implementación del algoritmo en C++ y Python.',
-      contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Implementando la Fusión Óptima con Heaps</h3>
-  <p class="text-gray-600 mb-4">Utilizaremos las librerías estándar para Min-Heaps en C++ (con <code>priority_queue</code> adaptado) y Python (<code>heapq</code>).</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2">// C++</h5>
-            <pre><code class="language-cpp">
-#include <iostream>
-#include <vector>
-#include <queue> // Para std::priority_queue
+            </div>
 
-int intercalacionOptima(std::vector<int>& tamanios) {
-    // std::priority_queue es un Max-Heap por defecto.
-    // Para un Min-Heap, usamos std::greater<int>.
-    std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
-
-    for (int t : tamanios) {
-        minHeap.push(t);
-    }
-
-    int costoTotal = 0;
-    while (minHeap.size() > 1) {
-        int t1 = minHeap.top(); minHeap.pop();
-        int t2 = minHeap.top(); minHeap.pop();
-
-        int costoFusion = t1 + t2;
-        costoTotal += costoFusion;
-        minHeap.push(costoFusion);
-    }
-    return costoTotal;
-}
-
-// int main() {
-//    std::vector<int> files = {10, 20, 5, 15};
-//    std::cout << intercalacionOptima(files); // Salida: 65
-// }
-            </code></pre>
-          </div>
-          <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs overflow-x-auto">
-            <h5 class="text-gray-400 mb-2"># Python</h5>
-            <pre><code class="language-python">
-import heapq
-
-def intercalacion_optima(tamanios):
-    # heapq.heapify convierte la lista en un min-heap
-    heapq.heapify(tamanios)
-    
-    costo_total = 0
-    while len(tamanios) > 1:
-        t1 = heapq.heappop(tamanios)
-        t2 = heapq.heappop(tamanios)
-        
-        costo_fusion = t1 + t2
-        costo_total += costo_fusion
-        heapq.heappush(tamanios, costo_fusion)
-        
-    return costo_total
-
-# files = [10, 20, 5, 15]
-# print(intercalacion_optima(files)) # Salida: 65
-            </code></pre>
+            <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 text-sm">3. Importancia de .copy()</h4>
+              <p class="text-xs text-green-800">
+                Al pasar listas en Python, se pasan por referencia. Usamos <code>items.copy()</code> para que el ordenamiento de una prueba no afecte el orden original para la siguiente (aunque en este algoritmo siempre ordenamos al inicio, es buena práctica).
+              </p>
+            </div>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn8-10-complexity',
-      title: '10. Análisis de Complejidad',
-      notes: 'Análisis de tiempo y espacio para ambos algoritmos Greedy.',
+      id: 'pnn8-6-merge-pattern',
+      title: 'Intercalación Óptima (Optimal Merge Pattern)',
+      notes: 'Definición del segundo problema.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Eficiencia de los Algoritmos Greedy Vistos</h3>
-        <div class="grid md:grid-cols-2 gap-6 mt-4">
-            <div class="bg-slate-50 p-4 rounded border">
-                <h5 class="font-bold text-slate-800">Knapsack Fraccional</h5>
-                <p class="text-3xl font-mono font-bold text-green-600">O(N log N)</p>
-                <p class="text-xs text-gray-600">Dominado por el tiempo de ordenamiento de los objetos por su ratio valor/peso.</p>
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">Minimizando el Costo de Fusión</h3>
+          <p class="text-slate-600">
+            Problema: Tienes <i>N</i> archivos ordenados de diferentes tamaños. Quieres unirlos en uno solo.
+            El costo de unir dos archivos de tamaño <i>A</i> y <i>B</i> es <i>A + B</i>.
+            ¿En qué orden debes unirlos para minimizar el costo total?
+          </p>
+
+          <div class="bg-white p-6 rounded-lg shadow border-l-4 border-purple-500">
+            <h4 class="font-bold text-purple-900 mb-2">Estrategia Greedy</h4>
+            <p class="text-purple-800">
+              En cada paso, fusiona los <strong>dos archivos más pequeños</strong> disponibles.
+            </p>
+          </div>
+
+          <div class="bg-slate-100 p-4 rounded border border-slate-300">
+            <h4 class="font-bold text-slate-700 mb-2">Estructura de Datos</h4>
+            <p class="text-sm text-slate-600">
+              Para encontrar eficientemente el mínimo repetidamente, usamos un <strong>Min-Heap</strong> (Cola de Prioridad).
+            </p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-7-merge-trace',
+      title: 'Traza: Intercalación Óptima',
+      notes: 'Ejemplo visual con Heap.',
+      contentHtml: `
+        <div class="flex flex-col items-center h-full space-y-8">
+          <h3 class="text-xl font-bold text-slate-800">Archivos: [2, 3, 4, 5, 7]</h3>
+          
+          <div class="flex flex-col gap-4 w-full max-w-2xl">
+            
+            <!-- Paso 1 -->
+            <div class="flex items-center gap-4 bg-white p-3 rounded shadow-sm border">
+              <div class="bg-slate-200 px-2 py-1 rounded text-xs font-mono">Heap: [2, 3, 4, 5, 7]</div>
+              <span class="text-slate-400">-></span>
+              <div class="text-sm">Extraer 2 y 3. Costo = 5. Insertar 5.</div>
             </div>
-            <div class="bg-slate-50 p-4 rounded border">
-                <h5 class="font-bold text-slate-800">Intercalación Óptima</h5>
-                <p class="text-3xl font-mono font-bold text-orange-600">O(N log N)</p>
-                <p class="text-xs text-gray-600">Cada operación de Heap (insertar, extraer) es O(log N), y se realizan N-1 fusiones, lo que da O(N log N).</p>
+
+            <!-- Paso 2 -->
+            <div class="flex items-center gap-4 bg-white p-3 rounded shadow-sm border">
+              <div class="bg-slate-200 px-2 py-1 rounded text-xs font-mono">Heap: [4, 5, 5, 7]</div>
+              <span class="text-slate-400">-></span>
+              <div class="text-sm">Extraer 4 y 5. Costo = 9. Insertar 9.</div>
             </div>
+
+            <!-- Paso 3 -->
+            <div class="flex items-center gap-4 bg-white p-3 rounded shadow-sm border">
+              <div class="bg-slate-200 px-2 py-1 rounded text-xs font-mono">Heap: [5, 7, 9]</div>
+              <span class="text-slate-400">-></span>
+              <div class="text-sm">Extraer 5 y 7. Costo = 12. Insertar 12.</div>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="flex items-center gap-4 bg-white p-3 rounded shadow-sm border">
+              <div class="bg-slate-200 px-2 py-1 rounded text-xs font-mono">Heap: [9, 12]</div>
+              <span class="text-slate-400">-></span>
+              <div class="text-sm">Extraer 9 y 12. Costo = 21. Fin.</div>
+            </div>
+
+            <div class="bg-green-100 text-green-900 p-4 rounded font-bold text-center mt-4">
+              Costo Total = 5 + 9 + 12 + 21 = 47
+            </div>
+
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn8-11-practice',
-      title: '11. Ejercicio Práctico',
-      notes: 'Ejercicio para aplicar Knapsack Fraccional.',
+      id: 'pnn8-7b-merge-code',
+      title: 'Implementación con Heap (Python)',
+      notes: 'Código Python para Optimal Merge Pattern con casos.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Problema de la Mochila Fraccional</h3>
-        <p class="text-gray-600 mb-4">Un ladrón entra a una tienda y encuentra los siguientes objetos:</p>
-        <ul class="list-disc pl-5 text-gray-700 mb-4">
-            <li>Reloj: Peso = 4kg, Valor = $12</li>
-            <li>Cuadro: Peso = 2kg, Valor = $10</li>
-            <li>Joyería: Peso = 6kg, Valor = $100</li>
-        </ul>
-        <p class="text-gray-600 mb-4">La mochila del ladrón puede llevar un máximo de <strong>10kg</strong>.</p>
-        <div class="bg-white border rounded-lg p-6">
-          <h4 class="font-bold text-slate-800 mb-2">Tu Tarea:</h4>
-          <p class="text-sm text-gray-700">Utiliza el algoritmo de la mochila fraccional para determinar qué objetos (o fracciones) debe llevar el ladrón para maximizar el valor total. Implementa la solución en C++ o Python.</p>
+        <div class="grid md:grid-cols-2 gap-4 h-full">
+          <div class="bg-slate-900 p-4 rounded-lg overflow-auto custom-scrollbar text-xs font-mono text-purple-100">
+<pre><code class="language-python">import heapq
+
+def optimal_merge_pattern(files):
+    if not files:
+        return 0
+        
+    # 1. Convertir lista en Min-Heap
+    # O(N)
+    heapq.heapify(files)
+    
+    total_cost = 0
+    
+    print(f"--- Iniciando Fusión: {files} ---")
+    
+    # 2. Mientras haya más de 1 archivo
+    while len(files) > 1:
+        # Extraer los 2 más pequeños
+        first = heapq.heappop(files)
+        second = heapq.heappop(files)
+        
+        # Costo de fusión
+        temp_cost = first + second
+        total_cost += temp_cost
+        
+        # Insertar resultado de vuelta
+        heapq.heappush(files, temp_cost)
+        
+        print(f"Fusionar {first} y {second} -> Costo {temp_cost}")
+        
+    return total_cost
+
+# --- CASOS DE PRUEBA ---
+
+# Caso 1: Ejemplo Estándar
+archivos1 = [2, 3, 4, 5, 7]
+print(f"Costo Total: {optimal_merge_pattern(archivos1)}\\n")
+
+# Caso 2: Pocos archivos
+archivos2 = [10, 20]
+print(f"Costo Total: {optimal_merge_pattern(archivos2)}\\n")
+
+# Caso 3: Un solo archivo (Costo 0)
+archivos3 = [50]
+print(f"Costo Total: {optimal_merge_pattern(archivos3)}")
+</code></pre>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded border border-slate-200 shadow-sm">
+              <h4 class="font-bold text-slate-800 mb-2">Análisis de Casos</h4>
+              <ul class="list-disc list-inside text-sm text-slate-600 space-y-2">
+                <li><strong>Caso 1:</strong> El ejemplo clásico. El orden importa mucho. Si fusionamos 5 y 7 primero, el costo se dispara.</li>
+                <li><strong>Caso 2:</strong> Con solo dos archivos, solo hay una fusión posible. Costo = 10 + 20 = 30.</li>
+                <li><strong>Caso 3:</strong> Si ya tenemos un solo archivo, no hay que hacer nada. Costo = 0.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-purple-50 p-4 rounded border border-purple-200">
+              <h4 class="font-bold text-purple-900 mb-2">Complejidad</h4>
+              <ul class="list-disc list-inside text-sm text-purple-800">
+                <li>Construir Heap: <i>O(N)</i></li>
+                <li>Extracciones/Inserciones: <i>2(N-1)</i> operaciones.</li>
+                <li>Costo por operación: <i>O(log N)</i></li>
+                <li><strong>Total: <i>O(N log N)</i></strong></li>
+              </ul>
+            </div>
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn8-12-resources',
-      title: '12. Herramientas Visuales y Recursos',
-      notes: 'Proporcionar recursos externos para visualización.',
+      id: 'pnn8-8-complexity',
+      title: 'Análisis de Complejidad',
+      notes: 'Resumen técnico.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Visualizando Algoritmos Greedy</h3>
-        <p class="text-gray-600 mb-4">Para profundizar tu comprensión de estos algoritmos, puedes explorar simuladores interactivos:</p>
-        <div class="bg-white border rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-          <h4 class="font-bold text-blue-700 text-lg">VisuAlgo - Knapsack Fraccional</h4>
-          <p class="text-sm text-gray-600 my-2">Simula el llenado de la mochila con la estrategia Greedy.</p>
-          <a href="https://visualgo.net/en/greedy" target="_blank" class="text-blue-600 font-bold hover:underline">Ir a VisuAlgo (Knapsack) &rarr;</a>
-        </div>
-      `
-    },
-    {
-      id: 'pnn8-end-questions',
-      title: '¿Preguntas?',
-      notes: 'Espacio para dudas.',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">¿Dudas sobre Knapsack Fraccional o Intercalación?</h3>
-        </div>
-      `
-    },
-    {
-      id: 'pnn8-end-thanks',
-      title: 'Gracias y Próxima Clase',
-      notes: 'Cierre y adelanto.',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center">
-          <h2 class="text-3xl font-bold text-slate-900 mb-4">Fin del Módulo 8</h2>
-          <p class="text-gray-600 text-lg">Hemos aplicado la estrategia Greedy a problemas de optimización. En la próxima clase, continuaremos con Greedy, pero esta vez en el contexto de los <b>Grafos</b>, para encontrar Árboles de Costo Mínimo.</p>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="bg-white p-6 rounded-xl shadow border-t-4 border-blue-500">
+            <h4 class="font-bold text-slate-700 mb-4">Knapsack Fraccional</h4>
+            <div class="text-4xl font-mono font-bold text-blue-600 mb-2">O(N log N)</div>
+            <p class="text-sm text-slate-500">
+              Dominado por el ordenamiento inicial de los objetos (<i>N log N</i>). El bucle de selección es lineal <i>O(N)</i>.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow border-t-4 border-purple-500">
+            <h4 class="font-bold text-slate-700 mb-4">Intercalación Óptima</h4>
+            <div class="text-4xl font-mono font-bold text-purple-600 mb-2">O(N log N)</div>
+            <p class="text-sm text-slate-500">
+              Realizamos <i>N-1</i> operaciones de extracción e inserción en un Heap. Cada operación cuesta <i>O(log N)</i>.
+            </p>
+          </div>
         </div>
       `
     }

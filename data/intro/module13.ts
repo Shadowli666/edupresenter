@@ -1,174 +1,348 @@
-import { Module } from "../../types";
+import { Module } from '../../types';
 
-export const module13: Module = {
-  id: "module13",
-  title: "Lógica de Programación - Semana 13",
-  description: "Arreglos Unidimensionales (Vectores)",
-  evaluation: "Ejercicios Prácticos",
+export const MODULE_13: Module = {
+  id: 'mod-13',
+  title: '13. Arreglos Unidimensionales (Vectores)',
+  description: 'Introducción a las estructuras de datos estáticas: definición, declaración y recorrido de vectores.',
+  evaluation: 'Ejercicios Prácticos',
   slides: [
     {
-      id: "m13-s1",
-      title: "Arreglos (Arrays)",
-      contentHtml: "<h1>Arreglos Unidimensionales</h1><h2>Estructuras de Datos Estáticas</h2>",
-    },
-    {
-      id: "m13-s2",
-      title: "¿Qué es un Arreglo?",
+      id: 's13-1',
+      title: '¿Qué es un Arreglo?',
       contentHtml: `
-        <h2>¿Qué es un Arreglo?</h2>
-        <p>Un arreglo (o vector) es una colección de variables del <strong>mismo tipo</strong>, almacenadas en posiciones contiguas de memoria.</p>
-        <ul>
-            <li>Se accede a cada elemento mediante un <strong>índice</strong>.</li>
-            <li>Tienen un tamaño fijo (en la mayoría de lenguajes estáticos).</li>
-            <li>Permiten almacenar conjuntos de datos relacionados (ej. notas de un curso).</li>
-        </ul>
-      `,
-    },
-    {
-      id: "m13-s3",
-      title: "Índices y Posiciones",
-      contentHtml: `
-        <h2>Índices y Posiciones</h2>
-        <p>En casi todos los lenguajes modernos, los índices comienzan en <strong>0</strong>.</p>
-        <div style="display: flex; justify-content: center; margin: 20px;">
-            <table border="1" style="text-align: center; font-size: 1.2em;">
-                <tr>
-                    <td style="padding: 10px;">10</td>
-                    <td style="padding: 10px;">25</td>
-                    <td style="padding: 10px;">5</td>
-                    <td style="padding: 10px;">40</td>
-                    <td style="padding: 10px;">12</td>
-                </tr>
-                <tr style="background-color: #f0f0f0; font-size: 0.8em;">
-                    <td>[0]</td>
-                    <td>[1]</td>
-                    <td>[2]</td>
-                    <td>[3]</td>
-                    <td>[4]</td>
-                </tr>
-            </table>
+        <div class="space-y-6">
+          <p class="text-gray-700 text-lg">
+            Un <strong>Arreglo (Array)</strong> o Vector es una estructura de datos que permite almacenar una colección de elementos del <strong>mismo tipo</strong> bajo un único nombre.
+          </p>
+          
+          <div class="flex flex-col md:flex-row gap-6 items-center">
+             <div class="bg-blue-50 border-l-4 border-blue-500 p-4 flex-1">
+               <h4 class="font-bold text-blue-900 mb-2">Analogía del Casillero</h4>
+               <p class="text-blue-800 text-sm">
+                 Imagina un mueble con cajones numerados. Cada cajón guarda un objeto, pero todos los cajones pertenecen al mismo mueble.
+               </p>
+             </div>
+             
+             <div class="flex gap-1 p-4 bg-slate-100 rounded-xl shadow-inner">
+               <div class="w-12 h-12 bg-white border-2 border-blue-400 rounded flex items-center justify-center font-bold text-blue-600 shadow-sm">10</div>
+               <div class="w-12 h-12 bg-white border-2 border-blue-400 rounded flex items-center justify-center font-bold text-blue-600 shadow-sm">25</div>
+               <div class="w-12 h-12 bg-white border-2 border-blue-400 rounded flex items-center justify-center font-bold text-blue-600 shadow-sm">8</div>
+               <div class="w-12 h-12 bg-white border-2 border-blue-400 rounded flex items-center justify-center font-bold text-blue-600 shadow-sm">99</div>
+               <div class="w-12 h-12 bg-white border-2 border-blue-400 rounded flex items-center justify-center font-bold text-blue-600 shadow-sm">...</div>
+             </div>
+          </div>
         </div>
-        <p>Si el arreglo tiene tamaño N, el último índice es N-1.</p>
       `,
     },
     {
-      id: "m13-s4",
-      title: "Declaración e Inicialización",
+      id: 's13-2',
+      title: 'Características Principales',
       contentHtml: `
-        <h2>Declaración e Inicialización</h2>
-        <p>Pseudocódigo:</p>
-        <pre><code>Dimension notas[5]
-notas[0] = 15
-notas[1] = 20
-...</code></pre>
-        <p>C++ / Java:</p>
-        <pre><code class="language-cpp">int notas[5]; // Declaración
-int edades[] = {18, 20, 19}; // Inicialización directa</code></pre>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">👯</div>
+             <h4 class="font-bold text-slate-800">Homogeneidad</h4>
+             <p class="text-sm text-slate-600">Todos los datos deben ser del mismo tipo (ej. todos enteros, todos textos).</p>
+          </div>
+          
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">📏</div>
+             <h4 class="font-bold text-slate-800">Tamaño Fijo</h4>
+             <p class="text-sm text-slate-600">Se define cuántos espacios tendrá al crearlo y no suele cambiar.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">🎯</div>
+             <h4 class="font-bold text-slate-800">Acceso Directo</h4>
+             <p class="text-sm text-slate-600">Llegas a cualquier elemento instantáneamente usando su índice.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">🧱</div>
+             <h4 class="font-bold text-slate-800">Memoria Contigua</h4>
+             <p class="text-sm text-slate-600">Ocupan bloques pegados uno al lado del otro en la RAM.</p>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s5",
-      title: "Recorrido de un Arreglo",
+      id: 's13-3',
+      title: 'Índices y Posiciones',
       contentHtml: `
-        <h2>Recorrido de un Arreglo</h2>
-        <p>La forma más común de procesar un arreglo es usando un bucle <code>Para</code> (For).</p>
-        <pre><code>Para i = 0 Hasta 4 Hacer
-    Escribir "Nota: ", notas[i]
-FinPara</code></pre>
-        <p>Esto permite leer o modificar todos los elementos de forma secuencial.</p>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Los elementos se identifican por su posición, llamada <strong>índice</strong>.
+          </p>
+          
+          <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg flex items-start gap-3">
+            <div class="text-2xl">💣</div>
+            <div>
+              <p class="text-yellow-900 font-bold">¡La Trampa del Cero!</p>
+              <p class="text-yellow-800 text-sm">
+                En programación, casi siempre empezamos a contar desde <strong>0</strong>, no desde 1. El primer elemento es el índice 0.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center mt-6">
+            <div class="flex">
+              <!-- Index Row -->
+              <div class="w-16 text-center text-xs text-gray-400 font-mono mb-1">Ind: 0</div>
+              <div class="w-16 text-center text-xs text-gray-400 font-mono mb-1">Ind: 1</div>
+              <div class="w-16 text-center text-xs text-gray-400 font-mono mb-1">Ind: 2</div>
+              <div class="w-16 text-center text-xs text-gray-400 font-mono mb-1">Ind: 3</div>
+              <div class="w-16 text-center text-xs text-gray-400 font-mono mb-1">Ind: 4</div>
+            </div>
+            
+            <div class="flex shadow-lg rounded-lg overflow-hidden border-2 border-slate-300">
+              <div class="w-16 h-16 bg-white flex items-center justify-center text-xl font-bold text-slate-700 border-r border-slate-200">10</div>
+              <div class="w-16 h-16 bg-white flex items-center justify-center text-xl font-bold text-slate-700 border-r border-slate-200">45</div>
+              <div class="w-16 h-16 bg-white flex items-center justify-center text-xl font-bold text-slate-700 border-r border-slate-200">12</div>
+              <div class="w-16 h-16 bg-white flex items-center justify-center text-xl font-bold text-slate-700 border-r border-slate-200">7</div>
+              <div class="w-16 h-16 bg-white flex items-center justify-center text-xl font-bold text-slate-700">99</div>
+            </div>
+            
+            <div class="mt-2 text-sm text-blue-600 font-bold">
+               vector[2] = 12
+            </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s6",
-      title: "Operaciones Comunes: Suma y Promedio",
+      id: 's13-4',
+      title: 'Declaración en Pseudocódigo',
       contentHtml: `
-        <h2>Operaciones Comunes: Suma y Promedio</h2>
-        <pre><code>suma = 0
-Para i = 0 Hasta N-1 Hacer
-    suma = suma + arreglo[i]
-FinPara
-promedio = suma / N</code></pre>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Para usar un arreglo, primero debemos declararlo indicando su tipo y tamaño.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-sm shadow-lg">
+              <span class="text-gray-500">// Sintaxis General</span><br>
+              <span class="text-purple-400">Dimension</span> nombre[tamaño]<br>
+              <br>
+              <span class="text-gray-500">// Ejemplo Real</span><br>
+              <span class="text-purple-400">Dimension</span> notas[5]<br>
+              <span class="text-purple-400">Definir</span> notas <span class="text-purple-400">Como Entero</span>
+            </div>
+            
+            <div class="flex items-center justify-center">
+               <div class="mermaid">
+                 graph TD
+                   Decl[Declaración] --> Mem[Reserva Memoria]
+                   Mem --> Esp[5 Espacios Vacíos]
+                   style Decl fill:#dbeafe,stroke:#2563eb
+                   style Esp fill:#f1f5f9,stroke:#64748b,stroke-dasharray: 5 5
+               </div>
+            </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s7",
-      title: "Operaciones Comunes: Búsqueda del Mayor",
+      id: 's13-5',
+      title: 'Operaciones Básicas: Asignación',
       contentHtml: `
-        <h2>Operaciones Comunes: Búsqueda del Mayor</h2>
-        <pre><code>mayor = arreglo[0]
-Para i = 1 Hasta N-1 Hacer
-    Si arreglo[i] > mayor Entonces
-        mayor = arreglo[i]
-    FinSi
-FinPara
-Escribir "El mayor es: ", mayor</code></pre>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Guardar un valor en una posición específica usando el índice.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-sm shadow-lg">
+              <span class="text-gray-500">// Sintaxis</span><br>
+              nombre[índice] = valor<br>
+              <br>
+              <span class="text-gray-500">// Ejemplo</span><br>
+              notas[0] = 20<br>
+              notas[2] = 15
+            </div>
+            
+            <div class="flex flex-col items-center gap-2">
+               <div class="flex shadow rounded overflow-hidden border border-slate-300 bg-white">
+                 <div class="w-12 h-12 flex items-center justify-center border-r bg-green-100 font-bold text-green-800">20</div>
+                 <div class="w-12 h-12 flex items-center justify-center border-r text-gray-300">?</div>
+                 <div class="w-12 h-12 flex items-center justify-center border-r bg-green-100 font-bold text-green-800">15</div>
+                 <div class="w-12 h-12 flex items-center justify-center border-r text-gray-300">?</div>
+                 <div class="w-12 h-12 flex items-center justify-center text-gray-300">?</div>
+               </div>
+               <div class="flex w-full justify-between px-2 text-[10px] text-gray-500 font-mono">
+                 <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+               </div>
+            </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s8",
-      title: "Errores Comunes",
+      id: 's13-6',
+      title: 'Operaciones Básicas: Lectura',
       contentHtml: `
-        <h2>Errores Comunes</h2>
-        <ul>
-            <li><strong>Index Out of Bounds:</strong> Intentar acceder a una posición que no existe (ej. índice 5 en un arreglo de tamaño 5).</li>
-            <li><strong>Olvidar inicializar:</strong> Usar valores "basura" que estaban en memoria.</li>
-            <li><strong>Confusión 0 vs 1:</strong> Pensar que el primer elemento es el 1.</li>
-        </ul>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Obtener el valor almacenado en una posición para usarlo en cálculos o mostrarlo.
+          </p>
+          <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-sm shadow-lg border-l-4 border-indigo-500">
+            <span class="text-blue-400">Escribir</span> notas[0]  <span class="text-gray-500">// Muestra 20</span><br>
+            <br>
+            promedio = (notas[0] + notas[2]) / 2
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s9",
-      title: "Arreglos Paralelos",
+      id: 's13-7',
+      title: 'Recorrido de Arreglos',
       contentHtml: `
-        <h2>Arreglos Paralelos</h2>
-        <p>Usar dos o más arreglos donde el mismo índice relaciona los datos.</p>
-        <p>Ejemplo: <code>nombres[i]</code> y <code>edades[i]</code> corresponden a la misma persona.</p>
-        <pre><code>nombres = ["Ana", "Juan"]
-edades = [20, 25]
-// nombres[0] tiene 20 años</code></pre>
-        <p><em>Nota: En POO esto se reemplaza por objetos.</em></p>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Para procesar todos los elementos (ej. sumarlos, imprimirlos), usamos estructuras repetitivas como el ciclo <strong>Para (For)</strong>.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-xs shadow-lg">
+              <span class="text-purple-400">Para</span> i = 0 <span class="text-purple-400">Hasta</span> 4 <span class="text-purple-400">Hacer</span><br>
+              &nbsp;&nbsp;<span class="text-blue-400">Escribir</span> "Nota ", i, ": ", notas[i]<br>
+              <span class="text-purple-400">FinPara</span>
+            </div>
+
+            <div class="flex justify-center">
+               <div class="mermaid">
+                 graph TD
+                   Start((Inicio)) --> Init[i = 0]
+                   Init --> Cond{i <= 4?}
+                   Cond -- V --> Acc[Acceder notas[i]]
+                   Acc --> Inc[i = i + 1]
+                   Inc --> Cond
+                   Cond -- F --> End((Fin))
+                   style Acc fill:#dcfce7,stroke:#16a34a
+                   style Init fill:#dbeafe,stroke:#2563eb
+               </div>
+            </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s10",
-      title: "Ejercicio Práctico 1",
+      id: 's13-8',
+      title: 'Ejemplo: Suma de Elementos',
       contentHtml: `
-        <h2>Ejercicio Práctico 1</h2>
-        <p>Crear un programa que pida 10 números al usuario, los guarde en un arreglo y luego muestre:</p>
-        <ul>
-            <li>La suma total.</li>
-            <li>Cuántos son positivos.</li>
-            <li>Cuántos son negativos.</li>
-        </ul>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Algoritmo para sumar todos los valores de un vector de 5 números.
+          </p>
+          <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-xs shadow-lg overflow-x-auto">
+            acumulador = 0<br>
+            <span class="text-purple-400">Para</span> i = 0 <span class="text-purple-400">Hasta</span> 4 <span class="text-purple-400">Hacer</span><br>
+            &nbsp;&nbsp;acumulador = acumulador + vector[i]<br>
+            <span class="text-purple-400">FinPara</span><br>
+            <span class="text-blue-400">Escribir</span> "La suma total es: ", acumulador
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s11",
-      title: "Ejercicio Práctico 2",
+      id: 's13-9',
+      title: 'Errores Comunes',
       contentHtml: `
-        <h2>Ejercicio Práctico 2</h2>
-        <p>Dado un arreglo de temperaturas de una semana (7 días), encontrar el día más caluroso y el más frío.</p>
+        <div class="space-y-4">
+          <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded shadow-sm">
+            <h4 class="font-bold text-red-900 flex items-center gap-2">
+              <span>🚫</span> Index Out of Bounds
+            </h4>
+            <p class="text-sm text-red-800 mt-1">
+              Intentar acceder a la posición 5 en un arreglo de tamaño 5. ¡Recuerda que van de 0 a 4!
+            </p>
+          </div>
+
+          <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded shadow-sm">
+            <h4 class="font-bold text-orange-900 flex items-center gap-2">
+              <span>⚠️</span> Tipos Incorrectos
+            </h4>
+            <p class="text-sm text-orange-800 mt-1">
+              Intentar guardar texto ("Hola") en un arreglo definido como Entero.
+            </p>
+          </div>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded shadow-sm">
+            <h4 class="font-bold text-yellow-900 flex items-center gap-2">
+              <span>🗑️</span> No Inicializar
+            </h4>
+            <p class="text-sm text-yellow-800 mt-1">
+              Leer valores del arreglo antes de haber guardado algo en ellos (pueden contener "basura" de la memoria).
+            </p>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s12",
-      title: "Ventajas y Desventajas",
+      id: 's13-10',
+      title: 'Ventajas de los Arreglos',
       contentHtml: `
-        <h2>Ventajas y Desventajas</h2>
-        <p><strong>Ventajas:</strong> Acceso rápido a cualquier elemento (acceso aleatorio).</p>
-        <p><strong>Desventajas:</strong> Tamaño fijo (en lenguajes tradicionales), inserción y borrado costosos (requieren mover elementos).</p>
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-50 p-6 rounded-xl border border-green-100 text-center">
+              <div class="text-4xl mb-3">🗂️</div>
+              <h4 class="font-bold text-green-900 mb-2">Organización</h4>
+              <p class="text-sm text-green-800">Permiten manejar grandes volúmenes de datos sin declarar cientos de variables (n1, n2, n3...).</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 text-center">
+              <div class="text-4xl mb-3">⚡</div>
+              <h4 class="font-bold text-blue-900 mb-2">Velocidad</h4>
+              <p class="text-sm text-blue-800">El acceso a los datos es extremadamente rápido gracias a la aritmética de punteros.</p>
+            </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m13-s13",
-      title: "Resumen",
+      id: 's13-11',
+      title: 'Ejercicio en Clase',
       contentHtml: `
-        <h2>Resumen</h2>
-        <ul>
-            <li>Los arreglos almacenan múltiples datos del mismo tipo.</li>
-            <li>Se usan índices (empezando en 0) para acceder.</li>
-            <li>Los bucles son fundamentales para trabajar con ellos.</li>
-        </ul>
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-xl border shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-4">Problema Propuesto</h4>
+            <p class="text-slate-600 mb-4">
+              Crear un algoritmo que lea 10 números enteros, los guarde en un arreglo y luego muestre solo los números <strong>pares</strong>.
+            </p>
+            
+            <details class="group">
+              <summary class="flex items-center gap-2 text-sm font-bold text-blue-600 cursor-pointer hover:underline p-2 bg-blue-50 rounded">
+                <span>💡 Ver Pista / Solución</span>
+              </summary>
+              <div class="mt-4 bg-slate-900 text-slate-300 p-4 rounded font-mono text-xs">
+                <span class="text-purple-400">Dimension</span> nums[10]<br>
+                <span class="text-gray-500">// 1. Llenar</span><br>
+                <span class="text-purple-400">Para</span> i = 0 <span class="text-purple-400">Hasta</span> 9 <span class="text-purple-400">Hacer</span><br>
+                &nbsp;&nbsp;Leer nums[i]<br>
+                <span class="text-purple-400">FinPara</span><br>
+                <br>
+                <span class="text-gray-500">// 2. Mostrar Pares</span><br>
+                <span class="text-purple-400">Para</span> i = 0 <span class="text-purple-400">Hasta</span> 9 <span class="text-purple-400">Hacer</span><br>
+                &nbsp;&nbsp;<span class="text-purple-400">Si</span> (nums[i] % 2 == 0) <span class="text-purple-400">Entonces</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Escribir nums[i]<br>
+                &nbsp;&nbsp;<span class="text-purple-400">FinSi</span><br>
+                <span class="text-purple-400">FinPara</span>
+              </div>
+            </details>
+          </div>
+        </div>
+      `,
+    },
+    {
+      id: 's13-12',
+      title: 'Resumen',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center py-12 text-center space-y-6">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-4xl">
+            🏁
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900">Fundamentos Sólidos</h3>
+          <p class="text-gray-600 max-w-md">
+            Los arreglos son la estructura de datos más básica. Entender cómo funcionan los <strong>índices (0 a N-1)</strong> y los recorridos con <strong>ciclos</strong> es esencial para temas futuros como matrices y ordenamiento.
+          </p>
+        </div>
       `,
     },
   ],

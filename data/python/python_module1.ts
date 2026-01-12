@@ -1,404 +1,226 @@
-
 import { Module } from '../../types';
 
 export const PYTHON_MODULE_1: Module = {
   id: 'py-mod-1',
   title: '1. Fundamentos de Python',
-  description: 'Introducción al lenguaje, algoritmos, paquetes y resolución de problemas.',
-  evaluation: '10% - Guía de Ejercicios',
+  description: 'Arquitectura del lenguaje, intérprete, gestión de paquetes y filosofía de diseño.',
+  evaluation: '10% - Taller de Configuración',
   slides: [
     {
       id: 'py1-1',
-      title: 'Introducción a Python',
+      title: 'Python: El Lenguaje de Alto Nivel',
+      notes: 'Introducción técnica.',
       contentHtml: `
-        <div class="space-y-6">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="w-16 h-16" />
-            <div>
-              <h3 class="text-2xl font-bold text-slate-900">¿Qué es Python?</h3>
-              <p class="text-gray-600">Un lenguaje de programación de alto nivel, interpretado y multipropósito.</p>
-            </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">Python</h1>
+            <p class="text-lg text-slate-700">
+              Un lenguaje interpretado, multiparadigma y de tipado dinámico.
+              Diseñado para priorizar la <strong>legibilidad</strong> y la productividad del desarrollador sobre el rendimiento bruto de la máquina.
+            </p>
           </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
-              <h4 class="font-bold text-blue-900 mb-2">Características Clave</h4>
-              <ul class="list-disc list-inside text-sm text-blue-800 space-y-1">
-                <li><strong>Legible:</strong> Sintaxis limpia, similar al inglés.</li>
-                <li><strong>Interpretado:</strong> No necesita compilación previa.</li>
-                <li><strong>Tipado Dinámico:</strong> No requiere declarar tipos de variables.</li>
-                <li><strong>Multiplatforma:</strong> Corre en Windows, Mac, Linux.</li>
+          
+          <div class="grid md:grid-cols-2 gap-8 w-full max-w-4xl">
+            <div class="bg-white p-6 rounded-xl shadow border border-slate-200 flex flex-col items-center">
+              <div class="w-16 h-16 mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" />
+              </div>
+              <h3 class="font-bold text-slate-800">Filosofía (The Zen of Python)</h3>
+              <ul class="text-xs text-slate-600 mt-2 italic space-y-1 text-center">
+                <li>"Beautiful is better than ugly."</li>
+                <li>"Explicit is better than implicit."</li>
+                <li>"Simple is better than complex."</li>
               </ul>
             </div>
 
-            <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-100">
-              <h4 class="font-bold text-yellow-900 mb-2">Diferencias con C++/Java</h4>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-slate-800 mb-2">Abstracción</h3>
               <div class="space-y-3 text-xs font-mono">
-                <div class="bg-white p-2 rounded border border-yellow-200">
-                  <span class="text-slate-400">// C++</span><br>
-                  <span class="text-purple-600">int</span> main() { cout << "Hola"; }
+                <div class="bg-white p-2 rounded border border-red-200 opacity-70">
+                  <span class="text-slate-400">// C (Bajo Nivel)</span><br>
+                  <span class="text-purple-600">char</span>* s = malloc(10);<br>
+                  strcpy(s, "Hola");
                 </div>
-                <div class="bg-white p-2 rounded border border-yellow-200">
-                  <span class="text-slate-400"># Python</span><br>
-                  <span class="text-blue-600">print</span>(<span class="text-green-600">"Hola"</span>)
+                <div class="bg-white p-2 rounded border border-green-200 shadow-md transform scale-105">
+                  <span class="text-slate-400"># Python (Alto Nivel)</span><br>
+                  s = <span class="text-green-600">"Hola"</span>
                 </div>
               </div>
-              <p class="text-xs text-yellow-800 mt-2">¡Adiós a los puntos y comas (;) y a las llaves {}!</p>
+              <p class="text-xs text-slate-500 mt-2">
+                Python gestiona la memoria automáticamente (Garbage Collector).
+              </p>
             </div>
           </div>
         </div>
       `
     },
     {
-      id: 'py1-2',
-      title: 'Algoritmos y Resolución de Problemas',
+      id: 'py1-2-architecture',
+      title: 'Arquitectura del Intérprete',
+      notes: 'Cómo funciona por dentro.',
       contentHtml: `
-        <div class="space-y-8">
-          <p class="text-gray-700">Antes de programar, debemos entender el problema. Python es solo la herramienta para expresar la solución.</p>
-
-          <div class="relative border-l-4 border-slate-200 ml-4 pl-8 py-2 space-y-8">
-            <div class="relative">
-              <div class="absolute -left-[42px] bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
-              <h4 class="font-bold text-slate-800">Entender el Problema</h4>
-              <p class="text-sm text-slate-600">¿Qué datos entran? ¿Qué resultado se espera? (Análisis).</p>
-            </div>
-            <div class="relative">
-              <div class="absolute -left-[42px] bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
-              <h4 class="font-bold text-slate-800">Diseñar el Algoritmo</h4>
-              <p class="text-sm text-slate-600">Pasos lógicos secuenciales (Pseudocódigo o Diagrama de Flujo).</p>
-            </div>
-            <div class="relative">
-              <div class="absolute -left-[42px] bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
-              <h4 class="font-bold text-slate-800">Codificar (Scripting)</h4>
-              <p class="text-sm text-slate-600">Traducir la lógica a sintaxis Python (.py).</p>
-            </div>
-            <div class="relative">
-              <div class="absolute -left-[42px] bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
-              <h4 class="font-bold text-slate-800">Depurar (Debugging)</h4>
-              <p class="text-sm text-slate-600">Corregir errores de sintaxis o lógica.</p>
-            </div>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-3',
-      title: 'Paquetes y Entorno',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-white p-6 rounded-xl border shadow-sm">
-            <h3 class="font-bold text-slate-800 mb-4 border-b pb-2">Gestión de Paquetes (PIP)</h3>
-            <p class="text-gray-700 mb-4 text-sm">
-              Python destaca por su inmensa comunidad. Un <strong>paquete</strong> es un directorio con scripts de Python que ofrecen funcionalidades extra (ej. NumPy para matemáticas, Pandas para datos).
-            </p>
-            <div class="bg-slate-900 text-green-400 font-mono text-xs p-4 rounded">
-              $ pip install pandas<br>
-              $ pip list<br>
-              $ pip uninstall numpy
-            </div>
-            <p class="text-xs text-slate-500 mt-2">
-              <strong>PyPI</strong> (Python Package Index) es el repositorio oficial de software.
-            </p>
-          </div>
-
-          <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
-            <h3 class="font-bold text-indigo-900 mb-2">Modo Interactivo vs Script</h3>
-            <div class="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <strong class="block text-indigo-800 mb-1">Modo Interactivo (REPL)</strong>
-                <p class="text-indigo-700 text-xs">Escribes una línea y se ejecuta al instante. Ideal para pruebas rápidas en la consola.</p>
-                <code class="block bg-white px-2 py-1 mt-1 rounded text-xs">>>> 2 + 2<br>4</code>
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">De Código Fuente a Ejecución</h3>
+          <p class="text-slate-600 text-sm">
+            Python no compila a código máquina directamente (como C++). Compila a <strong>Bytecode</strong>, que es ejecutado por la Python Virtual Machine (PVM).
+          </p>
+          
+          <div class="flex-1 flex items-center justify-center">
+            <div class="flex items-center gap-4">
+              <!-- Source -->
+              <div class="flex flex-col items-center">
+                <div class="w-16 h-20 bg-white border-2 border-blue-500 rounded flex items-center justify-center shadow-lg">
+                  <span class="font-mono font-bold text-blue-600">.py</span>
+                </div>
+                <span class="text-xs font-bold mt-2">Source</span>
               </div>
-              <div>
-                <strong class="block text-indigo-800 mb-1">Modo Script</strong>
-                <p class="text-indigo-700 text-xs">Escribes todo el código en un archivo <code>.py</code> y lo ejecutas completo.</p>
-                <code class="block bg-white px-2 py-1 mt-1 rounded text-xs">python main.py</code>
+
+              <div class="text-slate-400 text-2xl">→</div>
+
+              <!-- Compiler -->
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-12 bg-slate-800 text-white rounded flex items-center justify-center text-xs font-bold shadow">
+                  Compilador
+                </div>
+              </div>
+
+              <div class="text-slate-400 text-2xl">→</div>
+
+              <!-- Bytecode -->
+              <div class="flex flex-col items-center">
+                <div class="w-16 h-20 bg-slate-100 border-2 border-slate-400 border-dashed rounded flex items-center justify-center">
+                  <span class="font-mono font-bold text-slate-500 text-xs">.pyc</span>
+                </div>
+                <span class="text-xs font-bold mt-2">Bytecode</span>
+              </div>
+
+              <div class="text-slate-400 text-2xl">→</div>
+
+              <!-- PVM -->
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 bg-green-100 border-4 border-green-500 rounded-full flex flex-col items-center justify-center shadow-xl animate-pulse-slow">
+                  <span class="font-bold text-green-800">PVM</span>
+                  <span class="text-[10px] text-green-600">Virtual Machine</span>
+                </div>
+                <span class="text-xs font-bold mt-2">CPU / OS</span>
               </div>
             </div>
           </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-4',
-      title: 'Práctica: Hola Mundo y Variables',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="bg-green-50 border border-green-200 p-4 rounded-lg mb-4">
-            <p class="text-green-800 font-bold">Evaluación (10%): Primeros Scripts</p>
-            <p class="text-green-700 text-sm">Cree un archivo <code>practica1.py</code> y resuelva los siguientes ejercicios.</p>
-          </div>
-
-          <div class="space-y-4">
-             <!-- Ejercicio 1 -->
-             <div class="bg-white p-4 border rounded shadow-sm">
-               <h4 class="font-bold text-slate-800 mb-2">1. Saludo Personalizado</h4>
-               <p class="text-sm text-slate-600 mb-3">Use <code>input()</code> para pedir el nombre y <code>print()</code> para saludar.</p>
-               <details>
-                 <summary class="text-xs text-blue-600 cursor-pointer font-bold">Ver Código</summary>
-                 <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs mt-2">
-                   nombre = <span class="text-blue-400">input</span>(<span class="text-green-400">"¿Cómo te llamas? "</span>)<br>
-                   <span class="text-blue-400">print</span>(<span class="text-green-400">"Hola "</span> + nombre)
-                 </div>
-               </details>
-             </div>
-
-             <!-- Ejercicio 2 -->
-             <div class="bg-white p-4 border rounded shadow-sm">
-               <h4 class="font-bold text-slate-800 mb-2">2. Suma Simple</h4>
-               <p class="text-sm text-slate-600 mb-3">Pida dos números y muestre la suma. ¡Cuidado con los tipos de datos!</p>
-               <details>
-                 <summary class="text-xs text-blue-600 cursor-pointer font-bold">Ver Código</summary>
-                 <div class="bg-slate-900 text-slate-300 p-3 rounded font-mono text-xs mt-2">
-                   n1 = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Num 1: "</span>))<br>
-                   n2 = <span class="text-purple-400">int</span>(<span class="text-blue-400">input</span>(<span class="text-green-400">"Num 2: "</span>))<br>
-                   <span class="text-blue-400">print</span>(n1 + n2)
-                 </div>
-               </details>
-             </div>
-          </div>
-        </div>
-      `
-    }
-    ,
-    {
-      id: 'py1-5',
-      title: 'Entrada/Salida y f-strings',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">La entrada y salida de datos en Python se hace con <code>input()</code> y <code>print()</code>. Para formatear textos, usa <strong>f-strings</strong> (cadenas con prefijo <code>f</code>).</p>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">Lectura y escritura</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
-nombre = input("Nombre: ")
-edad = int(input("Edad: "))
-print("Hola", nombre, "tienes", edad, "años")
-              </pre>
-            </div>
-
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">f-strings (recomendado)</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
-nombre = "Ana"
-edad = 21
-print(f"Hola {nombre}, tienes {edad} años")
-
-# Formateo numérico
-pi = 3.1415926
-print(f"pi = {pi:.2f}")  # pi = 3.14
-              </pre>
-            </div>
+          
+          <div class="bg-yellow-50 p-3 rounded border border-yellow-200 text-xs text-yellow-800 text-center">
+            Esto hace que Python sea <strong>portable</strong> (Write Once, Run Anywhere), pero generalmente más lento que C++.
           </div>
         </div>
       `
     },
     {
-      id: 'py1-6',
-      title: 'Comentarios, Docstrings y Estilo (PEP 8)',
+      id: 'py1-3-ecosystem',
+      title: 'El Ecosistema: PIP y Entornos',
+      notes: 'Gestión de dependencias.',
       contentHtml: `
-        <div class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">Comentarios</h4>
-              <p class="text-sm text-slate-600">Usa <code>#</code> para explicar por qué (no qué) hace el código.</p>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
-# Calcular el precio final con impuesto
-precio_base = 100
-IVA = 0.18  # 18%
-precio_final = precio_base * (1 + IVA)
-              </pre>
-            </div>
-
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">Docstrings</h4>
-              <p class="text-sm text-slate-600">Documenta funciones y módulos con <code>"""triple comillas"""</code>.</p>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
-def area_circulo(r):
-    """Devuelve el área de un círculo dado su radio r."""
-    from math import pi
-    return pi * (r ** 2)
-              </pre>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Gestión de Paquetes</h3>
+            <p class="text-slate-600">
+              La verdadera fuerza de Python no es el lenguaje, sino sus librerías.
+              <strong>PyPI</strong> (Python Package Index) aloja miles de paquetes.
+            </p>
+            
+            <div class="bg-slate-900 p-4 rounded-lg shadow-lg">
+              <div class="flex items-center gap-2 mb-2 border-b border-slate-700 pb-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-slate-400 ml-2">Terminal</span>
+              </div>
+              <code class="text-xs font-mono text-green-400">
+                $ pip install numpy<br>
+                $ pip install pandas<br>
+                $ pip list
+              </code>
             </div>
           </div>
 
-          <div class="bg-indigo-50 p-4 rounded border border-indigo-200 text-sm">
-            <h4 class="font-bold text-indigo-900 mb-1">Guía de Estilo PEP 8 (resumen)</h4>
-            <ul class="list-disc list-inside text-indigo-800 text-xs space-y-1">
-              <li>Usa <strong>snake_case</strong> para variables y funciones.</li>
-              <li>4 espacios por nivel de indentación.</li>
-              <li>Líneas de máximo ~79 caracteres.</li>
-              <li>Nombres descriptivos, evita abreviaturas crípticas.</li>
-            </ul>
+          <div class="bg-white p-6 rounded-xl shadow border border-slate-200">
+            <h4 class="font-bold text-slate-700 mb-4">Entornos Virtuales (Virtual Environments)</h4>
+            <p class="text-sm text-slate-600 mb-4">
+              Es una mala práctica instalar todo en el sistema global. Usamos entornos aislados para cada proyecto.
+            </p>
+            
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-4 p-2 bg-blue-50 rounded border border-blue-100">
+                <div class="font-bold text-blue-800 text-xs">Proyecto A</div>
+                <div class="text-[10px] text-slate-500">Usa Django 2.0</div>
+              </div>
+              <div class="flex items-center justify-center text-slate-400 text-xs">vs</div>
+              <div class="flex items-center gap-4 p-2 bg-green-50 rounded border border-green-100">
+                <div class="font-bold text-green-800 text-xs">Proyecto B</div>
+                <div class="text-[10px] text-slate-500">Usa Django 3.0</div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 italic">
+              Herramientas: venv, conda, poetry.
+            </p>
           </div>
         </div>
       `
     },
     {
-      id: 'py1-7',
-      title: 'Errores comunes y Tracebacks',
+      id: 'py1-4-syntax',
+      title: 'Sintaxis: La Indentación',
+      notes: 'Bloques de código.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">Los errores en Python muestran un <strong>traceback</strong> indicando dónde falló el programa.</p>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">NameError</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-red-200 p-3 rounded">
-print(nombre)  # nombre no definido
-# NameError: name 'nombre' is not defined
+        <div class="flex flex-col h-full">
+          <h3 class="text-xl font-bold text-slate-800 mb-4">Estructura Visual Obligatoria</h3>
+          <p class="text-slate-600 mb-4 text-sm">
+            En Python, la indentación (espacios al inicio de la línea) no es estética, es <strong>semántica</strong>. Define los bloques de código.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-8 flex-1">
+            <div class="bg-slate-900 p-4 rounded-xl overflow-hidden relative">
+              <div class="absolute top-2 right-2 text-xs text-slate-500">Python</div>
+              <pre class="text-xs font-mono text-blue-300">
+if condition:
+<span class="bg-white/10 text-white px-1">    </span>print("Dentro del if")
+<span class="bg-white/10 text-white px-1">    </span>if subcondition:
+<span class="bg-white/10 text-white px-1">        </span>print("Anidado")
+print("Fuera del if")
               </pre>
-            </div>
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">TypeError</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-red-200 p-3 rounded">
-edad = 20
-print("Edad: " + edad)
-# TypeError: can only concatenate str (not "int") to str
-              </pre>
-            </div>
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">IndentationError</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-red-200 p-3 rounded">
-if True:
-print("Hola")  # Falta indentación
-# IndentationError: expected an indented block
-              </pre>
-            </div>
-          </div>
-
-          <div class="bg-yellow-50 p-3 rounded border border-yellow-200 text-xs text-yellow-900">
-            Tip: convierte números a texto con <code>str()</code> o usa <code>f-strings</code>.
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-8',
-      title: 'Ejecución en VS Code y Terminal',
-      contentHtml: `
-        <div class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">Terminal</h4>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-green-400 p-3 rounded">
-$ python --version
-Python 3.x.x
-
-$ python hola.py
-Hola mundo
-              </pre>
-              <p class="text-xs text-slate-600 mt-2">Asegúrate de tener Python en el PATH. En Linux/Mac puede ser <code>python3</code>.</p>
+              <div class="mt-4 text-[10px] text-green-400">
+                ✓ Limpio y forzosamente ordenado.
+              </div>
             </div>
 
-            <div class="bg-white p-4 rounded border shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">VS Code</h4>
-              <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
-                <li>Instala la extensión "Python" de Microsoft.</li>
-                <li>Selecciona el intérprete (barra de estado).</li>
-                <li>Ejecuta con el botón ▶ o usa el depurador para poner breakpoints.</li>
-              </ul>
+            <div class="bg-slate-100 p-4 rounded-xl overflow-hidden relative opacity-70">
+              <div class="absolute top-2 right-2 text-xs text-slate-500">Java/C++</div>
+              <pre class="text-xs font-mono text-slate-600">
+if (condition) {
+print("Dentro del if"); // Feo pero válido
+    if (subcondition) { print("Anidado"); }
+}
+print("Fuera del if");
+              </pre>
+              <div class="mt-4 text-[10px] text-red-500">
+                ⚠ El compilador ignora el desorden.
+              </div>
             </div>
           </div>
         </div>
       `
     },
     {
-      id: 'py1-9',
-      title: 'Ejercicios Rápidos',
+      id: 'py1-5-summary',
+      title: 'Resumen',
+      notes: 'Conclusión.',
       contentHtml: `
-        <div class="space-y-4">
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">1) Conversor de Unidades</h4>
-            <p class="text-sm text-slate-600">Pide metros y conviértelos a centímetros y milímetros.</p>
-            <details class="mt-2">
-              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Ver pista</summary>
-              <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded mt-2">
-m = float(input("Metros: "))
-print(f"cm = {m*100}")
-print(f"mm = {m*1000}")
-              </pre>
-            </details>
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-8">
+          <h2 class="text-3xl font-bold text-slate-800">El Lenguaje "Pegamento"</h2>
+          <p class="text-xl text-slate-600 max-w-2xl">
+            Python es fácil de aprender pero difícil de dominar. Se usa en desarrollo web, ciencia de datos, inteligencia artificial y automatización.
+          </p>
+          <div class="mt-8">
+            <p class="text-slate-500 italic">Próxima clase: Variables, Tipos de Datos y Operadores.</p>
           </div>
-
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">2) Calculadora de Propina</h4>
-            <p class="text-sm text-slate-600">Pide total y porcentaje de propina. Imprime el monto de propina y total final.</p>
-          </div>
-
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">3) Repetición de Mensaje</h4>
-            <p class="text-sm text-slate-600">Pide un texto y un número <em>n</em>. Muestra el texto repetido <em>n</em> veces (una por línea).</p>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-10',
-      title: 'Mini Quiz (autoevaluación)',
-      contentHtml: `
-        <div class="space-y-4">
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">1) ¿Cuál de estas es una salida válida?</h4>
-            <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
-              <li>print("Hola" + 3)</li>
-              <li>print(2 + 3)</li>
-              <li>print(nombre)  <span class="text-xs text-slate-500">(sin haber definido nombre)</span></li>
-            </ul>
-            <details class="mt-2">
-              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
-              <p class="text-sm">La segunda: <code>print(2 + 3)</code>.</p>
-            </details>
-          </div>
-
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">2) ¿Qué imprime?</h4>
-            <pre class="font-mono text-sm max-w-full overflow-x-auto bg-slate-900 text-slate-300 p-3 rounded">
-nombre = "Ana"
-print(f"Hola {nombre}")
-            </pre>
-            <details class="mt-2">
-              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
-              <p class="text-sm">Imprime: <code>Hola Ana</code></p>
-            </details>
-          </div>
-
-          <div class="bg-white p-4 rounded border shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2">3) Verdadero/Falso</h4>
-            <p class="text-sm">Python requiere declarar el tipo de una variable antes de usarla.</p>
-            <details class="mt-2">
-              <summary class="text-xs text-blue-600 font-bold cursor-pointer">Respuesta</summary>
-              <p class="text-sm">Falso. El tipado es dinámico.</p>
-            </details>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-qa',
-      title: 'Preguntas y Respuestas',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12 text-center space-y-4">
-          <h2 class="text-3xl font-bold text-slate-900">¿Dudas o comentarios?</h2>
-          <p class="text-slate-600">Abrimos espacio para preguntas sobre instalación, sintaxis básica o los ejercicios.</p>
-          <div class="mt-4 grid md:grid-cols-3 gap-4 text-sm max-w-3xl w-full">
-            <div class="bg-slate-50 p-3 rounded border">¿Cómo instalo Python?</div>
-            <div class="bg-slate-50 p-3 rounded border">¿Cuál editor recomiendan?</div>
-            <div class="bg-slate-50 p-3 rounded border">¿Cómo formateo números?</div>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'py1-end',
-      title: '¡Gracias!',
-      contentHtml: `
-        <div class="flex flex-col items-center justify-center py-16 text-center">
-          <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
-            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-2">Fin del Módulo 1</h3>
-          <p class="text-slate-600">En el siguiente módulo profundizaremos en tipos de datos y operadores.</p>
         </div>
       `
     }

@@ -1,129 +1,178 @@
-
 import { Module } from '../../types';
 
 export const PNN_MODULE_17: Module = {
   id: 'pnn-mod-17',
-  title: '17. Suma de Subconjuntos y Proyecto',
-  description: 'Problema de Suma de Subconjuntos con Programación Dinámica y lineamientos del Proyecto Final.',
-  evaluation: '20% - Proyecto Final (Reto Algorítmico)',
+  title: '17. Suma de Subconjuntos (Subset Sum)',
+  description: 'Encontrar combinaciones que sumen un valor exacto mediante Backtracking.',
+  evaluation: '0% - Práctica Guiada',
   slides: [
     {
       id: 'pnn17-1',
-      title: 'Suma de Subconjuntos',
+      title: 'El Problema de la Suma Exacta',
+      notes: 'Definición.',
       contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            <strong>Problema:</strong> Dado un conjunto de enteros y un número objetivo <em>S</em>, determinar si existe algún subconjunto cuya suma sea exactamente <em>S</em>.
-          </p>
-          <div class="bg-slate-100 p-4 rounded border border-slate-200 font-mono text-sm">
-            Conjunto = {3, 34, 4, 12, 5, 2}<br>
-            Objetivo = 9<br>
-            <span class="text-green-600 font-bold">Solución: {4, 5}</span>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'pnn17-2',
-      title: 'Tabla de Programación Dinámica',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            Una forma clásica de resolver Suma de Subconjuntos es usar una tabla DP donde DP[i][s] indica si es posible lograr suma <strong>s</strong> usando los primeros <strong>i</strong> elementos.
-          </p>
-          <div class="bg-white p-4 rounded-xl border text-xs font-mono inline-block">
-<pre>
-Ejemplo pequeño: conjunto = {3, 5, 2}, objetivo S = 5
-
-Filas: i = 0..3 (número de elementos considerados)
-Columnas: s = 0..5 (suma objetivo parcial)
-
-DP[0][0] = true, DP[0][s>0] = false
-
-Transición:
-  DP[i][s] = DP[i-1][s] OR (s >= a_i AND DP[i-1][s - a_i])
-
-Relleno parcial:
-  i=1 (a_1=3): DP[1][0]=true, DP[1][3]=true
-  i=2 (a_2=5): DP[2][0]=true, DP[2][3]=true, DP[2][5]=true
-  i=3 (a_3=2): DP[3][0]=true, DP[3][2]=true, DP[3][3]=true, DP[3][5]=true
-
-Reconstrucción del subconjunto objetivo (s=5): tomar a_2 = 5
-</pre>
-          </div>
-          
-        </div>
-      `
-    },
-    {
-      id: 'pnn17-3',
-      title: 'Actividad: Completa la Tabla DP',
-      contentHtml: `
-        <div class="space-y-6">
-          <p class="text-gray-700">
-            En parejas o individual, completen la tabla DP para el ejemplo {3, 5, 2} y objetivo S = 5.
-          </p>
-          <ol class="list-decimal list-inside text-sm text-slate-700 space-y-2 bg-slate-50 p-4 rounded-lg border">
-            <li>Inicializar la fila i = 0.</li>
-            <li>Aplicar la transición: DP[i][s] = DP[i-1][s] OR DP[i-1][s - a_i] si s ≥ a_i.</li>
-            <li>Responder: ¿existe subconjunto que sume 5? ¿Cuál es?</li>
-          </ol>
-          
-        </div>
-      `
-    },
-    {
-      id: 'pnn17-4',
-      title: 'Proyecto Final: Reto Algorítmico',
-      contentHtml: `
-        <div class="space-y-8">
-          <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
-            <h3 class="text-2xl font-bold mb-2">Defensa de Proyecto</h3>
-            <p class="opacity-90">
-              Implementación y análisis de un problema complejo utilizando las técnicas vistas (Greedy, Dinámica o Backtracking).
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">Subset Sum Problem</h1>
+            <p class="text-lg text-slate-700">
+              Dado un conjunto de números enteros y un valor objetivo $M$, encontrar si existe un subconjunto cuya suma sea exactamente $M$.
             </p>
           </div>
-
-          <div class="bg-white p-6 border rounded-xl shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-4">Criterios de Evaluación</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>• Correctitud del algoritmo.</li>
-              <li>• Eficiencia y análisis de complejidad.</li>
-              <li>• Calidad del código y estructura.</li>
-              <li>• Presentación oral y defensa.</li>
-            </ul>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center gap-4">
+            <div class="flex gap-2">
+              <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-600">3</div>
+              <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-600">5</div>
+              <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-600">2</div>
+              <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-600">8</div>
+            </div>
+            
+            <div class="text-2xl font-bold text-slate-400">Target = 10</div>
+            
+            <div class="flex gap-2 mt-2">
+              <div class="w-12 h-12 bg-green-500 text-white rounded flex items-center justify-center font-bold shadow-lg transform -translate-y-2">3</div>
+              <div class="w-12 h-12 bg-slate-100 rounded flex items-center justify-center font-bold text-slate-300 border border-slate-200">5</div>
+              <div class="w-12 h-12 bg-green-500 text-white rounded flex items-center justify-center font-bold shadow-lg transform -translate-y-2">2</div>
+              <div class="w-12 h-12 bg-slate-100 rounded flex items-center justify-center font-bold text-slate-300 border border-slate-200">8</div>
+            </div>
+            <p class="text-green-600 font-bold text-sm">¡No! (3+2=5)</p>
+            <p class="text-slate-500 text-xs">Espera... {2, 8} = 10. ¡Sí existe!</p>
           </div>
         </div>
       `
     },
     {
-      id: 'pnn17-end-questions',
-      title: '¿Preguntas?',
+      id: 'pnn17-2-tree',
+      title: 'Árbol de Decisión Binario',
+      notes: 'Incluir vs Excluir.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12">
-          <div class="text-6xl font-bold text-indigo-600 mb-6 select-none">?</div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Suma de Subconjuntos y Proyecto</h3>
-          <p class="text-center text-gray-600 max-w-md">
-            Espacio para aclarar dudas sobre la tabla DP, reconstrucción del subconjunto solución o alineación del proyecto con los temas del curso.
-          </p>
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Incluir o No Incluir</h3>
+            <p class="text-slate-600">
+              Para cada elemento del conjunto, tomamos una decisión binaria.
+              Esto genera un árbol de profundidad $N$.
+            </p>
+            
+            <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900">Complejidad</h4>
+              <p class="text-sm text-blue-800 mt-2">
+                En el peor caso, exploramos $2^N$ nodos.
+                <br>
+                Es un problema <strong>NP-Completo</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white p-2 rounded-xl shadow border border-slate-200 flex items-center justify-center overflow-hidden">
+             <div class="flex flex-col items-center w-full">
+               <div class="w-16 h-8 bg-slate-800 text-white rounded flex items-center justify-center text-xs mb-4">Suma=0</div>
+               
+               <div class="flex justify-around w-full">
+                 <!-- Rama Izq (Incluir 3) -->
+                 <div class="flex flex-col items-center">
+                   <div class="text-[10px] text-green-600 mb-1">+3</div>
+                   <div class="h-4 w-0.5 bg-slate-300"></div>
+                   <div class="w-16 h-8 bg-blue-100 border border-blue-500 rounded flex items-center justify-center text-xs">Suma=3</div>
+                   
+                   <div class="flex mt-4 gap-4">
+                     <div class="flex flex-col items-center">
+                       <div class="text-[10px] text-green-600 mb-1">+5</div>
+                       <div class="w-16 h-8 bg-blue-50 border border-blue-300 rounded flex items-center justify-center text-[10px]">Suma=8</div>
+                     </div>
+                     <div class="flex flex-col items-center">
+                       <div class="text-[10px] text-red-600 mb-1">No</div>
+                       <div class="w-16 h-8 bg-blue-50 border border-blue-300 rounded flex items-center justify-center text-[10px]">Suma=3</div>
+                     </div>
+                   </div>
+                 </div>
+
+                 <!-- Rama Der (Excluir 3) -->
+                 <div class="flex flex-col items-center">
+                   <div class="text-[10px] text-red-600 mb-1">No</div>
+                   <div class="h-4 w-0.5 bg-slate-300"></div>
+                   <div class="w-16 h-8 bg-blue-100 border border-blue-500 rounded flex items-center justify-center text-xs">Suma=0</div>
+                 </div>
+               </div>
+             </div>
+          </div>
         </div>
       `
     },
     {
-      id: 'pnn17-end-thanks',
-      title: 'Gracias por su atención',
+      id: 'pnn17-3-pruning',
+      title: 'Estrategias de Poda',
+      notes: 'Optimizaciones.',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center py-12 text-center">
-          <h2 class="text-4xl font-bold text-slate-900 mb-8">Fin de la Clase</h2>
-          <blockquote class="relative p-8 bg-slate-50 rounded-xl border-l-4 border-indigo-500 shadow-sm max-w-2xl">
-            <p class="text-xl italic font-medium leading-relaxed text-slate-700 mb-4">
-              "Muchos problemas de decisión se esconden detrás de una simple pregunta: ¿existe un subconjunto que cumpla esta condición?" 
-            </p>
-            <footer class="flex items-center justify-center gap-2">
-              <div class="h-px w-8 bg-slate-300"></div>
-              <cite class="not-italic font-bold text-slate-900">Programación No Numérica II</cite>
-            </footer>
-          </blockquote>
+        <div class="flex flex-col h-full space-y-6">
+          <h3 class="text-xl font-bold text-slate-800">Optimizando la Búsqueda</h3>
+          <p class="text-slate-600 text-sm">
+            Podemos evitar explorar ramas inútiles si ordenamos el array primero ($w_1 \le w_2 \le ...$).
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-red-50 p-6 rounded-xl border border-red-200">
+              <h4 class="font-bold text-red-800 mb-2">Poda por Exceso</h4>
+              <p class="text-sm text-red-700">
+                Si <code>suma_actual + w[i] > M</code>:
+                <br>
+                Como el array está ordenado, cualquier elemento futuro también hará que nos pasemos.
+                <br>
+                <strong>Acción:</strong> Cortar esta rama y todas las siguientes del bucle.
+              </p>
+            </div>
+
+            <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+              <h4 class="font-bold text-yellow-800 mb-2">Poda por Defecto</h4>
+              <p class="text-sm text-yellow-700">
+                Si <code>suma_actual + suma_restante < M</code>:
+                <br>
+                Incluso si sumamos todos los números que quedan, no llegaremos al objetivo.
+                <br>
+                <strong>Acción:</strong> Retornar (Backtrack).
+              </p>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn17-4-code',
+      title: 'Implementación (Python)',
+      notes: 'Código con poda.',
+      contentHtml: `
+        <div class="flex flex-col h-full">
+          <div class="bg-yellow-500 text-white px-4 py-2 rounded-t-lg font-bold text-sm">Python: Subset Sum</div>
+          <div class="bg-slate-900 p-4 rounded-b-lg overflow-auto custom-scrollbar flex-1 text-xs font-mono text-yellow-100">
+<pre><code class="language-python">def subset_sum(nums, target):
+    nums.sort() # Importante para la poda
+    solucion = []
+    
+    def backtrack(start_index, current_sum, path):
+        if current_sum == target:
+            solucion.append(path[:])
+            return
+        
+        for i in range(start_index, len(nums)):
+            # Poda 1: Si ya nos pasamos
+            if current_sum + nums[i] > target:
+                break # Como está ordenado, los siguientes también se pasarán
+                
+            # Do
+            path.append(nums[i])
+            
+            # Recurse
+            backtrack(i + 1, current_sum + nums[i], path)
+            
+            # Undo
+            path.pop()
+            
+    backtrack(0, 0, [])
+    return solucion
+
+print(subset_sum([2, 3, 5, 8], 10)) 
+# [[2, 3, 5], [2, 8]]</code></pre>
+          </div>
         </div>
       `
     }

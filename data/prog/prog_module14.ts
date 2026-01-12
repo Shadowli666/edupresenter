@@ -182,15 +182,58 @@ def inorden_iter(raiz):
       notes: 'Un ejercicio clásico que requiere una profunda comprensión de los recorridos.',
       contentHtml: `
         <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: De Recorridos a Árbol</h3>
-        <p class="text-gray-600 mb-4">Un árbol binario puede ser reconstruido de forma única si se conocen sus recorridos <strong>In-orden</strong> y <strong>Pre-orden</strong> (o Post-orden).</p>
-        <div class="bg-white border rounded-lg p-6">
-          <h4 class="font-bold text-slate-800 mb-2">Algoritmo</h4>
-          <ol class="text-sm list-decimal pl-5 text-gray-700 space-y-2">
-              <li>El primer elemento del recorrido <strong>Pre-orden</strong> es siempre la <strong>raíz</strong> del árbol (o sub-árbol) actual.</li>
-              <li>Encuentra esa raíz en el recorrido <strong>In-orden</strong>. Todos los elementos a su izquierda pertenecen al sub-árbol izquierdo, y todos a su derecha, al sub-árbol derecho.</li>
-              <li>Usa esta información para dividir los arreglos de Pre-orden e In-orden y llama recursivamente para construir los sub-árboles izquierdo y derecho.</li>
-          </ol>
-          <p class="text-xs text-gray-500 mt-4">Este es un problema de entrevista común. ¡Intenta implementarlo!</p>
+        <p class="text-gray-600 mb-4">Un árbol binario puede ser reconstruido de forma única si se conocen sus recorridos <strong>In-orden</strong> y <strong>Pre-orden</strong>.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white border rounded-lg p-4 text-sm">
+                <h4 class="font-bold text-slate-800 mb-2">Algoritmo</h4>
+                <ol class="list-decimal pl-5 text-gray-700 space-y-2">
+                    <li>La <strong>raíz</strong> es siempre el primer elemento del <strong>Pre-orden</strong>.</li>
+                    <li>Busca esa raíz en el <strong>In-orden</strong>.
+                        <ul class="list-disc pl-4 mt-1 text-xs text-gray-500">
+                            <li>Todo a la <strong>izquierda</strong> es el sub-árbol izquierdo.</li>
+                            <li>Todo a la <strong>derecha</strong> es el sub-árbol derecho.</li>
+                        </ul>
+                    </li>
+                    <li>Repite recursivamente para cada sub-árbol.</li>
+                </ol>
+            </div>
+
+            <div class="bg-slate-50 border rounded-lg p-4 text-sm font-mono">
+                <h4 class="font-bold text-slate-800 mb-2 font-sans">Ejemplo Visual</h4>
+                <div class="mb-2">
+                    <span class="text-purple-600 font-bold">Pre:</span> [ <span class="bg-yellow-200 font-bold px-1 rounded">1</span>, 2, 4, 5, 3 ]
+                </div>
+                <div class="mb-4">
+                    <span class="text-blue-600 font-bold">In:</span> &nbsp;[ 4, 2, 5, <span class="bg-yellow-200 font-bold px-1 rounded">1</span>, 3 ]
+                </div>
+                
+                <div class="text-center text-xs text-gray-500 mb-2">↓ Dividir ↓</div>
+                
+                <div class="flex justify-center gap-4">
+                    <div class="border p-2 rounded bg-white">
+                        <div class="text-xs text-gray-400">Izq</div>
+                        <div>In: [4, 2, 5]</div>
+                        <div>Pre: [2, 4, 5]</div>
+                    </div>
+                    <div class="border p-2 rounded bg-white">
+                        <div class="text-xs text-gray-400">Der</div>
+                        <div>In: [3]</div>
+                        <div>Pre: [3]</div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex justify-center">
+                    <div class="mermaid">
+                        graph TD
+                        1((1)) --- 2((2))
+                        1 --- 3((3))
+                        2 --- 4((4))
+                        2 --- 5((5))
+                        style 1 fill:#fef08a,stroke:#eab308
+                    </div>
+                </div>
+            </div>
         </div>
       `
     },

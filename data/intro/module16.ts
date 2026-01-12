@@ -1,177 +1,195 @@
-import { Module } from "../../types";
+import { Module } from '../../types';
 
-export const module16: Module = {
-  id: "module16",
-  title: "Computación Básica - Semana 16",
-  description: "Algoritmos de Ordenamiento: Burbuja, Selección e Inserción",
-  evaluation: "Evaluación Continua",
+export const MODULE_16: Module = {
+  id: 'mod-16',
+  title: '16. Cadenas de Caracteres (Strings)',
+  description: 'Manipulación de texto: operaciones, funciones comunes y representación en memoria.',
+  evaluation: 'Ejercicios Prácticos',
   slides: [
     {
-      id: "m16-s1",
-      title: "Ordenamiento de Datos",
-      contentHtml: "<h1>Ordenamiento de Datos</h1><h2>Poniendo Orden en el Caos</h2>",
-    },
-    {
-      id: "m16-s2",
-      title: "¿Por qué Ordenar?",
+      id: 's16-1',
+      title: '¿Qué es un String?',
       contentHtml: `
-        <h2>¿Por qué Ordenar?</h2>
-        <p>El ordenamiento es organizar los datos en una secuencia específica (ascendente o descendente).</p>
-        <ul>
-            <li>Facilita la búsqueda (permite Búsqueda Binaria).</li>
-            <li>Mejora la presentación de datos al usuario.</li>
-            <li>Ayuda a encontrar duplicados o valores extremos.</li>
-        </ul>
+        <div class="space-y-6">
+          <p class="text-gray-700 text-lg">
+            Una <strong>Cadena de Caracteres</strong> (String) es, en esencia, un arreglo de caracteres. Imagínalo como un collar de cuentas o vagones de un tren.
+          </p>
+          
+          <div class="flex flex-col items-center py-4">
+            <div class="flex">
+              <div class="w-12 h-12 border-2 border-pink-500 bg-pink-100 flex items-center justify-center text-2xl font-bold text-pink-900 rounded-l-lg">H</div>
+              <div class="w-12 h-12 border-y-2 border-r-2 border-pink-500 bg-pink-50 flex items-center justify-center text-2xl font-bold text-pink-900">o</div>
+              <div class="w-12 h-12 border-y-2 border-r-2 border-pink-500 bg-pink-50 flex items-center justify-center text-2xl font-bold text-pink-900">l</div>
+              <div class="w-12 h-12 border-y-2 border-r-2 border-pink-500 bg-pink-50 flex items-center justify-center text-2xl font-bold text-pink-900">a</div>
+              <div class="w-12 h-12 border-y-2 border-r-2 border-slate-400 bg-slate-200 flex items-center justify-center text-sm font-mono text-slate-600 rounded-r-lg">\\0</div>
+            </div>
+            <div class="flex text-xs text-gray-400 font-mono mt-1 gap-0">
+              <div class="w-12 text-center">0</div>
+              <div class="w-12 text-center">1</div>
+              <div class="w-12 text-center">2</div>
+              <div class="w-12 text-center">3</div>
+              <div class="w-12 text-center">End</div>
+            </div>
+          </div>
+
+          <p class="text-xs text-gray-500 text-center">
+            El carácter '\\0' (nulo) es invisible pero indica dónde termina el texto en la memoria.
+          </p>
+        </div>
       `,
     },
     {
-      id: "m16-s3",
-      title: "Intercambio (Swap)",
+      id: 's16-2',
+      title: 'Operaciones Básicas',
       contentHtml: `
-        <h2>Intercambio (Swap)</h2>
-        <p>Operación fundamental en todos los algoritmos de ordenamiento.</p>
-        <pre>
-// Intercambiar A y B
-temp = A
-A = B
-B = temp
-        </pre>
-        <p>Necesitamos una variable temporal para no perder el valor de A al sobrescribirlo.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">🔗</div>
+             <h4 class="font-bold text-slate-800">Concatenación</h4>
+             <p class="text-sm text-slate-600">Unir eslabones. <code>"Hola" + "Mundo"</code> crea una cadena nueva más larga.</p>
+          </div>
+          
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">📏</div>
+             <h4 class="font-bold text-slate-800">Longitud</h4>
+             <p class="text-sm text-slate-600">Contar cuántos caracteres tiene. "Hola" mide 4.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">✂️</div>
+             <h4 class="font-bold text-slate-800">Subcadena</h4>
+             <p class="text-sm text-slate-600">Recortar un pedazo. <code>Subcadena("Hola", 0, 1)</code> da "Ho".</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border shadow-sm">
+             <div class="text-3xl mb-2">⚖️</div>
+             <h4 class="font-bold text-slate-800">Comparación</h4>
+             <p class="text-sm text-slate-600">¿Son iguales? ¡Ojo! "A" (65) es diferente de "a" (97).</p>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m16-s4",
-      title: "Método de la Burbuja (Bubble Sort)",
+      id: 's16-3',
+      title: 'Código ASCII y Unicode',
       contentHtml: `
-        <h2>Método de la Burbuja (Bubble Sort)</h2>
-        <p>Es el más sencillo de entender. Compara pares adyacentes y los intercambia si están en el orden incorrecto.</p>
-        <p>Los elementos más grandes "burbujean" hacia el final de la lista en cada pasada.</p>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Las computadoras solo entienden números. Cada letra tiene un ID numérico.
+          </p>
+          
+          <div class="bg-slate-800 p-4 rounded-xl shadow-lg text-center">
+            <h4 class="text-slate-400 text-xs uppercase tracking-widest mb-4">Tabla de Traducción (ASCII)</h4>
+            <div class="grid grid-cols-3 gap-4 text-sm font-mono text-green-400">
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">'A'</span> == 65
+              </div>
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">'a'</span> == 97
+              </div>
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">'0'</span> == 48
+              </div>
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">' '</span> == 32
+              </div>
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">'@'</span> == 64
+              </div>
+              <div class="border border-slate-600 p-2 rounded">
+                <span class="text-white">'ñ'</span> == 164
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 text-center">
+            Por esto "Avión" es menor que "Barco" (65 < 66), pero "avión" es mayor que "Barco" (97 > 66).
+          </p>
+        </div>
       `,
     },
     {
-      id: "m16-s5",
-      title: "Algoritmo Burbuja",
+      id: 's16-4',
+      title: 'Caja de Herramientas (Funciones)',
       contentHtml: `
-        <h2>Algoritmo Burbuja</h2>
-        <pre>
-Para i desde 0 hasta N-1:
-    Para j desde 0 hasta N-i-1:
-        Si arreglo[j] > arreglo[j+1]:
-            Intercambiar(arreglo[j], arreglo[j+1])
-        Fin Si
-    Fin Para
-Fin Para
-        </pre>
+        <div class="space-y-6">
+          <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+            <table class="min-w-full text-sm text-left">
+              <thead class="bg-gray-50 text-gray-700 font-bold">
+                <tr><th class="p-3">Función</th><th class="p-3">Descripción</th></tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="bg-white"><td class="p-3 font-mono text-blue-600">Longitud(cad)</td><td class="p-3 text-gray-600">Devuelve el número de caracteres.</td></tr>
+                <tr class="bg-gray-50"><td class="p-3 font-mono text-blue-600">Subcadena(cad, i, f)</td><td class="p-3 text-gray-600">Extrae desde la posición i hasta f.</td></tr>
+                <tr class="bg-white"><td class="p-3 font-mono text-blue-600">Mayusculas(cad)</td><td class="p-3 text-gray-600">Convierte todo a mayúsculas (útil para comparar).</td></tr>
+                <tr class="bg-gray-50"><td class="p-3 font-mono text-blue-600">ConvertirANumero(cad)</td><td class="p-3 text-gray-600">"123" (Texto) -> 123 (Número).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m16-s6",
-      title: "Traza Burbuja",
+      id: 's16-5',
+      title: 'Ejemplo: Contar Vocales',
       contentHtml: `
-        <h2>Traza Burbuja</h2>
-        <p>Lista: <code>[5, 1, 4, 2, 8]</code></p>
-        <ol>
-            <li>Compara 5 y 1 -> Intercambia -> <code>[1, 5, 4, 2, 8]</code></li>
-            <li>Compara 5 y 4 -> Intercambia -> <code>[1, 4, 5, 2, 8]</code></li>
-            <li>Compara 5 y 2 -> Intercambia -> <code>[1, 4, 2, 5, 8]</code></li>
-            <li>Compara 5 y 8 -> Correcto.</li>
-        </ol>
-        <p>El 8 ya está en su lugar final.</p>
+        <div class="space-y-6">
+          <p class="text-gray-700">Algoritmo para contar cuántas 'a' tiene una frase.</p>
+          <div class="bg-slate-900 text-slate-300 p-5 rounded-xl font-mono text-xs shadow-lg">
+            contador <- 0<br>
+            <span class="text-purple-400">Para</span> i <- 0 <span class="text-purple-400">Hasta</span> Longitud(frase)-1 <span class="text-purple-400">Hacer</span><br>
+            &nbsp;&nbsp;letra <- <span class="text-yellow-400">Subcadena</span>(frase, i, i)<br>
+            &nbsp;&nbsp;<span class="text-purple-400">Si</span> letra == "a" <span class="text-purple-400">O</span> letra == "A" <span class="text-purple-400">Entonces</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;contador <- contador + 1<br>
+            &nbsp;&nbsp;<span class="text-purple-400">FinSi</span><br>
+            <span class="text-purple-400">FinPara</span>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m16-s7",
-      title: "Método de Selección (Selection Sort)",
+      id: 's16-6',
+      title: 'Ejemplo: Palíndromos',
       contentHtml: `
-        <h2>Método de Selección (Selection Sort)</h2>
-        <p>Busca el elemento más pequeño de la lista y lo coloca al principio.</p>
-        <ol>
-            <li>Busca el mínimo entre la posición 0 y N. Intercambia con pos 0.</li>
-            <li>Busca el mínimo entre la posición 1 y N. Intercambia con pos 1.</li>
-            <li>Repite.</li>
-        </ol>
+        <div class="space-y-6">
+          <p class="text-gray-700">
+            Un palíndromo se lee igual al derecho y al revés.
+          </p>
+          
+          <div class="flex flex-col items-center gap-4 bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+             <div class="text-2xl font-bold tracking-widest text-indigo-900">ANITA LAVA LA TINA</div>
+             
+             <div class="flex w-full justify-between px-8 text-indigo-500 text-2xl">
+                <span>⬆️</span>
+                <span>⬆️</span>
+             </div>
+             <div class="flex w-full justify-between px-4 text-xs text-indigo-400 font-mono">
+                <span>Inicio (i) -></span>
+                <span><- Fin (j)</span>
+             </div>
+             
+             <div class="bg-white p-3 rounded text-xs text-gray-600 shadow-sm w-full">
+                <strong>Algoritmo:</strong><br>
+                1. Eliminar espacios ("ANITALAVALATINA").<br>
+                2. Usar dos índices: <code>i</code> al principio, <code>j</code> al final.<br>
+                3. Mientras <code>i < j</code>: Si letras son distintas -> Falso. Avanzar <code>i</code>, Retroceder <code>j</code>.
+             </div>
+          </div>
+        </div>
       `,
     },
     {
-      id: "m16-s8",
-      title: "Algoritmo Selección",
+      id: 's16-7',
+      title: 'Resumen',
       contentHtml: `
-        <h2>Algoritmo Selección</h2>
-        <pre>
-Para i desde 0 hasta N-1:
-    minimo_idx = i
-    Para j desde i+1 hasta N:
-        Si arreglo[j] < arreglo[minimo_idx]:
-            minimo_idx = j
-    
-    Intercambiar(arreglo[i], arreglo[minimo_idx])
-Fin Para
-        </pre>
-      `,
-    },
-    {
-      id: "m16-s9",
-      title: "Método de Inserción (Insertion Sort)",
-      contentHtml: `
-        <h2>Método de Inserción (Insertion Sort)</h2>
-        <p>Funciona como ordenar cartas en la mano.</p>
-        <ul>
-            <li>Tomas la segunda carta y la insertas en su lugar respecto a la primera.</li>
-            <li>Tomas la tercera y la insertas en su lugar respecto a las dos anteriores.</li>
-        </ul>
-        <p>Es muy eficiente para listas pequeñas o casi ordenadas.</p>
-      `,
-    },
-    {
-      id: "m16-s10",
-      title: "Comparación de Eficiencia",
-      contentHtml: `
-        <h2>Comparación de Eficiencia</h2>
-        <p>Estos tres algoritmos (Burbuja, Selección, Inserción) son de complejidad <strong>Cuadrática O(N^2)</strong>.</p>
-        <ul>
-            <li>Si duplicas los datos, tardan 4 veces más.</li>
-            <li>Son útiles para aprender y para pocos datos.</li>
-        </ul>
-      `,
-    },
-    {
-      id: "m16-s11",
-      title: "Algoritmos Avanzados",
-      contentHtml: `
-        <h2>Algoritmos Avanzados</h2>
-        <p>Para millones de datos, se usan algoritmos más complejos como:</p>
-        <ul>
-            <li><strong>Merge Sort:</strong> Divide la lista, ordena mitades y mezcla.</li>
-            <li><strong>Quick Sort:</strong> Elige un pivote y particiona la lista.</li>
-        </ul>
-        <p>Son de complejidad O(N log N) (mucho más rápidos).</p>
-      `,
-    },
-    {
-      id: "m16-s12",
-      title: "Ejercicio Práctico",
-      contentHtml: `
-        <h2>Ejercicio Práctico</h2>
-        <p>Ordena manualmente la lista <code>[7, 3, 5, 2]</code> usando el método de Selección.</p>
-        <ol>
-            <li>Mínimo de [7, 3, 5, 2] es 2. Swap(7, 2) -> <code>[2, 3, 5, 7]</code>.</li>
-            <li>Mínimo de [3, 5, 7] es 3. Swap(3, 3) -> No cambia.</li>
-            <li>Mínimo de [5, 7] es 5. Swap(5, 5) -> No cambia.</li>
-            <li>Listo.</li>
-        </ol>
-      `,
-    },
-    {
-      id: "m16-s13",
-      title: "Resumen",
-      contentHtml: `
-        <h2>Resumen</h2>
-        <ul>
-            <li><strong>Burbuja:</strong> Intercambia vecinos. Lento pero simple.</li>
-            <li><strong>Selección:</strong> Busca el mínimo y lo coloca. Minimiza intercambios.</li>
-            <li><strong>Inserción:</strong> Construye la lista ordenada paso a paso. Bueno para datos casi ordenados.</li>
-            <li>El ordenamiento es clave para la eficiencia de otros algoritmos.</li>
-        </ul>
+        <div class="flex flex-col items-center justify-center py-12 text-center space-y-6">
+          <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-4xl">
+            💬
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900">El Lenguaje Humano</h3>
+          <p class="text-gray-600 max-w-md">
+            El manejo de texto es fundamental. Casi toda la información en internet (HTML, JSON, URLs) son cadenas de caracteres que tu programa debe leer y entender.
+          </p>
+        </div>
       `,
     },
   ],

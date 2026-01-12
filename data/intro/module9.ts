@@ -19,31 +19,43 @@ export const MODULE_9: Module = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 items-center">
-            <div class="bg-slate-900 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-lg">
-              <p>Si (promedio >= 18) Entonces</p>
+            <div class="bg-slate-900 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-lg relative overflow-hidden">
+              <!-- Visual Indentation Guides -->
+              <div class="absolute left-6 top-0 bottom-0 w-px bg-slate-700"></div>
+              <div class="absolute left-10 top-0 bottom-0 w-px bg-slate-700"></div>
+              
+              <p><span class="text-purple-400">Si</span> (promedio >= 18) <span class="text-purple-400">Entonces</span></p>
               <p class="pl-4 text-green-400">Escribir "Excelente"</p>
-              <p>SiNo</p>
-              <p class="pl-4">Si (promedio >= 10) Entonces</p>
+              <p><span class="text-purple-400">SiNo</span></p>
+              <p class="pl-4"><span class="text-purple-400">Si</span> (promedio >= 10) <span class="text-purple-400">Entonces</span></p>
               <p class="pl-8 text-yellow-400">Escribir "Regular"</p>
-              <p class="pl-4">SiNo</p>
+              <p class="pl-4"><span class="text-purple-400">SiNo</span></p>
               <p class="pl-8 text-red-400">Escribir "Deficiente"</p>
-              <p class="pl-4">FinSi</p>
-              <p>FinSi</p>
+              <p class="pl-4"><span class="text-purple-400">FinSi</span></p>
+              <p><span class="text-purple-400">FinSi</span></p>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
                <div class="mermaid">
                  flowchart TD
                    A{>= 18?} -- Sí --> B[Excelente]
                    A -- No --> C{>= 10?}
                    C -- Sí --> D[Regular]
                    C -- No --> E[Deficiente]
+                   style A fill:#dbeafe,stroke:#2563eb
+                   style C fill:#fef9c3,stroke:#ca8a04
+                   style B fill:#dcfce7,stroke:#16a34a
+                   style D fill:#fff7ed,stroke:#ea580c
+                   style E fill:#fee2e2,stroke:#ef4444
                </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-xs text-yellow-900">
-            <strong>Cuidado:</strong> Demasiados anidamientos hacen que el código sea difícil de leer (Espagueti code). Mantén la identación ordenada.
+          <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-xs text-yellow-900 flex items-center gap-2">
+            <span class="text-xl">⚠️</span>
+            <div>
+              <strong>Cuidado:</strong> Demasiados anidamientos hacen que el código sea difícil de leer (Espagueti code). Mantén la identación ordenada.
+            </div>
           </div>
         </div>
       `
@@ -58,20 +70,22 @@ export const MODULE_9: Module = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 items-center">
-            <div class="bg-white border p-4 rounded shadow-sm">
-              <h4 class="font-bold text-slate-800 mb-2">Sintaxis</h4>
-              <div class="font-mono text-sm bg-slate-100 p-3 rounded text-slate-700">
+            <div class="bg-white border p-4 rounded shadow-sm hover:shadow-md transition-shadow">
+              <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                <span class="text-xl">📋</span> Sintaxis
+              </h4>
+              <div class="font-mono text-sm bg-slate-100 p-3 rounded text-slate-700 border border-slate-200">
                 <span class="text-blue-600 font-bold">Segun</span> opcion <span class="text-blue-600 font-bold">Hacer</span><br>
-                &nbsp;&nbsp;1: Escribir "Seleccionó Sumar";<br>
-                &nbsp;&nbsp;2: Escribir "Seleccionó Restar";<br>
-                &nbsp;&nbsp;3: Escribir "Seleccionó Salir";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">1:</span> Escribir "Sumar";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">2:</span> Escribir "Restar";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">3:</span> Escribir "Salir";<br>
                 &nbsp;&nbsp;<span class="text-blue-600 font-bold">De Otro Modo:</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Escribir "Opción Inválida";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Escribir "Error";<br>
                 <span class="text-blue-600 font-bold">FinSegun</span>
               </div>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
                <div class="mermaid">
                  flowchart TD
                    Start([Inicio]) --> Sel{Opcion?}
@@ -83,13 +97,18 @@ export const MODULE_9: Module = {
                    B --> End
                    C --> End
                    D --> End
+                   style Sel fill:#f3e8ff,stroke:#9333ea
+                   style A fill:#f1f5f9,stroke:#64748b
+                   style B fill:#f1f5f9,stroke:#64748b
+                   style C fill:#f1f5f9,stroke:#64748b
+                   style D fill:#fee2e2,stroke:#ef4444
                </div>
             </div>
           </div>
           
-          <p class="text-sm text-gray-500">
+          <div class="bg-slate-50 p-3 rounded text-xs text-gray-500 border border-slate-200">
             Equivalente al <code>switch</code> en C/Java/JS o <code>match</code> en Python.
-          </p>
+          </div>
         </div>
       `
     },

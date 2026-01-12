@@ -1,194 +1,161 @@
-import { Module } from "../../types";
+import { Module } from '../../types';
 
-export const python_module18: Module = {
-  id: "python_module18",
-  title: "Programación en Python - Semana 18",
-  description: "Proyecto Final y Cierre del Curso",
-  evaluation: "Proyecto Final",
+export const PYTHON_MODULE_18: Module = {
+  id: 'py-mod-18',
+  title: '18. Proyecto Final de Curso',
+  description: 'Integración total: POO + SQL + Lógica.',
+  evaluation: '100% - Proyecto Final',
   slides: [
     {
-      id: "pm18-s1",
-      title: "Proyecto Final",
-      contentHtml: "<h1>Proyecto Final</h1><h2>Integración de Conocimientos</h2>",
-    },
-    {
-      id: "pm18-s2",
-      title: "Objetivo del Proyecto",
+      id: 'py18-1-architecture',
+      title: 'Arquitectura del Proyecto',
+      notes: 'MVC Simplificado.',
       contentHtml: `
-        <h2>Objetivo del Proyecto</h2>
-        <p>Desarrollar una aplicación de consola completa que resuelva un problema real, utilizando:</p>
-        <ul>
-            <li>Estructuras de control y funciones.</li>
-            <li>Programación Orientada a Objetos (Clases, Herencia).</li>
-            <li>Manejo de Errores (Try/Except).</li>
-            <li>Persistencia de Datos (Archivos o SQLite).</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm18-s3",
-      title: "Propuesta: Sistema de Gestión Escolar",
-      contentHtml: `
-        <h2>Propuesta: Sistema de Gestión Escolar</h2>
-        <p>Una aplicación para administrar alumnos, cursos y calificaciones.</p>
-        <h3>Requerimientos:</h3>
-        <ul>
-            <li>Registrar nuevos alumnos.</li>
-            <li>Crear cursos.</li>
-            <li>Inscribir alumnos en cursos.</li>
-            <li>Asignar notas.</li>
-            <li>Generar reporte de promedios.</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm18-s4",
-      title: "Diseño de Clases (UML Simplificado)",
-      contentHtml: `
-        <h2>Diseño de Clases</h2>
-        <ul>
-            <li><strong>Persona</strong> (Clase Base): nombre, dni.</li>
-            <li><strong>Alumno</strong> (Hereda de Persona): legajo, lista_cursos.</li>
-            <li><strong>Profesor</strong> (Hereda de Persona): especialidad.</li>
-            <li><strong>Curso</strong>: nombre, codigo, lista_alumnos.</li>
-            <li><strong>Sistema</strong>: Clase principal que gestiona las listas y el menú.</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm18-s5",
-      title: "Estructura del Proyecto",
-      contentHtml: `
-        <h2>Estructura del Proyecto</h2>
-        <pre>
-proyecto_escolar/
-│
-├── main.py          # Punto de entrada (Menú)
-├── modelos.py       # Definición de Clases
-├── base_datos.py    # Funciones de SQLite
-└── utilidades.py    # Validaciones, formateo
-        </pre>
-      `,
-    },
-    {
-      id: "pm18-s6",
-      title: "Paso 1: Modelos (modelos.py)",
-      contentHtml: `
-        <h2>Paso 1: Modelos</h2>
-        <pre><code class="language-python">class Persona:
-    def __init__(self, nombre, dni):
-        self.nombre = nombre
-        self.dni = dni
+        <div class="flex flex-col h-full items-center justify-center space-y-8">
+          <h3 class="text-3xl font-bold text-slate-800">Sistema de Gestión Escolar</h3>
+          
+          <div class="flex gap-8 items-center w-full max-w-5xl">
+            <!-- Database -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="bg-slate-800 p-6 rounded-xl shadow-lg border-2 border-slate-600 text-white text-center w-40">
+                <div class="text-4xl mb-2">🗄️</div>
+                <div class="font-bold">SQLite</div>
+                <div class="text-xs text-slate-400">escuela.db</div>
+              </div>
+            </div>
 
-class Alumno(Persona):
-    def __init__(self, nombre, dni, legajo):
-        super().__init__(nombre, dni)
-        self.legajo = legajo
-    
-    def __str__(self):
-        return f"{self.nombre} (Legajo: {self.legajo})"</code></pre>
-      `,
-    },
-    {
-      id: "pm18-s7",
-      title: "Paso 2: Base de Datos (base_datos.py)",
-      contentHtml: `
-        <h2>Paso 2: Base de Datos</h2>
-        <pre><code class="language-python">import sqlite3
+            <!-- Arrow -->
+            <div class="text-2xl text-slate-400">↔️</div>
 
-def inicializar_db():
-    conn = sqlite3.connect("escuela.db")
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS alumnos
-                 (id INTEGER PRIMARY KEY, nombre TEXT, dni TEXT, legajo TEXT)''')
-    conn.commit()
-    conn.close()
+            <!-- Models -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="bg-blue-100 p-6 rounded-xl shadow-lg border-2 border-blue-500 text-blue-900 text-center w-40">
+                <div class="text-4xl mb-2">🧩</div>
+                <div class="font-bold">Modelos</div>
+                <div class="text-xs text-blue-700">Clases POO<br>(Alumno, Curso)</div>
+              </div>
+            </div>
 
-def guardar_alumno(alumno):
-    # ... INSERT INTO alumnos ...
-    pass</code></pre>
-      `,
-    },
-    {
-      id: "pm18-s8",
-      title: "Paso 3: Lógica Principal (main.py)",
-      contentHtml: `
-        <h2>Paso 3: Lógica Principal</h2>
-        <pre><code class="language-python">from modelos import Alumno
-import base_datos
+            <!-- Arrow -->
+            <div class="text-2xl text-slate-400">↔️</div>
 
-def menu():
-    while True:
-        print("1. Agregar Alumno")
-        print("2. Salir")
-        opcion = input("Opción: ")
-        
-        if opcion == "1":
-            # Pedir datos y guardar
-            pass
-        elif opcion == "2":
-            break</code></pre>
-      `,
+            <!-- Controller -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="bg-purple-100 p-6 rounded-xl shadow-lg border-2 border-purple-500 text-purple-900 text-center w-40">
+                <div class="text-4xl mb-2">⚙️</div>
+                <div class="font-bold">Lógica</div>
+                <div class="text-xs text-purple-700">Controlador<br>(CRUD)</div>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="text-2xl text-slate-400">↔️</div>
+
+            <!-- View -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="bg-green-100 p-6 rounded-xl shadow-lg border-2 border-green-500 text-green-900 text-center w-40">
+                <div class="text-4xl mb-2">🖥️</div>
+                <div class="font-bold">Vista</div>
+                <div class="text-xs text-green-700">Menú<br>(Console UI)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
     },
     {
-      id: "pm18-s9",
-      title: "Buenas Prácticas",
+      id: 'py18-2-requirements',
+      title: 'Requerimientos Funcionales',
+      notes: '¿Qué debe hacer el sistema?',
       contentHtml: `
-        <h2>Buenas Prácticas</h2>
-        <ul>
-            <li><strong>Validación:</strong> No confiar en la entrada del usuario (ej. validar que el DNI sea numérico).</li>
-            <li><strong>Modularidad:</strong> No escribir todo el código en un solo archivo.</li>
-            <li><strong>Comentarios:</strong> Documentar funciones complejas.</li>
-            <li><strong>Git:</strong> Usar control de versiones para ir guardando el progreso.</li>
-        </ul>
-      `,
+        <div class="grid md:grid-cols-2 gap-8 h-full">
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-center space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800">Funcionalidades Clave</h3>
+            
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-100 text-blue-700 p-1 rounded mt-1">1️⃣</span>
+                <div>
+                  <span class="font-bold text-slate-700 block">Gestión de Alumnos</span>
+                  <span class="text-sm text-slate-500">Crear, listar y buscar alumnos. Guardar en DB.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-100 text-blue-700 p-1 rounded mt-1">2️⃣</span>
+                <div>
+                  <span class="font-bold text-slate-700 block">Inscripción a Cursos</span>
+                  <span class="text-sm text-slate-500">Relacionar un alumno con una materia.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-100 text-blue-700 p-1 rounded mt-1">3️⃣</span>
+                <div>
+                  <span class="font-bold text-slate-700 block">Registro de Notas</span>
+                  <span class="text-sm text-slate-500">Asignar calificación (0.0 - 5.0).</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-100 text-blue-700 p-1 rounded mt-1">4️⃣</span>
+                <div>
+                  <span class="font-bold text-slate-700 block">Reportes</span>
+                  <span class="text-sm text-slate-500">Mostrar promedio por estudiante.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-slate-900 p-6 rounded-xl font-mono text-xs text-slate-300 overflow-hidden relative">
+            <div class="absolute top-0 right-0 bg-green-500 text-green-900 text-xs font-bold px-2 py-1 rounded-bl">SQL Schema</div>
+            <p class="text-purple-400 mb-2">-- Tablas Sugeridas</p>
+            CREATE TABLE alumnos (<br>
+            &nbsp;&nbsp;id INTEGER PRIMARY KEY,<br>
+            &nbsp;&nbsp;nombre TEXT,<br>
+            &nbsp;&nbsp;email TEXT<br>
+            );<br>
+            <br>
+            CREATE TABLE notas (<br>
+            &nbsp;&nbsp;id INTEGER PRIMARY KEY,<br>
+            &nbsp;&nbsp;alumno_id INTEGER,<br>
+            &nbsp;&nbsp;curso TEXT,<br>
+            &nbsp;&nbsp;valor REAL,<br>
+            &nbsp;&nbsp;FOREIGN KEY(alumno_id) REFERENCES alumnos(id)<br>
+            );
+          </div>
+        </div>
+      `
     },
     {
-      id: "pm18-s10",
-      title: "Ideas Adicionales",
+      id: 'py18-3-congrats',
+      title: '¡Felicidades!',
+      notes: 'Cierre del curso.',
       contentHtml: `
-        <h2>Ideas Adicionales</h2>
-        <p>Si terminas rápido, puedes agregar:</p>
-        <ul>
-            <li>Exportar reportes a CSV o Excel (pandas).</li>
-            <li>Interfaz Gráfica (Tkinter o PyQt).</li>
-            <li>Envío de correos electrónicos automáticos.</li>
-            <li>Login de usuarios (Admin vs Alumno).</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm18-s11",
-      title: "Recursos para Seguir Aprendiendo",
-      contentHtml: `
-        <h2>Recursos para Seguir Aprendiendo</h2>
-        <ul>
-            <li><strong>Web:</strong> Django, Flask, FastAPI.</li>
-            <li><strong>Data Science:</strong> NumPy, Pandas, Matplotlib.</li>
-            <li><strong>Automatización:</strong> Selenium, Beautiful Soup.</li>
-            <li><strong>Juegos:</strong> Pygame.</li>
-        </ul>
-      `,
-    },
-    {
-      id: "pm18-s12",
-      title: "Cierre del Curso",
-      contentHtml: `
-        <h2>Cierre del Curso</h2>
-        <p>¡Felicitaciones! Has completado el curso de Programación en Python.</p>
-        <p>Has pasado de conceptos básicos a construir aplicaciones con bases de datos y objetos.</p>
-        <p>La programación es una habilidad práctica: ¡Sigue codificando!</p>
-      `,
-    },
-    {
-      id: "pm18-s13",
-      title: "Evaluación Final",
-      contentHtml: `
-        <h2>Evaluación Final</h2>
-        <p>Presentación del proyecto funcionando.</p>
-        <p>Revisión del código fuente (limpieza y estructura).</p>
-        <p>Preguntas teóricas sobre las decisiones de diseño.</p>
-      `,
-    },
-  ],
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-center">
+          <div class="text-8xl animate-bounce">🎓</div>
+          <h3 class="text-4xl font-bold text-slate-800">¡Curso Completado!</h3>
+          <p class="text-xl text-slate-600 max-w-2xl">
+            Has pasado de <code>print("Hola Mundo")</code> a construir aplicaciones con bases de datos y objetos.
+          </p>
+
+          <div class="grid grid-cols-3 gap-6 mt-8">
+            <div class="bg-yellow-100 p-4 rounded-xl border border-yellow-300">
+              <div class="font-bold text-yellow-800">Lógica</div>
+              <div class="text-xs text-yellow-700">Algoritmos sólidos</div>
+            </div>
+            <div class="bg-blue-100 p-4 rounded-xl border border-blue-300">
+              <div class="font-bold text-blue-800">Python</div>
+              <div class="text-xs text-blue-700">Sintaxis y POO</div>
+            </div>
+            <div class="bg-green-100 p-4 rounded-xl border border-green-300">
+              <div class="font-bold text-green-800">Datos</div>
+              <div class="text-xs text-green-700">Persistencia SQL</div>
+            </div>
+          </div>
+          
+          <p class="text-sm text-slate-400 mt-8">
+            El viaje apenas comienza. ¡Sigue programando!
+          </p>
+        </div>
+      `
+    }
+  ]
 };
