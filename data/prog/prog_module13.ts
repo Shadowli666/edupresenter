@@ -234,11 +234,11 @@ void postorden(NodoArbol* nodo) {
     },
     {
       id: 'p13-10-practice',
-      title: 'Práctica: Recorridos',
-      notes: 'Un ejercicio para implementar los 3 recorridos.',
+      title: 'Práctica: Recorrido In-order',
+      notes: 'Los estudiantes calculan el recorrido in-order.',
       contentHtml: `
-        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: Recorriendo un Árbol</h3>
-        <p class="text-gray-600 mb-4">Dado el siguiente árbol binario, implementa las 3 funciones de recorrido en C++ o Python y verifica que la salida coincida con la que vimos en clase.</p>
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Ejercicio: Recorrido In-order</h3>
+        <p class="text-gray-600 mb-4">Dado el siguiente árbol binario, calcula el recorrido <strong>in-order</strong> (izquierda → raíz → derecha).</p>
         <div class="flex justify-center bg-white p-4 border rounded-lg">
             <div class="mermaid">
                 graph TD
@@ -249,10 +249,17 @@ void postorden(NodoArbol* nodo) {
                     C --> F(18);
             </div>
         </div>
-        <div class="mt-4 text-sm space-y-1">
-            <p><strong>Salida Pre-orden esperada:</strong> <span class="font-mono">10 5 3 7 15 18</span></p>
-            <p><strong>Salida In-orden esperada:</strong> <span class="font-mono">3 5 7 10 15 18</span></p>
-            <p><strong>Salida Post-orden esperada:</strong> <span class="font-mono">3 7 5 18 15 10</span></p>
+      `
+    },
+    {
+      id: 'p13-10-solution-inorder',
+      title: 'Solución: Recorrido In-order',
+      notes: 'Mostrar la solución después del ejercicio.',
+      contentHtml: `
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Solución del Recorrido In-order</h3>
+        <p class="text-gray-600 mb-4">Recuerda: izquierda → raíz → derecha.</p>
+        <div class="bg-white p-4 border rounded-lg">
+          <p class="text-sm"><strong>Salida In-order:</strong> <span class="font-mono">3 5 7 10 15 18</span></p>
         </div>
       `
     },

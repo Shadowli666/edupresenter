@@ -32,8 +32,8 @@ export const MODULE_11: Module = {
                  flowchart TD
                    Start([Inicio]) --> Instr[Instrucciones]
                    Instr --> Cond{¿Condición?}
-                   Cond -- F --> Instr
-                   Cond -- V --> End([Fin])
+                   Cond -->|F| Instr
+                   Cond -->|V| End([Fin])
                    style Instr fill:#dcfce7,stroke:#16a34a,stroke-width:2px
                    style Cond fill:#ffedd5,stroke:#ea580c,stroke-width:2px
                </div>
@@ -81,10 +81,10 @@ export const MODULE_11: Module = {
                  flowchart TD
                    Start([Inicio]) --> Init[i = 1]
                    Init --> Cond{i <= 10?}
-                   Cond -- V --> Instr[Escribir i]
+                   Cond -->|V| Instr[Escribir i]
                    Instr --> Inc[i = i + 1]
                    Inc --> Cond
-                   Cond -- F --> End([Fin])
+                   Cond -->|F| End([Fin])
                    style Init fill:#dbeafe,stroke:#2563eb,stroke-width:2px
                    style Inc fill:#dbeafe,stroke:#2563eb,stroke-width:2px
                </div>

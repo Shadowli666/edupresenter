@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$course$/Python_QuizCorto</text>
+    </category>
+  </question>
+
+  <!-- 1 -->
+  <question type="truefalse">
+    <name><text>01. while True</text></name>
+    <questiontext format="html">
+      <text><![CDATA[En Python, un patrón común para un menú es usar <code>while True</code> y salir con <code>break</code>.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Verdadero. Es el patrón típico para menús en consola.]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text></answer>
+  </question>
+
+  <!-- 2 -->
+  <question type="multichoice">
+    <name><text>02. try/except</text></name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué hace un bloque <code>try/except</code> cuando ocurre un error (por ejemplo, convertir texto a entero)?]]></text>
+    </questiontext>
+    <defaultgrade>2.0000000</defaultgrade>
+    <shuffleanswers>1</shuffleanswers>
+    <single>true</single>
+    <answer fraction="100" format="moodle_auto_format"><text><![CDATA[Evita que el programa se detenga y permite manejar el error con un mensaje o una acción.]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[Hace que Python ignore todos los errores del programa.]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[Convierte automáticamente cualquier texto en número sin fallar.]]></text></answer>
+  </question>
+
+  <!-- 3 -->
+  <question type="multichoice">
+    <name><text>03. Lista vs Diccionario</text></name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál estructura es más adecuada para almacenar un producto con campos como <code>nombre</code> y <code>precio</code>?]]></text>
+    </questiontext>
+    <defaultgrade>2.0000000</defaultgrade>
+    <shuffleanswers>1</shuffleanswers>
+    <single>true</single>
+    <answer fraction="100" format="moodle_auto_format"><text><![CDATA[Un diccionario, por ejemplo: {"nombre": "Mouse", "precio": 25}]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[Un entero, porque es más rápido.]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[Un booleano, porque representa verdadero/falso.]]></text></answer>
+  </question>
+
+  <!-- 4 -->
+  <question type="truefalse">
+    <name><text>04. Búsqueda binaria</text></name>
+    <questiontext format="html">
+      <text><![CDATA[Para aplicar búsqueda binaria, la lista debe estar previamente ordenada según la clave por la que se busca.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Verdadero. Si no está ordenada, la búsqueda binaria no garantiza resultados correctos.]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text></answer>
+  </question>
+
+  <!-- 5 -->
+  <question type="multichoice">
+    <name><text>05. Bubble Sort</text></name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es la complejidad típica de Bubble Sort en el peor caso?]]></text>
+    </questiontext>
+    <defaultgrade>2.0000000</defaultgrade>
+    <shuffleanswers>1</shuffleanswers>
+    <single>true</single>
+    <answer fraction="100" format="moodle_auto_format"><text><![CDATA[O(n^2)]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[O(log n)]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[O(1)]]></text></answer>
+  </question>
+
+  <!-- 6 -->
+  <question type="truefalse">
+    <name><text>06. Mutabilidad</text></name>
+    <questiontext format="html">
+      <text><![CDATA[En Python, las listas son mutables: se pueden modificar (por ejemplo, con <code>append</code>) sin crear una lista nueva.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Verdadero. Las listas permiten modificaciones en sitio.]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text></answer>
+  </question>
+
+  <!-- 7 -->
+  <question type="multichoice">
+    <name><text>07. Acceso a diccionario</text></name>
+    <questiontext format="html">
+      <text><![CDATA[Si <code>p = {"nombre": "Mouse", "precio": 25}</code>, ¿cómo accedes al precio?]]></text>
+    </questiontext>
+    <defaultgrade>2.0000000</defaultgrade>
+    <shuffleanswers>1</shuffleanswers>
+    <single>true</single>
+    <answer fraction="100" format="moodle_auto_format"><text><![CDATA[p["precio"]]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[p.precio]]></text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text><![CDATA[p(0)]]></text></answer>
+  </question>
+
+  <!-- 8 -->
+  <question type="truefalse">
+    <name><text>08. input()</text></name>
+    <questiontext format="html">
+      <text><![CDATA[En Python, <code>input()</code> devuelve siempre un valor de tipo string (texto).]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Verdadero. Por eso normalmente se convierte a <code>int</code> o <code>float</code> cuando se necesita un número.]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <answer fraction="100" format="moodle_auto_format"><text>true</text></answer>
+    <answer fraction="0" format="moodle_auto_format"><text>false</text></answer>
+  </question>
+
+</quiz>

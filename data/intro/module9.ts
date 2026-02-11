@@ -15,7 +15,7 @@ export const MODULE_9: Module = {
       contentHtml: `
         <div class="space-y-6">
           <p class="text-gray-700">
-            Son estructuras "Si" dentro de otros "Si". Se utilizan cuando necesitamos evaluar más de dos posibilidades de forma jerárquica.
+            Son estructuras "Si" dentro de otros "Si". Se usan cuando las decisiones dependen de un orden lógico (prioridades) y no solo de múltiples opciones.
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 items-center">
@@ -38,10 +38,14 @@ export const MODULE_9: Module = {
             <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
                <div class="mermaid">
                  flowchart TD
-                   A{>= 18?} -- Sí --> B[Excelente]
-                   A -- No --> C{>= 10?}
-                   C -- Sí --> D[Regular]
-                   C -- No --> E[Deficiente]
+                   Start([Inicio]) --> A{Promedio >= 18?}
+                   A -->|Sí| B[Excelente]
+                   A -->|No| C{Promedio >= 10?}
+                   C -->|Sí| D[Regular]
+                   C -->|No| E[Deficiente]
+                   B --> End([Fin])
+                   D --> End
+                   E --> End
                    style A fill:#dbeafe,stroke:#2563eb
                    style C fill:#fef9c3,stroke:#ca8a04
                    style B fill:#dcfce7,stroke:#16a34a
@@ -54,7 +58,7 @@ export const MODULE_9: Module = {
           <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-xs text-yellow-900 flex items-center gap-2">
             <span class="text-xl">⚠️</span>
             <div>
-              <strong>Cuidado:</strong> Demasiados anidamientos hacen que el código sea difícil de leer (Espagueti code). Mantén la identación ordenada.
+              <strong>Cuidado:</strong> Demasiados anidamientos vuelven el código difícil de leer (espagueti). Mantén la identación ordenada y considera <em>Según</em> cuando haya muchas opciones.
             </div>
           </div>
         </div>
@@ -66,7 +70,7 @@ export const MODULE_9: Module = {
       contentHtml: `
         <div class="space-y-6">
           <p class="text-gray-700">
-            Estructura especializada para cuando una misma variable puede tomar distintos valores específicos (1, 2, 3...). Es ideal para <strong>Menús de Opciones</strong>.
+            Estructura especializada para cuando una variable toma valores específicos (1, 2, 3...). Es ideal para <strong>menús de opciones</strong> y evita múltiples <em>Si</em> repetidos.
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 items-center">
@@ -76,9 +80,9 @@ export const MODULE_9: Module = {
               </h4>
               <div class="font-mono text-sm bg-slate-100 p-3 rounded text-slate-700 border border-slate-200">
                 <span class="text-blue-600 font-bold">Segun</span> opcion <span class="text-blue-600 font-bold">Hacer</span><br>
-                &nbsp;&nbsp;<span class="text-purple-600 font-bold">1:</span> Escribir "Sumar";<br>
-                &nbsp;&nbsp;<span class="text-purple-600 font-bold">2:</span> Escribir "Restar";<br>
-                &nbsp;&nbsp;<span class="text-purple-600 font-bold">3:</span> Escribir "Salir";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">Caso 1:</span> Escribir "Sumar";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">Caso 2:</span> Escribir "Restar";<br>
+                &nbsp;&nbsp;<span class="text-purple-600 font-bold">Caso 3:</span> Escribir "Salir";<br>
                 &nbsp;&nbsp;<span class="text-blue-600 font-bold">De Otro Modo:</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;Escribir "Error";<br>
                 <span class="text-blue-600 font-bold">FinSegun</span>
@@ -88,11 +92,11 @@ export const MODULE_9: Module = {
             <div class="flex justify-center bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
                <div class="mermaid">
                  flowchart TD
-                   Start([Inicio]) --> Sel{Opcion?}
-                   Sel -- 1 --> A[Sumar]
-                   Sel -- 2 --> B[Restar]
-                   Sel -- 3 --> C[Salir]
-                   Sel -- Otro --> D[Error]
+                   Start([Inicio]) --> Sel{Opción}
+                   Sel -->|1| A[Sumar]
+                   Sel -->|2| B[Restar]
+                   Sel -->|3| C[Salir]
+                   Sel -->|Otro| D[Error]
                    A --> End([Fin])
                    B --> End
                    C --> End
@@ -107,7 +111,7 @@ export const MODULE_9: Module = {
           </div>
           
           <div class="bg-slate-50 p-3 rounded text-xs text-gray-500 border border-slate-200">
-            Equivalente al <code>switch</code> en C/Java/JS o <code>match</code> en Python.
+            Regla de oro: cada caso debe ser <strong>único</strong> y debe existir un <strong>caso por defecto</strong>.
           </div>
         </div>
       `
@@ -120,7 +124,7 @@ export const MODULE_9: Module = {
           <div class="bg-white border p-6 rounded-lg shadow-sm">
             <h3 class="font-bold text-slate-800 mb-4">Desafío: Menú de Operaciones</h3>
             <p class="text-sm text-slate-600 mb-4">
-              Cree un algoritmo que pida dos números y luego muestre un menú: 1.Sumar, 2.Restar, 3.Multiplicar. Según la elección, muestre el resultado.
+              Cree un algoritmo que pida dos números y luego muestre un menú: 1.Sumar, 2.Restar, 3.Multiplicar. Según la elección, muestre el resultado o un mensaje de error.
             </p>
             
             <details class="bg-slate-50 p-4 rounded border">
@@ -130,12 +134,11 @@ export const MODULE_9: Module = {
                 Escribir "1.Sumar 2.Restar 3.Mult"<br>
                 Leer Op<br>
                 Segun Op Hacer<br>
-                &nbsp;&nbsp;1: Res = A + B<br>
-                &nbsp;&nbsp;2: Res = A - B<br>
-                &nbsp;&nbsp;3: Res = A * B<br>
-                &nbsp;&nbsp;De Otro Modo: Escribir "Error"<br>
-                FinSegun<br>
-                Escribir Res
+                &nbsp;&nbsp;Caso 1: Res = A + B; Escribir Res<br>
+                &nbsp;&nbsp;Caso 2: Res = A - B; Escribir Res<br>
+                &nbsp;&nbsp;Caso 3: Res = A * B; Escribir Res<br>
+                &nbsp;&nbsp;De Otro Modo: Escribir "Opción inválida"<br>
+                FinSegun
               </div>
             </details>
           </div>

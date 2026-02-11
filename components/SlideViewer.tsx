@@ -18,7 +18,9 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
   
   useEffect(() => {
     const hasMermaid = typeof slide.contentHtml === 'string' && (
-      slide.contentHtml.includes('<div class="mermaid"') ||
+      // Soporta `class="mermaid"` y también `class="mermaid ..."`
+      slide.contentHtml.includes('class="mermaid') ||
+      slide.contentHtml.includes("class='mermaid") ||
       slide.contentHtml.includes('```mermaid') ||
       slide.contentHtml.includes('<code class="language-mermaid"')
     );

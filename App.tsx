@@ -16,6 +16,8 @@ import {
   User 
 } from 'lucide-react';
 
+const STORAGE_KEY = 'edupresenter:lastState';
+
 const App: React.FC = () => {
   // Navigation State
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -25,6 +27,33 @@ const App: React.FC = () => {
   const [activeModuleId, setActiveModuleId] = useState<string>('');
   const [activeSlideId, setActiveSlideId] = useState<string>('');
   const [expandedWeeks, setExpandedWeeks] = useState<string[]>([]);
+
+  // Restore last state on load
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as {
+        selectedCourseId?: string;
+        viewMode?: 'MENU' | 'SYLLABUS' | 'PRESENTATION';
+        activeModuleId?: string;
+        activeSlideId?: string;
+        expandedWeeks?: string[];
+      };
+
+      if (!parsed.selectedCourseId) return;
+      const course = AVAILABLE_COURSES.find(c => c.id === parsed.selectedCourseId);
+      if (!course) return;
+
+      setSelectedCourse(course);
+      setActiveModuleId(parsed.activeModuleId ?? '');
+      setActiveSlideId(parsed.activeSlideId ?? '');
+      setExpandedWeeks(parsed.expandedWeeks ?? []);
+      setViewMode(parsed.viewMode ?? 'SYLLABUS');
+    } catch {
+      // ignore restore errors
+    }
+  }, []);
 
   // --- ACTIONS ---
 
@@ -64,6 +93,30 @@ const App: React.FC = () => {
   // Derived state
   const activeModule = selectedCourse?.modules.find(m => m.id === activeModuleId);
   const activeSlide = activeModule?.slides.find(s => s.id === activeSlideId);
+
+  // Persist current state
+  useEffect(() => {
+    const payload = {
+      selectedCourseId: selectedCourse?.id ?? null,
+      viewMode,
+      activeModuleId,
+      activeSlideId,
+      expandedWeeks
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    } catch {
+      // ignore storage errors
+    }
+  }, [selectedCourse, viewMode, activeModuleId, activeSlideId, expandedWeeks]);
+
+  // Guard: if restored slide is invalid, fall back to syllabus
+  useEffect(() => {
+    if (viewMode !== 'PRESENTATION') return;
+    if (!selectedCourse || !activeModule || !activeSlide) {
+      setViewMode('SYLLABUS');
+    }
+  }, [viewMode, selectedCourse, activeModule, activeSlide]);
 
   // Navigation Logic (Next/Prev)
   const getNextSlide = () => {

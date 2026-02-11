@@ -209,13 +209,13 @@ export const MODULE_13: Module = {
 
             <div class="flex justify-center">
                <div class="mermaid">
-                 graph TD
-                   Start((Inicio)) --> Init[i = 0]
-                   Init --> Cond{i <= 4?}
-                   Cond -- V --> Acc[Acceder notas[i]]
-                   Acc --> Inc[i = i + 1]
+                 flowchart TD
+                   Start((Inicio)) --> Init["i = 0"]
+                   Init --> Cond{"i <= 4?"}
+                   Cond -->|V| Acc["Acceder notas[i]"]
+                   Acc --> Inc["i = i + 1"]
                    Inc --> Cond
-                   Cond -- F --> End((Fin))
+                   Cond -->|F| End((Fin))
                    style Acc fill:#dcfce7,stroke:#16a34a
                    style Init fill:#dbeafe,stroke:#2563eb
                </div>

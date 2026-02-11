@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- Categoría para organizar las preguntas -->
+<question type="category">
+  <category>
+    <text>$course$/EstructurasDatos_Corte2</text>
+  </category>
+</question>
+
+<!-- PREGUNTA 1: Verdadero/Falso - Memoria Heap -->
+<question type="truefalse">
+  <name>
+    <text>01. Memoria Heap</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[La memoria <strong>Heap</strong> (montón) es gestionada automáticamente por el compilador; las variables se eliminan solas al salir de la función.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Falso. El Heap es memoria dinámica gestionada manualmente por el programador (new/delete). La memoria automática es el Stack.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <penalty>1.0000000</penalty>
+  <hidden>0</hidden>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Esa es la definición del Stack.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[¡Correcto! El Heap requiere gestión manual.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 2: Verdadero/Falso - Listas Circulares -->
+<question type="truefalse">
+  <name>
+    <text>02. Listas Circulares</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En una lista circular simple, el puntero 'siguiente' del último nodo apunta a <strong>nullptr</strong> (o NULL).]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Falso. En una lista circular, el último nodo apunta de nuevo al primer nodo (Head).]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Si apuntara a NULL sería una lista lineal simple.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[¡Correcto! Apunta al inicio de la lista.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 3: Opción Múltiple - Complejidad Arreglos -->
+<question type="multichoice">
+  <name>
+    <text>03. Complejidad Arreglos</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[¿Cuál es la complejidad temporal (Big O) para acceder a un elemento de un arreglo dado su índice (ej. arr[5])?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[O(1)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Es acceso directo a memoria.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[O(N)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Esto sería para una Lista Enlazada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[O(log N)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 4: Verdadero/Falso - Pilas LIFO -->
+<question type="truefalse">
+  <name>
+    <text>04. Pilas LIFO</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Una Pila (Stack) sigue el principio <strong>LIFO</strong> (Last In, First Out).]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. El último en entrar es el primero en salir.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 5: Verdadero/Falso - Fuga de Memoria -->
+<question type="truefalse">
+  <name>
+    <text>05. Fuga de Memoria</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Una <strong>fuga de memoria</strong> ocurre cuando reservamos memoria dinámica (por ejemplo, con <code>new</code>) pero olvidamos liberarla (por ejemplo, con <code>delete</code>).]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. Es un error común en C/C++ cuando no liberamos memoria asignada dinámicamente, lo que puede degradar el rendimiento o agotar la memoria.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <penalty>1.0000000</penalty>
+  <hidden>0</hidden>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[¡Correcto! Eso describe exactamente una fuga de memoria.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Si reservas memoria dinámica y no la liberas, estás provocando una fuga de memoria.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 6: Verdadero/Falso - Lista Doble -->
+<question type="truefalse">
+  <name>
+    <text>06. Lista Doble</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[La principal ventaja de una <strong>Lista Doblemente Enlazada</strong> sobre una simple es que permite el recorrido bidireccional (hacia adelante y hacia atrás).]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Gracias a los punteros 'siguiente' y 'anterior'.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 7: Emparejamiento - Estructuras y Conceptos -->
+<question type="matching">
+  <name>
+    <text>07. Relacionar conceptos</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Relacione cada estructura de datos con su característica principal o comportamiento:]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>true</shuffleanswers>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Pila (Stack)]]></text>
+    <answer>
+      <text><![CDATA[LIFO (Last In, First Out)]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Cola (Queue)]]></text>
+    <answer>
+      <text><![CDATA[FIFO (First In, First Out)]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Lista Enlazada]]></text>
+    <answer>
+      <text><![CDATA[Tamaño dinámico y nodos dispersos en memoria]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Arreglo (Array)]]></text>
+    <answer>
+      <text><![CDATA[Tamaño fijo y memoria contigua]]></text>
+    </answer>
+  </subquestion>
+</question>
+
+<!-- PREGUNTA 8: Opción Múltiple - Operación Cola -->
+<question type="multichoice">
+  <name>
+    <text>08. Operación Cola</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[¿Cómo se llama la operación para <strong>insertar</strong> un elemento en una Cola (Queue)?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[Enqueue (Encolar)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Dequeue (Desencolar)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Eso es para sacar elementos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Push]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Push se usa generalmente en Pilas.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Pop]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 9: Verdadero/Falso - Cola Prioridad -->
+<question type="truefalse">
+  <name>
+    <text>09. Cola de Prioridad</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En una <strong>Cola de Prioridad</strong>, el elemento que sale primero es siempre el que lleva más tiempo esperando en la fila (el más antiguo).]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Sale el elemento con mayor importancia/prioridad, independientemente de cuándo llegó.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. El criterio es la prioridad, no el tiempo de llegada.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 10: Opción Múltiple - Cola Circular Fórmula -->
+<question type="multichoice">
+  <name>
+    <text>10. Cola Circular</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En una implementación de Cola Circular con arreglos de tamaño N, ¿qué fórmula usamos para avanzar la posición y dar la vuelta al inicio?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[pos = (pos + 1) % N]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. El operador módulo permite la circularidad.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[pos = pos + 1]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Esto causaría un desbordamiento al final del arreglo.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[pos = (pos * 1) + N]]></text>
+  </answer>
+</question>
+
+<!-- PREGUNTA 11: Verdadero/Falso - Recursividad -->
+<question type="truefalse">
+  <name>
+    <text>11. Recursividad</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Un programa utiliza internamente una estructura de <strong>Pila (Stack)</strong> para gestionar las llamadas recursivas de las funciones (la <em>Call Stack</em>).]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. Las llamadas a funciones (incluida la recursividad) se gestionan mediante la <em>Call Stack</em>, donde se almacenan marcos de activación (parámetros, retornos, variables locales, etc.).]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Se llama 'Call Stack'.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. La recursividad depende de la Call Stack para almacenar el estado de cada llamada.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 12: Verdadero/Falso - Punteros -->
+<question type="truefalse">
+  <name>
+    <text>12. Punteros nulos</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Desreferenciar un puntero nulo (ej. <code>*ptr</code> cuando ptr es <code>nullptr</code>) es una operación segura que devuelve 0.]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Esto causa un error fatal de ejecución (Segmentation Fault).]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 13: Opción Múltiple - Notación Postfija -->
+<question type="multichoice">
+  <name>
+    <text>13. Notación RPN</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Si usamos una Pila para evaluar la expresión postfija (RPN): <code>4 2 + 3 *</code>, ¿cuál es el resultado final?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[18]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. (4+2)=6, luego 6*3=18.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[10]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Parece que evaluaste 4 + (2*3).]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[14]]></text>
+  </answer>
+</question>
+
+<!-- PREGUNTA 14: Verdadero/Falso - Insertar Lista -->
+<question type="truefalse">
+  <name>
+    <text>14. Inserción Lista</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Insertar un nodo al <strong>inicio</strong> de una Lista Enlazada tiene una complejidad de O(N) porque hay que desplazar todos los elementos.]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Eso pasa en los arreglos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. La inserción al inicio de una lista es O(1), solo se actualizan punteros.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+</quiz>

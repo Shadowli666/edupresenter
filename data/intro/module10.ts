@@ -34,14 +34,14 @@ export const MODULE_10: Module = {
             </div>
             
             <div class="flex flex-col gap-4">
-               <div class="mermaid flex justify-center">
+               <div class="mermaid">
                  flowchart TD
                    Start([Inicio]) --> Init[i = 1]
                    Init --> Cond{¿i <= 5?}
-                   Cond -- V --> Instr[Escribir i]
+                   Cond -->|Sí| Instr[Escribir i]
                    Instr --> Upd[i = i + 1]
                    Upd --> Cond
-                   Cond -- F --> End([Fin])
+                   Cond -->|No| End([Fin])
                    style Cond fill:#dbeafe,stroke:#2563eb,stroke-width:2px
                    style Instr fill:#dcfce7,stroke:#16a34a,stroke-width:2px
                    style Upd fill:#fef9c3,stroke:#ca8a04,stroke-width:2px

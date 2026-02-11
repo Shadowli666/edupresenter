@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- Categoría para organizar las preguntas -->
+<question type="category">
+  <category>
+    <text>$course$/ProgramacionNoNumerica_Corte2</text>
+  </category>
+</question>
+
+<!-- PREGUNTA 1: Verdadero/Falso - Heaps y prioridad -->
+<question type="truefalse">
+  <name>
+    <text>01. Heaps y prioridad</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En un <strong>Max-Heap</strong>, el elemento con mayor valor (o prioridad) siempre se encuentra en la <strong>raíz</strong>.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. En un Max-Heap, la raíz contiene el máximo; por eso se usa para implementar colas de prioridad (max-priority).]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <penalty>1.0000000</penalty>
+  <hidden>0</hidden>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Esa es la propiedad del Max-Heap.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. En un Max-Heap, el máximo siempre está en la raíz.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 2: Opción Múltiple - Complejidad Divide y Conquista -->
+<question type="multichoice">
+  <name>
+    <text>02. Merge Sort</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[¿Cuál es la complejidad temporal típica de <strong>Merge Sort</strong> en el mejor, promedio y peor caso?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[O(N log N)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Merge Sort mantiene O(N log N) en todos los casos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[O(N)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. O(N) no es la complejidad de Merge Sort.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[O(N^2)]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Esa es una complejidad típica de algoritmos cuadráticos como Bubble Sort.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 3: Verdadero/Falso - Quick Sort peor caso -->
+<question type="truefalse">
+  <name>
+    <text>03. Quick Sort (peor caso)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[El algoritmo <strong>Quick Sort</strong> puede degradarse a <strong>O(N^2)</strong> si se eligen malos pivotes de manera repetida.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. Un pivote muy desbalanceado (por ejemplo, siempre el mínimo o máximo) produce particiones de tamaño 0 y N-1, llevando al peor caso cuadrático.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <penalty>1.0000000</penalty>
+  <hidden>0</hidden>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Ese es el riesgo clásico de Quick Sort.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Quick Sort sí puede llegar a O(N^2) en el peor caso.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 4: Verdadero/Falso - Greedy (óptimo local) -->
+<question type="truefalse">
+  <name>
+    <text>04. Greedy (óptimo local)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Un algoritmo <strong>voraz (Greedy)</strong> construye una solución eligiendo en cada paso la mejor opción inmediata (un <strong>óptimo local</strong>).]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. Greedy elige la mejor alternativa disponible “ahora”, sin retroceder. Funciona cuando el problema tiene subestructura óptima y propiedad de elección voraz.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Esa es la idea de Greedy.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Greedy sí toma decisiones locales paso a paso.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 5: Verdadero/Falso - Contraejemplo cambio de monedas -->
+<question type="truefalse">
+  <name>
+    <text>05. Greedy (cambio de monedas)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[El enfoque voraz para el <strong>cambio de monedas</strong> (tomar siempre la moneda más grande que quepa) funciona para <strong>cualquier</strong> sistema de monedas.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Falso. Existen sistemas de monedas donde Greedy falla (por ejemplo, monedas 4, 3, 1 para dar 6: Greedy da 4+1+1, pero el óptimo es 3+3).]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Hay contraejemplos donde Greedy no es óptimo.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Greedy no funciona para cualquier sistema de monedas.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 6: Opción Múltiple - Selección de actividades (criterio) -->
+<question type="multichoice">
+  <name>
+    <text>06. Selección de actividades</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En el problema de <strong>selección de actividades</strong> (maximizar cantidad de actividades sin solaparse), el criterio voraz clásico es:]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[Elegir siempre la actividad que termina primero]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Ordenar por tiempo de finalización y elegir compatible es el enfoque estándar.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Elegir siempre la actividad que empieza primero]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Ese criterio no garantiza la máxima cantidad de actividades.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Elegir siempre la actividad de mayor duración]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Mayor duración suele reducir el número total de actividades posibles.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 7: Verdadero/Falso - Knapsack fraccional -->
+<question type="truefalse">
+  <name>
+    <text>07. Mochila fraccional</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En la <strong>mochila fraccional</strong>, un criterio voraz correcto es ordenar los objetos por <strong>densidad de valor</strong> (ratio <code>v/w</code>) de mayor a menor.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. En la variante fraccional, elegir por densidad maximiza el valor total porque podemos tomar fracciones de objetos.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. El ratio v/w es la clave.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. En mochila fraccional sí es óptimo ordenar por v/w.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 8: Opción Múltiple - Optimal Merge Pattern -->
+<question type="multichoice">
+  <name>
+    <text>08. Intercalación óptima</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En el problema de <strong>intercalación/fusión óptima de archivos</strong> (Optimal Merge Pattern), el enfoque voraz correcto es:]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[Fusionar siempre los dos archivos más pequeños disponibles]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Ese orden minimiza el costo total acumulado.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Fusionar siempre los dos archivos más grandes disponibles]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Eso suele aumentar el costo total acumulado.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Fusionar archivos al azar hasta que quede uno]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. El orden afecta el costo total.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 9: Verdadero/Falso - Estructura para Optimal Merge -->
+<question type="truefalse">
+  <name>
+    <text>09. Min-Heap (fusión óptima)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Para implementar eficientemente la fusión óptima (Optimal Merge Pattern), una estructura adecuada es un <strong>Min-Heap</strong> (cola de prioridad mínima).]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. El Min-Heap permite extraer repetidamente los dos mínimos en O(log N).]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Un Min-Heap es la herramienta estándar aquí.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Un Min-Heap es precisamente lo recomendado para extraer mínimos.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 10: Emparejamiento - Algoritmos y Estructuras -->
+<question type="matching">
+  <name>
+    <text>10. Relacionar algoritmo y estructura</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Relacione cada algoritmo con la estructura de datos más típica que se usa en su implementación:]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>true</shuffleanswers>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Dijkstra]]></text>
+    <answer>
+      <text><![CDATA[Cola de prioridad (Min-Heap)]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Kruskal]]></text>
+    <answer>
+      <text><![CDATA[Union-Find (Disjoint Set)]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Prim]]></text>
+    <answer>
+      <text><![CDATA[Cola de prioridad (Min-Heap)]]></text>
+    </answer>
+  </subquestion>
+  <subquestion format="moodle_auto_format">
+    <text><![CDATA[Optimal Merge Pattern]]></text>
+    <answer>
+      <text><![CDATA[Cola de prioridad (Min-Heap)]]></text>
+    </answer>
+  </subquestion>
+</question>
+
+<!-- PREGUNTA 11: Verdadero/Falso - MST sin ciclos -->
+<question type="truefalse">
+  <name>
+    <text>11. MST</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[Un <strong>árbol de expansión mínima (MST)</strong> conecta todos los vértices con el costo total mínimo y <strong>no contiene ciclos</strong>.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. Un MST es un spanning tree: debe ser conexo, incluir todos los vértices y ser acíclico; entre todos ellos, elige el de peso mínimo.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Si hubiera ciclos, podríamos quitar una arista y reducir costo o mantener conectividad.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Un MST es un árbol, por definición no tiene ciclos.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 12: Verdadero/Falso - Dijkstra y pesos negativos -->
+<question type="truefalse">
+  <name>
+    <text>12. Dijkstra (pesos negativos)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[El algoritmo de <strong>Dijkstra</strong> funciona correctamente incluso si existen aristas con peso negativo.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Falso. Dijkstra asume pesos no negativos; con pesos negativos puede marcar un nodo como “óptimo” demasiado pronto. Para pesos negativos se usa, por ejemplo, Bellman-Ford.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Dijkstra no es válido con pesos negativos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Requiere pesos no negativos.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 13: Opción Múltiple - Relajación -->
+<question type="multichoice">
+  <name>
+    <text>13. Relajación en Dijkstra</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En Dijkstra, ¿qué significa <strong>relajar</strong> una arista <code>(u, v)</code> de peso <code>w</code>?]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade>
+  <shuffleanswers>1</shuffleanswers>
+  <single>true</single>
+  <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[Actualizar dist[v] si dist[u] + w es menor que el valor actual]]></text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Esa es la operación de relajación.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Marcar v como visitado sin comparar distancias]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Dijkstra compara distancias y solo marca como definitivo al extraer el mínimo.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text><![CDATA[Eliminar la arista (u, v) para evitar ciclos]]></text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. Eso sería más propio de algoritmos de spanning tree, no de caminos mínimos.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- PREGUNTA 14: Verdadero/Falso - AVL y complejidad -->
+<question type="truefalse">
+  <name>
+    <text>14. AVL (búsqueda)</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[En un árbol <strong>AVL</strong>, se garantiza que la búsqueda tiene complejidad <strong>O(log N)</strong> en el peor caso.]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[Verdadero. El auto-balanceo mantiene la altura del árbol proporcional a log N, evitando la degeneración típica de un BST sin balance.]]></text>
+  </generalfeedback>
+  <defaultgrade>2.0000000</defaultgrade>
+  <answer fraction="100" format="moodle_auto_format">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto. Esa es la ventaja central del AVL.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0" format="moodle_auto_format">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto. En AVL sí se garantiza O(log N) en el peor caso.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+</quiz>
