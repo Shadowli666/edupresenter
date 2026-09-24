@@ -389,7 +389,7 @@ export const SQL_ELECTIVE_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-indigo-600 text-white rounded-xl p-4 flex justify-between items-center">
-            <div><h4 class="font-bold text-lg">🎯 Demostración guiada (no evaluable)</h4><p class="text-indigo-100 text-xs">Base de ejemplo: empresa (empleado, departamento)</p></div>
+            <div><h4 class="font-bold text-lg">🎯 Demostración guiada (no evaluable)</h4><p class="font-bold text-xs">Base de ejemplo: empresa (empleado, departamento)</p></div>
             <span class="text-3xl">⌨️</span>
           </div>
           <ol class="space-y-2 text-sm">

@@ -63,7 +63,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-6">
           <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 rounded-2xl shadow-lg">
-            <p class="text-xs uppercase tracking-widest text-blue-50 mb-2">Definición</p>
+            <p class="text-xs uppercase tracking-widest font-bold mb-2">Definición</p>
             <p class="text-xl leading-relaxed">
               Aplicación de un enfoque <strong>sistemático</strong>, <strong>disciplinado</strong> y <strong>cuantificable</strong> al desarrollo, operación y mantenimiento del software.
             </p>
@@ -210,7 +210,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
             <div class="text-4xl">🚨</div>
             <div>
               <h4 class="font-bold text-lg">Conferencia de la OTAN — Garmisch, 1968</h4>
-              <p class="text-slate-300 text-sm">Proyectos que se retrasaban, excedían el presupuesto o simplemente fallaban.</p>
+              <p class="text-sm">Proyectos que se retrasaban, excedían el presupuesto o simplemente fallaban.</p>
             </div>
           </div>
 
@@ -267,7 +267,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 rounded-xl">
-            <p class="text-sm uppercase tracking-widest text-blue-50">Objetivo general</p>
+            <p class="text-sm uppercase tracking-widest font-bold">Objetivo general</p>
             <p class="text-lg font-semibold">Producir software de <strong>calidad</strong>, a <strong>tiempo</strong> y dentro del <strong>presupuesto</strong>.</p>
           </div>
 
@@ -319,7 +319,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-blue-600 text-white rounded-xl p-4 flex justify-between items-center">
-            <div><h4 class="font-bold text-lg">🛠️ Taller: del concepto al caso</h4><p class="text-blue-50 text-xs">En parejas · 30–35 min</p></div>
+            <div><h4 class="font-bold text-lg">🛠️ Taller: del concepto al caso</h4><p class="font-bold text-xs">En parejas · 30–35 min</p></div>
             <span class="text-3xl">🧩</span>
           </div>
           <ol class="space-y-2 text-sm">
@@ -372,7 +372,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
             <span class="text-4xl">📚</span>
             <div>
               <h4 class="font-bold text-lg">Tarea para la casa</h4>
-              <p class="text-blue-50 text-sm">Leer Pressman cap. 1 · traer por escrito un caso real de fallo de software (mín. 5 líneas) · 3 ejemplos de software por campo de aplicación.</p>
+              <p class="font-bold text-sm">Leer Pressman cap. 1 · traer por escrito un caso real de fallo de software (mín. 5 líneas) · 3 ejemplos de software por campo de aplicación.</p>
             </div>
           </div>
           <div class="bg-slate-50 border rounded-xl p-4">

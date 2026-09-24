@@ -288,7 +288,7 @@ export const PNN_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-orange-700 text-white rounded-xl p-4 flex justify-between items-center">
-            <div><h4 class="font-bold text-lg">🖊️ Práctica de árboles</h4><p class="text-orange-50 text-xs">Individual / parejas · usa el borrador</p></div>
+            <div><h4 class="font-bold text-lg">🖊️ Práctica de árboles</h4><p class="font-bold text-xs">Individual / parejas · usa el borrador</p></div>
             <span class="text-3xl">✏️</span>
           </div>
           <ol class="space-y-2 text-sm">
@@ -300,6 +300,28 @@ export const PNN_MODULE_1: Module = {
             <li class="bg-amber-50 border border-amber-200 rounded-lg p-3 shadow-sm"><strong>6. Reto:</strong> escribe un problema cotidiano que implique minimizar tiempo o costo (objetivo + restricción).</li>
           </ol>
           <p class="text-xs text-gray-500 text-center">🔁 Verificación cruzada entre parejas (5 min).</p>
+        </div>
+      `
+    },
+    {
+      id: 'pnn1-12-fin-dia1',
+      title: 'Fin de la Sesión 1 — Gracias',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+          <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-4xl">👋</div>
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">¡Gracias! Fin de la sesión de hoy (jueves)</h2>
+            <p class="text-gray-600 mt-2">Nos vemos <strong>mañana viernes</strong> en el mismo horario y aula.</p>
+          </div>
+          <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 max-w-xl text-left">
+            <p class="text-xs font-bold text-orange-900 uppercase tracking-widest mb-2">Lo que haremos el viernes</p>
+            <ul class="text-sm text-orange-900 space-y-1 list-disc list-inside">
+              <li><strong>Prueba diagnóstica</strong> (0%, no califica).</li>
+              <li><strong>Taller práctico</strong> de árboles y aplicación de optimización.</li>
+              <li>Revisión cruzada entre parejas.</li>
+            </ul>
+            <p class="text-xs text-orange-800 mt-2">Trae la guía de ejercicios y el borrador.</p>
+          </div>
         </div>
       `
     },
@@ -324,7 +346,7 @@ export const PNN_MODULE_1: Module = {
 
           <div class="bg-slate-900 text-white rounded-xl p-4">
             <h4 class="font-bold text-lg">📝 Prueba diagnóstica (0%, no califica)</h4>
-            <p class="text-slate-300 text-sm mt-1">Valoración conceptual, procedimental y actitudinal.</p>
+            <p class="text-sm mt-1">Valoración conceptual, procedimental y actitudinal.</p>
           </div>
 
           <div class="bg-white border rounded-xl p-4 shadow-sm">
@@ -371,11 +393,19 @@ export const PNN_MODULE_1: Module = {
       id: 'pnn1-end-thanks',
       title: 'Gracias',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-5">
           <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-4xl">🌳</div>
           <div>
-            <h2 class="text-3xl font-bold text-slate-900">Fin del Módulo 1</h2>
+            <h2 class="text-3xl font-bold text-slate-900">¡Gracias! Fin de la semana 1</h2>
             <p class="text-gray-600 mt-2">Próxima parada: <strong>Heaps y los algoritmos INSERTAR y HEAPIFY</strong>.</p>
+          </div>
+          <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 max-w-xl text-left">
+            <p class="text-xs font-bold text-orange-900 uppercase tracking-widest mb-2">Tarea / para repasar</p>
+            <ul class="text-sm text-orange-900 space-y-1 list-disc list-inside">
+              <li>Terminar el taller de árboles.</li>
+              <li>Repasar <strong>recursividad</strong> (Joyanes) para la Unidad II.</li>
+              <li>Traer el cuaderno de ejercicios a cada clase.</li>
+            </ul>
           </div>
         </div>
       `

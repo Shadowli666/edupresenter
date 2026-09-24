@@ -24,7 +24,7 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
           </p>
 
           <div class="bg-slate-900 text-white rounded-xl p-4">
-            <p class="text-xs uppercase tracking-widest text-slate-400 mb-2">7 unidades</p>
+            <p class="text-xs uppercase tracking-widest font-bold mb-2">7 unidades</p>
             <div class="flex flex-wrap gap-2 text-xs">
               <span class="bg-white/10 px-2 py-1 rounded">I. Conceptos básicos</span>
               <span class="bg-white/10 px-2 py-1 rounded">II. Sistemas de información</span>
@@ -149,7 +149,7 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-5 rounded-2xl">
-            <p class="text-xs uppercase tracking-widest text-slate-400 mb-2">Definición</p>
+            <p class="text-xs uppercase tracking-widest font-bold mb-2">Definición</p>
             <p class="text-lg">Conjunto de <strong>componentes interdependientes</strong> que interactúan y trabajan juntos para lograr un <strong>objetivo común</strong>, dentro de un ambiente y con límites definidos.</p>
           </div>
 
@@ -317,6 +317,28 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       `
     },
     {
+      id: 'ads1-11-fin-dia1',
+      title: 'Fin de la Sesión 1 — Gracias',
+      contentHtml: `
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+          <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-4xl">👋</div>
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">¡Gracias! Fin de la sesión de hoy (jueves)</h2>
+            <p class="text-gray-600 mt-2">Nos vemos <strong>mañana viernes</strong> en el mismo horario y aula.</p>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 max-w-xl text-left">
+            <p class="text-xs font-bold text-emerald-900 uppercase tracking-widest mb-2">Lo que haremos el viernes</p>
+            <ul class="text-sm text-emerald-900 space-y-1 list-disc list-inside">
+              <li><strong>Estudio de caso</strong> en equipos con roles (coordinador, secretario, vocero, cronometrista).</li>
+              <li>Análisis de un sistema de información real con la <strong>guía de 7 puntos</strong>.</li>
+              <li>Plenaria y <strong>coevaluación</strong> entre equipos.</li>
+            </ul>
+            <p class="text-xs text-emerald-800 mt-2">Trae tu caso (tarea) para trabajarlo en clase.</p>
+          </div>
+        </div>
+      `
+    },
+    {
       id: 'ads1-12',
       title: 'Sesión 2 (viernes): Activación y práctica',
       contentHtml: `
@@ -391,7 +413,7 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-teal-700 text-white rounded-xl p-4 flex justify-between items-center">
-            <div><h4 class="font-bold text-lg">🤝 Coevaluación entre equipos</h4><p class="text-teal-100 text-xs">Cada equipo observa a otro y devuelve 3 criterios</p></div>
+            <div><h4 class="font-bold text-lg">🤝 Coevaluación entre equipos</h4><p class="font-bold text-xs">Cada equipo observa a otro y devuelve 3 criterios</p></div>
             <span class="text-3xl">📝</span>
           </div>
           <div class="overflow-x-auto">
@@ -450,11 +472,19 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       id: 'ads1-end-thanks',
       title: 'Gracias',
       contentHtml: `
-        <div class="flex flex-col items-center justify-center h-full text-center space-y-6">
+        <div class="flex flex-col items-center justify-center h-full text-center space-y-5">
           <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 text-4xl">🧭</div>
           <div>
-            <h2 class="text-3xl font-bold text-slate-900">Fin del Módulo 1</h2>
+            <h2 class="text-3xl font-bold text-slate-900">¡Gracias! Fin de la semana 1</h2>
             <p class="text-gray-600 mt-2">Próxima semana: <strong>objetivos del análisis y estudio de viabilidad</strong>.</p>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 max-w-xl text-left">
+            <p class="text-xs font-bold text-emerald-900 uppercase tracking-widest mb-2">Tarea / para repasar</p>
+            <ul class="text-sm text-emerald-900 space-y-1 list-disc list-inside">
+              <li>Completar el análisis del caso (si quedó incompleto).</li>
+              <li>Traer un ejemplo de <strong>retroalimentación</strong> en un sistema real.</li>
+              <li>Repasar: sistema, dato/información y rol del analista.</li>
+            </ul>
           </div>
         </div>
       `
