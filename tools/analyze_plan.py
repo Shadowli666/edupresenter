@@ -3,6 +3,9 @@ import os
 import re
 import glob
 
+# Raíz del proyecto (este archivo vive en tools/)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def parse_plan(json_file):
     with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -36,13 +39,13 @@ def parse_plan(json_file):
 def parse_slides(data_dir):
     slides_info = {}
     
-    files = glob.glob(os.path.join(data_dir, "*.ts"))
+    files = glob.glob(os.path.join(data_dir, "**", "*.ts"), recursive=True)
     
     for file_path in files:
         filename = os.path.basename(file_path)
         # Determine subject based on filename prefix
         if filename.startswith("pnn_module"):
-            subject = "Pensamiento No Numérico" # Guessing mapping
+            subject = "Programación No Numérica II"
             module_num = filename.replace("pnn_module", "").replace(".ts", "")
         elif filename.startswith("prog_module"):
             subject = "Programación" # Guessing mapping
@@ -58,7 +61,11 @@ def parse_slides(data_dir):
             
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-            
+
+        # Omitir placeholders (p. ej. `export {};`) que no declaran un módulo
+        if 'slides' not in content:
+            continue
+
         # Extract title
         title_match = re.search(r"title:\s*['\"](.*?)['\"]", content)
         title = title_match.group(1) if title_match else "Unknown Title"
@@ -109,8 +116,8 @@ def compare_and_report(plan, slides):
 
     # Manual mapping based on observation
     mapping = {
-        "Estructura de Datos": "Programación", 
-        "Programación No Numérica II": "Pensamiento No Numérico", # pnn_module starts with pnn, script mapped it to "Pensamiento No Numérico"
+        "Estructura de Datos": "Programación",
+        "Programación No Numérica II": "Programación No Numérica II",
         "Semestral Intro a Comp": "Computación Básica",
         "Programación en Python": "Python"
     }
@@ -119,12 +126,13 @@ def compare_and_report(plan, slides):
         clean_subject = plan_subject.strip()
         slide_subject = mapping.get(clean_subject, clean_subject)
         
-        # Try to find a match in slides
-        matched_slide_subject = None
-        for s in slides.keys():
-            if s in slide_subject or slide_subject in s:
-                matched_slide_subject = s
-                break
+        # Buscar coincidencia: primero exacta, luego por subcadena
+        matched_slide_subject = slide_subject if slide_subject in slides else None
+        if not matched_slide_subject:
+            for s in slides.keys():
+                if s in slide_subject or slide_subject in s:
+                    matched_slide_subject = s
+                    break
         
         if not matched_slide_subject:
             report.append(f"Subject '{clean_subject}' found in plan but no corresponding slides found (looked for '{slide_subject}').")
@@ -154,11 +162,15 @@ def compare_and_report(plan, slides):
     return "\n".join(report)
 
 if __name__ == "__main__":
-    plan = parse_plan('content/plan.json')
-    slides = parse_slides('data')
+    plan = parse_plan(os.path.join(BASE_DIR, 'content', 'plan.json'))
+    slides = parse_slides(os.path.join(BASE_DIR, 'data'))
     report = compare_and_report(plan, slides)
-    
+
     print(report)
-    
-    with open('comparison_report.txt', 'w', encoding='utf-8') as f:
+
+    output_dir = os.path.join(BASE_DIR, 'reports')
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, 'comparison_report.txt')
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write(report)
+    print(f"\nReporte guardado en: {os.path.relpath(output_file, BASE_DIR)}")

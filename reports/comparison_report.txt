@@ -8,9 +8,9 @@
 
 --- Available Slide Subjects ---
 - 'Computación Básica'
-- 'Pensamiento No Numérico'
-- 'Python'
+- 'Programación No Numérica II'
 - 'Programación'
+- 'Python'
 
 
 ### Subject: Estructura de Datos (Slides: Programación)
@@ -41,7 +41,7 @@
 - Week 7: Listas enlazadas: Simples, dobles y circulares.
   ✅ Slide Module Found: prog_module7.ts
      Title: 7. Listas Enlazadas Avanzadas
-     Structure: Theory=True, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 8: Pilas: Concepto, características, tipos y usos. Operaciones con pilas (push, pop).
   ✅ Slide Module Found: prog_module8.ts
      Title: 8. Pilas (Stacks)
@@ -93,137 +93,149 @@ Subject 'Estructura de Datos (SAIA)' found in plan but no corresponding slides f
 - Week 1: Presentación de la Asignatura. Introducción a Python. Algoritmos y resolución de problemas.
   ✅ Slide Module Found: python_module1.ts
      Title: 1. Fundamentos de Python
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 2: Peculiaridades de Python. Programación interactiva. Control de paquetes. Etapas para la resolución de problemas.
   ✅ Slide Module Found: python_module2.ts
-     Title: 2. Sintaxis y Datos
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 2. Variables y Tipos de Datos
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 3: Variables y expresiones. Tipos de datos (enteros, flotantes, cadenas, booleanos). Operadores aritméticos.
   ✅ Slide Module Found: python_module3.ts
-     Title: 3. Control de Flujo y Lógica Condicional
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 3. Control de Flujo
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 4: Operadores relacionales y lógicos. Sentencias condicionales (if, else, elif).
   ✅ Slide Module Found: python_module4.ts
-     Title: 4. Bucles y Ciclos (Iteración)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 4. Bucles y Ciclos
+     Structure: Theory=True, Practice=True, Q&A=False, Thanks=False
 - Week 5: Bucles (for, while). Control de flujo en bucles (break, continue).
   ✅ Slide Module Found: python_module5.ts
      Title: 5. Taller de Integración
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 6: Discusión y entrega de notas.
   ✅ Slide Module Found: python_module6.ts
-     Title: 6. Entrega de Notas (Corte I)
-     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
+     Title: 6. Cierre del Corte I
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 7: Estructuras de Datos: Arreglos, listas, y tuplas. Acceso y modificación de elementos.
   ✅ Slide Module Found: python_module7.ts
-     Title: 7. Arreglos Unidimensionales (1D)
-     Structure: Theory=True, Practice=True, Q&A=True, Thanks=True
+     Title: 7. Listas y Arreglos 1D
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 8: Estructuras de Datos: Diccionarios. Operaciones con estructuras de datos.
   ✅ Slide Module Found: python_module8.ts
-     Title: 8. Arreglos Bidimensionales (2D) y Búsqueda
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 8. Matrices y Arreglos 2D
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 9: Métodos de ordenamiento (burbuja, selección). Métodos de búsqueda (secuencial).
   ✅ Slide Module Found: python_module9.ts
-     Title: 9. Métodos de Búsqueda (Secuencial y Binaria)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 9. Algoritmos de Búsqueda
+     Structure: Theory=True, Practice=True, Q&A=False, Thanks=False
 - Week 10: Introducción a la complejidad algorítmica (Big O). Comparación de algoritmos de búsqueda y ordenamiento.
   ✅ Slide Module Found: python_module10.ts
-     Title: 10. Métodos de Ordenación (Burbuja y Selección)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 10. Algoritmos de Ordenación
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 11: Programas Simples: Introducción a la Automatización con Python. Librerías (PyAutoGUI, Selenium).
   ✅ Slide Module Found: python_module11.ts
-     Title: 11. Práctica Integradora (Arreglos 1D/2D, Búsqueda y Ordenación)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 11. Taller Integrador II
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 12: Discusión y entrega de notas.
   ✅ Slide Module Found: python_module12.ts
-     Title: 12. Entrega de Notas (Corte III)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 12. Cierre de Corte: Nivel Intermedio
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 13: POO: Metodología basada en objetos. Clases, objetos, atributos y métodos.
-  ❌ No slide module found for week 13
+  ✅ Slide Module Found: python_module13.ts
+     Title: 13. Programación Orientada a Objetos
+     Structure: Theory=True, Practice=True, Q&A=False, Thanks=False
 - Week 14: POO: Herencia (simple, múltiple). Métodos aplicados.
-  ❌ No slide module found for week 14
+  ✅ Slide Module Found: python_module14.ts
+     Title: 14. POO: Herencia
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 15: POO: Polimorfismo y Encapsulación. Errores y excepciones.	
-  ❌ No slide module found for week 15
+  ✅ Slide Module Found: python_module15.ts
+     Title: 15. POO: Polimorfismo
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 16: Manejo de Archivos: Excel, CSV, JSON. Librerías principales (Pandas, openpyxl).
-  ❌ No slide module found for week 16
+  ✅ Slide Module Found: python_module16.ts
+     Title: 16. Persistencia de Datos (Archivos)
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 17: Manejo de Archivos: Conexión a Bases de Datos (BBDD). Consultas SQL básicas (SELECT, FROM, WHERE).
-  ❌ No slide module found for week 17
+  ✅ Slide Module Found: python_module17.ts
+     Title: 17. Bases de Datos (SQLite)
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 18: Discusión y entrega de notas.
-  ❌ No slide module found for week 18
+  ✅ Slide Module Found: python_module18.ts
+     Title: 18. Proyecto Final de Curso
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 
 
-### Subject: Programación No Numérica II (Slides: Pensamiento No Numérico)
+### Subject: Programación No Numérica II (Slides: Programación No Numérica II)
 - Week 1: Presentación. Conceptos Básicos de Árbol, Altura, Nivel, Grado. Tipos de Árboles (Binarios).
   ✅ Slide Module Found: pnn_module1.ts
      Title: 1. Introducción a Árboles y Optimización
-     Structure: Theory=True, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=True, Practice=False, Q&A=True, Thanks=False
 - Week 2: Teoremas I y II para árboles Binarios. Tipos de Árboles (HEAP). Algoritmos INSERTAR y HEAPIFY.	
   ✅ Slide Module Found: pnn_module2.ts
      Title: 2. Heaps: Estructura y Algoritmos Fundamentales
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=True, Q&A=True, Thanks=False
 - Week 3: Divide y Conquista: Concepto. Recursividad. Búsqueda Binaria. Máximos y Mínimos.
   ✅ Slide Module Found: pnn_module3.ts
      Title: 3. Divide y Conquista: Estrategias Eficientes
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=True, Q&A=True, Thanks=False
 - Week 4: Algoritmos de Ordenamiento: Sortmerge, Sortmerge 2.
   ✅ Slide Module Found: pnn_module4.ts
-     Title: 4. Merge Sort: El Poder de Dividir y Conquistar
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 4. Merge Sort: El Arte de la Fusión Ordenada
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 5: Algoritmos de Ordenamiento: Quicksort. Análisis de caso promedio y peor caso.
   ✅ Slide Module Found: pnn_module5.ts
-     Title: 5. Quick Sort: Ordenamiento Rápido por Partición
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 5. Quick Sort: La Velocidad del Caos Controlado
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 6: Discusión y entrega de notas.
   ✅ Slide Module Found: pnn_module6.ts
-     Title: 6. Repaso del Corte I: Fundamentos Algorítmicos
-     Structure: Theory=True, Practice=True, Q&A=True, Thanks=False
+     Title: 6. Repaso del Corte I: La Galería Algorítmica
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 7: Método de Adquisición (Algoritmos Voraces): Concepto. Almacenamiento Óptimo en Cintas Magnéticas.
   ✅ Slide Module Found: pnn_module7.ts
-     Title: 7. Algoritmos Voraces: La Elección Óptima Local
-     Structure: Theory=True, Practice=False, Q&A=True, Thanks=True
+     Title: 7. Algoritmos Voraces: El Estratega Impaciente
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 8: El Problema de la Bolsa de Papel (Knapsack Fraccional). Modelos Óptimos de Intercalación.
   ✅ Slide Module Found: pnn_module8.ts
-     Title: 8. Algoritmos Voraces: Knapsack Fraccional e Intercalación Óptima
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 8. Aplicaciones Voraces: Mochila y Fusión
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 9: Árbol de Costo Mínimo (Algoritmos de Prim y Kruskal).
   ✅ Slide Module Found: pnn_module9.ts
-     Title: 9. Algoritmos Voraces: Árbol de Recubrimiento Mínimo (MST)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 9. Algoritmos Voraces: Árboles de Expansión Mínima (MST)
+     Structure: Theory=True, Practice=False, Q&A=False, Thanks=False
 - Week 10: Paso Más Corto desde un inicio único (Algoritmo de Dijkstra).
   ✅ Slide Module Found: pnn_module10.ts
      Title: 10. Algoritmos Voraces: Caminos Más Cortos (Dijkstra)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=True, Practice=True, Q&A=False, Thanks=False
 - Week 11: Programación Dinámica: Concepto, subproblemas superpuestos y subestructura óptima.
   ✅ Slide Module Found: pnn_module11.ts
      Title: 11. Árboles Balanceados (AVL)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 12: Discusión y entrega de notas.
   ✅ Slide Module Found: pnn_module12.ts
-     Title: 12. Proyecto Final y Cierre
+     Title: 12. Proyecto de Corte II
      Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 - Week 13: Gráficos de Múltiples Etapas. Árboles Binarios de Búsqueda Óptimos.
   ✅ Slide Module Found: pnn_module13.ts
-     Title: 13. Grafos Multietapa y BST Óptimos
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 13. Programación Dinámica: Grafos Multietapa
+     Structure: Theory=True, Practice=True, Q&A=False, Thanks=False
 - Week 14: El Problema del Vendedor Viajero (TSP).
   ✅ Slide Module Found: pnn_module14.ts
-     Title: 14. Vendedor Viajero (TSP)
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 14. TSP con Programación Dinámica
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 15: Ir Hacia Atrás (Backtracking): Concepto, búsqueda en espacio de estados.
   ✅ Slide Module Found: pnn_module15.ts
-     Title: 15. Backtracking (Vuelta Atrás)
-     Structure: Theory=True, Practice=False, Q&A=True, Thanks=True
+     Title: 15. Backtracking: Fundamentos
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 16: El Problema de las N Reinas.
   ✅ Slide Module Found: pnn_module16.ts
-     Title: 16. Problema de las N Reinas
-     Structure: Theory=False, Practice=True, Q&A=True, Thanks=True
+     Title: 16. N-Reinas (N-Queens)
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 17: Suma de Subconjuntos.
   ✅ Slide Module Found: pnn_module17.ts
-     Title: 17. Suma de Subconjuntos y Proyecto
-     Structure: Theory=False, Practice=False, Q&A=True, Thanks=True
+     Title: 17. Suma de Subconjuntos (Subset Sum)
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 18: Discusión y entrega de notas.
   ✅ Slide Module Found: pnn_module18.ts
-     Title: 18. Cierre del Curso (Corte III)
+     Title: 18. Proyecto Final y Cierre
      Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 
 
@@ -278,17 +290,29 @@ Estructuras de Repetición: Tipo: Para (For). Sintaxis y elaboración. Uso de Co
      Title: 12. Entrega de Notas (Corte II)
      Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 13:  Arreglos: Definición, Tipos (1D). Operaciones 1D: Declaración, Asignación, Lectura, Escritura, Suma, etc.
-  ❌ No slide module found for week 13
+  ✅ Slide Module Found: module13.ts
+     Title: 13. Arreglos Unidimensionales (Vectores)
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 14:  Arreglos: Tipos (2D, Noción MultiD). Operaciones 2D: Recorridos básicos (Lectura/Escritura). Métodos de Búsqueda: Secuencial.
-  ❌ No slide module found for week 14
+  ✅ Slide Module Found: module14.ts
+     Title: 14. Arreglos Bidimensionales (Matrices)
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 15:  Métodos de Búsqueda: Secuencial.
-  ❌ No slide module found for week 15
+  ✅ Slide Module Found: module15.ts
+     Title: 15. Funciones y Procedimientos
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 16:  Métodos de Ordenación: Básicos (Burbuja/Selección).
-  ❌ No slide module found for week 16
+  ✅ Slide Module Found: module16.ts
+     Title: 16. Cadenas de Caracteres (Strings)
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 17:  Práctica Final integrando arreglos 1D/2D, búsqueda y ordenación.
-  ❌ No slide module found for week 17
+  ✅ Slide Module Found: module17.ts
+     Title: 17. Registros y Estructuras
+     Structure: Theory=False, Practice=True, Q&A=False, Thanks=False
 - Week 18: Discusion y entrega de notas, Entrega de Notas en DACE
-  ❌ No slide module found for week 18
+  ✅ Slide Module Found: module18.ts
+     Title: 18. Cierre y Proyecto Final
+     Structure: Theory=False, Practice=False, Q&A=False, Thanks=False
 
 
 Subject 'Semestral Marketing' found in plan but no corresponding slides found (looked for 'Semestral Marketing').

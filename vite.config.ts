@@ -15,7 +15,6 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom'],
           mermaid: ['mermaid'],
-          katex: ['katex'],
         },
       },
       treeshake: true,
