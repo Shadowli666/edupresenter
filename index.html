@@ -42,6 +42,14 @@
       .animate-fade-in {
         animation: fadeIn 0.4s ease-out forwards;
       }
+
+      /* Contraste: dentro de cajas oscuras/de color, la negrita y los titulos
+         heredan el color del fondo en vez del color oscuro por defecto de `prose`. */
+      .prose strong, .prose b,
+      .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6,
+      .prose ul > li::marker, .prose ol > li::marker {
+        color: inherit;
+      }
     </style>
 </head>
   <body>

@@ -45,40 +45,6 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       `
     },
     {
-      id: 'ads1-2',
-      title: '¿En qué se diferencia de Sistemas I?',
-      contentHtml: `
-        <div class="space-y-5">
-          <p class="text-gray-600">Las dos materias son <strong>las dos caras de un mismo oficio</strong>. En una frase:</p>
-          <div class="bg-gradient-to-r from-emerald-700 to-teal-700 text-white p-5 rounded-2xl shadow-lg text-lg">
-            Aquí aprenden a descubrir y especificar <strong>QUÉ</strong> sistema necesita la organización; en Sistemas I, a construir <strong>ESE</strong> software con calidad de ingeniería.
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm border-collapse">
-              <thead>
-                <tr class="bg-slate-100 text-slate-700">
-                  <th class="p-2 text-left border">Aspecto</th>
-                  <th class="p-2 text-left border">Sistemas I</th>
-                  <th class="p-2 text-left border">Análisis y Diseño</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600">
-                <tr><td class="p-2 border font-semibold">Protagonista</td><td class="p-2 border">El producto de software</td><td class="p-2 border">La organización y su información</td></tr>
-                <tr class="bg-slate-50"><td class="p-2 border font-semibold">Pregunta central</td><td class="p-2 border">¿Cómo construir software de calidad?</td><td class="p-2 border">¿Qué sistema necesita la organización y por qué?</td></tr>
-                <tr><td class="p-2 border font-semibold">Rol que forma</td><td class="p-2 border">Ingeniero de software</td><td class="p-2 border">Analista / agente de cambio</td></tr>
-                <tr class="bg-slate-50"><td class="p-2 border font-semibold">Producto típico</td><td class="p-2 border">Software y su arquitectura</td><td class="p-2 border">SRS, DFD, diccionario, diseño del SI</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-900">
-            🏠 <strong>Analogía de la casa:</strong> Análisis y Diseño = el <strong>arquitecto</strong> que hace los planos; Sistemas I = la <strong>ingeniería de construcción</strong>. Nadie construye sin planos.
-          </div>
-        </div>
-      `
-    },
-    {
       id: 'ads1-3',
       title: 'Diagnóstico inicial (0%)',
       contentHtml: `
