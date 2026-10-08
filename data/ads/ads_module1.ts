@@ -295,7 +295,7 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 max-w-xl text-left">
             <p class="text-xs font-bold text-emerald-900 uppercase tracking-widest mb-2">Lo que haremos el viernes</p>
             <ul class="text-sm text-emerald-900 space-y-1 list-disc list-inside">
-              <li><strong>Estudio de caso</strong> en equipos con roles (coordinador, secretario, vocero, cronometrista).</li>
+              <li><strong>Estudio de caso</strong> en equipos con roles (coordinador, secretario, vocero y, si son 4, verificador).</li>
               <li>Análisis de un sistema de información real con la <strong>guía de 7 puntos</strong>.</li>
               <li>Plenaria y <strong>coevaluación</strong> entre equipos.</li>
             </ul>
@@ -324,33 +324,34 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
           </div>
 
           <div class="grid md:grid-cols-4 gap-3 text-center text-xs">
-            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">🧑‍✈️</div><p class="font-bold mt-1">Coordinador</p></div>
-            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">✍️</div><p class="font-bold mt-1">Secretario</p></div>
-            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">📣</div><p class="font-bold mt-1">Vocero</p></div>
-            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">⏱️</div><p class="font-bold mt-1">Cronometrista</p></div>
+            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">🧑‍✈️</div><p class="font-bold mt-1">Coordinador</p><p class="text-gray-500">Modera y controla el tiempo</p></div>
+            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">✍️</div><p class="font-bold mt-1">Secretario</p><p class="text-gray-500">Escribe los 4 campos</p></div>
+            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">📣</div><p class="font-bold mt-1">Vocero</p><p class="text-gray-500">Expone y responde</p></div>
+            <div class="bg-slate-100 border rounded-lg p-3"><div class="text-2xl">🔍</div><p class="font-bold mt-1">Verificador</p><p class="text-gray-500">Revisa y cuestiona</p></div>
           </div>
         </div>
       `
     },
     {
       id: 'ads1-13',
-      title: 'Estudio de caso: guía de análisis',
+      title: 'Estudio de caso: 4 campos',
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-white border rounded-xl p-4 shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-3">📋 Guía del caso (1 página por equipo)</h4>
+            <h4 class="font-bold text-slate-800 mb-1">📋 Guía del caso — 4 campos</h4>
+            <p class="text-xs text-gray-500 mb-3">Equipos de 3–4 con roles. El <strong>secretario</strong> escribe en el cuaderno (máx. 1 página). Sin impresión.</p>
             <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2">
-              <li><strong>Objetivo central</strong> del sistema (una frase).</li>
-              <li><strong>Entradas, proceso y salidas</strong>.</li>
-              <li>Elementos de <strong>control</strong> y de <strong>retroalimentación</strong> (al menos uno de cada uno).</li>
-              <li><strong>Fronteras e interfaz</strong> con otros sistemas.</li>
-              <li><strong>Información</strong> que produce y <strong>quién la usa</strong> para decidir.</li>
-              <li><strong>Dos problemas o mejoras</strong> que detectarían como analistas.</li>
-              <li><strong>¿Qué haría el analista</strong> en este caso? (relacionar con las funciones).</li>
+              <li><strong>Objetivo</strong> del sistema (una frase).</li>
+              <li><strong>Entradas → proceso → salidas</strong>.</li>
+              <li><strong>Un control y una retroalimentación</strong>.</li>
+              <li><strong>Qué información produce y quién decide</strong> con ella.</li>
             </ol>
           </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900">
+            ➕ <strong>Extra (si terminan antes):</strong> ¿dónde está la <strong>frontera</strong> del sistema y qué <strong>dos mejoras</strong> harían?
+          </div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-xs text-emerald-900">
-            🧭 Si el equipo se atasca: empezar siempre por el <strong>objetivo</strong> del sistema.
+            🧭 Si el equipo se atasca: empezar por el <strong>objetivo</strong>. En plenaria, el vocero responde además: <strong>¿qué haría el analista?</strong>
           </div>
         </div>
       `
@@ -359,16 +360,16 @@ export const ANALISIS_DISENO_MODULE_1: Module = {
       id: 'ads1-14',
       title: 'Casos propuestos',
       contentHtml: `
-        <div class="space-y-5">
+        <div class="space-y-4">
           <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-3xl">🎓</div><h4 class="font-bold text-slate-800 mt-1">A. Inscripción y control de estudios</h4><p class="text-xs text-gray-500">Universidad: inscripción, notas, constancias.</p></div>
-            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-3xl">💊</div><h4 class="font-bold text-slate-800 mt-1">B. Farmacia de la zona</h4><p class="text-xs text-gray-500">Inventario, ventas y recetas.</p></div>
-            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-3xl">🚌</div><h4 class="font-bold text-slate-800 mt-1">C. Cooperativa de transporte</h4><p class="text-xs text-gray-500">Rutas, boletos y horarios.</p></div>
-            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-3xl">🏦</div><h4 class="font-bold text-slate-800 mt-1">D. Cooperativa de ahorro y crédito</h4><p class="text-xs text-gray-500">Socios, cuentas y préstamos.</p></div>
+            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-2xl">🎓</div><h4 class="font-bold text-slate-800 mt-1">A. Universidad — inscripción y control de estudios</h4><p class="text-xs text-gray-500">El estudiante se inscribe y entrega recaudos; se le cargan materias; al cerrar el período se generan notas y constancias.</p></div>
+            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-2xl">💊</div><h4 class="font-bold text-slate-800 mt-1">B. Farmacia de la zona</h4><p class="text-xs text-gray-500">Cada venta descuenta del inventario; al bajar del mínimo hay que reponer; algunas ventas exigen receta.</p></div>
+            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-2xl">🏥</div><h4 class="font-bold text-slate-800 mt-1">C. Clínica — citas y pacientes</h4><p class="text-xs text-gray-500">El paciente pide cita; se agenda si hay cupo; al llegar se registra la consulta y se emite el récipe; si cancela, se reprograma.</p></div>
+            <div class="bg-white border rounded-xl p-4 shadow-sm"><div class="text-2xl">🔧</div><h4 class="font-bold text-slate-800 mt-1">D. Taller mecánico</h4><p class="text-xs text-gray-500">El cliente trae el vehículo; se diagnostica y se presupuesta; si aprueba, se repara con repuestos; al entregar se cobra y se registra.</p></div>
           </div>
 
           <div class="bg-slate-50 border rounded-lg p-3 text-xs text-slate-600">
-            🗣️ Plenaria: 2–3 min por equipo (vocero) + coevaluación entre equipos + retroalimentación del docente.
+            🎬 El docente presenta la <strong>escena</strong> (30–40 s) y <strong>asigna</strong> un caso por equipo · ⏱️ 35 min · 🗣️ plenaria 2–3 min (vocero) + <strong>coevaluación</strong>.
           </div>
         </div>
       `

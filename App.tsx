@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AVAILABLE_COURSES } from './constants';
 import { SlideViewer } from './components/SlideViewer';
+import { PdfExport } from './components/PdfExport';
 import { Course, Module, Slide } from './types';
 import { 
   BookOpen, 
@@ -397,14 +398,27 @@ const App: React.FC = () => {
           </span>
         </div>
 
-        <button 
-          onClick={handleBackToSyllabus}
-          className="group flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 rounded-full text-sm font-medium transition-colors border border-slate-200 hover:border-red-200"
-          title="Presiona ESC para salir"
-        >
-          <X size={16} className="group-hover:rotate-90 transition-transform duration-300" />
-          <span className="hidden sm:inline">Cerrar Clase</span>
-        </button>
+        <div className="flex items-center gap-2">
+          {activeModule && (
+            <PdfExport
+              module={activeModule}
+              courseTitle={selectedCourse?.title ?? ''}
+              teacherName={selectedCourse?.teacherName}
+              school={selectedCourse?.school}
+              campus={selectedCourse?.campus}
+              term={selectedCourse?.term}
+            />
+          )}
+
+          <button 
+            onClick={handleBackToSyllabus}
+            className="group flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 rounded-full text-sm font-medium transition-colors border border-slate-200 hover:border-red-200"
+            title="Presiona ESC para salir"
+          >
+            <X size={16} className="group-hover:rotate-90 transition-transform duration-300" />
+            <span className="hidden sm:inline">Cerrar Clase</span>
+          </button>
+        </div>
       </div>
 
       {/* Slide Content */}

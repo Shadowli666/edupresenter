@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduPresenter — Organizador de Clases</title>
-    <!-- Tailwind (Play CDN). El plugin typography habilita las clases `prose*` usadas en SlideViewer y en los módulos. -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind (Play CDN) copiado a public/vendor junto con la fuente Inter, para que
+         las diapositivas se vean igual sin internet cuando se sirven desde el hotspot.
+         El bundle local incluye el plugin typography (`prose*`). -->
+    <script src="/vendor/tailwind.js"></script>
+    <link href="/vendor/fonts.css" rel="stylesheet">
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -49,6 +51,163 @@
       .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6,
       .prose ul > li::marker, .prose ol > li::marker {
         color: inherit;
+      }
+
+      /* Diagramas mermaid: mermaid inserta el SVG con su propio `max-width` en px,
+         que lo deja diminuto dentro del contenedor. Estas reglas lo escalan al
+         ancho disponible y le reservan una altura mínima legible. */
+      .mermaid {
+        width: 100%;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 340px;
+        overflow: visible;
+      }
+      .mermaid svg {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 320px;
+        /* Tope de altura: los diagramas verticales (graph TB) se agrandarían tanto
+           que no cabrían en pantalla. Al limitar la altura, el SVG encaja el
+           contenido completo (preserveAspectRatio) sin deformarlo. */
+        max-height: 58vh;
+      }
+      /* Red de seguridad: si un rótulo quedara algo más ancho que su caja,
+         preferimos que se vea completo antes que recortado. */
+      .mermaid foreignObject {
+        overflow: visible;
+      }
+
+      /* --- Exportación a PDF (Exportar PDF) ---
+         Al imprimir solo debe verse #pdf-export-root. Se usa visibility en vez de
+         display:none porque Mermaid necesita layout para medir el texto de sus
+         rótulos y calcular el tamaño de las cajas. */
+      /* Fuera de la vista pero con layout: Mermaid necesita medir el texto de
+         sus rótulos para calcular las cajas, así que no puede ser display:none. */
+      #pdf-export-root {
+        position: absolute;
+        left: -99999px;
+        top: 0;
+        width: 794px; /* ancho útil A4 horizontal, en px */
+      }
+      @media screen and (max-width: 900px) {
+        /* En pantallas muy angostas el ancho fijo de impresión se reduce para
+           que la vista previa no desborde el documento. */
+        #pdf-export-root { width: 794px; }
+      }
+      .pdf-page {
+        box-sizing: border-box;
+        width: 794px;
+        min-height: 561px; /* A4 horizontal */
+        padding: 28px 34px;
+        background: #fff;
+        position: relative;
+      }
+      .pdf-cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .pdf-footnote {
+        position: absolute;
+        left: 34px;
+        bottom: 16px;
+        font-size: 10px;
+        font-family: ui-monospace, monospace;
+        color: #94a3b8;
+      }
+      /* En impresión: fondo y colores se conservan. */
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 10mm;
+        }
+        html, body {
+          background: #fff !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+
+        /* Fuera del contenedor de exportación no hay nada que imprimir.
+           Se usa display: none (no visibility) porque el texto oculto por
+           visibility sigue reservando espacio y generaba páginas en blanco. */
+        body > *:not(#pdf-export-root) {
+          display: none !important;
+        }
+
+        #pdf-export-root {
+          display: block !important;
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          width: auto !important;
+        }
+
+        /* El PDF sale más ancho que la vista en pantalla (A4 horizontal útil
+           ≈1047 px frente a los 794 px del contenedor). Se reduce la tipografía
+           para que las diapositivas densas quepan en una sola hoja. */
+        #pdf-export-root {
+          font-size: 13px;
+          line-height: 1.35;
+        }
+
+        /* Una diapositiva = una hoja. min-height garantiza el aire visual de una
+           diapositiva; break-inside evita que se parta si el contenido no cabe. */
+        .pdf-page {
+          box-sizing: border-box;
+          width: 100%;
+          min-height: 176mm;
+          padding: 0 0 10mm 0;
+          page-break-after: always;
+          page-break-inside: avoid;
+          break-after: page;
+          break-inside: avoid;
+        }
+        .pdf-page:last-child {
+          page-break-after: auto;
+          break-after: auto;
+        }
+
+        /* Divisor explícito entre diapositivas, para que quede separado aunque
+           el navegador no aplique break-after. */
+        .pdf-page + .pdf-page {
+          border-top: 1px dashed #e2e8f0;
+          padding-top: 6mm;
+        }
+
+        /* Que ninguna tabla, lista o bloque se parta a mitad de página. */
+        .pdf-page .grid,
+        .pdf-page .space-y-1,
+        .pdf-page .space-y-2,
+        .pdf-page .space-y-3,
+        .pdf-page .space-y-4,
+        .pdf-page .space-y-5,
+        .pdf-page .space-y-6,
+        .pdf-page .space-y-7,
+        .pdf-page table,
+        .pdf-page .mermaid {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        .mermaid {
+          min-height: 0 !important;
+        }
+        .mermaid svg {
+          max-height: 105mm !important;
+          min-height: 0 !important;
+        }
+        .pdf-footnote {
+          left: 0;
+          bottom: 2mm;
+        }
       }
     </style>
 </head>

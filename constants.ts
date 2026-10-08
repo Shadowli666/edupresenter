@@ -21,7 +21,11 @@ const loadModules = (modulesGlob: Record<string, unknown>): Module[] => {
 // Load modules dynamically using Vite's import.meta.glob
 const introModules = loadModules(import.meta.glob('./data/intro/*.ts', { eager: true }));
 const progModules = loadModules(import.meta.glob('./data/prog/*.ts', { eager: true }));
-const pnnModules = loadModules(import.meta.glob('./data/pnn/*.ts', { eager: true }));
+// PNN: los 18 módulos de `data/pnn/` corresponden a una planificación anterior
+// (p. ej. Heaps en la semana 2, Divide y Conquista en la 3) y NO coinciden con el
+// PGA 2026-2. Se conservan ahí como referencia; el contenido vigente vive en
+// `data/pnn-2026-2/`. Para volver a usarlos: cambia la ruta a './data/pnn/*.ts'.
+const pnnModules = loadModules(import.meta.glob('./data/pnn-2026-2/*.ts', { eager: true }));
 const pythonModules = loadModules(import.meta.glob('./data/python/*.ts', { eager: true }));
 const sisModules = loadModules(import.meta.glob('./data/sis/*.ts', { eager: true }));
 const adsModules = loadModules(import.meta.glob('./data/ads/*.ts', { eager: true }));

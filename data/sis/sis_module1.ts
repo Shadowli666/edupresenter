@@ -52,7 +52,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
           </div>
 
           <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
-            📝 <strong>Diagnóstica (0%):</strong> se aplica en el <strong>próximo bloque del lunes (28/09)</strong> — Sistemas I solo tiene clase los lunes. No califica.
+            📝 <strong>Diagnóstica (0%):</strong> se aplicó el <strong>lunes 28/09</strong> — Sistemas I solo tiene clase los lunes. No califica.
           </div>
         </div>
       `
@@ -401,7 +401,7 @@ export const SISTEMAS_I_MODULE_1: Module = {
           <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-4xl">⚙️</div>
           <div>
             <h2 class="text-3xl font-bold text-slate-900">Fin del Módulo 1</h2>
-            <p class="text-gray-600 mt-2">Nos vemos el <strong>lunes 28/09</strong> para la prueba diagnóstica (no califica).</p>
+            <p class="text-gray-600 mt-2">En la próxima clase vemos <strong>las cinco actividades de la ingeniería de software</strong>.</p>
           </div>
         </div>
       `

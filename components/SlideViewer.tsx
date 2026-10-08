@@ -30,14 +30,23 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
     (async () => {
       const mermaid = await import('mermaid');
       if (!isMounted) return;
+      // Mermaid MIDE el texto de cada rótulo para calcular el tamaño de las cajas y
+      // después lo dibuja. Si mide con una fuente y dibuja con otra, las cajas quedan
+      // angostas y los rótulos salen recortados. Con una fuente web (Inter) eso pasa
+      // siempre que la fuente aún no esté cargada — y esta app restaura la última
+      // diapositiva al abrir, así que puede medir antes de que Inter cargue.
+      // Solución: una pila de fuentes LOCALES -> medición y dibujo coinciden siempre.
       mermaid.default.initialize({
         startOnLoad: false,
         theme: 'neutral',
         securityLevel: 'loose',
-        fontFamily: 'Inter',
+        fontFamily: 'Arial, Helvetica, sans-serif',
         flowchart: {
           htmlLabels: true,
-          curve: 'basis'
+          curve: 'basis',
+          padding: 12,
+          nodeSpacing: 40,
+          rankSpacing: 60
         }
       });
       mermaid.default.run({ querySelector: '.mermaid' });
