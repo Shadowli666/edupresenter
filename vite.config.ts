@@ -2,7 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // En el build de producción se usan rutas relativas para que el mismo `dist/`
+  // funcione servido desde la raíz (Vercel, preview local) o desde un
+  // subdirectorio (GitHub Pages, hotspot). En desarrollo se mantiene `/`.
+  base: command === 'build' ? './' : '/',
   plugins: [react()],
   server: {
     host: true, // escuchar en 0.0.0.0 para que los estudiantes entren desde el hotspot
@@ -23,4 +27,4 @@ export default defineConfig({
       treeshake: true,
     },
   },
-})
+}))
