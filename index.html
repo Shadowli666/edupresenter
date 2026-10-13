@@ -81,44 +81,90 @@
         overflow: visible;
       }
 
+      /* --- Interactivos declarativos (lib/enhance.ts) --- */
+      .edup-hidden { display: none !important; }
+      .edup-reveal-hint {
+        position: fixed; right: 1.25rem; bottom: 7rem; z-index: 40;
+        background: #0f172a; color: #fff; font-size: 0.8rem; font-weight: 700;
+        padding: 0.6rem 1rem; border-radius: 9999px; box-shadow: 0 8px 24px rgba(15,23,42,.25);
+      }
+      .edup-reveal-hint:disabled { background: #059669; }
+      .edup-copy {
+        position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.7rem; font-weight: 700;
+        background: rgba(255,255,255,.12); color: #e2e8f0; border: 1px solid rgba(255,255,255,.2);
+        border-radius: 0.4rem; padding: 0.15rem 0.55rem;
+      }
+      .edup-copy:hover { background: rgba(255,255,255,.25); }
+      .edup-tabbar { display: flex; gap: 0.25rem; border-bottom: 2px solid #e2e8f0; margin-bottom: 1rem; flex-wrap: wrap; }
+      .edup-tabbar button {
+        padding: 0.5rem 1rem; font-weight: 700; font-size: 0.875rem; color: #64748b;
+        border-bottom: 3px solid transparent; margin-bottom: -2px;
+      }
+      .edup-tabbar button.active { color: #1d4ed8; border-bottom-color: #2563eb; }
+      [data-quiz] [data-option] {
+        display: block; width: 100%; text-align: left; margin: 0.4rem 0; padding: 0.6rem 0.9rem;
+        border: 2px solid #e2e8f0; border-radius: 0.75rem; background: #fff; font-size: 0.9rem;
+      }
+      [data-quiz] [data-option]:not([disabled]):hover { border-color: #60a5fa; background: #eff6ff; }
+      [data-quiz] .edup-ok { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 700; }
+      [data-quiz] .edup-bad { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+      @media print {
+        .edup-copy, .edup-reveal-hint, .edup-tabbar { display: none !important; }
+      }
+
       /* --- Exportación a PDF (Exportar PDF) ---
-         Al imprimir solo debe verse #pdf-export-root. Se usa visibility en vez de
-         display:none porque Mermaid necesita layout para medir el texto de sus
-         rótulos y calcular el tamaño de las cajas. */
-      /* Fuera de la vista pero con layout: Mermaid necesita medir el texto de
-         sus rótulos para calcular las cajas, así que no puede ser display:none. */
+         Cada diapositiva es una hoja A4 horizontal de tamaño FIJO (277 x 189 mm,
+         el área útil con márgenes de 10 mm). PdfExport mide el contenido de cada
+         una con exactamente este layout y le aplica `zoom` para que quepa entera:
+         así nunca se parte entre dos hojas ni deja la mitad vacía.
+         En pantalla el contenedor queda fuera de vista, pero con layout (no
+         display:none) porque Mermaid necesita medir el texto de sus rótulos. */
       #pdf-export-root {
         position: absolute;
         left: -99999px;
         top: 0;
-        width: 794px; /* ancho útil A4 horizontal, en px */
-      }
-      @media screen and (max-width: 900px) {
-        /* En pantallas muy angostas el ancho fijo de impresión se reduce para
-           que la vista previa no desborde el documento. */
-        #pdf-export-root { width: 794px; }
+        width: 277mm;
+        font-size: 13px;
+        line-height: 1.35;
       }
       .pdf-page {
         box-sizing: border-box;
-        width: 794px;
-        min-height: 561px; /* A4 horizontal */
-        padding: 28px 34px;
-        background: #fff;
         position: relative;
+        width: 277mm;
+        height: 189mm; /* 1 mm menos que el área útil: evita hojas en blanco por redondeo */
+        padding: 0 0 10mm 0;
+        overflow: hidden;
+        background: #fff;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+      }
+      .pdf-page:last-child {
+        break-after: auto;
+        page-break-after: auto;
       }
       .pdf-cover {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-bottom: 0;
       }
       .pdf-footnote {
         position: absolute;
-        left: 34px;
-        bottom: 16px;
+        left: 0;
+        bottom: 2mm;
         font-size: 10px;
         font-family: ui-monospace, monospace;
         color: #94a3b8;
       }
+      #pdf-export-root .mermaid {
+        min-height: 0;
+      }
+      #pdf-export-root .mermaid svg {
+        max-height: 105mm !important;
+        min-height: 0 !important;
+      }
+
       /* En impresión: fondo y colores se conservan. */
       * {
         -webkit-print-color-adjust: exact;
@@ -135,78 +181,15 @@
           height: auto !important;
           overflow: visible !important;
         }
-
-        /* Fuera del contenedor de exportación no hay nada que imprimir.
-           Se usa display: none (no visibility) porque el texto oculto por
-           visibility sigue reservando espacio y generaba páginas en blanco. */
+        /* display: none (no visibility): el texto oculto por visibility sigue
+           reservando espacio y generaba páginas en blanco. */
         body > *:not(#pdf-export-root) {
           display: none !important;
         }
-
         #pdf-export-root {
           display: block !important;
           position: static !important;
           left: auto !important;
-          top: auto !important;
-          width: auto !important;
-        }
-
-        /* El PDF sale más ancho que la vista en pantalla (A4 horizontal útil
-           ≈1047 px frente a los 794 px del contenedor). Se reduce la tipografía
-           para que las diapositivas densas quepan en una sola hoja. */
-        #pdf-export-root {
-          font-size: 13px;
-          line-height: 1.35;
-        }
-
-        /* Una diapositiva = una hoja. min-height garantiza el aire visual de una
-           diapositiva; break-inside evita que se parta si el contenido no cabe. */
-        .pdf-page {
-          box-sizing: border-box;
-          width: 100%;
-          min-height: 176mm;
-          padding: 0 0 10mm 0;
-          page-break-after: always;
-          page-break-inside: avoid;
-          break-after: page;
-          break-inside: avoid;
-        }
-        .pdf-page:last-child {
-          page-break-after: auto;
-          break-after: auto;
-        }
-
-        /* Divisor explícito entre diapositivas, para que quede separado aunque
-           el navegador no aplique break-after. */
-        .pdf-page + .pdf-page {
-          border-top: 1px dashed #e2e8f0;
-          padding-top: 6mm;
-        }
-
-        /* Que ninguna tabla, lista o bloque se parta a mitad de página. */
-        .pdf-page .grid,
-        .pdf-page .space-y-1,
-        .pdf-page .space-y-2,
-        .pdf-page .space-y-3,
-        .pdf-page .space-y-4,
-        .pdf-page .space-y-5,
-        .pdf-page .space-y-6,
-        .pdf-page .space-y-7,
-        .pdf-page table,
-        .pdf-page .mermaid {
-          break-inside: avoid;
-          page-break-inside: avoid;
-        }
-        .mermaid {
-          min-height: 0 !important;
-        }
-        .mermaid svg {
-          max-height: 105mm !important;
-          min-height: 0 !important;
-        }
-        .pdf-footnote {
-          left: 0;
-          bottom: 2mm;
         }
       }
     </style>

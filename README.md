@@ -79,3 +79,33 @@ python3 tools/extract_plan.py         # convierte content/plan.xlsx -> content/p
 - `id` de módulo: `<prefijo>-mod-<número>` (el número manda el orden).
 - `id` de diapositiva: `<prefijo><semana>-<n>[-sufijo]`.
 - Entregas y evaluación se gestionan por SAIA; esta app es solo para dictar y organizar.
+
+
+## Notas del docente y evaluaciones protegidas
+
+Hay **un solo sitio** (`npm run build`). En el build, el contenido sensible sale **cifrado** (AES-GCM + PBKDF2):
+
+- **`notes`** de cada diapositiva → cifradas con el código de la clave `notas`. Se leen desde el botón **Notas** de la presentación.
+- **`lock: '<clave>'`** (evaluaciones) → `contentHtml` cifrado; el estudiante lo abre con el código que entrega el docente.
+
+En `npm run dev` todo está en claro. Los códigos viven en `unlock-codes.local` (ignorado por git) y se **generan solos** en el primer build;
+`npm run codes` los muestra (`-- --json` para agentes). En GitHub Actions se definen en el secreto `UNLOCK_CODES`; si falta, ese contenido queda *no disponible* (nunca se publica en claro).
+Detalle completo y reglas para generar clases: **`AGENTS.md`**.
+
+> El cifrado solo protege lo que sale en el sitio publicado. Si el repositorio de GitHub es público, `data/**/*.ts` sigue siendo legible en la fuente.
+
+## Tareas
+
+Cada módulo puede declarar `tasks: Task[]` (ver `types.ts`). Aparecen en la vista **Tareas**
+(vencidas / esta semana / próximas, con casilla de "hecha" guardada en el navegador).
+
+## Interactivos en las diapositivas (HTML con `data-*`)
+
+| Atributo | Efecto |
+|---|---|
+| `data-reveal` | el elemento aparece paso a paso (↓, Espacio, → o botón) |
+| `data-tabs` > `data-tab="Título"` | pestañas |
+| `data-quiz` > `data-option` / `data-correct` / `data-explain` | pregunta con retroalimentación |
+| `<pre><code>` | botón "Copiar" automático |
+
+Sin JavaScript (por ejemplo en el PDF) todo se muestra completo.

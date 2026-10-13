@@ -30,8 +30,13 @@ jobs:
       - name: Dependencias
         run: npm ci
 
+      # Las notas del docente y las evaluaciones salen cifradas. Los códigos viven en
+      # el secreto UNLOCK_CODES del repositorio (JSON: {"notas": "...", "eval-corte-1": "..."});
+      # nunca en el código fuente. Sin secreto, ese contenido queda "no disponible".
       - name: Build
         run: npm run build
+        env:
+          UNLOCK_CODES: ${{ secrets.UNLOCK_CODES }}
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5
