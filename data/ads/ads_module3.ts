@@ -56,10 +56,10 @@ export const ANALISIS_DISENO_MODULE_3: Module = {
         <div class="space-y-6">
           <div class="bg-gradient-to-br from-sky-600 to-indigo-700 text-white p-6 rounded-2xl shadow-lg">
             <p class="text-xs uppercase tracking-widest font-bold text-sky-100">Objetivo II.1</p>
-            <p class="text-2xl font-bold mt-2">Un sistema de información es un conjunto organizado de <strong>personas, datos, procedimientos y tecnología</strong> que recopila, procesa, almacena y distribuye información para apoyar la toma de decisiones y la operación de la organización.</p>
+            <p class="text-2xl font-bold mt-2">Un sistema de información es un conjunto organizado de <strong>personas, hardware, software, datos y redes</strong> que recopila, procesa, almacena y distribuye información para apoyar la toma de decisiones y la operación de la organización.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-3">
-            <div class="bg-white border-2 border-sky-100 rounded-xl p-5"><h4 class="font-bold text-sky-900">Construido con cuatro materiales</h4><p class="text-sm text-slate-700 mt-2">Personas que operan y deciden · datos como materia prima · procedimientos que ordenan el trabajo · tecnología que procesa y distribuye.</p></div>
+            <div class="bg-white border-2 border-sky-100 rounded-xl p-5"><h4 class="font-bold text-sky-900">Construido con cinco recursos</h4><p class="text-sm text-slate-700 mt-2">Personas que operan y deciden · hardware · software · datos como materia prima · redes que conectan e intercambian.</p></div>
             <div class="bg-slate-50 border-2 border-slate-200 rounded-xl p-5"><h4 class="font-bold text-slate-900">Diferencia con un sistema cualquiera</h4><p class="text-sm text-slate-700 mt-2">Un sistema puede ser completamente manual; el sistema de información incorpora <strong>tecnología</strong> para procesar y distribuir información.</p></div>
           </div>
         </div>
@@ -194,10 +194,10 @@ export const ANALISIS_DISENO_MODULE_3: Module = {
     },
     {
       id: 'ads3-11',
-      title: 'Activación · 3 preguntas del jueves',
+      title: 'Activación · 3 preguntas del jueves 08/10',
       contentHtml: `
         <div class="space-y-5">
-          <div class="bg-sky-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-sky-100">Jueves 09/10 · primeros 7 minutos</p><h3 class="text-xl font-bold mt-1">Tres preguntas para arrancar</h3></div>
+          <div class="bg-sky-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-sky-100">Viernes 09/10 · primeros 7 minutos</p><h3 class="text-xl font-bold mt-1">Tres preguntas para arrancar</h3></div>
           <div class="space-y-3">
             <div class="flex gap-4 bg-white border-l-4 border-sky-500 rounded-xl p-4"><span class="font-bold text-sky-600">1</span><p class="text-slate-800">¿Cuáles son los <strong>cuatro subsistemas</strong> de un sistema de información?</p></div>
             <div class="flex gap-4 bg-white border-l-4 border-indigo-500 rounded-xl p-4"><span class="font-bold text-indigo-600">2</span><p class="text-slate-800">¿Qué <strong>nivel de decisión</strong> sirve el tablero de indicadores de la cooperativa de transporte?</p></div>
@@ -333,7 +333,7 @@ export const ANALISIS_DISENO_MODULE_3: Module = {
           <ol class="space-y-3 text-sm">
             <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-teal-700">1</span><span>Exponen <strong>3 estudiantes</strong>, 3 minutos cada uno: cada quien defiende una rama distinta (Elementos, Clasificación, Importancia).</span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-teal-700">2</span><span>La clase corrige cada mapa <strong>criterio por criterio</strong> con la lista de cotejo proyectada.</span></li>
-            <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-teal-700">3</span><span>El mapa te llega de vuelta el <strong>lunes 12/10</strong> con <strong>dos preguntas de retroalimentación</strong> para completarlo.</span></li>
+            <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-teal-700">3</span><span>El mapa te llega de vuelta el <strong>jueves 15/10</strong> con <strong>dos preguntas de retroalimentación</strong> para completarlo.</span></li>
           </ol>
           <div class="bg-slate-900 text-white rounded-xl p-4 text-sm"><strong>Errores que se buscan en la corrección:</strong> los dos frecuentes son confundir subsistema con característica y clasificar solo por función.</div>
         </div>

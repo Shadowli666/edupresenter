@@ -128,8 +128,8 @@ export const SQL_ELECTIVE_MODULE_1: Module = {
             <table class="w-full text-sm border-collapse text-center">
               <thead><tr class="bg-indigo-600 text-white"><th class="p-2 border">id (PK)</th><th class="p-2 border">cedula</th><th class="p-2 border">nombre</th><th class="p-2 border">carrera</th><th class="p-2 border">promedio</th></tr></thead>
               <tbody class="text-gray-700">
-                <tr><td class="p-2 border font-mono">1</td><td class="p-2 border">27758801</td><td class="p-2 border">Luis Moreno</td><td class="p-2 border">Sistemas</td><td class="p-2 border">17.5</td></tr>
-                <tr class="bg-slate-50"><td class="p-2 border font-mono">2</td><td class="p-2 border">31017576</td><td class="p-2 border">Escarlet Hernández</td><td class="p-2 border">Sistemas</td><td class="p-2 border">15.0</td></tr>
+                <tr><td class="p-2 border font-mono">1</td><td class="p-2 border">V-00000000</td><td class="p-2 border">Estudiante Ejemplo</td><td class="p-2 border">Sistemas</td><td class="p-2 border">17.5</td></tr>
+                <tr class="bg-slate-50"><td class="p-2 border font-mono">2</td><td class="p-2 border">V-00000001</td><td class="p-2 border">Estudiante Ejemplo 2</td><td class="p-2 border">Sistemas</td><td class="p-2 border">15.0</td></tr>
               </tbody>
             </table>
           </div>
@@ -405,6 +405,29 @@ export const SQL_ELECTIVE_MODULE_1: Module = {
           </div>
         </div>
       `
+    },
+    {
+      id: 'sql1-15b',
+      title: 'Práctica autónoma · en tu cuaderno',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-emerald-600 text-white rounded-xl p-4 flex justify-between items-center">
+            <div><h4 class="font-bold text-lg">✏️ Práctica autónoma (15 min)</h4><p class="font-bold text-xs">Base de ejemplo: empresa (empleado)</p></div>
+            <span class="text-3xl">📓</span>
+          </div>
+          <p class="text-sm text-slate-600">Escribe cada consulta en tu <strong>cuaderno</strong> y luego verifícala en el SGBD. Trabaja solo o en parejas; el docente circula y orienta.</p>
+          <ol class="space-y-2 text-sm">
+            <li class="flex gap-3 bg-white border rounded-lg p-3"><span class="font-bold text-emerald-700">1</span><span>Lista <strong>nombre</strong> y <strong>salario</strong> de los empleados con salario mayor a 1000.</span></li>
+            <li class="flex gap-3 bg-white border rounded-lg p-3"><span class="font-bold text-emerald-700">2</span><span>Ordena a todos los empleados por <strong>salario descendente</strong>.</span></li>
+            <li class="flex gap-3 bg-white border rounded-lg p-3"><span class="font-bold text-emerald-700">3</span><span>Empleados con salario <strong>entre</strong> 900 y 1200 (usa <code>BETWEEN</code>).</span></li>
+            <li class="flex gap-3 bg-white border rounded-lg p-3"><span class="font-bold text-emerald-700">4</span><span><strong>Reto:</strong> ¿cómo pedirías los empleados cuyo nombre empieza con "M"? (pista: <code>LIKE 'M%'</code>)</span></li>
+          </ol>
+          <div class="bg-slate-50 border rounded-lg p-3 text-xs text-slate-600">
+            📌 No es evaluada: sirve para afianzar <code>SELECT</code>/<code>WHERE</code>/<code>ORDER BY</code> antes de la práctica evaluada de la semana 4.
+          </div>
+        </div>
+      `,
+      notes: 'Práctica autónoma de 15 min (bloque 110–125 del guion). Consignas para el cuaderno. Respuestas de referencia: 1) SELECT nombre, salario FROM empleado WHERE salario > 1000; 2) SELECT nombre, salario FROM empleado ORDER BY salario DESC; 3) SELECT * FROM empleado WHERE salario BETWEEN 900 AND 1200; 4) SELECT * FROM empleado WHERE nombre LIKE \'M%\';. Si no hay laboratorio: se resuelve en papel y se verifica en el proyector.'
     },
     {
       id: 'sql1-16',

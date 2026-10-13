@@ -355,7 +355,7 @@ export const ANALISIS_DISENO_MODULE_2: Module = {
           <p class="text-sm text-slate-600">Veredicto de cada eje: <strong>viable</strong> · <strong>viable con condiciones</strong> · <strong>no viable</strong> — y si aplica, escribe la condición.</p>
         </div>
       `,
-      notes: 'Se proyecta para que copien: no hay impression. Dictar el encabezado una vez y dejar 30 segundos antes de empezar a escribir.'
+      notes: 'Se proyecta para que copien: no hay impresión. Dictar el encabezado una vez y dejar 30 segundos antes de empezar a escribir.'
     },
     {
       id: 'ads2-9c',
@@ -396,7 +396,7 @@ export const ANALISIS_DISENO_MODULE_2: Module = {
           <p class="text-xs text-slate-500">Antes de entregar: ¿completaste los cuatro ejes? · ¿cada veredicto tiene un dato del caso? · ¿escribiste la necesidad y no la solución?</p>
         </div>
       `,
-      notes: 'Proyectar esta diapositiva completa mientras Answer; sirve de guía visual del cierre.'
+      notes: 'Proyectar esta diapositiva completa mientras responden; sirve de guía visual del cierre.'
     },
     {
       id: 'ads2-10',
