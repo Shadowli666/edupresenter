@@ -26,5 +26,22 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": [
+    "*.ts",
+    "*.tsx",
+    "components",
+    "views",
+    "lib",
+    "data",
+    "tools"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public",
+    "reports",
+    "materias",
+    "content"
+  ]
 }

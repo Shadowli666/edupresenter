@@ -97,6 +97,12 @@ export const TasksView: React.FC<TasksViewProps> = ({ courses, courseId, onBack,
               {g.rows.map(({ course, module, task }) => {
                 const key = `${course.id}:${task.id}`;
                 const isDone = !!done[key];
+                // Destino del enlace: el slideId de la tarea si es válido, o la
+                // primera diapositiva del módulo. Un módulo sin diapositivas no
+                // debe romper la vista (module.slides[0].id sería un TypeError).
+                const targetSlideId = task.slideId && module.slides.some((s) => s.id === task.slideId)
+                  ? task.slideId
+                  : module.slides[0]?.id;
                 return (
                   <li key={key} className={`bg-white border rounded-2xl p-4 md:p-5 shadow-sm ${isDone ? 'border-emerald-200 opacity-75' : 'border-slate-200'}`}>
                     <div className="flex gap-3">
@@ -127,12 +133,14 @@ export const TasksView: React.FC<TasksViewProps> = ({ courses, courseId, onBack,
                             {task.items.map((it, i) => <li key={i}>{it}</li>)}
                           </ul>
                         )}
-                        <button
-                          onClick={() => onOpenSlide(course.id, module.id, task.slideId ?? module.slides[0].id)}
-                          className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800"
-                        >
-                          <ExternalLink size={13} /> Ver en la clase: {module.title}
-                        </button>
+                        {targetSlideId && (
+                          <button
+                            onClick={() => onOpenSlide(course.id, module.id, targetSlideId)}
+                            className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800"
+                          >
+                            <ExternalLink size={13} /> Ver en la clase: {module.title}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </li>

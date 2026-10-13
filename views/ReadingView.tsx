@@ -22,7 +22,7 @@ export const ReadingView: React.FC<ReadingViewProps> = ({ course, module, onBack
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) markSeen(module.id, (e.target as HTMLElement).dataset.slide!);
       }),
-      { threshold: 0.5 }
+      { threshold: 0.15 }
     );
     Object.values(sectionRefs.current).forEach((el) => el && io.observe(el));
     return () => io.disconnect();
@@ -70,7 +70,7 @@ export const ReadingView: React.FC<ReadingViewProps> = ({ course, module, onBack
         {/* Índice */}
         <nav className="md:w-64 md:shrink-0 mb-8 md:mb-0" aria-label="Índice de la semana">
           <div className="md:sticky md:top-24">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3">En esta semana</p>
+            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-3">En esta semana</p>
             <ol className="space-y-1 md:max-h-[70vh] md:overflow-y-auto pr-2">
               {module.slides.map((s, i) => (
                 <li key={s.id}>
@@ -78,7 +78,7 @@ export const ReadingView: React.FC<ReadingViewProps> = ({ course, module, onBack
                     onClick={() => go(s.id)}
                     className="w-full text-left text-sm px-3 py-1.5 rounded-lg text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                   >
-                    <span className="font-mono text-xs text-slate-400 mr-2">{i + 1}</span>{s.title}
+                    <span className="font-mono text-xs text-slate-500 mr-2">{i + 1}</span>{s.title}
                   </button>
                 </li>
               ))}
@@ -95,7 +95,7 @@ export const ReadingView: React.FC<ReadingViewProps> = ({ course, module, onBack
               ref={(el) => { sectionRefs.current[slide.id] = el; }}
               className="scroll-mt-24"
             >
-              <p className="text-xs font-mono font-bold text-slate-400 mb-2">
+              <p className="text-xs font-mono font-bold text-slate-500 mb-2">
                 {i + 1} / {module.slides.length}
               </p>
               <SlideViewer slide={slide} compact />

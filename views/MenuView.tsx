@@ -73,14 +73,14 @@ export const MenuView: React.FC<MenuViewProps> = ({ courses, onSelectCourse, onO
                     {course.teacherName && (
                       <div className="flex items-center gap-3 text-xs text-slate-500 mb-6 bg-slate-50 p-3 rounded-lg border border-slate-100 group-hover:border-blue-100 transition-colors">
                         <div className="bg-white p-1 rounded-full shadow-sm">
-                           <User size={14} className="text-slate-400" />
+                           <User size={14} className="text-slate-500" />
                         </div>
                         <span className="truncate font-medium">{course.teacherName}</span>
                       </div>
                     )}
 
                     <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
-                      <div className="flex items-center text-xs font-semibold text-slate-400">
+                      <div className="flex items-center text-xs font-semibold text-slate-500">
                         <Calendar size={14} className="mr-1.5" />
                         <span>{course.modules.length} Semanas</span>
                       </div>

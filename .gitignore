@@ -25,3 +25,6 @@ dist-ssr
 
 # Códigos de desbloqueo de evaluaciones (secretos)
 unlock-codes.local
+
+# copiado por vite.config.ts desde node_modules
+public/vendor/mermaid.min.js

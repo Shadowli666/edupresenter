@@ -16,7 +16,43 @@ interface Entry { courseId: string; courseTitle: string; moduleId: string; modul
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ courses, onClose, onOpen }) => {
   const [q, setQ] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => inputRef.current?.focus(), []);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Al abrir, guarda el elemento con foco para devolvérselo al cerrar.
+  useEffect(() => {
+    const prev = document.activeElement as HTMLElement | null;
+    inputRef.current?.focus();
+    return () => { prev?.focus?.(); };
+  }, []);
+
+  // Trampa de foco y Escape dentro del diálogo modal.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const root = dialogRef.current;
+      if (!root) return;
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => !el.hasAttribute('disabled'));
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey) {
+        if (active === first || !root.contains(active)) { e.preventDefault(); last.focus(); }
+      } else if (active === last || !root.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
 
   const index = useMemo<Entry[]>(() =>
     courses.flatMap((c) => c.modules.flatMap((m) => m.slides.map((s) => {
@@ -53,19 +89,20 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ courses, onClose, 
         className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden"
         onMouseDown={(e) => e.stopPropagation()}
         role="dialog"
+        aria-modal="true"
         aria-label="Buscar en las clases"
+        ref={dialogRef}
       >
         <div className="flex items-center gap-3 px-4 border-b border-slate-200">
-          <Search size={20} className="text-slate-400" />
+          <Search size={20} className="text-slate-500" />
           <input
             ref={inputRef}
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            onKeyDown={(e) => e.key === 'Escape' && onClose()}
             placeholder="Buscar un tema, término o clase…"
             className="flex-1 py-4 text-base outline-none"
           />
-          <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-700" aria-label="Cerrar"><X size={20} /></button>
+          <button onClick={onClose} className="p-1 text-slate-500 hover:text-slate-700" aria-label="Cerrar"><X size={20} /></button>
         </div>
         <ul className="max-h-[60vh] overflow-y-auto divide-y divide-slate-100">
           {q.trim() && results.length === 0 && (
@@ -81,12 +118,12 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ courses, onClose, 
                   {e.locked && <Lock size={13} className="text-amber-500" />}{e.title}
                 </p>
                 <p className="text-xs text-slate-500 mt-0.5">{e.courseTitle} · {e.moduleTitle}</p>
-                {snippet && <p className="text-xs text-slate-400 mt-1">…{snippet}…</p>}
+                {snippet && <p className="text-xs text-slate-500 mt-1">…{snippet}…</p>}
               </button>
             </li>
           ))}
           {!q.trim() && (
-            <li className="px-5 py-8 text-center text-sm text-slate-400">Escribe para buscar en todas las materias. Atajo: tecla /</li>
+            <li className="px-5 py-8 text-center text-sm text-slate-500">Escribe para buscar en todas las materias. Atajo: tecla /</li>
           )}
         </ul>
       </div>

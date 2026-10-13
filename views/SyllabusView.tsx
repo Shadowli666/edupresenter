@@ -104,7 +104,7 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                           {module.description}
                         </p>
                       </div>
-                      <div className={`p-2 rounded-full transition-all duration-300 transform ${isOpen ? 'bg-blue-100 text-blue-600 rotate-180' : 'bg-slate-50 text-slate-400 group-hover:bg-slate-200'}`}>
+                      <div className={`p-2 rounded-full transition-all duration-300 transform ${isOpen ? 'bg-blue-100 text-blue-600 rotate-180' : 'bg-slate-50 text-slate-500 group-hover:bg-slate-200'}`}>
                         <ChevronDown size={20} />
                       </div>
                     </div>
@@ -113,6 +113,8 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                   {/* Accordion Body (Content) */}
                   <div 
                     className={`grid gap-3 overflow-hidden transition-all duration-500 ease-in-out p-1 ${isOpen ? 'mt-6 opacity-100 max-h-[2000px]' : 'mt-0 opacity-0 max-h-0'}`}
+                    aria-hidden={!isOpen}
+                    ref={(el) => { if (el) el.inert = !isOpen; }}
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       <button
@@ -130,7 +132,7 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                         </button>
                       )}
                       {seenCount(module.id) > 0 && (
-                        <span className="text-xs font-semibold text-slate-400">
+                        <span className="text-xs font-semibold text-slate-500">
                           Visto: {Math.min(seenCount(module.id), module.slides.length)}/{module.slides.length}
                         </span>
                       )}
@@ -144,7 +146,7 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                       >
                         <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
-                        <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-blue-600 group-hover:bg-white group-hover:border-blue-200 transition-all mr-4 shrink-0 shadow-sm relative z-10">
+                        <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:text-blue-600 group-hover:bg-white group-hover:border-blue-200 transition-all mr-4 shrink-0 shadow-sm relative z-10">
                           {isLocked(slide) || isUnavailable(slide)
                             ? <Lock size={20} className="text-amber-500" />
                             : wasSeen(module.id, slide.id)
@@ -155,7 +157,7 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                           <h3 className="font-semibold text-slate-800 group-hover:text-blue-700 transition-colors">
                             {slide.title}
                           </h3>
-                          <p className="text-xs text-slate-400 mt-0.5 font-medium">Clase {index + 1}.{sIndex + 1}</p>
+                          <p className="text-xs text-slate-500 mt-0.5 font-medium">Clase {index + 1}.{sIndex + 1}</p>
                         </div>
                         <div className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-blue-600 relative z-10">
                           <ChevronRight size={20} />
@@ -184,7 +186,7 @@ export const SyllabusView: React.FC<SyllabusViewProps> = ({
                  </div>
                  <div>
                    <h3 className="font-bold text-xl mb-1">Fin del Contenido</h3>
-                   <p className="text-slate-400 text-sm">Has revisado toda la estructura del curso.</p>
+                   <p className="text-slate-500 text-sm">Has revisado toda la estructura del curso.</p>
                  </div>
               </div>
             </div>
