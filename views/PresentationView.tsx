@@ -94,7 +94,7 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
               <ChevronLeft size={20} />
             </div>
             <div className="hidden sm:block">
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Anterior</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Anterior</p>
               <p className="text-sm font-bold text-slate-700 group-hover:text-blue-600 transition-colors">{prev.slide.title}</p>
             </div>
           </button>
@@ -102,7 +102,7 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
 
         {/* Progress Indicator */}
         <div className="hidden md:flex flex-col items-center gap-2 flex-1 max-w-xs px-4">
-           <div className="flex justify-between w-full text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+           <div className="flex justify-between w-full text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">
              <span>Progreso</span>
              <span>
                 {activeModule.slides.findIndex(s => s.id === activeSlide.id)! + 1} / {activeModule.slides.length}
@@ -128,7 +128,7 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
              title="Siguiente (Flecha Derecha)"
           >
             <div className="hidden sm:block">
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Siguiente</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Siguiente</p>
               <p className="text-sm font-bold text-slate-700 group-hover:text-blue-600 transition-colors">{next.slide.title}</p>
             </div>
             <div className="w-10 h-10 rounded-full bg-blue-600 group-hover:bg-blue-700 flex items-center justify-center text-white shadow-lg shadow-blue-200 transition-all group-hover:translate-x-1 group-hover:shadow-blue-300">

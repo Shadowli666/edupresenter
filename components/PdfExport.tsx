@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FileDown, Loader2 } from 'lucide-react';
 import { Module } from '../types';
+import { loadMermaid } from '../lib/mermaid';
 import { isLocked, slideHtml, useUnlockVersion } from '../lib/unlock';
 
 interface PdfExportProps {
@@ -23,6 +24,7 @@ const MAX_ZOOM = 1.3;  // las diapositivas poco densas se agrandan para llenar l
  */
 function fitSlidesToPage(container: HTMLElement) {
   container.querySelectorAll<HTMLElement>('.pdf-page:not(.pdf-cover)').forEach((page) => {
+    delete page.dataset.overflow; // limpia el marcador de recorte de una exportación anterior
     const fit = page.querySelector<HTMLElement>('.pdf-fit');
     if (!fit) return;
     // Espacio útil: alto de la hoja menos el pie (padding-bottom) de la página.
@@ -80,54 +82,64 @@ export const PdfExport: React.FC<PdfExportProps> = ({
     if (!preparing) return;
 
     let cancelled = false;
+    let fallbackId: number | undefined;
 
     const prepare = async () => {
-      const container = containerRef.current;
-      if (!container) return;
+      try {
+        const container = containerRef.current;
+        if (!container) return;
 
-      // 1. Diagramas Mermaid -> SVG (miden el texto, por eso el contenedor tiene layout).
-      if (container.querySelector('.mermaid')) {
-        try {
-          const mermaid = (await import('mermaid')).default;
-          mermaid.initialize({
-            startOnLoad: false,
-            theme: 'neutral',
-            securityLevel: 'loose',
-            fontFamily: 'Arial, Helvetica, sans-serif',
-            flowchart: { htmlLabels: true, curve: 'basis', padding: 12, nodeSpacing: 40, rankSpacing: 60 }
-          });
-          await mermaid.run({ nodes: container.querySelectorAll('.mermaid') });
-        } catch {
-          // Un diagrama con error de sintaxis no debe impedir exportar el resto.
+        // 1. Diagramas Mermaid -> SVG (miden el texto, por eso el contenedor tiene layout).
+        if (container.querySelector('.mermaid')) {
+          try {
+            const mermaid = await loadMermaid();
+            await mermaid.run({ nodes: container.querySelectorAll<HTMLElement>('.mermaid') });
+          } catch {
+            // Un diagrama con error de sintaxis no debe impedir exportar el resto.
+          }
         }
+
+        // 2. Imágenes: esperar a que estén decodificadas antes de medir su altura.
+        await Promise.all(
+          Array.from(container.querySelectorAll('img')).map((img) =>
+            img.decode ? img.decode().catch(() => {}) : Promise.resolve()
+          )
+        );
+
+        // 3. Fuentes: Mermaid y el CSS miden con una fuente y pueden dibujar con otra.
+        if (document.fonts?.ready) {
+          try { await document.fonts.ready; } catch { /* sin soporte */ }
+        }
+
+        // 4. Ajuste a la hoja: cada diapositiva se escala para caber entera en una
+        //    página A4 (ver .pdf-page en index.html). El contenedor ya tiene el
+        //    tamaño exacto de impresión, así que la medida coincide con el PDF.
+        fitSlidesToPage(container);
+
+        // 5. Un respiro para que el navegador termine de maquetar antes del diálogo.
+        await new Promise((resolve) => setTimeout(resolve, 250));
+        if (cancelled) return;
+
+        window.print();
+      } catch (err) {
+        console.error('[PdfExport] no se pudo preparar la exportación', err);
+      } finally {
+        // Respaldo por si `afterprint` no llega (móviles): no dejar el botón en "Preparando…".
+        if (!cancelled) fallbackId = window.setTimeout(() => setPreparing(false), 500);
       }
-
-      // 2. Fuentes: Mermaid y el CSS miden con una fuente y pueden dibujar con otra.
-      if (document.fonts?.ready) {
-        try { await document.fonts.ready; } catch { /* sin soporte */ }
-      }
-
-      // 3. Ajuste a la hoja: cada diapositiva se escala para caber entera en una
-      //    página A4 (ver .pdf-page en index.html). El contenedor ya tiene el
-      //    tamaño exacto de impresión, así que la medida coincide con el PDF.
-      fitSlidesToPage(container);
-
-      // 4. Un respiro para que el navegador termine de maquetar antes del diálogo.
-      await new Promise((resolve) => setTimeout(resolve, 250));
-      if (cancelled) return;
-
-      window.print();
     };
 
     prepare();
 
     const finish = () => {
+      if (fallbackId !== undefined) window.clearTimeout(fallbackId);
       if (!cancelled) setPreparing(false);
     };
     window.addEventListener('afterprint', finish);
 
     return () => {
       cancelled = true;
+      if (fallbackId !== undefined) window.clearTimeout(fallbackId);
       window.removeEventListener('afterprint', finish);
     };
   }, [preparing]);
@@ -151,8 +163,8 @@ export const PdfExport: React.FC<PdfExportProps> = ({
         En pantalla se mantiene fuera de vista con posicionamiento absoluto
         (no `display: none`) para que Mermaid pueda medir sus rótulos.
       */}
-      {createPortal(
-      <div id="pdf-export-root" ref={containerRef}>
+      {preparing && createPortal(
+      <div id="pdf-export-root" ref={containerRef} aria-hidden="true">
         <div className="pdf-page pdf-cover">
           <h1 className="text-4xl font-bold text-slate-900">{module.title}</h1>
           <p className="mt-3 text-lg text-slate-600">{courseTitle}</p>

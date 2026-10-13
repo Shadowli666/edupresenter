@@ -4,7 +4,7 @@ export const SQL_MODULE_3: Module = {
   id: 'sql-mod-3',
   title: '3. Consultas de lectura: funciones, operadores y joins',
   description:
-    'Semana 3: recuperación del contenido del 01/10 (componentes de la base relacional, tipos de datos, CREATE TABLE e INSERT) y desarrollo de consultas de lectura con SELECT, WHERE, ORDER BY, funciones de agregación, GROUP BY y JOINs. Taller guiado sobre la base rutas.',
+    'Semana 3: recuperación del contenido del 01/10 (componentes de la base relacional, tipos de datos, CREATE TABLE e INSERT) y desarrollo de consultas de lectura con funciones de agregación, GROUP BY/HAVING e INNER JOIN. SELECT/WHERE/ORDER BY y operadores de comparación ya se dictaron en S1: solo se activan. LEFT/RIGHT JOIN y LIMIT quedan fuera del alcance evaluable (el PGA solo pide INNER JOIN). Taller guiado sobre la base rutas.',
   evaluation: '0%',
   slides: [
     {
@@ -35,7 +35,7 @@ export const SQL_MODULE_3: Module = {
           <p class="text-slate-600 text-lg">La sesión del 01/10 no se dictó (ausencia del docente). Hoy la <strong>recuperamos</strong> y además desarrollamos el contenido previsto de esta semana.</p>
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-amber-700">Recuperación del 01/10</p><h3 class="text-xl font-bold text-amber-950 mt-2">Base relacional</h3><p class="text-sm text-amber-900 mt-2">Tabla, registro, campo y clave primaria · tipos de datos · CREATE TABLE · INSERT.</p></div>
-            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Contenido previsto</p><h3 class="text-xl font-bold text-teal-950 mt-2">Consultas de lectura</h3><p class="text-sm text-teal-900 mt-2">SELECT / WHERE / ORDER BY · operadores · funciones de agregación · GROUP BY · JOINs.</p></div>
+            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Contenido previsto</p><h3 class="text-xl font-bold text-teal-950 mt-2">Consultas de lectura</h3><p class="text-sm text-teal-900 mt-2">Repaso de <strong>SELECT / WHERE / ORDER BY</strong> (visto el 24/09) · operadores lógicos · funciones de agregación · GROUP BY / HAVING · INNER JOIN.</p></div>
           </div>
           <div class="bg-slate-900 text-white rounded-2xl p-5">
             <p class="text-xs uppercase tracking-widest font-bold text-slate-300 mb-3">Ruta de trabajo (135 min)</p>
@@ -178,47 +178,40 @@ INSERT INTO pasaje VALUES (2, 2, 1, '2026-10-08', 30.00);</pre>
     },
     {
       id: 'sql3-9',
-      title: 'Contenido nuevo · SELECT, FROM, WHERE, ORDER BY',
+      title: 'Activación · recordamos la consulta básica',
       contentHtml: `
-        <div class="space-y-4">
-          <div class="bg-teal-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-teal-100">Contenido nuevo de hoy</p><h3 class="text-xl font-bold mt-1">La consulta de lectura en 4 piezas</h3></div>
+        <div class="space-y-5">
+          <div class="bg-teal-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-teal-100">Activación · repaso del 24/09</p><h3 class="text-xl font-bold mt-1">La consulta de lectura en 4 piezas</h3></div>
           <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
             <pre class="font-mono text-xs md:text-sm text-slate-100 leading-relaxed whitespace-pre-wrap">SELECT columnas FROM tabla WHERE condicion ORDER BY campo ASC|DESC;</pre>
           </div>
-          <div class="grid md:grid-cols-2 gap-3">
-            <div class="bg-teal-50 border border-teal-200 rounded-xl p-4"><h4 class="font-bold text-teal-900">SELECT / FROM</h4><p class="text-sm text-teal-950 mt-1">Qué columnas ver y de qué tabla. Ej: SELECT nombre, zona FROM ruta;</p></div>
-            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4"><h4 class="font-bold text-indigo-900">WHERE</h4><p class="text-sm text-indigo-950 mt-1">Filtra filas antes de agrupar. Ej: WHERE zona = 'Norte';</p></div>
-            <div class="bg-violet-50 border border-violet-200 rounded-xl p-4"><h4 class="font-bold text-violet-900">ORDER BY</h4><p class="text-sm text-violet-950 mt-1">Ordena el resultado final. ASC (menor a mayor, por defecto) o DESC (mayor a menor).</p></div>
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4"><h4 class="font-bold text-slate-900">Ejemplo completo</h4><p class="text-sm text-slate-700 mt-1 font-mono text-xs">SELECT nombre FROM ruta WHERE zona = 'Norte' ORDER BY nombre ASC;</p></div>
+          <div class="space-y-3 text-sm">
+            <div class="bg-white border rounded-xl p-4"><strong>1.</strong> ¿Qué filtra <code>WHERE</code>: filas o columnas?</div>
+            <div class="bg-white border rounded-xl p-4"><strong>2.</strong> ¿Qué hace <code>ORDER BY</code> y cuál es su valor por defecto?</div>
+            <div class="bg-white border rounded-xl p-4"><strong>3.</strong> ¿Qué proyecta <code>SELECT</code>?</div>
           </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>No se reenseña hoy:</strong> esto ya se dictó el 24/09. Lo activamos en 2–3 minutos y pasamos a lo nuevo.</div>
         </div>
-      `
+      `,
+      notes: 'Activación breve (2–3 min), no reexplicación. Respuestas esperadas: 1) WHERE filtra FILAS antes de proyectar; 2) ORDER BY ordena el resultado final, ASC por defecto (DESC es opcional); 3) SELECT proyecta COLUMNAS. Si el grupo no recuerda, recordar con una consulta de ejemplo en pantalla, sin volver a dar teoría.'
     },
     {
       id: 'sql3-10',
-      title: 'Operadores de comparación y lógicos',
+      title: 'Operadores lógicos · AND, OR, NOT',
       contentHtml: `
         <div class="space-y-5">
-          <p class="text-slate-600 text-lg">WHERE gana potencia al combinar operadores:</p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
-              <h4 class="font-bold text-blue-900 mb-3">Comparación</h4>
-              <ul class="space-y-2 text-sm text-blue-950">
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">= &nbsp; &lt;&gt; &nbsp; &lt; &nbsp; &gt; &nbsp; &lt;= &nbsp; &gt;=</span><br>igual, distinto, menor, mayor, menor o igual, mayor o igual</li>
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">BETWEEN</span><br>rango: monto BETWEEN 20 AND 35</li>
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">IN</span><br>lista: zona IN ('Norte', 'Centro')</li>
-              </ul>
-            </div>
-            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-5">
-              <h4 class="font-bold text-indigo-900 mb-3">Lógicos</h4>
-              <ul class="space-y-2 text-sm text-indigo-950">
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">AND</span><br>ambas condiciones deben cumplirse</li>
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">OR</span><br>basta que una se cumpla</li>
-                <li class="bg-white rounded-lg p-3"><span class="font-mono font-bold">NOT</span><br>niega la condición</li>
-              </ul>
-            </div>
+          <div class="bg-teal-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-teal-100">Lo nuevo de hoy</p><h3 class="text-xl font-bold mt-1">Combinar condiciones en WHERE</h3></div>
+          <div class="grid md:grid-cols-3 gap-3 text-sm">
+            <div class="bg-white border-2 border-teal-200 rounded-xl p-4"><p class="font-mono font-bold text-teal-800">AND</p><p class="text-teal-950 mt-1">ambas condiciones deben cumplirse</p></div>
+            <div class="bg-white border-2 border-indigo-200 rounded-xl p-4"><p class="font-mono font-bold text-indigo-800">OR</p><p class="text-indigo-950 mt-1">basta que una se cumpla</p></div>
+            <div class="bg-white border-2 border-rose-200 rounded-xl p-4"><p class="font-mono font-bold text-rose-800">NOT</p><p class="text-rose-950 mt-1">niega la condición</p></div>
           </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Trampa frecuente:</strong> con texto se usan comillas simples ('Norte'); con números no (25).</div>
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
+            <pre class="font-mono text-xs md:text-sm text-slate-100 leading-relaxed whitespace-pre-wrap">SELECT * FROM pasaje
+WHERE monto &gt;= 25 AND monto &lt;= 45;
+-- equivalente a: WHERE monto BETWEEN 25 AND 45</pre>
+          </div>
+          <div class="bg-slate-50 border rounded-xl p-4 text-sm text-slate-700"><strong>Ya visto el 24/09:</strong> los comparadores <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>, <code>BETWEEN</code> e <code>IN</code>. Hoy solo sumamos los lógicos <code>AND</code>/<code>OR</code>/<code>NOT</code> y la trampa de las comillas: texto con comillas simples ('Norte'), números sin ellas.</div>
         </div>
       `
     },
@@ -263,44 +256,48 @@ HAVING COUNT(*) &gt; 1;</pre>
     },
     {
       id: 'sql3-13',
-      title: 'JOINs · qué une cada tipo y qué se pierde',
+      title: 'JOINs · INNER JOIN como núcleo, LEFT/RIGHT como ampliación',
       contentHtml: `
         <div class="space-y-5">
-          <div class="bg-indigo-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-indigo-100">Unir tablas · claves foráneas</p><h3 class="text-xl font-bold mt-1">Los tres joins del programa</h3></div>
+          <div class="bg-indigo-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-indigo-100">Unir tablas · claves foráneas</p><h3 class="text-xl font-bold mt-1">INNER JOIN es lo que se evalúa; LEFT/RIGHT son ampliación</h3></div>
           <div class="overflow-x-auto border border-slate-200 rounded-xl">
             <div class="min-w-[620px]">
               <div class="grid grid-cols-3 bg-slate-900 text-white text-xs font-bold"><div class="p-3">Join</div><div class="p-3">Qué trae</div><div class="p-3">Qué se pierde</div></div>
               <div class="divide-y divide-slate-200 text-sm">
-                <div class="grid grid-cols-3"><div class="p-3 font-mono font-bold text-indigo-800">INNER JOIN</div><div class="p-3 text-slate-700">solo las filas que coinciden en ambas tablas</div><div class="p-3 text-slate-700">las que no coinciden en ninguna de las dos</div></div>
-                <div class="grid grid-cols-3 bg-slate-50"><div class="p-3 font-mono font-bold text-teal-800">LEFT JOIN</div><div class="p-3 text-slate-700">todo de la tabla izquierda, mas las coincidencias</div><div class="p-3 text-slate-700">las de la derecha que no tienen pareja</div></div>
-                <div class="grid grid-cols-3"><div class="p-3 font-mono font-bold text-violet-800">RIGHT JOIN</div><div class="p-3 text-slate-700">todo de la tabla derecha, mas las coincidencias</div><div class="p-3 text-slate-700">las de la izquierda que no tienen pareja</div></div>
+                <div class="grid grid-cols-3 bg-emerald-50"><div class="p-3 font-mono font-bold text-indigo-800">INNER JOIN <span class="text-xs font-sans text-emerald-700">· se evalúa</span></div><div class="p-3 text-slate-700">solo las filas que coinciden en ambas tablas</div><div class="p-3 text-slate-700">las que no coinciden en ninguna de las dos</div></div>
+                <div class="grid grid-cols-3 bg-slate-50"><div class="p-3 font-mono font-bold text-teal-800">LEFT JOIN <span class="text-xs font-sans text-slate-500">· opcional</span></div><div class="p-3 text-slate-700">todo de la tabla izquierda, mas las coincidencias</div><div class="p-3 text-slate-700">las de la derecha que no tienen pareja</div></div>
+                <div class="grid grid-cols-3"><div class="p-3 font-mono font-bold text-violet-800">RIGHT JOIN <span class="text-xs font-sans text-slate-500">· opcional</span></div><div class="p-3 text-slate-700">todo de la tabla derecha, mas las coincidencias</div><div class="p-3 text-slate-700">las de la izquierda que no tienen pareja</div></div>
               </div>
             </div>
           </div>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Pregunta de verificación:</strong> ¿qué pasaría con una ruta sin pasajes al usar un INNER JOIN? ¿Y con un LEFT JOIN?</div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Pregunta de verificación:</strong> ¿qué pasaría con una ruta sin pasajes al usar un INNER JOIN?</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Alcance según el PGA:</strong> la evaluación del 15/10 solo pide <code>INNER JOIN</code>. <code>LEFT</code>/<code>RIGHT JOIN</code> se muestran como ampliación opcional, fuera de evaluación.</div>
         </div>
-      `
+      `,
+      notes: 'LEFT/RIGHT JOIN no se evalúan en S4: el PGA de S3 solo lista INNER JOIN y la evaluación del 15/10 usa únicamente INNER JOIN. Mostrar LEFT/RIGHT solo si el grupo domina INNER y queda tiempo (ampliación opcional). Respuesta a la verificación: con INNER JOIN la ruta sin pasajes desaparece del resultado.'
     },
     {
       id: 'sql3-14',
-      title: 'La consulta estrella · LEFT JOIN con GROUP BY',
+      title: 'Ejemplo tipo del taller · INNER JOIN con GROUP BY',
       contentHtml: `
         <div class="space-y-4">
-          <div class="bg-slate-900 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-slate-300">Ejemplo tipo del taller</p><h3 class="text-xl font-bold mt-1">Pasajes vendidos por ruta (contando también las rutas sin pasajes)</h3></div>
+          <div class="bg-slate-900 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-slate-300">Ejemplo tipo del taller · base DISTINTA a la del taller</p><h3 class="text-xl font-bold mt-1">Préstamos por libro (biblioteca)</h3></div>
           <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
-            <pre class="font-mono text-xs md:text-sm text-slate-100 leading-relaxed whitespace-pre-wrap">SELECT r.nombre, COUNT(p.id_pasaje) AS pasajes
-FROM ruta r
-LEFT JOIN pasaje p ON p.id_ruta = r.id_ruta
-GROUP BY r.nombre
-ORDER BY pasajes DESC;</pre>
+            <pre class="font-mono text-xs md:text-sm text-slate-100 leading-relaxed whitespace-pre-wrap">SELECT l.titulo, COUNT(p.id_prestamo) AS prestamos
+FROM libro l
+INNER JOIN prestamo p ON p.id_libro = l.id_libro
+GROUP BY l.titulo
+ORDER BY prestamos DESC;</pre>
           </div>
           <div class="grid md:grid-cols-3 gap-3 text-sm">
-            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4"><p class="font-bold text-amber-900">Apodo de tabla</p><p class="text-amber-950 mt-1">FROM ruta <strong>r</strong> permite escribir r.nombre: menos texto, más claridad.</p></div>
-            <div class="bg-teal-50 border border-teal-200 rounded-xl p-4"><p class="font-bold text-teal-900">LEFT al servicio</p><p class="text-teal-950 mt-1">Si una ruta no tiene pasajes, aparece igual con conteo 0.</p></div>
-            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4"><p class="font-bold text-indigo-900">Alias calculado</p><p class="text-indigo-950 mt-1">AS pasajes da nombre a la columna contada y lo usamos al ordenar.</p></div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4"><p class="font-bold text-amber-900">Apodo de tabla</p><p class="text-amber-950 mt-1">FROM libro <strong>l</strong> permite escribir l.titulo: menos texto, más claridad.</p></div>
+            <div class="bg-teal-50 border border-teal-200 rounded-xl p-4"><p class="font-bold text-teal-900">INNER JOIN</p><p class="text-teal-950 mt-1">Solo los libros que tienen al menos un préstamo.</p></div>
+            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4"><p class="font-bold text-indigo-900">Alias calculado</p><p class="text-indigo-950 mt-1">AS prestamos da nombre a la columna contada y lo usamos al ordenar.</p></div>
           </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Base distinta a propósito:</strong> es una biblioteca, no la base <code>rutas</code> del taller. Traslada el patrón, no copies el texto.</div>
         </div>
-      `
+      `,
+      notes: 'Modelo de solución del taller (NO mostrar; solo para el docente). Consulta 3: SELECT r.nombre, SUM(p.monto) AS total, AVG(p.monto) AS promedio FROM ruta r INNER JOIN pasaje p ON p.id_ruta = r.id_ruta GROUP BY r.nombre;. Consulta 4: SELECT r.zona, SUM(p.monto) AS total FROM ruta r INNER JOIN pasaje p ON p.id_ruta = r.id_ruta GROUP BY r.zona HAVING SUM(p.monto) >= 80;. Consulta 5: SELECT r.nombre, ROUND(AVG(p.monto),2) AS promedio FROM ruta r INNER JOIN pasaje p ON p.id_ruta = r.id_ruta GROUP BY r.nombre HAVING AVG(p.monto) >= 40;.'
     },
     {
       id: 'sql3-15',
@@ -327,13 +324,15 @@ ORDER BY pasajes DESC;</pre>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">1</span><span>Lista de rutas con su zona <span class="text-slate-500">(SELECT + ORDER BY)</span></span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">2</span><span>Pasajes de una fecha dada o rango <span class="text-slate-500">(WHERE con BETWEEN)</span></span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">3</span><span>Monto total y promedio por ruta <span class="text-slate-500">(SUM, AVG + GROUP BY)</span></span></li>
-            <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">4</span><span>Ruta más rentable <span class="text-slate-500">(ORDER BY ... DESC LIMIT 1)</span></span></li>
-            <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">5</span><span>Rutas sin ningún pasaje en octubre <span class="text-slate-500">(LEFT JOIN + IS NULL) — el join que más confunde</span></span></li>
+            <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">4</span><span>Zonas con monto total de al menos 80 <span class="text-slate-500">(GROUP BY + HAVING)</span></span></li>
+            <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">5</span><span>Rutas con monto promedio de al menos 40 <span class="text-slate-500">(GROUP BY + HAVING)</span></span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">6</span><span>Pasajes con datos de bus y ruta <span class="text-slate-500">(INNER JOIN de tres tablas)</span></span></li>
           </ol>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Entrega:</strong> cada pareja guarda las 6 consultas en un archivo .sql y el docente revisa en el SGBD. No se imprime nada: lees las consultas de la pantalla y las resuelves en el SGBD.</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>★ Reto opcional (ampliación, no evaluada):</strong> listar las rutas sin ningún pasaje en octubre usando <code>LEFT JOIN ... IS NULL</code>. Es formativa, pero el PGA y la evaluación del 15/10 solo exigen <code>INNER JOIN</code>.</div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Entrega:</strong> cada pareja guarda las 6 consultas en un archivo .sql y el docente revisa en el SGBD. No se imprime nada: lees las consultas de la pantalla y las resuelves en el SGBD. En las consultas evaluables no se usa <code>LIMIT</code> ni <code>LEFT/RIGHT JOIN</code>.</div>
         </div>
-      `
+      `,
+      notes: 'Las 6 consultas usan solo INNER JOIN, GROUP BY y HAVING (alcance del PGA de S3). El reto opcional (LEFT JOIN + IS NULL) no se evalúa. Los umbrales 80 y 40 se ajustan a los datos realmente cargados en clase; la habilidad evaluada es GROUP BY + HAVING. Si el tiempo no alcanza, dejar las consultas 5 y 6 como tarea; la 4 (HAVING por zona) es la que mejor prepara la evaluación del 15/10.'
     },
     {
       id: 'sql3-17',

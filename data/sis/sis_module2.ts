@@ -4,8 +4,8 @@ export const SISTEMAS_I_MODULE_2: Module = {
   id: 'sis-mod-2',
   title: '2. Las Actividades de la Ingeniería de Software',
   description:
-    'Semana 2 (lunes 28/09): las cinco actividades de la ingeniería de software — Proceso, Administración de Proyectos, Personas, Producto y Calidad — aplicadas a un caso real de Ciudad Ojeda y consolidadas en un mapa conceptual. Unidad I: Introducción a la Ingeniería de Software.',
-  evaluation: '0% — Diagnóstica + mapa conceptual',
+    'Semana 2 (lunes 28/09): las cinco actividades de la ingeniería de software — Proceso, Administración de Proyectos, Personas, Producto y Calidad. Se dictó la teoría; el caso de aplicación (Farmacia San Rafael) y el mapa conceptual no se ejecutaron (MAPA-GENERAL §6). Unidad I: Introducción a la Ingeniería de Software.',
+  evaluation: '0% — Diagnóstica',
   slides: [
     {
       id: 'sis2-1',
@@ -35,9 +35,13 @@ export const SISTEMAS_I_MODULE_2: Module = {
           <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-sm text-slate-700">
             🧭 <strong>Ruta de la clase:</strong> teoría breve → caso real de una farmacia de Ciudad Ojeda → mapa conceptual individual.
           </div>
+
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
+            📌 <strong>Registro de ejecución (MAPA-GENERAL §6):</strong> el 28/09 se dictó la teoría de las cinco actividades; el caso y el mapa conceptual <strong>no se realizaron</strong> y no se asignó traer un caso propio. La ficha de la Semana 3 sustituye el mapa conceptual no realizado.
+          </div>
         </div>
       `,
-      notes: 'Llegar 10 min antes. Materiales: proyector, pizarra, hojas para la diagnóstica y para el mapa conceptual, lista de cotejo. No re-explicar la definición de IS, la crisis, los atributos ni el campo de aplicación del 21/09.'
+      notes: 'Llegar 10 min antes. Materiales: proyector, pizarra, hojas para la diagnóstica, lista de cotejo. No re-explicar la definición de IS, la crisis, los atributos ni el campo de aplicación del 21/09. Registro de ejecución: en S2 solo se dictó la teoría; no se realizó el caso Farmacia San Rafael ni el mapa conceptual, y no se asignó traer un caso propio (MAPA-GENERAL §6, confirmación docente 05/10).'
     },
     {
       id: 'sis2-2',
@@ -98,9 +102,8 @@ export const SISTEMAS_I_MODULE_2: Module = {
             <div class="bg-white border rounded-xl p-4 shadow-sm">
               <h5 class="font-bold text-slate-700 mb-2">Modalidad</h5>
               <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>6 ítems de opción múltiple</li>
-                <li>1 ítem de verdadero o falso</li>
-                <li>1 ítem abierto (3 líneas)</li>
+                <li>8 ítems de selección (opción múltiple)</li>
+                <li>1 respuesta abierta breve (3 líneas)</li>
               </ul>
             </div>
             <div class="bg-white border rounded-xl p-4 shadow-sm">
@@ -190,7 +193,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
 
           <div>
-            <p class="text-xs font-bold text-slate-500 mb-2">5 ACTIVIDADES ESTRUCTURALES — las mismas en un proyecto pequeño y en uno enorme</p>
+            <p class="text-xs font-bold text-slate-500 mb-2">5 ACTIVIDADES ESTRUCTURALES DEL PROCESO (Pressman, cap. 1 §1.4) — distintas de las 5 actividades de la clase; las mismas en un proyecto pequeño y en uno enorme</p>
             <div class="flex flex-wrap gap-2 text-xs font-bold">
               <span class="bg-blue-100 text-blue-900 border border-blue-200 rounded-full px-3 py-1">1 · Comunicación</span>
               <span class="bg-blue-100 text-blue-900 border border-blue-200 rounded-full px-3 py-1">2 · Planeación</span>
@@ -206,7 +209,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Insistir en la diferencia actividad/acción/tarea: es lo que más se confunde. No re-explicar las capas IS del 21/09.'
+      notes: 'Insistir en la diferencia actividad/acción/tarea: es lo que más se confunde. No confundir las 5 actividades de la clase (Sommerville/programa: Proceso, Proyectos, Personas, Producto, Calidad) con las 5 actividades estructurales del proceso (Pressman: Comunicación, Planeación, Modelado, Construcción, Despliegue). No re-explicar las capas IS del 21/09.'
     },
     {
       id: 'sis2-7',
@@ -424,7 +427,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Leer la escena en voz alta (≈60 s). No imprimir: se proyecta y se dicta. Los datos del numeral a)–e) van en la diapositiva siguiente.'
+      notes: 'Leer la escena en voz alta (≈60 s). No imprimir: se proyecta y se dicta. Los datos del numeral a)–e) van en la diapositiva siguiente. No ejecutado el 28/09 (MAPA-GENERAL §6): se dictó la teoría, pero el caso no se trabajó; material conservado para posible reuso.'
     },
     {
       id: 'sis2-13',
@@ -442,7 +445,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Proyectar y leer los cinco datos. El inciso b) conecta con la evidencia de Sommerville: evolución > desarrollo.'
+      notes: 'Proyectar y leer los cinco datos. El inciso b) conecta con la evidencia de Sommerville: evolución > desarrollo. No ejecutado el 28/09 (MAPA-GENERAL §6), junto con el caso y el mapa conceptual.'
     },
     {
       id: 'sis2-14',
@@ -477,7 +480,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Formar los equipos ANTES de que empiece el bloque (2 min). Avisos de reloj a los 15 y a los 5 min. Si se atascan, proyectar una columna ya resuelta y preguntar qué falta.'
+      notes: 'Formar los equipos ANTES de que empiece el bloque (2 min). Avisos de reloj a los 15 y a los 5 min. Si se atascan, proyectar una columna ya resuelta y preguntar qué falta. No ejecutado el 28/09 (MAPA-GENERAL §6): el taller de equipos sobre el caso no se realizó.'
     },
     {
       id: 'sis2-15',
@@ -503,8 +506,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
 
           <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-sm text-indigo-900">
-            📊 <strong>No califica (0 %).</strong> Tu hoja se revisa en clase con una lista de cotejo y
-            <strong>se devuelve corregida la semana del 05/10</strong>.
+            📊 <strong>No califica (0 %).</strong> Actividad prevista pero <strong>no ejecutada</strong> el 28/09 (MAPA-GENERAL §6): no se realizó el mapa conceptual, por lo que no hay hoja que devolver.
           </div>
 
           <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
@@ -512,7 +514,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Criterios de la lista: 5 actividades correctas · 2 conceptos por rama · 2 relaciones rotuladas · 1 ejemplo por rama · legibilidad · entrega en el tiempo.'
+      notes: 'Criterios de la lista: 5 actividades correctas · 2 conceptos por rama · 2 relaciones rotuladas · 1 ejemplo por rama · legibilidad · entrega en el tiempo. No ejecutado el 28/09 (MAPA-GENERAL §6): el mapa conceptual no se realizó; la ficha de S3 lo sustituye. Los criterios quedan como referencia para la coevaluación de S3.'
     },
     {
       id: 'sis2-16',
@@ -543,7 +545,7 @@ export const SISTEMAS_I_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Las tres primeras preguntas también sirven como retroalimentación rápida antes del 12/10.'
+      notes: 'Las tres primeras preguntas también sirven como retroalimentación rápida antes del 12/10. No ejecutado el 28/09 (MAPA-GENERAL §6): no se asignó la tarea de traer un caso propio; en S3 se usan escenarios ficticios compartidos.'
     },
     {
       id: 'sis2-17',

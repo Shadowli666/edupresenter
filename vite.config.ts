@@ -1,6 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { protectedContent } from './tools/protectedContent'
+import fs from 'node:fs'
+import path from 'node:path'
+
+// Mermaid se sirve como archivo estático (ver lib/mermaid.ts): empaquetarlo
+// sumaba ~3 000 módulos y la mayor parte del tiempo de build.
+function ensureMermaidVendor() {
+  const src = path.resolve('node_modules/mermaid/dist/mermaid.min.js')
+  const dest = path.resolve('public/vendor/mermaid.min.js')
+  if (!fs.existsSync(src)) return
+  if (!fs.existsSync(dest) || fs.statSync(dest).mtimeMs < fs.statSync(src).mtimeMs) {
+    fs.mkdirSync(path.dirname(dest), { recursive: true })
+    fs.copyFileSync(src, dest)
+  }
+}
+ensureMermaidVendor()
 
 // https://vitejs.dev/config/
 //   npm run dev     -> todo en claro (para editar contenido)
@@ -23,11 +38,11 @@ export default defineConfig(({ command }) => ({
     sourcemap: false,
     minify: 'esbuild',
     chunkSizeWarningLimit: 1200,
+    reportCompressedSize: false, // calcular gzip de cada chunk no aporta y cuesta segundos
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          mermaid: ['mermaid'],
+        manualChunks(id) {
+          if (/node_modules\/(react|react-dom|scheduler)\//.test(id)) return 'react';
         },
       },
       treeshake: true,

@@ -12,7 +12,7 @@ export const LockPanel: React.FC<{ slide: Slide }> = ({ slide }) => {
   if (isUnavailable(slide)) {
     return (
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-slate-600">
-        <Lock className="mx-auto mb-3 text-slate-400" size={32} />
+        <Lock className="mx-auto mb-3 text-slate-500" size={32} />
         <p className="font-semibold">Este contenido aún no está disponible.</p>
       </div>
     );

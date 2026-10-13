@@ -32,7 +32,7 @@ export const PNN_MODULE_2: Module = {
           </div>
         </div>
       `,
-      notes: 'Materiales: pizarra/borrador, guía de ejercicios impresa, proyector. Verificar que el código Java compile antes de la clase.'
+      notes: 'Materiales: pizarra/borrador, guía de ejercicios en pantalla (sin impresión), proyector. Verificar que el código Java compile antes de la clase.'
     },
     {
       id: 'pnn2-2',
@@ -335,14 +335,16 @@ a[<span class="text-amber-300">3</span>]=<span class="text-amber-200">"D"</span>
 <span class="text-emerald-400">int</span> p = <span class="text-amber-300">1</span>;                      <span class="text-slate-400">// nodo B</span>
 System.out.println(<span class="text-amber-200">"Hijo izq: "</span> + a[<span class="text-amber-300">2</span>*p+<span class="text-amber-300">1</span>]);
 System.out.println(<span class="text-amber-200">"Hijo der: "</span> + a[<span class="text-amber-300">2</span>*p+<span class="text-amber-300">2</span>]);
-System.out.println(<span class="text-amber-200">"Padre:    "</span> + a[(p-<span class="text-amber-300">1</span>)/<span class="text-amber-300">2</span>]);</pre>
+System.out.println(<span class="text-amber-200">"Padre:    "</span> + a[(p-<span class="text-amber-300">1</span>)/<span class="text-amber-300">2</span>]);
+System.out.println(<span class="text-amber-200">"Ocupadas: "</span> + <span class="text-amber-300">5</span> + <span class="text-amber-200">" de "</span> + a.length);</pre>
           </div>
 
           <div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4">
             <h4 class="font-bold text-emerald-900 mb-2">Salida esperada</h4>
             <pre class="text-xs font-mono bg-emerald-900 text-emerald-50 p-2 rounded-lg">Hijo izq: D
 Hijo der: E
-Padre:    A</pre>
+Padre:    A
+Ocupadas: 5 de 7</pre>
           </div>
 
           <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-900">
@@ -444,7 +446,7 @@ p = <span class="text-amber-300">1</span>                                    <sp
 
 print(<span class="text-amber-200">"Hijo izq:"</span>, a[<span class="text-amber-300">2</span>*p+<span class="text-amber-300">1</span>])
 print(<span class="text-amber-200">"Hijo der:"</span>, a[<span class="text-amber-300">2</span>*p+<span class="text-amber-300">2</span>])
-print(<span class="text-amber-200">"Padre:   "</span>, a[(p-<span class="text-amber-300">1</span>)<span class="text-rose-300">//</span><span class="text-amber-300">2</span>])        <span class="text-rose-300">// OJO: doble barra = division entera</span>
+print(<span class="text-amber-200">"Padre:   "</span>, a[(p-<span class="text-amber-300">1</span>)<span class="text-rose-300">//</span><span class="text-amber-300">2</span>])        <span class="text-rose-300"># OJO: doble barra = división entera</span>
 print(<span class="text-amber-200">"Ocupadas:"</span>, <span class="text-amber-300">5</span>, <span class="text-amber-200">"de"</span>, len(a))</pre>
           </div>
           <div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-3">
@@ -571,41 +573,26 @@ Ocupadas: 5 de 7</pre>
             <span class="font-bold text-xs">Úsalo en los ejercicios 3 y 4</span>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-4 items-start">
-            <div class="bg-white border border-slate-200 rounded-xl p-2">
-              <div class="mermaid">
-                graph TD
-                  N1((1)) --> N2((2))
-                  N1 --> N3((3))
-                  N2 --> N4((4))
-                  N2 --> N5((5))
-                  N3 --> N6((6))
-                  N4 --> N7((7))
-                  N4 --> N8((8))
-                  style N1 fill:#0f172a,stroke:#0f172a,color:#fff
-                  style N3 fill:#fde68a,stroke:#d97706
-                  style N6 fill:#fde68a,stroke:#d97706
-                  style N7 fill:#bbf7d0,stroke:#16a34a
-                  style N8 fill:#bbf7d0,stroke:#16a34a
-              </div>
-            </div>
-            <div class="space-y-2 text-sm">
-              <div class="bg-white border border-slate-200 rounded-lg p-3">
-                <p class="font-bold text-slate-800">Niveles</p>
-                <p class="font-mono text-xs text-slate-600 mt-1">nivel 0: <strong>1</strong><br/>nivel 1: <strong>2, 3</strong><br/>nivel 2: <strong>4, 5, 6</strong><br/>nivel 3: <strong>7, 8</strong></p>
-              </div>
-              <div class="bg-white border border-slate-200 rounded-lg p-3">
-                <p class="font-bold text-slate-800">Datos del árbol</p>
-                <p class="text-xs text-slate-600 mt-1">Altura = <strong>3</strong> · Nodos = <strong>8</strong> · Aristas = <strong>7</strong></p>
-              </div>
-              <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-800">
-                ⚠️ El nivel 3 tiene 2 nodos pero el nivel 2 tenía lugar para 4: este árbol <strong>no es completo</strong>.
-              </div>
+          <div class="bg-white border border-slate-200 rounded-xl p-2">
+            <div class="mermaid">
+              graph TD
+                N1((1)) --> N2((2))
+                N1 --> N3((3))
+                N2 --> N4((4))
+                N2 --> N5((5))
+                N3 --> N6((6))
+                N4 --> N7((7))
+                N4 --> N8((8))
+                style N1 fill:#0f172a,stroke:#0f172a,color:#fff
+                style N3 fill:#fde68a,stroke:#d97706
+                style N6 fill:#fde68a,stroke:#d97706
+                style N7 fill:#bbf7d0,stroke:#16a34a
+                style N8 fill:#bbf7d0,stroke:#16a34a
             </div>
           </div>
         </div>
       `,
-      notes: 'Proyectar 30 segundos en silencio para que copien. El dato clave para el ejercicio 3 es que el arreglo tiene 15 posiciones. Los nodos amarillos son los que quedan colgando (3 sin hijo izquierdo, 6 sin hijos) y por eso el árbol no es completo.'
+      notes: 'Proyectar 30 segundos en silencio para que copien. SOLUCIÓN (no proyectar): nivel 0: 1 · nivel 1: 2, 3 · nivel 2: 4, 5, 6 · nivel 3: 7, 8. Altura = 3 · Nodos = 8 · Aristas = 7. El arreglo del ejercicio 3 tiene 2^(3+1) − 1 = 15 posiciones. Los nodos amarillos quedan colgando (3 sin hijo izquierdo, 6 sin hijos); el nivel 3 tiene 2 nodos pero el nivel 2 tenía lugar para 4, por eso el árbol no es completo.'
     },
     {
       id: 'pnn2-10b',

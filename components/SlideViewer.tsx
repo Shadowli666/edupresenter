@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Slide } from '../types';
 import { enhance } from '../lib/enhance';
+import { loadMermaid } from '../lib/mermaid';
 import { isLocked, slideHtml, useUnlockVersion } from '../lib/unlock';
 import { LockPanel } from './LockPanel';
 
@@ -41,29 +42,10 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
 
     let isMounted = true;
     (async () => {
-      const mermaid = await import('mermaid');
+      const mermaid = await loadMermaid();
       if (!isMounted) return;
-      // Mermaid MIDE el texto de cada rótulo para calcular el tamaño de las cajas y
-      // después lo dibuja. Si mide con una fuente y dibuja con otra, las cajas quedan
-      // angostas y los rótulos salen recortados. Con una fuente web (Inter) eso pasa
-      // siempre que la fuente aún no esté cargada — y esta app restaura la última
-      // diapositiva al abrir, así que puede medir antes de que Inter cargue.
-      // Solución: una pila de fuentes LOCALES -> medición y dibujo coinciden siempre.
-      mermaid.default.initialize({
-        startOnLoad: false,
-        theme: 'neutral',
-        securityLevel: 'loose',
-        fontFamily: 'Arial, Helvetica, sans-serif',
-        flowchart: {
-          htmlLabels: true,
-          curve: 'basis',
-          padding: 12,
-          nodeSpacing: 40,
-          rankSpacing: 60
-        }
-      });
-      await mermaid.default.run({ nodes: root.querySelectorAll<HTMLElement>('.mermaid') });
-    })();
+      await mermaid.run({ nodes: root.querySelectorAll<HTMLElement>('.mermaid') });
+    })().catch(() => { /* un diagrama con error no debe romper la diapositiva */ });
 
     return () => { isMounted = false; };
   }, [html, locked]);

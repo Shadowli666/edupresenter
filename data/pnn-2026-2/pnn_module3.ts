@@ -43,7 +43,7 @@ export const PNN_MODULE_3: Module = {
               <h4 class="font-bold text-blue-900">📐 Conceptos</h4>
               <ul class="list-disc list-inside text-sm text-blue-800 mt-2 space-y-1">
                 <li>La <strong>propiedad del HEAP</strong> (dos condiciones)</li>
-                <li>Fórmulas del arreglo: hijos y padre</li>
+                <li>Activación breve: fórmulas del arreglo (recuerdo)</li>
                 <li>Algoritmo <strong>INSERTAR</strong>: burbujear hacia arriba</li>
                 <li>Algoritmo <strong>HEAPIFY</strong>: corregir hacia abajo</li>
               </ul>
@@ -96,38 +96,30 @@ export const PNN_MODULE_3: Module = {
     },
     {
       id: 'pnn3-4',
-      title: 'Fórmulas del arreglo: el mapa de índices',
+      title: 'Activación: fórmulas del arreglo (Semana 2)',
       contentHtml: `
-        <div class="space-y-4">
-          <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-900">
-            <strong>La idea:</strong> si el nodo está en el índice <strong>p</strong>, lo averiguamos todo con aritmética, sin punteros.
+        <div class="space-y-5">
+          <div class="bg-indigo-600 text-white rounded-xl p-4 flex justify-between items-center">
+            <div>
+              <h4 class="font-bold text-lg">⚡ Activación · fórmulas del arreglo (Semana 2)</h4>
+              <p class="font-bold text-xs">No se re-explica: solo se activa</p>
+            </div>
+            <span class="text-3xl">🧮</span>
           </div>
 
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="bg-slate-100 text-slate-700">
-                <th class="border border-slate-200 px-3 py-2 text-left">Relación</th>
-                <th class="border border-slate-200 px-3 py-2">Fórmula</th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <tr><td class="border border-slate-200 px-3 py-2 font-bold text-slate-800 text-left">Hijo izquierdo de p</td><td class="border border-slate-200 px-3 py-2 font-mono font-bold text-blue-700">2p + 1</td></tr>
-              <tr class="bg-slate-50"><td class="border border-slate-200 px-3 py-2 font-bold text-slate-800 text-left">Hijo derecho de p</td><td class="border border-slate-200 px-3 py-2 font-mono font-bold text-blue-700">2p + 2</td></tr>
-              <tr><td class="border border-slate-200 px-3 py-2 font-bold text-slate-800 text-left">Padre de p</td><td class="border border-slate-200 px-3 py-2 font-mono font-bold text-blue-700">(p − 1) / 2</td></tr>
-            </tbody>
-          </table>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+            <p class="text-sm text-slate-700 font-mono">
+              hijo izquierdo = <strong>2p + 1</strong> · hijo derecho = <strong>2p + 2</strong> · padre = <strong>(p − 1) / 2</strong> <span class="text-slate-400">(división entera)</span>
+            </p>
+          </div>
 
-          <div class="grid md:grid-cols-2 gap-3">
-            <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-sm text-emerald-900">
-              ✅ <strong>Ejemplo:</strong> p = 3 → hijo izquierdo <strong>7</strong>, hijo derecho <strong>8</strong>, padre <strong>1</strong>.
-            </div>
-            <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
-              ⚠️ <strong>Chequeo previo:</strong> si el índice calculado cae <strong>fuera del arreglo</strong> (≥ n), ese hijo no existe.
-            </div>
+          <div class="bg-white border-l-4 border-blue-500 rounded-lg p-4 shadow-sm">
+            <p class="text-sm text-gray-700"><strong>Pregunta relámpago:</strong> para <strong>p = 3</strong>, ¿hijos y padre?</p>
+            <p class="text-xs text-blue-600 mt-1 font-mono">→ hijos 7 y 8 · padre 1</p>
           </div>
 
           <div class="bg-slate-900 text-white rounded-xl p-3 text-sm">
-            🪑 Estas tres fórmulas son <strong>el motor de INSERTAR y HEAPIFY</strong>: ambos algoritmos solo comparan e intercambian casillas.
+            🪑 Estas tres fórmulas son el motor de <strong>INSERTAR</strong> y <strong>HEAPIFY</strong>: ambos algoritmos solo comparan e intercambian casillas.
           </div>
         </div>
       `
@@ -249,27 +241,17 @@ export const PNN_MODULE_3: Module = {
             <span class="font-bold text-xs">Heap máximo vacío</span>
           </div>
 
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="bg-slate-100 text-slate-700">
-                <th class="border border-slate-200 px-2 py-2">Tras insertar</th>
-                <th class="border border-slate-200 px-2 py-2">Arreglo</th>
-              </tr>
-            </thead>
-            <tbody class="text-center font-mono">
-              <tr><td class="border border-slate-200 px-3 py-2 font-bold">15</td><td class="border border-slate-200 px-3 py-2">[15]</td></tr>
-              <tr class="bg-slate-50"><td class="border border-slate-200 px-3 py-2 font-bold">8</td><td class="border border-slate-200 px-3 py-2">[15, 8]</td></tr>
-              <tr><td class="border border-slate-200 px-3 py-2 font-bold">30</td><td class="border border-slate-200 px-3 py-2 font-bold text-blue-700">[30, 8, 15]</td></tr>
-              <tr class="bg-slate-50"><td class="border border-slate-200 px-3 py-2 font-bold">12</td><td class="border border-slate-200 px-3 py-2">[30, 12, 15, 8]</td></tr>
-              <tr><td class="border border-slate-200 px-3 py-2 font-bold">25</td><td class="border border-slate-200 px-3 py-2 font-bold text-blue-700">[30, 25, 15, 8, 12]</td></tr>
-            </tbody>
-          </table>
-
-          <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-sm text-emerald-900">
-            🔍 <strong>Traza del último paso:</strong> 25 entra en el índice <strong>4</strong>; su padre (p = 1) es <strong>12</strong> → 25 &gt; 12, <strong>se intercambian</strong> (sube al índice 1); su nuevo padre (raíz) es <strong>30</strong> → 25 &lt; 30, <strong>se detiene</strong>.
+          <div class="bg-white border-2 border-blue-200 rounded-xl p-5">
+            <p class="text-sm text-gray-700">Inserta <strong>uno a uno</strong> los valores <strong>15, 8, 30, 12, 25</strong> en un heap máximo vacío.</p>
+            <ol class="list-decimal list-inside text-sm text-gray-700 mt-3 space-y-1">
+              <li>Escribe el <strong>arreglo completo</strong> tras cada inserción.</li>
+              <li>Marca con una flecha ↑ cuándo un valor <strong>burbujea</strong> y hasta dónde sube.</li>
+              <li>Verifica con las fórmulas: hijo izquierdo <strong>2p+1</strong>, hijo derecho <strong>2p+2</strong>, padre <strong>(p−1)/2</strong>.</li>
+            </ol>
           </div>
         </div>
-      `
+      `,
+      notes: 'Se resuelve en pizarra pidiendo la respuesta antes de escribirla. SOLUCIÓN (no proyectar): tras 15 → [15]; 8 → [15, 8]; 30 → [30, 8, 15] (30 sube sobre la raíz); 12 → [30, 12, 15, 8] (12 sube del índice 3 al 1); 25 → [30, 25, 15, 8, 12] (25 entra en el índice 4; su padre p=1 es 12 → 25 > 12, se intercambian, sube al índice 1; su nuevo padre, la raíz, es 30 → 25 < 30, se detiene).'
     },
     {
       id: 'pnn3-10',
@@ -406,7 +388,7 @@ export const PNN_MODULE_3: Module = {
           </div>
 
           <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-sm text-emerald-900">
-            💡 <strong>Idea clave:</strong> al quitar la raíz, el último elemento toma su lugar y hay que <strong>corregir hacia abajo</strong>. Es la técnica que usarás en la evaluación del 22/10.
+            💡 <strong>Idea clave:</strong> al quitar la raíz, el último elemento toma su lugar y hay que <strong>corregir hacia abajo</strong>. Es la técnica que usarás en la prueba del 15/10.
           </div>
         </div>
       `
@@ -546,7 +528,7 @@ export const PNN_MODULE_3: Module = {
             <span class="text-3xl">📚</span>
             <div>
               <h4 class="font-bold">Tarea</h4>
-              <p class="text-sm">Las hojas corregidas se devuelven el lunes 12/10 con dos preguntas de retroalimentación. Repasa los 4 ejercicios del taller para la prueba.</p>
+              <p class="text-sm">Las hojas corregidas se devuelven el jueves 15/10, antes de la prueba, con dos preguntas de retroalimentación. Repasa los 4 ejercicios del taller para la prueba.</p>
             </div>
           </div>
 
