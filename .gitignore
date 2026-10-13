@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Códigos de desbloqueo de evaluaciones (secretos)
+unlock-codes.local

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FileDown, Loader2 } from 'lucide-react';
 import { Module } from '../types';
+import { isLocked, slideHtml, useUnlockVersion } from '../lib/unlock';
 
 interface PdfExportProps {
   module: Module;
@@ -10,6 +11,42 @@ interface PdfExportProps {
   school?: string;
   campus?: string;
   term?: string;
+}
+
+const MIN_ZOOM = 0.45; // por debajo el texto deja de ser legible
+const MAX_ZOOM = 1.3;  // las diapositivas poco densas se agrandan para llenar la hoja
+
+/**
+ * Escala cada `.pdf-fit` con `zoom` hasta que su alto renderizado quepa en la
+ * hoja. `zoom` altera el layout (el texto se re-acomoda al nuevo ancho), así que
+ * no basta una división: se itera hasta converger.
+ */
+function fitSlidesToPage(container: HTMLElement) {
+  container.querySelectorAll<HTMLElement>('.pdf-page:not(.pdf-cover)').forEach((page) => {
+    const fit = page.querySelector<HTMLElement>('.pdf-fit');
+    if (!fit) return;
+    // Espacio útil: alto de la hoja menos el pie (padding-bottom) de la página.
+    const avail = page.clientHeight - parseFloat(getComputedStyle(page).paddingBottom || '0');
+    let zoom = 1;
+    for (let i = 0; i < 6; i++) {
+      fit.style.zoom = String(zoom);
+      const h = fit.getBoundingClientRect().height;
+      if (!h) break;
+      const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom * (avail / h) * 0.98));
+      if (Math.abs(next - zoom) < 0.01) { zoom = next; break; }
+      zoom = next;
+    }
+    // Garantía: si la iteración no convergió, se sigue reduciendo hasta que quepa.
+    fit.style.zoom = String(zoom);
+    while (fit.getBoundingClientRect().height > avail + 1 && zoom > MIN_ZOOM) {
+      zoom = Math.max(MIN_ZOOM, zoom * 0.95);
+      fit.style.zoom = String(zoom);
+    }
+    if (fit.getBoundingClientRect().height > avail + 1) {
+      page.dataset.overflow = 'true'; // no cabe ni al zoom mínimo: se recorta
+      console.warn('[PdfExport] la diapositiva no cabe en una hoja:', page.dataset.slide);
+    }
+  });
 }
 
 /**
@@ -33,6 +70,9 @@ export const PdfExport: React.FC<PdfExportProps> = ({
   campus,
   term
 }) => {
+  useUnlockVersion();
+  // Las evaluaciones bloqueadas no se exportan hasta que el estudiante las desbloquee.
+  const slides = module.slides.filter((s) => !isLocked(s));
   const [preparing, setPreparing] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -67,7 +107,12 @@ export const PdfExport: React.FC<PdfExportProps> = ({
         try { await document.fonts.ready; } catch { /* sin soporte */ }
       }
 
-      // 3. Un respiro para que el navegador termine de maquetar antes del diálogo.
+      // 3. Ajuste a la hoja: cada diapositiva se escala para caber entera en una
+      //    página A4 (ver .pdf-page en index.html). El contenedor ya tiene el
+      //    tamaño exacto de impresión, así que la medida coincide con el PDF.
+      fitSlidesToPage(container);
+
+      // 4. Un respiro para que el navegador termine de maquetar antes del diálogo.
       await new Promise((resolve) => setTimeout(resolve, 250));
       if (cancelled) return;
 
@@ -120,7 +165,7 @@ export const PdfExport: React.FC<PdfExportProps> = ({
             {campus && (<><dt className="font-bold text-slate-500">Sede</dt><dd>{campus}</dd></>)}
             {term && (<><dt className="font-bold text-slate-500">Período</dt><dd>{term}</dd></>)}
             <dt className="font-bold text-slate-500">Diapositivas</dt>
-            <dd>{module.slides.length}</dd>
+            <dd>{slides.length}</dd>
             {module.evaluation && (
               <><dt className="font-bold text-slate-500">Evaluación</dt><dd>{module.evaluation}</dd></>
             )}
@@ -130,15 +175,17 @@ export const PdfExport: React.FC<PdfExportProps> = ({
           </p>
         </div>
 
-        {module.slides.map((slide) => (
-          <div key={slide.id} className="pdf-page">
-            <h2 className="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-3 mb-5">
-              {slide.title}
-            </h2>
-            <div
-              className="prose prose-slate max-w-none prose-headings:font-bold"
-              dangerouslySetInnerHTML={{ __html: slide.contentHtml }}
-            />
+        {slides.map((slide) => (
+          <div key={slide.id} className="pdf-page" data-slide={slide.id}>
+            <div className="pdf-fit">
+              <h2 className="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-3 mb-5">
+                {slide.title}
+              </h2>
+              <div
+                className="prose prose-slate max-w-none prose-headings:font-bold"
+                dangerouslySetInnerHTML={{ __html: slideHtml(slide) }}
+              />
+            </div>
             {teacherName && (
               <p className="pdf-footnote">{teacherName}</p>
             )}
