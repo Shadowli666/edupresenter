@@ -248,7 +248,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
     {
       id: 'ads4-14',
       title: 'Logística e instrucciones',
-      notes: 'Duración de resolución sugerida: 60 min (el borrador no fija tiempo; por confirmar). Impresión autorizada: solo las copias de la prueba. Verificar identificación de cada copia. Discrepancia del borrador: indica bloque jueves, pero la aplicación es viernes 16/10.',
+      notes: 'Duración de resolución: 75 min (corregida en la revisión del 15/10). Impresión autorizada: solo las copias de la prueba. Verificar identificación de cada copia. El borrador ya corrige el bloque a viernes 16/10.',
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-amber-500 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-amber-100">Antes de empezar</p><h3 class="text-xl font-bold mt-1">Instrucciones generales</h3></div>
@@ -265,7 +265,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
     {
       id: 'ads4-15',
       title: 'Aplicación de la prueba',
-      notes: 'Avisos de tiempo a los 30 y a los 10 minutos restantes. Supervisar sin interrumpir. No aclarar contenido.',
+      notes: 'Avisos de tiempo a los 35 y a los 10 minutos restantes. Supervisar sin interrumpir. No aclarar contenido.',
       contentHtml: `
         <div class="space-y-6">
           <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-8 rounded-2xl shadow-lg text-center">
@@ -276,7 +276,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
             <div class="bg-white border-2 border-amber-100 rounded-xl p-4"><h4 class="font-bold text-slate-900">Recuerda</h4><p class="text-sm text-slate-700 mt-1">Lee los 5 apartados completos y administra tu tiempo: no te quedes pegado en uno solo.</p></div>
             <div class="bg-white border-2 border-amber-100 rounded-xl p-4"><h4 class="font-bold text-slate-900">Al entregar</h4><p class="text-sm text-slate-700 mt-1">Revisa que estén tu nombre, cédula y sección antes de entregar la hoja.</p></div>
           </div>
-          <p class="text-xs text-slate-500 text-center">60 minutos · 20 puntos · 5 apartados</p>
+          <p class="text-xs text-slate-500 text-center">75 minutos · 20 puntos · 5 apartados</p>
         </div>
       `
     },

@@ -20,7 +20,7 @@ Líneas = estado actual del archivo en el árbol de trabajo.
 | P7 Fechas (#13, #14, #41, A3) | **HECHA** | `ED/ads/ads_module3.ts:197,200` "jueves 08/10" / "Viernes 09/10"; `:336` "jueves 15/10"; `ED/pnn-2026-2/pnn_module3.ts:531` "jueves 15/10, antes de la prueba"; plan `PSM/03-Clases/ANALISIS-Y-DISENO/S03-contenido-clase-viernes.md:72,97,105` ya dice jueves 15/10 | — |
 | P8a Árbol de referencia sin solución (#34) | **HECHA** | `pnn_module2.ts:567-595` solo árbol; solución en `notes` (`:595`) | — |
 | P8b Traza heap en pizarra (#39) | **HECHA** | `pnn_module3.ts:244-253` solo enunciado; traza en `notes` `:253` | — |
-| P9 Cédulas (#29, A2) | **HECHA** | `ED/sql/sql_module1.ts:131-132` "V-00000000 · Estudiante Ejemplo" / "V-00000001 · Estudiante Ejemplo 2". `grep 27758801\|31017576` en `data/` = 0 | — |
+| P9 Cédulas (#29, A2) | **HECHA** | `ED/sql/sql_module1.ts:131-132` "V-[cédula] · Estudiante Ejemplo" / "V-[cédula] · Estudiante Ejemplo 2". `grep [cédula]\|[cédula]` en `data/` = 0 | — |
 | P10a Errata ADS (#18, #19) | **HECHA** | `ED/ads/ads_module2.ts:358` "impresión"; `:399` "mientras responden" | — |
 | P10b "impresa" PNN (#36) | **HECHA** | `pnn_module2.ts:35` "guía de ejercicios en pantalla (sin impresión)" | — |
 | P10c Diagnóstica SIS (#2) | **HECHA** | `sis_module2.ts:118-119` "8 ítems de selección" + "1 respuesta abierta breve" | Confirmar con el docente que 8+1 es lo aplicado |
