@@ -50,12 +50,10 @@ export const SQL_MODULE_4 : Module = {
 
         <div class="space-y-4">
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-950"><strong>No hay laboratorio de computación.</strong> Todas las asignaciones de la asignatura son individuales y para casa.</div>
-          <div class="bg-white border rounded-xl p-4 text-sm">📥 La consigna se entrega en la guía digital del estudiante (sin imprimir).</div>
-          <div class="bg-white border rounded-xl p-4 text-sm">📅 La fecha y el medio de entrega se confirman en clase.</div>
         </div>
       
       `,
-      notes: "Fecha de entrega del taller S4: por confirmar con el docente."
+      notes: "Cambio de modalidad (2026-10-15): sin laboratorio; todas las asignaciones son individuales y para casa. Operativo (no proyectar): la consigna del taller S4 se entrega al estudiante en la guía digital, no se imprime. Fecha y medio de entrega: por confirmar con el docente."
     },
     {
       id: 'sql4-4',
@@ -81,10 +79,10 @@ export const SQL_MODULE_4 : Module = {
           <div class="bg-white border rounded-xl p-4 text-sm">1. Cada consulta comentada con su número.</div>
           <div class="bg-white border rounded-xl p-4 text-sm">2. Resultados que coincidan con las salidas esperadas de la guía.</div>
           <div class="bg-white border rounded-xl p-4 text-sm">3. Archivo <code>S04_consultas.sql</code> con todas las consultas.</div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Fecha de entrega:</strong> por confirmar.</div>
         </div>
       
-      `
+      `,
+      notes: "Entregables del taller S4 (10 %). Fecha de entrega: por confirmar con el docente (no mostrar en pantalla)."
     },
     {
       id: 'sql4-6',
@@ -199,10 +197,10 @@ export const SQL_MODULE_4 : Module = {
         <div class="space-y-4">
           <div class="bg-white border rounded-xl p-4 text-sm"><strong>1.</strong> Taller práctico S4 (10 %), individual, con la guía del estudiante.</div>
           <div class="bg-white border rounded-xl p-4 text-sm"><strong>2.</strong> Repasar los tres ejercicios DML en PostgreSQL y traer una consulta de comprobación (SELECT) para cada uno.</div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Entrega:</strong> individual; fecha y medio por confirmar.</div>
         </div>
       
-      `
+      `,
+      notes: "Asignación para casa (individual). Taller S4 (10 %): fecha y medio de entrega por confirmar con el docente. La práctica DML señalada es formativa (0 %)."
     },
     {
       id: 'sql4-13b',
@@ -252,10 +250,10 @@ export const SQL_MODULE_4 : Module = {
             <p class="font-bold">Fuentes de esta sesión</p>
             <ul class="list-disc list-inside text-gray-600 space-y-1"><li>PostgreSQL Documentation (sintaxis de DML).</li></ul>
           </div>
-          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950"><strong>Actividad PGA de la semana:</strong> taller práctico individual (10 %) para casa + introducción a DML · escala de estimación · 10 %.</div>
         </div>
       
-      `
+      `,
+      notes: "Actividad PGA de la semana (solo docente): taller práctico individual (10 %) para casa + introducción a DML · instrumento: escala de estimación · 10 %. No proyectar."
     }
   ]
 };

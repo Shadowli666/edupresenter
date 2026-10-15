@@ -347,7 +347,7 @@ print(f"Máx: {maximo} · Mín: {minimo}")
       contentHtml: `
 
         <div class="space-y-4">
-          <div class="bg-white border-l-4 border-amber-500 rounded-xl p-4 text-sm"><strong>Devolución:</strong> semana 6 (26–31/10, fecha por confirmar). Notas del Corte I en DACE el 31/10/2026.</div>
+          <div class="bg-white border-l-4 border-amber-500 rounded-xl p-4 text-sm"><strong>Devolución:</strong> semana 6 (26–31/10). Notas del Corte I en DACE el 31/10/2026.</div>
           <div class="bg-rose-50 border border-rose-200 rounded-xl p-4"><h4 class="font-bold text-rose-800">Jueves 22/10</h4>
             <p class="text-sm text-rose-700 mt-1"><strong>Taller práctico evaluado (20 %)</strong>: algoritmos recursivos de ordenamiento e intercalación — Sotmerge, Sortmerge 2 y Quicksort.</p></div>
         </div>

@@ -4,7 +4,7 @@ export const SQL_MODULE_3: Module = {
   id: 'sql-mod-3',
   title: '3. Consultas de lectura: funciones, operadores y joins',
   description:
-    'Semana 3: recuperación del contenido del 01/10 (componentes de la base relacional, tipos de datos, CREATE TABLE e INSERT) y desarrollo de consultas de lectura con funciones de agregación, GROUP BY/HAVING e INNER JOIN. SELECT/WHERE/ORDER BY y operadores de comparación ya se dictaron en S1: solo se activan. LEFT/RIGHT JOIN y LIMIT quedan fuera del alcance evaluable (el PGA solo pide INNER JOIN). Taller guiado sobre la base rutas.',
+    'Semana 3: recuperación del contenido del 01/10 (componentes de la base relacional, tipos de datos, CREATE TABLE e INSERT) y desarrollo de consultas de lectura con funciones de agregación, GROUP BY/HAVING e INNER JOIN. SELECT/WHERE/ORDER BY y operadores de comparación ya se dictaron en S1: solo se activan. LEFT/RIGHT JOIN y LIMIT quedan fuera del alcance evaluable (la evaluación solo pide INNER JOIN). Taller guiado sobre la base rutas.',
   evaluation: '0%',
   slides: [
     {
@@ -60,7 +60,7 @@ export const SQL_MODULE_3: Module = {
           </div>
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-white border-2 border-teal-100 rounded-xl p-5"><h4 class="font-bold text-teal-900">Producto de hoy</h4><ul class="list-disc list-inside text-sm text-slate-700 mt-3 space-y-2"><li>La base rutas creada y cargada en el SGBD.</li><li>6 consultas funcionando por pareja.</li><li>Entrega del archivo .sql del taller.</li></ul></div>
-            <div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-5"><h4 class="font-bold text-emerald-900">Actividad formativa</h4><p class="text-sm text-emerald-950 mt-3">Taller guiado en el SGBD del aula, evaluado con escala de estimación. Ponderación: 0 % (prepara la evaluación del 15/10).</p></div>
+            <div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-5"><h4 class="font-bold text-emerald-900">Actividad formativa</h4><p class="text-sm text-emerald-950 mt-3">Taller guiado en el SGBD del aula, evaluado de forma formativa. Ponderación: 0 % (prepara la evaluación del 15/10).</p></div>
           </div>
         </div>
       `
@@ -172,9 +172,10 @@ INSERT INTO pasaje VALUES (2, 2, 1, '2026-10-08', 30.00);</pre>
             <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-emerald-700">3</span><span>Carga <strong>2 registros</strong> con INSERT.</span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-emerald-700">4</span><span>Comprueba con SELECT * FROM tu_tabla; que todo se muestre bien.</span></li>
           </ol>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Meta del docente:</strong> que los tipos estén correctos y la clave primaria definida. Si todos logran sin ayuda, pasamos más rápido al taller.</div>
         </div>
-      `
+      
+      `,
+      notes: "Meta del docente (no proyectar): que los tipos estén correctos y la clave primaria definida. Si el grupo logra sin ayuda, se avanza más rápido al taller."
     },
     {
       id: 'sql3-9',
@@ -271,7 +272,7 @@ HAVING COUNT(*) &gt; 1;</pre>
             </div>
           </div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Pregunta de verificación:</strong> ¿qué pasaría con una ruta sin pasajes al usar un INNER JOIN?</div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Alcance según el PGA:</strong> la evaluación del 15/10 solo pide <code>INNER JOIN</code>. <code>LEFT</code>/<code>RIGHT JOIN</code> se muestran como ampliación opcional, fuera de evaluación.</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Alcance de la evaluación:</strong> la evaluación del 15/10 solo pide <code>INNER JOIN</code>. <code>LEFT</code>/<code>RIGHT JOIN</code> se muestran como ampliación opcional, fuera de evaluación.</div>
         </div>
       `,
       notes: 'LEFT/RIGHT JOIN no se evalúan en S4: el PGA de S3 solo lista INNER JOIN y la evaluación del 15/10 usa únicamente INNER JOIN. Mostrar LEFT/RIGHT solo si el grupo domina INNER y queda tiempo (ampliación opcional). Respuesta a la verificación: con INNER JOIN la ruta sin pasajes desaparece del resultado.'
@@ -328,7 +329,7 @@ ORDER BY prestamos DESC;</pre>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">5</span><span>Rutas con monto promedio de al menos 40 <span class="text-slate-500">(GROUP BY + HAVING)</span></span></li>
             <li class="flex gap-3 bg-white border rounded-xl p-3"><span class="font-bold text-emerald-700">6</span><span>Pasajes con datos de bus y ruta <span class="text-slate-500">(INNER JOIN de tres tablas)</span></span></li>
           </ol>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>★ Reto opcional (ampliación, no evaluada):</strong> listar las rutas sin ningún pasaje en octubre usando <code>LEFT JOIN ... IS NULL</code>. Es formativa, pero el PGA y la evaluación del 15/10 solo exigen <code>INNER JOIN</code>.</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>★ Reto opcional (ampliación, no evaluada):</strong> listar las rutas sin ningún pasaje en octubre usando <code>LEFT JOIN ... IS NULL</code>. Es formativa; la evaluación del 15/10 solo exige <code>INNER JOIN</code>.</div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-950"><strong>Entrega:</strong> cada pareja guarda las 6 consultas en un archivo .sql y el docente revisa en el SGBD. No se imprime nada: lees las consultas de la pantalla y las resuelves en el SGBD. En las consultas evaluables no se usa <code>LIMIT</code> ni <code>LEFT/RIGHT JOIN</code>.</div>
         </div>
       `,
@@ -336,10 +337,10 @@ ORDER BY prestamos DESC;</pre>
     },
     {
       id: 'sql3-17',
-      title: 'Verificación con escala de estimación',
+      title: 'Verificación del taller',
       contentHtml: `
         <div class="space-y-4">
-          <div class="bg-cyan-700 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-cyan-100">Verificación del taller · revisión de 2 consultas por pareja</p><h3 class="text-xl font-bold mt-1">Escala de estimación</h3></div>
+          <div class="bg-cyan-700 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-cyan-100">Verificación del taller · revisión de 2 consultas por pareja</p><h3 class="text-xl font-bold mt-1">Niveles de logro</h3></div>
           <div class="overflow-x-auto border border-slate-200 rounded-xl">
             <div class="min-w-[560px]">
               <div class="grid grid-cols-4 bg-slate-900 text-white text-xs font-bold"><div class="p-3">Nivel</div><div class="p-3">Significado</div><div class="p-3">Síntoma en la consulta</div><div class="p-3">Retroalimentación</div></div>
@@ -386,10 +387,11 @@ ORDER BY prestamos DESC;</pre>
               <li>José Juan Sánchez. <em>Bases de Datos</em> (apuntes didácticos), consultas SQL, funciones de agregación y joins.</li>
             </ul>
           </div>
-          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950"><strong>Actividad PGA de la semana:</strong> taller guiado de consultas con funciones, operadores y joins sobre un modelo de más de una tabla · escala de estimación · 0 %.</div>
           <p class="text-xs text-slate-400 text-center">La base rutas y sus datos son de práctica para el aula.</p>
         </div>
-      `
+      
+      `,
+      notes: "Actividad PGA de la semana (solo docente): taller guiado de consultas con funciones, operadores y joins sobre un modelo de más de una tabla · instrumento: escala de estimación · 0 %."
     }
   ]
 };

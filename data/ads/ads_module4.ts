@@ -323,7 +323,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
         <div class="space-y-5">
           <div class="bg-gradient-to-br from-slate-900 to-amber-900 text-white p-6 rounded-2xl"><p class="text-xs uppercase tracking-widest font-bold text-amber-200">Antes de cerrar</p><h3 class="text-2xl font-bold mt-2">Devolución de resultados</h3></div>
           <div class="space-y-3">
-            <div class="flex gap-4 bg-white border-l-4 border-amber-500 rounded-xl p-4"><span class="font-bold text-amber-600">📅</span><p class="text-slate-800">Los resultados y la retroalimentación de la prueba se discuten en la <strong>semana 6 (26–31 de octubre; por confirmar)</strong>, junto con el cierre del Corte I.</p></div>
+            <div class="flex gap-4 bg-white border-l-4 border-amber-500 rounded-xl p-4"><span class="font-bold text-amber-600">📅</span><p class="text-slate-800">Los resultados y la retroalimentación de la prueba se discuten en la <strong>semana 6 (26–31 de octubre)</strong>, junto con el cierre del Corte I.</p></div>
             <div class="flex gap-4 bg-white border-l-4 border-sky-500 rounded-xl p-4"><span class="font-bold text-sky-600">🏛️</span><p class="text-slate-800">La entrega de notas en DACE del Corte I está pautada para el <strong>31/10/2026</strong>.</p></div>
             <div class="flex gap-4 bg-white border-l-4 border-emerald-500 rounded-xl p-4"><span class="font-bold text-emerald-600">⏭️</span><p class="text-slate-800">Semana 5 (jueves 22/10 y viernes 23/10): <strong>Unidad III</strong> — tipos de decisiones y sistemas de apoyo, con <strong>taller del 20 %</strong> el viernes 23/10.</p></div>
           </div>
@@ -344,10 +344,12 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
               <li><strong>TutorialsPoint</strong> — System Analysis and Design (SDLC, referencia).</li>
             </ul>
           </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Actividad PGA de la semana:</strong> prueba escrita mixta (Unidades I y II) · técnica: pruebas de comprobación · instrumento: prueba escrita mixta (formato 8.1) · <strong>10 %</strong> · viernes 16/10/2026.</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Actividad de la semana:</strong> prueba escrita mixta (Unidades I y II) · <strong>10 %</strong> · viernes 16/10/2026.</div>
           <p class="text-xs text-slate-400 text-center">Material adaptado con fines docentes; se citan las fuentes originales.</p>
         </div>
-      `
+      
+      `,
+      notes: "Actividad PGA de la semana (solo docente): prueba escrita mixta (Unidades I y II) · técnica: pruebas de comprobación · instrumento: prueba escrita mixta (formato 8.1) · 10 % · viernes 16/10/2026."
     }
   ]
 };

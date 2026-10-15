@@ -270,7 +270,7 @@ export const ANALISIS_DISENO_MODULE_3: Module = {
       title: 'Práctica · mapa conceptual de la semana (40 min)',
       contentHtml: `
         <div class="space-y-4">
-          <div class="bg-emerald-600 text-white rounded-xl p-4 flex items-center justify-between"><div><p class="text-xs uppercase tracking-widest font-bold text-emerald-100">Actividad PGA de la semana · 0 % · individual</p><h3 class="text-xl font-bold">Reproduce esta plantilla en tu cuaderno y complétala</h3></div><span class="text-3xl">🗺️</span></div>
+          <div class="bg-emerald-600 text-white rounded-xl p-4 flex items-center justify-between"><div><p class="text-xs uppercase tracking-widest font-bold text-emerald-100">Actividad de la semana · 0 % · individual</p><h3 class="text-xl font-bold">Reproduce esta plantilla en tu cuaderno y complétala</h3></div><span class="text-3xl">🗺️</span></div>
           <div class="bg-slate-900 text-white rounded-xl p-4 text-center font-bold text-lg tracking-wide">🖥️ SISTEMA DE INFORMACIÓN <span class="block text-xs font-normal text-slate-300 mt-1">nodo central</span></div>
           <div class="grid md:grid-cols-3 gap-3">
             <div class="bg-sky-50 border-2 border-sky-200 rounded-xl p-4"><p class="text-xs uppercase font-bold text-sky-700">Rama 1</p><h4 class="font-bold text-sky-950 mt-1">Elementos</h4><p class="text-sm text-sky-900 mt-2">Los 4 subsistemas · control · 2 características propias</p></div>
@@ -371,10 +371,12 @@ export const ANALISIS_DISENO_MODULE_3: Module = {
               <li><strong>TutorialsPoint</strong> — System Analysis and Design (referencia).</li>
             </ul>
           </div>
-          <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 text-sm text-sky-950"><strong>Actividad PGA de la semana:</strong> mapa conceptual de elementos y clasificación de los sistemas de información · lista de cotejo · 0 %.</div>
+          <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 text-sm text-sky-950"><strong>Actividad de la semana:</strong> mapa conceptual de elementos y clasificación de los sistemas de información · 0 %.</div>
           <p class="text-xs text-slate-400 text-center">Material adaptado con fines docentes; se citan las fuentes originales.</p>
         </div>
-      `
+      
+      `,
+      notes: "Actividad PGA de la semana (solo docente): mapa conceptual de elementos y clasificación de los sistemas de información · instrumento: lista de cotejo · 0 %."
     }
   ]
 };
