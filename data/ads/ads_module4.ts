@@ -108,6 +108,19 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
       `
     },
     {
+      id: 'ads4-5b',
+      title: 'El ciclo de vida es un ciclo',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="mermaid">graph LR
+            F1["1 Identificación"] --> F2["2 Requerimientos"] --> F3["3 Análisis"] --> F4["4 Diseño"] --> F5["5 Desarrollo"] --> F6["6 Pruebas"] --> F7["7 Implementación y evaluación"]
+            F7 -.->|"nuevas necesidades"| F1</div>
+          <p class="text-sm text-slate-600">La implementación no cierra el proceso: la evaluación revela necesidades nuevas y el ciclo vuelve a empezar.</p>
+        </div>
+      `,
+      notes: 'Preguntar: ¿por qué decimos ciclo y no línea? Respuesta: tras evaluar aparecen nuevas necesidades.'
+    },
+    {
       id: 'ads4-6',
       title: 'Recorrido por las fases (una a una)',
       contentHtml: `
@@ -212,6 +225,28 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
       `
     },
     {
+      id: 'ads4-quiz',
+      title: 'Comprobación rápida · ciclo de vida',
+      contentHtml: `
+        <div class="space-y-5">
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">¿Cuál de estas fases pertenece al <strong>análisis</strong> (entender el problema)?</p>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Diseño del sistema recomendado</button>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Determinación de los requerimientos de información</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Implementación y evaluación</button>
+            <p data-explain class="text-sm text-slate-600">Las fases 1–3 (identificación, requerimientos, análisis) entienden el problema; de la 4 a la 7 se diseña y construye.</p>
+          </div>
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">¿Por qué se dice que el ciclo de vida es un <em>ciclo</em>?</p>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Porque tras evaluar aparecen nuevas necesidades y se vuelve a empezar</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Porque cada fase dura el mismo tiempo</button>
+            <p data-explain class="text-sm text-slate-600">La evaluación del sistema alimenta una nueva identificación de problemas.</p>
+          </div>
+        </div>
+      `,
+      notes: 'Formativa (0 %). No contiene ítems de la prueba del viernes.'
+    },
+    {
       id: 'ads4-12',
       title: 'Cierre del jueves · síntesis y cómo estudiar',
       contentHtml: `
@@ -248,7 +283,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
     {
       id: 'ads4-14',
       title: 'Logística e instrucciones',
-      notes: 'Duración de resolución sugerida: 60 min (el borrador no fija tiempo; por confirmar). Impresión autorizada: solo las copias de la prueba. Verificar identificación de cada copia. Discrepancia del borrador: indica bloque jueves, pero la aplicación es viernes 16/10.',
+      notes: 'Duración de resolución: 75 min (corregida en la revisión del 15/10). Impresión autorizada: solo las copias de la prueba. Verificar identificación de cada copia. El borrador ya corrige el bloque a viernes 16/10.',
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-amber-500 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-amber-100">Antes de empezar</p><h3 class="text-xl font-bold mt-1">Instrucciones generales</h3></div>
@@ -265,7 +300,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
     {
       id: 'ads4-15',
       title: 'Aplicación de la prueba',
-      notes: 'Avisos de tiempo a los 30 y a los 10 minutos restantes. Supervisar sin interrumpir. No aclarar contenido.',
+      notes: 'Avisos de tiempo a los 35 y a los 10 minutos restantes. Supervisar sin interrumpir. No aclarar contenido.',
       contentHtml: `
         <div class="space-y-6">
           <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-8 rounded-2xl shadow-lg text-center">
@@ -276,7 +311,7 @@ export const ANALISIS_DISENO_MODULE_4: Module = {
             <div class="bg-white border-2 border-amber-100 rounded-xl p-4"><h4 class="font-bold text-slate-900">Recuerda</h4><p class="text-sm text-slate-700 mt-1">Lee los 5 apartados completos y administra tu tiempo: no te quedes pegado en uno solo.</p></div>
             <div class="bg-white border-2 border-amber-100 rounded-xl p-4"><h4 class="font-bold text-slate-900">Al entregar</h4><p class="text-sm text-slate-700 mt-1">Revisa que estén tu nombre, cédula y sección antes de entregar la hoja.</p></div>
           </div>
-          <p class="text-xs text-slate-500 text-center">60 minutos · 20 puntos · 5 apartados</p>
+          <p class="text-xs text-slate-500 text-center">75 minutos · 20 puntos · 5 apartados</p>
         </div>
       `
     },

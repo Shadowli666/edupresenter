@@ -61,7 +61,7 @@
 | sql_module3.ts:L362–L363 | media | El anticipo dice "jue 22/10 → evaluación (20 %) sobre DML" (INSERT, UPDATE, DELETE). En S1–S3 no se enseña UPDATE ni DELETE. El PGA sitúa la introducción de DML después de la prueba de S4 (15/10). La diapositiva de S4 todavía no existe. | `02-PGA/plan-electiva-ii-sql-2026-2-revisado.json` semanas[3] ("después… introducción formativa a INSERT, UPDATE y DELETE") y semanas[4]; `03-Clases/ELECTIVA-II-SQL/S03-contenido-clase-jueves.md` L130. | Crear el módulo de S4 con DML y su práctica antes del 22/10. Es un faltante urgente. |
 | sql_module3.ts:L287 | media | El "Ejemplo tipo del taller" muestra la consulta de LEFT JOIN que resuelve el taller (solución visible). | Texto del bloque L287. | Mover la solución a `notes` o mostrarla después de que las parejas intenten la consulta. |
 | sql_module3.ts:L341 | baja | La "escala de estimación" está en el contenido visible (regla 4). | Bloque L341. | Ver nota en SIS. |
-| sql_module1.ts:L124 | baja | La tabla de ejemplo incluye la cédula del docente (27758801) junto a su nombre. Es un dato personal visible en clase. | `semestre.json` → `docente.cedula`. | Cambiar por un registro ficticio. |
+| sql_module1.ts:L124 | baja | La tabla de ejemplo incluye la cédula del docente ([cédula]) junto a su nombre. Es un dato personal visible en clase. | `semestre.json` → `docente.cedula`. | Cambiar por un registro ficticio. |
 | (falta) sql_module2.ts | baja | No existe el módulo de S2 (01/10). Coincide con que la sesión **no se dictó** (`03-Clases/ELECTIVA-II-SQL/S02-contenido-clase-jueves.md` L4). Solo aviso. | Listado de `sql/`. | Ninguna acción sobre el archivo. Documentar el hueco en el mapa. |
 
 ## 4. PROGRAMACIÓN NO NUMÉRICA II (`pnn-2026-2/`)
