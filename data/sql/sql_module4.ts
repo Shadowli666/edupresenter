@@ -50,8 +50,8 @@ export const SQL_MODULE_4 : Module = {
 
         <div class="space-y-4">
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-950"><strong>No hay laboratorio de computación.</strong> Todas las asignaciones de la asignatura son individuales y para casa.</div>
-          <div class="bg-white border rounded-xl p-4 text-sm">📥 La consigna se entrega en la guía impresa o por SAIA.</div>
-          <div class="bg-white border rounded-xl p-4 text-sm">📅 La fecha de entrega se confirma en clase y en SAIA.</div>
+          <div class="bg-white border rounded-xl p-4 text-sm">📥 La consigna se entrega en la guía digital del estudiante (sin imprimir).</div>
+          <div class="bg-white border rounded-xl p-4 text-sm">📅 La fecha y el medio de entrega se confirman en clase.</div>
         </div>
       
       `,
@@ -80,7 +80,7 @@ export const SQL_MODULE_4 : Module = {
         <div class="space-y-3">
           <div class="bg-white border rounded-xl p-4 text-sm">1. Cada consulta comentada con su número.</div>
           <div class="bg-white border rounded-xl p-4 text-sm">2. Resultados que coincidan con las salidas esperadas de la guía.</div>
-          <div class="bg-white border rounded-xl p-4 text-sm">3. Archivo <code>S04_consultas.sql</code> enviado por SAIA.</div>
+          <div class="bg-white border rounded-xl p-4 text-sm">3. Archivo <code>S04_consultas.sql</code> con todas las consultas.</div>
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Fecha de entrega:</strong> por confirmar.</div>
         </div>
       
@@ -145,9 +145,9 @@ export const SQL_MODULE_4 : Module = {
       contentHtml: `
 
         <div class="space-y-3">
-          <div class="flex gap-3 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">1</span><p><strong>WHERE es obligatorio</strong> en UPDATE y DELETE.</p></div>
-          <div class="flex gap-3 bg-white border-l-4 border-indigo-500 rounded-xl p-4"><span class="font-bold text-indigo-600">2</span><p><strong>Probar con SELECT primero</strong>: usa la misma condición y verifica las filas.</p></div>
-          <div class="flex gap-3 bg-white border-l-4 border-emerald-500 rounded-xl p-4"><span class="font-bold text-emerald-600">3</span><p><strong>Poder revertir</strong>: vuelve a crear la tabla con el estado de reinicio.</p></div>
+          <div data-reveal class="flex gap-3 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">1</span><p><strong>WHERE es obligatorio</strong> en UPDATE y DELETE.</p></div>
+          <div data-reveal class="flex gap-3 bg-white border-l-4 border-indigo-500 rounded-xl p-4"><span class="font-bold text-indigo-600">2</span><p><strong>Probar con SELECT primero</strong>: usa la misma condición y verifica las filas.</p></div>
+          <div data-reveal class="flex gap-3 bg-white border-l-4 border-emerald-500 rounded-xl p-4"><span class="font-bold text-emerald-600">3</span><p><strong>Poder revertir</strong>: vuelve a crear la tabla con el estado de reinicio.</p></div>
         </div>
       
       `
@@ -167,9 +167,9 @@ export const SQL_MODULE_4 : Module = {
             </tbody>
           </table>
           <ol class="list-decimal list-inside text-sm text-slate-800 space-y-1">
-            <li>INSERT la Ruta 7 (Norte) → 4 filas</li>
-            <li>UPDATE la Ruta 3 a zona Norte</li>
-            <li>DELETE la Ruta 5</li>
+            <li data-reveal>INSERT la Ruta 7 (Norte) → 4 filas</li>
+            <li data-reveal>UPDATE la Ruta 3 a zona Norte</li>
+            <li data-reveal>DELETE la Ruta 5</li>
           </ol>
           <p class="text-xs text-slate-500">Antes de cada paso, anticipen en voz alta las filas que cambian.</p>
         </div>
@@ -199,10 +199,34 @@ export const SQL_MODULE_4 : Module = {
         <div class="space-y-4">
           <div class="bg-white border rounded-xl p-4 text-sm"><strong>1.</strong> Taller práctico S4 (10 %), individual, con la guía del estudiante.</div>
           <div class="bg-white border rounded-xl p-4 text-sm"><strong>2.</strong> Repasar los tres ejercicios DML en PostgreSQL y traer una consulta de comprobación (SELECT) para cada uno.</div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Entrega:</strong> por SAIA, fecha por confirmar.</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950"><strong>Entrega:</strong> individual; fecha y medio por confirmar.</div>
         </div>
       
       `
+    },
+    {
+      id: 'sql4-13b',
+      title: "Comprobación rápida · ¿qué pasa si…?",
+      contentHtml: `
+
+        <div class="space-y-5">
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">Ejecutas <code>DELETE FROM ruta_dml;</code> sin WHERE. ¿Qué ocurre?</p>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Se borra solo la última fila</button>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Se borran todas las filas de la tabla</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">El motor pide confirmar y no borra nada</button>
+            <p data-explain class="text-sm text-slate-600">Sin WHERE la condición no filtra: DELETE y UPDATE afectan a toda la tabla.</p>
+          </div>
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">Antes de convertir un SELECT en UPDATE, ¿qué haces?</p>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Pruebo el SELECT con la misma condición y reviso las filas</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Lo ejecuto directamente para ahorrar tiempo</button>
+            <p data-explain class="text-sm text-slate-600">El SELECT con el mismo WHERE muestra qué filas cambiarían.</p>
+          </div>
+        </div>
+
+      `,
+      notes: "Comprobación formativa (0 %), no evaluable. Si hay poco tiempo, pasar a tarea."
     },
     {
       id: 'sql4-14',

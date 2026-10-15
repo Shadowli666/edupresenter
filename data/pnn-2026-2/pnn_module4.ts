@@ -80,15 +80,36 @@ export const PNN_MODULE_4: Module = {
       notes: "Traza de factorial(4): se apilan 4, 3, 2, 1; al llegar a 1 se retorna 1 y luego 2, 6, 24."
     },
     {
+      id: 'pnn4-4b',
+      title: "Pila de llamadas · factorial(4)",
+      contentHtml: `
+
+        <div class="space-y-4">
+          <div class="mermaid">graph TD
+            A["factorial(4)"] --> B["4 · factorial(3)"]
+            B --> C["3 · factorial(2)"]
+            C --> D["2 · factorial(1)"]
+            D --> E["caso base: 1"]
+            E -.->|"retorna 1"| D
+            D -.->|"retorna 2"| C
+            C -.->|"retorna 6"| B
+            B -.->|"retorna 24"| A</div>
+          <p class="text-sm text-slate-700">Las llamadas se <strong>apilan</strong> hasta el caso base y los valores <strong>retornan en orden inverso</strong>: 1, 2, 6, 24.</p>
+        </div>
+
+      `,
+      notes: "Pedir que digan en voz alta el orden de retorno antes de mostrar el diagrama completo."
+    },
+    {
       id: 'pnn4-5',
       title: "Estrategia divide y conquista",
       contentHtml: `
 
         <div class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">1 · Dividir</h4><p class="text-sm mt-1">Partir el problema en subproblemas más pequeños, independientes y del mismo tipo.</p></div>
-            <div class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">2 · Conquistar</h4><p class="text-sm mt-1">Resolver cada subproblema recursivamente (caso base si es trivial).</p></div>
-            <div class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">3 · Combinar</h4><p class="text-sm mt-1">Unir las soluciones parciales en la solución original.</p></div>
+            <div data-reveal class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">1 · Dividir</h4><p class="text-sm mt-1">Partir el problema en subproblemas más pequeños, independientes y del mismo tipo.</p></div>
+            <div data-reveal class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">2 · Conquistar</h4><p class="text-sm mt-1">Resolver cada subproblema recursivamente (caso base si es trivial).</p></div>
+            <div data-reveal class="bg-sky-50 border border-sky-200 rounded-xl p-4"><h4 class="font-bold text-sky-900">3 · Combinar</h4><p class="text-sm mt-1">Unir las soluciones parciales en la solución original.</p></div>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm font-mono">T(n) = a · T(n/b) + f(n)</div>
           <p class="text-xs text-slate-500">a subproblemas de tamaño n/b, más el costo de dividir y combinar f(n).</p>
@@ -117,10 +138,10 @@ export const PNN_MODULE_4: Module = {
 
         <div class="space-y-4">
           <ol class="list-decimal list-inside text-sm text-slate-800 space-y-2">
-            <li>Caso base: un elemento (es máximo y mínimo) o dos elementos (una comparación).</li>
-            <li>Dividir el arreglo a la mitad.</li>
-            <li>Hallar máximo y mínimo de cada mitad recursivamente.</li>
-            <li>Combinar: el máximo mayor de los dos máximos y el mínimo menor de los dos mínimos.</li>
+            <li data-reveal>Caso base: un elemento (es máximo y mínimo) o dos elementos (una comparación).</li>
+            <li data-reveal>Dividir el arreglo a la mitad.</li>
+            <li data-reveal>Hallar máximo y mínimo de cada mitad recursivamente.</li>
+            <li data-reveal>Combinar: el máximo mayor de los dos máximos y el mínimo menor de los dos mínimos.</li>
           </ol>
         </div>
       
@@ -231,6 +252,30 @@ print(f"Máx: {maximo} · Mín: {minimo}")
       
       `,
       notes: "Soluciones (no proyectar). E1: se apilan 5,4,3,2,1; retorno 1, 2, 6, 24, 120 → 120. E2: x=55 → índice 6; x=20 → −1 (no encontrado). E3: máx 31, mín 3. E4: iterativo 2n−2 = 14; divide y conquista ≈ 3n/2 − 2 = 10."
+    },
+    {
+      id: 'pnn4-11b',
+      title: "Comprobación rápida",
+      contentHtml: `
+
+        <div class="space-y-5">
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">¿Qué ocurre con una función recursiva sin caso base?</p>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Devuelve 0 siempre</button>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Se apilan llamadas sin parar y se desborda la pila</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">El compilador la convierte en un ciclo</button>
+            <p data-explain class="text-sm text-slate-600">Sin caso base nada detiene las llamadas: stack overflow.</p>
+          </div>
+          <div data-quiz class="bg-white border rounded-xl p-4 space-y-2">
+            <p class="font-semibold">¿Por qué la búsqueda binaria exige un arreglo ordenado?</p>
+            <button data-option data-correct class="block w-full text-left border rounded-lg p-2 text-sm">Porque descarta una mitad según el elemento del medio</button>
+            <button data-option class="block w-full text-left border rounded-lg p-2 text-sm">Porque solo funciona con números enteros</button>
+            <p data-explain class="text-sm text-slate-600">La decisión de ir a la izquierda o a la derecha solo es válida si hay orden.</p>
+          </div>
+        </div>
+
+      `,
+      notes: "Formativa (0 %). Sustituye o complementa las preguntas de salida del cierre."
     },
     {
       id: 'pnn4-12',
