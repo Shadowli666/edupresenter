@@ -78,7 +78,7 @@ python3 tools/extract_plan.py         # convierte content/plan.xlsx -> content/p
 - Español en todo el contenido y la interfaz.
 - `id` de módulo: `<prefijo>-mod-<número>` (el número manda el orden).
 - `id` de diapositiva: `<prefijo><semana>-<n>[-sufijo]`.
-- Entregas y evaluación se gestionan por SAIA; esta app es solo para dictar y organizar.
+- Esta app es solo para dictar y organizar; no recibe entregas (SAIA no se usa en las materias del docente; el medio de entrega lo indica el docente).
 
 
 ## Notas del docente y evaluaciones protegidas

@@ -4,7 +4,7 @@ export const SISTEMAS_I_MODULE_4: Module = {
   id: 'sis-mod-4',
   title: '4. Evaluación de la Unidad I y puente a la Unidad II',
   description:
-    'Semana 4 (lunes 12/10): aplicación de la prueba escrita mixta de la Unidad I (10 %), cierre de unidad y puente a los enfoques de desarrollo.',
+    'Semana 4: prueba escrita mixta de la Unidad I (10 %), reprogramada para el lunes 26/10; cierre de unidad y puente a los enfoques de desarrollo.',
   evaluation: '10% — Prueba escrita mixta (Unidad I)',
   slides: [
     {
@@ -20,7 +20,7 @@ export const SISTEMAS_I_MODULE_4: Module = {
               <p class="text-slate-500 mt-1">Prueba escrita mixta · 10 % del Corte I</p>
             </div>
           </div>
-          <p class="text-sm text-slate-500">Lunes 12/10/2026 · 16:00–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
+          <p class="text-sm text-slate-500">Reprogramada: lunes 26/10/2026 · 16:00–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
       notes: 'Sesión de evaluación. Instrumento en 04-Evaluaciones/SISTEMAS-I/Revisado-2026-2/S04-prueba-escrita-u1-10pct-2026-10-12.md (borrador no aprobado). Ninguna diapositiva muestra ítems.'
