@@ -7,6 +7,7 @@ Gestor web de clases y presentaciones para el docente. Organiza el contenido por
 - **Vite 7** + **React 18** + **TypeScript**
 - **Tailwind CSS** vía Play CDN (incluye el plugin `typography` para las clases `prose*`)
 - **Mermaid** (diagramas, carga dinámica por diapositiva)
+- **PELE** (diagramas nuevos con `data-diagram`, renderizador Mermaid→SVG en su propio chunk)
 - **lucide-react** (iconografía)
 
 ## Requisitos
@@ -107,5 +108,19 @@ Cada módulo puede declarar `tasks: Task[]` (ver `types.ts`). Aparecen en la vis
 | `data-tabs` > `data-tab="Título"` | pestañas |
 | `data-quiz` > `data-option` / `data-correct` / `data-explain` | pregunta con retroalimentación |
 | `<pre><code>` | botón "Copiar" automático |
+| `data-diagram` | diagrama dibujado con [PELE](https://pele.run) a partir del código Mermaid que contiene (carga bajo demanda) |
+| `data-steps="A \| B, A>B"` | en un `data-diagram`: grupos de nodos (`A`) y aristas (`A>B`) que aparecen por pasos, en la misma cola que `data-reveal` |
+| `data-flow` / `data-flow="A>B"` | en un `data-diagram`: guiones animados en todas (o en algunas) aristas visibles; solo en presentación |
 
 Sin JavaScript (por ejemplo en el PDF) todo se muestra completo.
+
+```html
+<div data-diagram data-steps="A | B, A>B | C, B>C" data-flow>
+flowchart LR
+  A[Requisitos] --> B[Diseño]
+  B --> C[Código]
+</div>
+```
+
+Regla: usar `data-diagram` (PELE) solo en diapositivas nuevas; `.mermaid` se mantiene para las existentes.
+En lectura y PDF el diagrama sale completo y sin animación; las animaciones respetan `prefers-reduced-motion`.

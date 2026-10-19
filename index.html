@@ -108,6 +108,74 @@
       [data-quiz] [data-option]:not([disabled]):hover { border-color: #60a5fa; background: #eff6ff; }
       [data-quiz] .edup-ok { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 700; }
       [data-quiz] .edup-bad { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+
+      /* --- Diagramas PELE: <div data-diagram> (lib/diagram.ts) ---
+         Tema por variables CSS: paleta slate/blue de las diapositivas y la misma pila
+         de fuentes LOCALES que lib/mermaid.ts (PELE mide y dibuja con la misma fuente). */
+      [data-diagram] {
+        --pele-bg: #ffffff;
+        --pele-fg: #0f172a;
+        --pele-muted: #64748b;
+        --pele-line: #475569;
+        --pele-surface: #f8fafc;
+        --pele-surface-alt: #f1f5f9;
+        --pele-border: #cbd5e1;
+        --pele-accent: #2563eb;
+        --pele-font: Arial, Helvetica, sans-serif;
+        --pele-font-mono: ui-monospace, monospace;
+        --pele-radius: 8px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 12rem;
+        margin: 1rem 0;
+      }
+      [data-diagram] svg.pele {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 58vh; /* los diagramas verticales no deben salirse de la pantalla */
+      }
+      /* Antes de dibujar (o si PELE no carga) el código se ve discreto, no como contenido. */
+      [data-diagram]:not([data-diagram-state]) {
+        display: block; white-space: pre-wrap; font: 0.75rem/1.4 ui-monospace, monospace; color: #94a3b8;
+      }
+      [data-diagram][data-diagram-state="loading"]::before {
+        content: "Dibujando diagrama…"; color: #94a3b8; font-size: 0.85rem;
+      }
+      [data-diagram][data-diagram-state="error"] { display: block; }
+      .edup-diagram-msg {
+        margin: 0 0 0.5rem; padding: 0.5rem 0.75rem; font-size: 0.85rem; font-weight: 700;
+        color: #92400e; background: #fffbeb; border: 1px solid #fde68a; border-radius: 0.5rem;
+      }
+      .edup-diagram-src { margin: 0; font-size: 0.8rem; overflow: auto; }
+
+      /* Pasos (data-steps): lo oculto no ocupa clics y vuelve con fundido. */
+      .edup-step-hidden { opacity: 0; pointer-events: none; }
+      /* Foco en el grupo recién mostrado (se mueve al siguiente paso). */
+      .pele-node.edup-current > :not(text) { stroke: var(--pele-accent); stroke-width: 2.5px; }
+      .pele-edge.edup-current > path:not(.pele-marker) { stroke: var(--pele-accent); stroke-width: 2.5px; }
+      .pele-edge.edup-current > .pele-marker { fill: var(--pele-accent); }
+      .edup-flow.edup-step-hidden > path:not(.pele-marker) { animation: none; }
+
+      /* Movimiento: solo en pantalla y si el usuario no pidió reducirlo. */
+      @media screen and (prefers-reduced-motion: no-preference) {
+        /* La transición solo vale al MOSTRAR: ocultar es instantáneo, así el SVG recién
+           dibujado (opacidad 1) no hace un fundido 1 -> 0 antes de quedar oculto. */
+        .edup-step:not(.edup-step-hidden) { transition: opacity 0.45s ease; }
+        .edup-step > * { transition: stroke 0.3s ease, stroke-width 0.3s ease, fill 0.3s ease; }
+        .edup-draw { stroke-dasharray: var(--edup-len); stroke-dashoffset: 0; }
+        .edup-step:not(.edup-step-hidden) .edup-draw { transition: stroke-dashoffset 0.6s ease; }
+        .edup-step-hidden .edup-draw { stroke-dashoffset: var(--edup-len); }
+        .edup-flow > path:not(.pele-marker) { stroke-dasharray: 8 6; animation: edup-flow 1s linear infinite; }
+        @keyframes edup-flow { to { stroke-dashoffset: -14; } }
+      }
+      @media print, (prefers-reduced-motion: reduce) {
+        .edup-step, .edup-step > *, .edup-draw { transition: none !important; }
+        .edup-flow > path { animation: none !important; }
+      }
+
       @media print {
         .edup-copy, .edup-reveal-hint, .edup-tabbar { display: none !important; }
       }
@@ -164,6 +232,8 @@
         max-height: 105mm !important;
         min-height: 0 !important;
       }
+      #pdf-export-root [data-diagram] { min-height: 0; margin: 0.5rem 0; }
+      #pdf-export-root [data-diagram] svg.pele { max-height: 105mm; }
 
       /* En impresión: fondo y colores se conservan. */
       * {

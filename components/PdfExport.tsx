@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { FileDown, Loader2 } from 'lucide-react';
 import { Module } from '../types';
 import { loadMermaid } from '../lib/mermaid';
+import { setupDiagrams, DiagramSet } from '../lib/diagram';
 import { isLocked, slideHtml, useUnlockVersion } from '../lib/unlock';
 
 interface PdfExportProps {
@@ -60,6 +61,9 @@ function fitSlidesToPage(container: HTMLElement) {
  * html2canvas no reproduce bien. El motor de impresión del navegador respeta
  * el CSS real, así que el PDF sale idéntico a lo que se proyecta.
  *
+ * Los diagramas PELE (`data-diagram`) también se dibujan antes de imprimir, completos
+ * y sin animación (lib/diagram.ts).
+ *
  * Los diagramas Mermaid se dibujan antes de imprimir: Mermaid mide el texto de
  * cada rótulo para calcular el tamaño de las cajas, por eso el contenedor se
  * mantiene con layout (visible: hidden) en vez de display: none.
@@ -83,6 +87,7 @@ export const PdfExport: React.FC<PdfExportProps> = ({
 
     let cancelled = false;
     let fallbackId: number | undefined;
+    let diagrams: DiagramSet | null = null;
 
     const prepare = async () => {
       try {
@@ -97,6 +102,16 @@ export const PdfExport: React.FC<PdfExportProps> = ({
           } catch {
             // Un diagrama con error de sintaxis no debe impedir exportar el resto.
           }
+        }
+
+        // 1b. Diagramas PELE (`data-diagram`): completos y sin observadores (observe: false),
+        //     para que el `zoom` de fitSlidesToPage no los redibuje después de medir.
+        //     Se espera al import dinámico de PELE; después el dibujo es síncrono.
+        //     Un error se muestra como código + aviso y no impide exportar el resto.
+        if (container.querySelector('[data-diagram]')) {
+          diagrams = setupDiagrams(container, { stepped: false, observe: false });
+          await diagrams.ready;
+          if (cancelled) return;
         }
 
         // 2. Imágenes: esperar a que estén decodificadas antes de medir su altura.
@@ -141,6 +156,7 @@ export const PdfExport: React.FC<PdfExportProps> = ({
       cancelled = true;
       if (fallbackId !== undefined) window.clearTimeout(fallbackId);
       window.removeEventListener('afterprint', finish);
+      diagrams?.destroy();
     };
   }, [preparing]);
 
