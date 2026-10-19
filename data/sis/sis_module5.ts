@@ -21,21 +21,21 @@ export const SISTEMAS_I_MODULE_5: Module = {
             </div>
           </div>
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-950">
-            ⚡ La clase del <strong>lunes 19/10</strong> se suspendió por falta de electricidad. Esta semana estudias en casa con estas diapositivas y la guía de estudio.
+            ⚡ Hoy, <strong>lunes 19/10</strong>, tocaba aplicar la prueba de la Unidad I (pospuesta por el feriado del 12/10), pero no hay electricidad. La prueba pasa al <strong>lunes 26/10</strong> (semana 6) y esta semana estudias la Unidad II en casa con estas diapositivas y la guía de estudio.
           </div>
           <p class="text-sm text-slate-500">Sección A · IUPSM — Extensión Ciudad Ojeda · Período 2026-2</p>
         </div>
       `,
-      notes: 'Decisión docente 19/10/2026: clase presencial suspendida por falla eléctrica. Teoría enviada como guía (03-Clases/SISTEMAS-I/S05-guia-estudio-enfoques-desarrollo.docx). El 26/10 se aplica la prueba U-I (10 %, reprogramada desde el 12/10) y se entrega y presenta el cuadro (20 %). Plan presencial original: 03-Clases/SISTEMAS-I/S05-contenido-clase-lunes.md.'
+      notes: 'Decisión docente 19/10/2026: clase presencial suspendida por falla eléctrica. Teoría enviada como guía (03-Clases/SISTEMAS-I/S05-guia-estudio-enfoques-desarrollo.docx). S4 (12/10) fue feriado; la prueba U-I se reprogramó al 19/10 y, por la falla eléctrica, pasa al 26/10 (S6), junto con la entrega y presentación del cuadro (20 %). Plan presencial original: 03-Clases/SISTEMAS-I/S05-contenido-clase-lunes.md.'
     },
     {
       id: 'sis5-2',
       title: 'Tu plan de trabajo',
       contentHtml: `
         <div class="space-y-3">
-          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Hoy</span><span>Lee la teoría (diapositivas 3–8) y toma apuntes.</span></div>
+          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Hoy</span><span>Lee la teoría (diapositivas 3–9) y toma apuntes.</span></div>
           <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Esta semana</span><span>Resuelve la autoevaluación (diapositivas 10–11) y elabora el cuadro comparativo (diapositiva 12).</span></div>
-          <div data-reveal class="flex gap-3 bg-blue-50 border border-blue-200 rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Lunes 26/10</span><span>Prueba escrita de la Unidad I (10 %) y entrega del cuadro comparativo (20 %).</span></div>
+          <div data-reveal class="flex gap-3 bg-blue-50 border border-blue-200 rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Lunes 26/10</span><span>Semana 6: prueba escrita de la Unidad I (10 %), presentación y entrega del cuadro comparativo (20 %).</span></div>
         </div>
       `
     },
@@ -255,11 +255,11 @@ export const SISTEMAS_I_MODULE_5: Module = {
         <div class="space-y-4">
           <ul class="list-disc list-inside text-sm text-slate-800 space-y-1">
             <li>Trabajo <strong>individual</strong> para casa, con la guía de estudio y tus apuntes. Redáctalo con tus propias palabras.</li>
-            <li>Distingue sus enfoques con precisión; no supongas que los cuatro términos designan la misma clase de método.</li>
+            <li>Distingue con precisión qué tipo de elemento es cada uno; no todos son métodos de desarrollo.</li>
             <li>Puedes completarlo en el archivo enviado o a mano en una hoja propia, copiando el cuadro. Puntaje máximo: <strong>20 puntos</strong>.</li>
           </ul>
           <table class="w-full text-sm border">
-            <thead class="bg-slate-100"><tr><th class="p-2 border text-left">Elemento del programa</th><th class="p-2 border text-left">¿Qué aspecto organiza o representa principalmente?</th><th class="p-2 border text-left">Diferencia respecto de otro elemento de la lista</th><th class="p-2 border text-left">¿Qué papel cumple al desarrollar o modelar una aplicación?</th></tr></thead>
+            <thead class="bg-slate-100"><tr><th class="p-2 border text-left">Elemento del programa</th><th class="p-2 border text-left">¿Qué aspecto organiza o representa principalmente?</th><th class="p-2 border text-left">Diferencia respecto de otro elemento de la lista (indica con cuál lo comparas)</th><th class="p-2 border text-left">¿Qué papel cumple al desarrollar o modelar una aplicación?</th></tr></thead>
             <tbody>
               <tr><td class="p-2 border font-semibold">Desarrollo estructurado</td><td class="p-2 border"></td><td class="p-2 border"></td><td class="p-2 border"></td></tr>
               <tr><td class="p-2 border font-semibold">Desarrollo orientado a objetos</td><td class="p-2 border"></td><td class="p-2 border"></td><td class="p-2 border"></td></tr>
@@ -267,38 +267,21 @@ export const SISTEMAS_I_MODULE_5: Module = {
               <tr><td class="p-2 border font-semibold">UML</td><td class="p-2 border"></td><td class="p-2 border"></td><td class="p-2 border"></td></tr>
             </tbody>
           </table>
-          <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-950"><strong>Comparaciones directas:</strong> escribe dos oraciones que contrasten pares distintos de la tabla. Al menos una debe explicar qué papel cumple UML respecto de los enfoques de desarrollo. · <strong>Entrega: lunes 26/10 en la clase.</strong></div>
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-950"><strong>Comparaciones directas:</strong> escribe dos oraciones que contrasten pares distintos de la tabla. Al menos una debe explicar qué papel cumple UML respecto de los enfoques de desarrollo. · <strong>Entrega: lunes 26/10 en la clase.</strong> La presentación oral de ese día es formativa: la nota es la del cuadro escrito.</div>
         </div>
       `,
       notes: 'Instrumento: 04-Evaluaciones/SISTEMAS-I/Revisado-2026-2/ESTUDIANTE-FORMATO-8.1-S05-cuadro-comparativo-enfoques-20pct-2026-10-26.docx. Clave y escala de estimación (8+4+4+2+2 = 20) solo en S05-cuadro-comparativo-enfoques-20pct-2026-10-19.md, Parte B. Rasgos esperados: estructurado = funciones/procesos y su descomposición; OO = objetos con estado y comportamiento; Web = categoría de aplicación, no metodología; UML = lenguaje de modelado, no proceso. Medio de entrega digital por confirmar.'
     },
     {
       id: 'sis5-13',
-      title: 'Lunes 26/10 · Qué traer y qué estudiar',
+      title: 'Próxima semana · lunes 26/10',
       contentHtml: `
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-white border rounded-2xl p-5">
-            <p class="text-xs uppercase tracking-widest font-bold text-blue-600">Prueba escrita · 10 %</p>
-            <p class="font-bold text-slate-900 mt-1">Unidad I · individual, sin apuntes, 75 min</p>
-            <ul class="list-disc list-inside text-sm text-slate-700 mt-3 space-y-1">
-              <li>Definición de ingeniería de software y crisis del software</li>
-              <li>Programa frente a producto de software</li>
-              <li>Atributos de calidad</li>
-              <li>Las cinco actividades y su aplicación a un caso</li>
-            </ul>
-          </div>
-          <div class="bg-white border rounded-2xl p-5">
-            <p class="text-xs uppercase tracking-widest font-bold text-emerald-600">Cuadro comparativo · 20 %</p>
-            <p class="font-bold text-slate-900 mt-1">Entrega y presentación en la clase</p>
-            <ul class="list-disc list-inside text-sm text-slate-700 mt-3 space-y-1">
-              <li>Cuadro completo de los cuatro elementos</li>
-              <li>Dos comparaciones directas</li>
-              <li>Nombre y cédula en la hoja o el archivo</li>
-            </ul>
-          </div>
+        <div class="space-y-4">
+          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="text-2xl">🗣️</span><span><strong>Presentación y entrega del cuadro comparativo (20 %)</strong>: trae tu cuadro completo, con nombre y cédula.</span></div>
+          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="text-2xl">📝</span><span><strong>Prueba escrita de la Unidad I (10 %)</strong>: individual, sin apuntes, 75 minutos. Repasa con el módulo de la semana 4.</span></div>
+          <p class="text-sm text-slate-500">Detalle de la sesión en el módulo de la semana 6.</p>
         </div>
-      `,
-      notes: 'Bloque de 135 min: prueba 75 min + entrega y presentación del cuadro ~45 min + logística. Notas del Corte I a DACE entre el 26 y el 31/10. Las fechas difieren del PGA (12/10 y 19/10); decidir si se notifica a coordinación.'
+      `
     },
     {
       id: 'sis5-14',
@@ -336,17 +319,6 @@ export const SISTEMAS_I_MODULE_5: Module = {
       weight: '20 %',
       kind: 'evaluacion',
       slideId: 'sis5-12'
-    },
-    {
-      id: 'sis5-t3',
-      title: 'Prueba escrita de la Unidad I',
-      description: 'Prueba individual sin apuntes, 75 minutos, en el aula A-06.',
-      items: ['Selección múltiple, respuesta breve y análisis de un caso · 20 puntos'],
-      due: '2026-10-26',
-      corte: 1,
-      weight: '10 %',
-      kind: 'evaluacion',
-      slideId: 'sis5-13'
     }
   ]
 };
