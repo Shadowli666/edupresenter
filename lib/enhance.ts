@@ -16,7 +16,11 @@
  *     <p data-explain>Porque…</p>                se muestra al responder
  *   </div>
  *   <pre><code>…</code></pre>                   botón "Copiar" automático
+ *   <div data-diagram data-steps="A | A>B" data-flow>   diagrama PELE (ver lib/diagram.ts);
+ *     flowchart LR …                                    cada grupo de data-steps es un paso
+ *   </div>                                              más de la misma cola que data-reveal
  */
+import { setupDiagrams } from './diagram';
 
 let revealNext: (() => boolean) | null = null;
 
@@ -28,7 +32,7 @@ export function enhance(root: HTMLElement, opts: { stepped: boolean }): () => vo
 
   // --- Copiar código ---
   root.querySelectorAll<HTMLElement>('pre').forEach((pre) => {
-    if (pre.querySelector('.edup-copy') || pre.closest('.mermaid')) return;
+    if (pre.querySelector('.edup-copy') || pre.closest('.mermaid, [data-diagram]')) return;
     pre.style.position = 'relative';
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -87,23 +91,37 @@ export function enhance(root: HTMLElement, opts: { stepped: boolean }): () => vo
     });
   });
 
+  // --- Diagramas PELE (se dibujan siempre; los pasos solo en presentación) ---
+  const diagrams = setupDiagrams(root, { stepped: opts.stepped });
+  cleanups.push(() => diagrams.destroy());
+
   // --- Revelado paso a paso (solo en modo presentación) ---
+  // Una sola cola en orden de documento: cada `data-reveal` es un paso y cada grupo
+  // de `data-steps` de un diagrama es otro paso (con su contador compartido).
   revealNext = null;
   if (opts.stepped) {
-    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-reveal]'));
-    if (items.length) {
+    const steps: Array<() => void> = [];
+    root.querySelectorAll<HTMLElement>('[data-reveal], [data-diagram]').forEach((node) => {
+      if (node.hasAttribute('data-diagram')) {
+        const d = diagrams.items.find((it) => it.el === node);
+        for (let i = 1; d && i <= d.steps; i++) steps.push(() => d.show(i));
+      } else {
+        node.classList.add('edup-hidden');
+        steps.push(() => node.classList.remove('edup-hidden'));
+      }
+    });
+    if (steps.length) {
       let shown = 0;
-      items.forEach((it) => it.classList.add('edup-hidden'));
       const hint = document.createElement('button');
       hint.type = 'button';
       hint.className = 'edup-reveal-hint';
       const paint = () => {
-        hint.textContent = shown >= items.length ? '✓ Todo visible' : `Mostrar siguiente (${shown}/${items.length})`;
-        hint.disabled = shown >= items.length;
+        hint.textContent = shown >= steps.length ? '✓ Todo visible' : `Mostrar siguiente (${shown}/${steps.length})`;
+        hint.disabled = shown >= steps.length;
       };
       const step = () => {
-        if (shown >= items.length) return false;
-        items[shown++].classList.remove('edup-hidden');
+        if (shown >= steps.length) return false;
+        steps[shown++]();
         paint();
         return true;
       };

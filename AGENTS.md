@@ -98,11 +98,28 @@ tasks: [{
   <p data-explain>Porque…</p>
 </div>
 
-<!-- Diagrama -->
+<!-- Diagrama (Mermaid, diapositivas existentes) -->
 <div class="mermaid">graph LR; A-->B</div>
+
+<!-- Diagrama (PELE, diapositivas nuevas), con pasos y flujo -->
+<div data-diagram data-steps="A | B, A>B | C, B>C" data-flow>
+flowchart LR
+  A[Requisitos] --> B[Diseño]
+  B --> C[Código]
+</div>
 ```
 
 Los `<pre><code>` reciben un botón *Copiar* solos. Los `data-reveal` se ven todos en la vista de lectura y en el PDF.
+
+### Diagramas con PELE (`data-diagram`)
+
+**Regla: usar `data-diagram` (PELE) solo en diapositivas nuevas; `.mermaid` se mantiene para las existentes.**
+
+- `data-diagram`: el texto del elemento es el código Mermaid (se desindenta solo). `<br/>` dentro de un rótulo (`A["uno<br/>dos"]`) funciona y da dos líneas. Se dibuja con PELE, que carga bajo demanda (chunk aparte); si el código falla se muestra el código y "No se pudo dibujar el diagrama".
+- `data-steps="A | B, A>B | C"`: grupos separados por `|`; dentro, ids separados por coma. `A` es un nodo; `A>B` son las aristas de A a B (con su rótulo). Cada grupo es **un paso** de la misma cola que `data-reveal` (en orden del documento, mismo contador y teclas); el grupo recién mostrado se resalta en azul. Lo que no aparece en ningún grupo se ve desde el inicio. En lectura y PDF todo se ve completo.
+- `data-flow` (sin valor = todas las aristas) o `data-flow="A>B, C>D"` (solo esas): guiones animados que sugieren flujo; solo en presentación y solo en aristas ya visibles.
+- Las animaciones se desactivan con `prefers-reduced-motion` y al imprimir; el PDF muestra el diagrama final.
+- Los ids son los del código Mermaid (`A`, `Cliente`…); una arista `A --> B` es `A>B`. Un grupo que no coincide con nada avisa en la consola de `npm run dev`.
 
 ## 5. Verificación antes de dar por terminado
 
