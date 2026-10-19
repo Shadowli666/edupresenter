@@ -154,10 +154,9 @@ flowchart TB
             <li>El ciclo se repite hasta que los participantes aprueban: el prototipo sirve para <strong>definir requerimientos</strong>.</li>
             <li>Luego se descarta (al menos en parte) y se hace la ingeniería del sistema real, con la mirada puesta en la calidad.</li>
           </ul>
-          <p class="text-sm text-slate-500">Pressman (2010), p. 37–38, fig. 2.6. El libro no usa el nombre «cascada con prototipo»: es la forma de combinar ambas ideas en esta clase.</p>
         </div>
       `,
-      notes: `16:33 a 16:42 (9 min para prototipo: esta diapositiva 4 min, la siguiente 5). El nombre cascada con prototipo es del programa analítico y del PGA; Pressman presenta el paradigma de hacer prototipos (p. 37) y advierte que se usa más como técnica dentro de cualquier otro modelo; tras precisar los requerimientos el prototipo se descarta, al menos en parte, y se hace la ingeniería real (p. 38). Decirlo en voz alta: es una síntesis didáctica. El diagrama avanza paso a paso; las flechas en movimiento marcan el ciclo de iteración (comunicación, plan rápido, diseño rápido, construcción, entrega, y de vuelta a comunicación). El diseño rápido se centra en lo que verá el usuario: interfaz y formatos de pantalla (p. 37).`
+      notes: `16:33 a 16:42 (9 min para prototipo: esta diapositiva 4 min, la siguiente 5). El nombre cascada con prototipo es del programa analítico y del PGA; Pressman presenta el paradigma de hacer prototipos (p. 37) y advierte que se usa más como técnica dentro de cualquier otro modelo; tras precisar los requerimientos el prototipo se descarta, al menos en parte, y se hace la ingeniería real (p. 38). Decirlo en voz alta: es una síntesis didáctica. El diagrama avanza paso a paso; las flechas en movimiento marcan el ciclo de iteración (comunicación, plan rápido, diseño rápido, construcción, entrega, y de vuelta a comunicación). El diseño rápido se centra en lo que verá el usuario: interfaz y formatos de pantalla (p. 37). Decirlo en voz alta: Pressman (2010), p. 37–38, fig. 2.6. El libro no usa el nombre «cascada con prototipo»: es la forma de combinar ambas ideas en esta clase.`
     },
     {
       id: 'sis7-7',
@@ -202,15 +201,15 @@ flowchart TB
           <div class="bg-white border rounded-xl p-3">
             <div data-diagram data-steps="V1, P1, R1, I1, E1, P1>R1, R1>I1, I1>E1 | V2, V1>V2, P2, R2, I2, E2, P2>R2, R2>I2, I2>E2 | V3, V2>V3, P3, R3, I3, E3, P3>R3, R3>I3, I3>E3" data-flow>
 flowchart TB
-  subgraph V1["Vuelta 1"]
+  subgraph V1["Vuelta 1 · especificación del producto"]
     direction LR
     P1["Planificar"] --> R1["Analizar riesgos"] --> I1["Ingeniería"] --> E1["Cliente evalúa"]
   end
-  subgraph V2["Vuelta 2"]
+  subgraph V2["Vuelta 2 · un prototipo"]
     direction LR
     P2["Planificar"] --> R2["Analizar riesgos"] --> I2["Ingeniería"] --> E2["Cliente evalúa"]
   end
-  subgraph V3["Vuelta 3"]
+  subgraph V3["Vuelta 3 · una versión más completa"]
     direction LR
     P3["Planificar"] --> R3["Analizar riesgos"] --> I3["Ingeniería"] --> E3["Cliente evalúa"]
   end
@@ -218,15 +217,9 @@ flowchart TB
   V2 --> V3
             </div>
           </div>
-          <div class="grid grid-cols-3 gap-2 text-xs text-slate-700">
-            <div data-reveal class="bg-slate-50 border rounded-lg p-2"><strong>Vuelta 1</strong><br>especificación del producto</div>
-            <div data-reveal class="bg-slate-50 border rounded-lg p-2"><strong>Vuelta 2</strong><br>un prototipo</div>
-            <div data-reveal class="bg-slate-50 border rounded-lg p-2"><strong>Vuelta 3</strong><br>una versión más completa</div>
-          </div>
-          <p class="text-sm text-slate-500">En cada vuelta se revisan el riesgo, el plan y el costo con la retroalimentación del cliente. Versión simplificada de cuatro sectores; Pressman (2010), p. 39–40, fig. 2.7, usa las cinco actividades.</p>
         </div>
       `,
-      notes: `16:42 a 16:52 (10 min para espiral: esta diapositiva 4 min, la siguiente 6). Atribución del diagrama: Pressman (p. 39, fig. 2.7) organiza la espiral por las cinco actividades estructurales con el análisis de riesgo dentro del recorrido; los cuatro sectores (planificar, riesgos, ingeniería, evaluación del cliente) son la versión original de Boehm (Pressman la cita en la nota 9, p. 39; también la usa la fuente W4 del banco). Equivalencia con S2 (síntesis didáctica): planificar es comunicación más planeación, ingeniería es modelado más construcción, evaluación del cliente es despliegue. Lo que produce cada vuelta: p. 40 (primer circuito, especificación; luego prototipo; luego versiones más sofisticadas). Pregunta de comprobación: ¿qué cambia entre la vuelta 1 y la vuelta 3? El diagrama muestra una fila por vuelta y aparece vuelta por vuelta.`
+      notes: `16:42 a 16:52 (10 min para espiral: esta diapositiva 4 min, la siguiente 6). Atribución del diagrama: Pressman (p. 39, fig. 2.7) organiza la espiral por las cinco actividades estructurales con el análisis de riesgo dentro del recorrido; los cuatro sectores (planificar, riesgos, ingeniería, evaluación del cliente) son la versión original de Boehm (Pressman la cita en la nota 9, p. 39; también la usa la fuente W4 del banco). Equivalencia con S2 (síntesis didáctica): planificar es comunicación más planeación, ingeniería es modelado más construcción, evaluación del cliente es despliegue. Lo que produce cada vuelta: p. 40 (primer circuito, especificación; luego prototipo; luego versiones más sofisticadas). Pregunta de comprobación: ¿qué cambia entre la vuelta 1 y la vuelta 3? El diagrama muestra una fila por vuelta y aparece vuelta por vuelta. Decirlo en voz alta: en cada vuelta se revisan el riesgo, el plan y el costo con la retroalimentación del cliente; es la versión simplificada de cuatro sectores (Pressman, p. 39–40, fig. 2.7, usa las cinco actividades).`
     },
     {
       id: 'sis7-9',
@@ -269,10 +262,10 @@ flowchart TB
         <div class="space-y-4">
           <div class="bg-white border rounded-xl p-4">
             <div data-diagram data-steps="S | W, S>W | R, S>R | E, R>E | P, R>P" data-flow>
-flowchart TD
-  S["¿Los requerimientos son claros y estables?"]
+flowchart LR
+  S["¿Requerimientos claros y estables?"]
   S -->|"Sí"| W["Cascada"]
-  S -->|"No"| R["¿Hay riesgos técnicos o de negocio altos en un proyecto grande?"]
+  S -->|"No"| R["¿Riesgo alto en un proyecto grande?"]
   R -->|"Sí"| E["Espiral"]
   R -->|"No"| P["Cascada con prototipo"]
             </div>
