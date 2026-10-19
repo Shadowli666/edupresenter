@@ -26,15 +26,15 @@ export const SISTEMAS_I_MODULE_5: Module = {
           <p class="text-sm text-slate-500">Sección A · IUPSM — Extensión Ciudad Ojeda · Período 2026-2</p>
         </div>
       `,
-      notes: 'Decisión docente 19/10/2026: clase presencial suspendida por falla eléctrica. Teoría enviada como guía (03-Clases/SISTEMAS-I/S05-guia-estudio-enfoques-desarrollo.docx). S4 (12/10) fue feriado; la prueba U-I se reprogramó al 19/10 y, por la falla eléctrica, pasa al 26/10 (S6), junto con la entrega y presentación del cuadro (20 %). Plan presencial original: 03-Clases/SISTEMAS-I/S05-contenido-clase-lunes.md.'
+      notes: 'Decisión docente 19/10/2026: clase presencial suspendida por falla eléctrica. Teoría enviada como guía (03-Clases/SISTEMAS-I/S05-guia-estudio-enfoques-desarrollo.docx). S4 (12/10) fue feriado; la prueba U-I se reprogramó al 19/10 y, por la falla eléctrica, pasa al 26/10 (S6), junto con la entrega y presentación del cuadro (20 %). Ruta de estudio y claves: 03-Clases/SISTEMAS-I/S05-contenido-clase-lunes.md.'
     },
     {
       id: 'sis5-2',
       title: 'Tu plan de trabajo',
       contentHtml: `
         <div class="space-y-3">
-          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Hoy</span><span>Lee la teoría (diapositivas 3–9) y toma apuntes.</span></div>
-          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Esta semana</span><span>Resuelve la autoevaluación (diapositivas 10–11) y elabora el cuadro comparativo (diapositiva 12).</span></div>
+          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Hoy</span><span>Lee la teoría (diapositivas 3–10) y toma apuntes.</span></div>
+          <div data-reveal class="flex gap-3 bg-white border rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Esta semana</span><span>Resuelve la autoevaluación (diapositivas 11–12) y elabora el cuadro comparativo (diapositivas 13–14).</span></div>
           <div data-reveal class="flex gap-3 bg-blue-50 border border-blue-200 rounded-xl p-4"><span class="font-bold text-blue-700 w-28">Lunes 26/10</span><span>Semana 6: prueba escrita de la Unidad I (10 %), presentación y entrega del cuadro comparativo (20 %).</span></div>
         </div>
       `
@@ -52,6 +52,22 @@ export const SISTEMAS_I_MODULE_5: Module = {
         </div>
       `,
       notes: 'La concepción errónea esperada es tratarlos como cuatro metodologías paralelas; la escala del taller penaliza esa confusión (6 de 20 puntos).'
+    },
+    {
+      id: 'sis5-pista',
+      title: 'Una pista para leer',
+      contentHtml: `
+        <div class="space-y-5">
+          <p class="text-lg text-slate-700">Para levantar un edificio hay que tomar decisiones de <strong>distinta clase</strong>:</p>
+          <div class="grid md:grid-cols-3 gap-3">
+            <div data-reveal class="bg-white border-2 border-slate-200 rounded-xl p-4"><p class="text-3xl">🧠</p><p class="font-bold text-slate-900 mt-2">Cómo se concibe el diseño</p><p class="text-sm text-slate-600 mt-1">¿Por las funciones que cumple cada espacio, o por las piezas que lo forman?</p></div>
+            <div data-reveal class="bg-white border-2 border-slate-200 rounded-xl p-4"><p class="text-3xl">🏢</p><p class="font-bold text-slate-900 mt-2">Qué tipo de edificio es</p><p class="text-sm text-slate-600 mt-1">Una vivienda no exige lo mismo que un centro comercial abierto a miles de personas.</p></div>
+            <div data-reveal class="bg-white border-2 border-slate-200 rounded-xl p-4"><p class="text-3xl">📐</p><p class="font-bold text-slate-900 mt-2">Con qué símbolos se dibujan los planos</p><p class="text-sm text-slate-600 mt-1">Una notación que cualquier arquitecto pueda leer igual.</p></div>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-950">Mientras lees las cuatro diapositivas siguientes, pregúntate <strong>a cuál de estas decisiones se parece cada término</strong>. Puede que dos términos respondan a la misma.</div>
+        </div>
+      `,
+      notes: `Organizador previo por analogía (síntesis didáctica del docente, no está en Pressman). Correspondencia que el estudiante debe descubrir: concepción del diseño = enfoque de análisis y diseño (estructurado: por funciones; OO: por piezas/objetos); tipo de edificio = categoría de aplicación (Web); notación de planos = lenguaje de modelado (UML). No dar la correspondencia en la diapositiva: se confirma en «Respuesta a la pregunta eje».`
     },
     {
       id: 'sis5-4',
@@ -81,12 +97,13 @@ export const SISTEMAS_I_MODULE_5: Module = {
       contentHtml: `
         <div class="space-y-4">
           <span class="inline-block bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full px-3 py-1">Enfoque de análisis y diseño</span>
+          <div class="grid md:grid-cols-[1.1fr_1fr] gap-4 items-center">
           <ul class="list-disc list-inside text-slate-800 space-y-2">
             <li data-reveal>El sistema se ve como <strong>clases que colaboran</strong> para cumplir los requerimientos.</li>
             <li data-reveal><strong>Objeto</strong> = estado (atributos) + comportamiento (operaciones). Una <strong>clase</strong> describe un tipo de objeto; cada objeto concreto es una <strong>instancia</strong>.</li>
             <li data-reveal>Conceptos: <strong>encapsulación</strong> (datos y operaciones juntos), <strong>herencia</strong> (la subclase reutiliza y añade), <strong>mensajes</strong> (los objetos se piden servicios).</li>
           </ul>
-          <div class="mermaid">classDiagram
+          <div class="mermaid [&_svg]:max-h-72 [&_svg]:mx-auto">classDiagram
   class Mesa {
     numero
     estado
@@ -101,6 +118,7 @@ export const SISTEMAS_I_MODULE_5: Module = {
   }
   Mesa "1" -- "*" Pedido
   Pedido --> Cuenta</div>
+          </div>
           <p class="text-sm text-slate-500">Pregunta que se hace: <em>¿qué cosas existen y qué responsabilidad tiene cada una?</em> · Pressman (2010), p. 131 y Apéndice 2.</p>
         </div>
       `
@@ -136,6 +154,7 @@ export const SISTEMAS_I_MODULE_5: Module = {
             <li data-reveal>Diagramas frecuentes: casos de uso, clases, secuencia, actividad y estados.</li>
             <li data-reveal>Pensado sobre todo para modelos <strong>orientados a objetos</strong>.</li>
           </ul>
+          <div data-reveal class="bg-violet-50 border border-violet-200 rounded-xl p-3 text-sm text-violet-950">👀 Vuelve a la diapositiva 6: el diagrama de <em>Mesa</em>, <em>Pedido</em> y <em>Cuenta</em> ya está dibujado con UML (diagrama de clases).</div>
           <p class="text-sm text-slate-500">Pregunta que se hace: <em>¿cómo lo dibujo para que todo el equipo lo entienda igual?</em> · Pressman (2010), Apéndice 1, p. 725.</p>
         </div>
       `,
@@ -164,12 +183,12 @@ export const SISTEMAS_I_MODULE_5: Module = {
       title: 'Ejemplo: El Barú visto de cuatro maneras',
       contentHtml: `
         <div class="space-y-4">
-          <p class="text-slate-600">Recuerda el caso de la semana 3: reservas en cuaderno, pedidos de palabra a la cocina y cuentas a mano.</p>
-          <div data-tabs>
-            <section data-tab="Estructurado"><p class="text-slate-800">Flujo de los datos entre procesos: Mesero → <em>Registrar pedido</em> → Pedidos → <em>Enviar a cocina</em> → Cocina; Pedidos → <em>Calcular cuenta</em> → Cliente.</p></section>
-            <section data-tab="Orientado a objetos"><p class="text-slate-800">Clases <strong>Mesa</strong> (número, estado), <strong>Pedido</strong> (platos; agregarPlato(), subtotal()) y <strong>Cuenta</strong> (total()). Un pedido pertenece a una mesa.</p></section>
-            <section data-tab="Aplicación Web"><p class="text-slate-800">Si El Barú abre <strong>reservas en línea</strong>, muchos clientes reservarán a la vez la noche del 24/12 (concurrencia, carga impredecible); debe responder rápido y estar disponible de noche.</p></section>
-            <section data-tab="UML"><p class="text-slate-800">El modelo OO se dibuja como <strong>diagrama de casos de uso</strong> (Mesero — Registrar pedido; Cliente — Reservar mesa) y como <strong>diagrama de clases</strong>.</p></section>
+          <p class="text-slate-600">El restaurante de la semana 3 (reservas en cuaderno, pedidos de palabra, cuentas a mano), mirado con cada término:</p>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-white border-2 border-blue-200 rounded-xl p-4"><p class="font-bold text-blue-900">Estructurado</p><p class="text-slate-800 mt-1">Procesos por donde pasan los datos: <em>Registrar pedido</em> → Pedidos → <em>Enviar a cocina</em>; Pedidos → <em>Calcular cuenta</em>.</p></div>
+            <div class="bg-white border-2 border-blue-200 rounded-xl p-4"><p class="font-bold text-blue-900">Orientado a objetos</p><p class="text-slate-800 mt-1">Objetos con sus datos y operaciones: <strong>Mesa</strong> (número, estado), <strong>Pedido</strong> (agregarPlato(), subtotal()), <strong>Cuenta</strong> (total()).</p></div>
+            <div class="bg-white border-2 border-emerald-200 rounded-xl p-4"><p class="font-bold text-emerald-900">Aplicación Web</p><p class="text-slate-800 mt-1">Si abre <strong>reservas en línea</strong>: muchos clientes a la vez la noche del 24/12; debe responder rápido y estar disponible de noche.</p></div>
+            <div class="bg-white border-2 border-violet-200 rounded-xl p-4"><p class="font-bold text-violet-900">UML</p><p class="text-slate-800 mt-1">El modelo OO dibujado como <strong>diagrama de clases</strong> y de <strong>casos de uso</strong> (Mesero — Registrar pedido; Cliente — Reservar mesa).</p></div>
           </div>
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950">Entre estructurado y OO cambia <strong>la manera de pensar</strong> el restaurante; con UML solo cambia <strong>la forma de dibujarlo</strong>.</div>
         </div>
@@ -249,6 +268,30 @@ export const SISTEMAS_I_MODULE_5: Module = {
       `
     },
     {
+      id: 'sis5-guia-cuadro',
+      title: 'Antes del cuadro: qué pide cada columna',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="space-y-2 text-sm">
+            <div class="grid md:grid-cols-[1fr_1.2fr] gap-2 items-center bg-white border rounded-xl p-3"><p class="font-semibold text-slate-900">¿Qué aspecto organiza o representa principalmente?</p><p class="text-slate-700">¿En qué se fija? ¿Alrededor de qué ordena el trabajo, o qué muestra?</p></div>
+            <div class="grid md:grid-cols-[1fr_1.2fr] gap-2 items-center bg-white border rounded-xl p-3"><p class="font-semibold text-slate-900">Diferencia respecto de otro elemento de la lista (indica con cuál)</p><p class="text-slate-700">Elige otro de los cuatro, nómbralo y di en qué se distinguen.</p></div>
+            <div class="grid md:grid-cols-[1fr_1.2fr] gap-2 items-center bg-white border rounded-xl p-3"><p class="font-semibold text-slate-900">¿Qué papel cumple al desarrollar o modelar una aplicación?</p><p class="text-slate-700">¿Para qué te sirve cuando construyes o dibujas una aplicación?</p></div>
+          </div>
+          <div class="border border-slate-200 rounded-xl overflow-hidden">
+            <p class="bg-slate-100 text-xs font-bold uppercase tracking-wider text-slate-600 px-3 py-2">Ejemplo con otra lista (herramientas de oficina), solo para ver el nivel de respuesta</p>
+            <div class="grid md:grid-cols-4 gap-0 text-xs divide-y md:divide-y-0 md:divide-x divide-slate-200">
+              <div class="p-3 font-bold text-slate-900">Hoja de cálculo</div>
+              <div class="p-3 text-slate-700">Datos en filas y columnas que se calculan con fórmulas.</div>
+              <div class="p-3 text-slate-700">Con el <strong>procesador de textos</strong>: este organiza texto en párrafos; la hoja, datos que se recalculan.</div>
+              <div class="p-3 text-slate-700">Registrar y calcular datos, por ejemplo un presupuesto.</div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600">Una o dos oraciones por celda bastan. Recuerda la instrucción: no todos los elementos son métodos de desarrollo.</p>
+        </div>
+      `,
+      notes: `Andamiaje para el trabajo en casa: traduce los encabezados del instrumento sin cambiarlos. No se llena ninguna fila de los cuatro elementos (6 de 20 puntos de la escala premian distinguir su naturaleza). El ejemplo de ofimática está lejos del tema a propósito; no usar diagrama de flujo ni pseudocódigo, que se confunden con el DFD.`
+    },
+    {
       id: 'sis5-12',
       title: 'Taller 20 % · Cuadro comparativo',
       contentHtml: `
@@ -302,7 +345,7 @@ export const SISTEMAS_I_MODULE_5: Module = {
       id: 'sis5-t1',
       title: 'Guía de estudio: enfoques de desarrollo',
       description: 'Lee la teoría de la semana 5 y resuelve la autoevaluación.',
-      items: ['Diapositivas 3 a 9 o la guía de estudio enviada', 'Autoevaluación de 8 preguntas'],
+      items: ['Diapositivas 3 a 10 o la guía de estudio enviada', 'Autoevaluación de 8 preguntas (diapositivas 11 y 12)'],
       due: '2026-10-26',
       corte: 1,
       weight: '0 % (formativa)',

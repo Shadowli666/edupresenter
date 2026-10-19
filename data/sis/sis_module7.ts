@@ -57,16 +57,16 @@ export const SISTEMAS_I_MODULE_7: Module = {
             <span class="bg-slate-100 border rounded-full px-3 py-1">Modelado</span><span class="text-slate-400">→</span>
             <span class="bg-slate-100 border rounded-full px-3 py-1">Construcción</span><span class="text-slate-400">→</span>
             <span class="bg-slate-100 border rounded-full px-3 py-1">Despliegue</span>
-            <span class="text-slate-500 ml-2">las cinco actividades que ya conoces</span>
+            <span class="text-slate-500 ml-2">actividades estructurales del proceso: las viste en la semana 2, dentro de la actividad <strong>Proceso</strong></span>
           </div>
           <div class="bg-blue-600 text-white rounded-2xl p-8">
             <p class="text-xs uppercase tracking-widest text-blue-100">Antes de empezar</p>
-            <h3 class="text-2xl md:text-3xl font-bold mt-2">Dos equipos hacen las mismas cinco actividades. ¿Pueden trabajar de manera muy distinta? ¿En qué se diferenciarían?</h3>
+            <h3 class="text-2xl md:text-3xl font-bold mt-2">Dos equipos recorren las mismas cinco actividades estructurales. ¿Pueden trabajar de manera muy distinta? ¿En qué se diferenciarían?</h3>
           </div>
           <p class="text-slate-600">Escribe tu respuesta en el cuaderno. Al terminar la teoría la revisamos.</p>
         </div>
       `,
-      notes: `4 min (16:20 a 16:24): 1 min de recuerdo de las cinco actividades (S2, sin volver a explicarlas) y 3 min de respuestas de 2 o 3 estudiantes sin corregir. Respuesta esperada al final del bloque de teoría: el modelo de proceso cambia el orden, la repetición y el control del riesgo con que se recorren las mismas actividades (Pressman, p. 33: cada modelo pone distinto énfasis y define distinto el flujo del proceso). Un modelo de proceso prescriptivo define un conjunto de elementos del proceso y un flujo predecible para el trabajo (p. 33).`
+      notes: `4 min (16:20 a 16:24): 1 min de recuerdo de las cinco actividades estructurales del proceso de Pressman (vistas en S2 dentro de la actividad Proceso, sin volver a explicarlas). No confundirlas con las cinco actividades de la IS de la clase (Proceso, Administración de Proyectos, Personas, Producto, Calidad), que son las que evalúa la prueba U-I y 3 min de respuestas de 2 o 3 estudiantes sin corregir. Respuesta esperada al final del bloque de teoría: el modelo de proceso cambia el orden, la repetición y el control del riesgo con que se recorren las mismas actividades (Pressman, p. 33: cada modelo pone distinto énfasis y define distinto el flujo del proceso). Un modelo de proceso prescriptivo define un conjunto de elementos del proceso y un flujo predecible para el trabajo (p. 33).`
     },
     {
       id: 'sis7-4',
