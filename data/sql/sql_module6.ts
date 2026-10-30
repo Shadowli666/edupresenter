@@ -482,6 +482,41 @@ WHERE SUM(monto) &gt;= 60 GROUP BY id_ruta;</pre></div>
       notes: 'Respuestas: 1) WHERE filtra filas antes de agrupar, HAVING filtra grupos después; 2) porque solo conserva coincidencias (PK = FK); 3) SELECT con el mismo WHERE para ver las filas afectadas. Anticipo: el contenido de PGA S6 (transacciones, roles, funciones almacenadas, excepciones) quedó pendiente para otra sesión; fecha y tema de la próxima clase por confirmar con el docente. No anunciar fechas de entrega ni medio de entrega: no hay tarea evaluada hoy. SAIA no se usa.'
     },
     {
+      id: 'sql6-21a',
+      title: 'Informe del Corte I · qué se pide',
+      contentHtml: `
+        <div class="space-y-3">
+          <div class="grid md:grid-cols-3 gap-3 text-sm">
+            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3"><p class="font-bold text-indigo-900">Modalidad</p><p class="text-xs text-slate-700 mt-1">Grupos de 3 · un solo informe (Word o PDF) · sin computadora · 1 h 30 min a 2 h por integrante · <strong>20 %</strong> del Corte I.</p></div>
+            <div class="bg-sky-50 border border-sky-200 rounded-xl p-3"><p class="font-bold text-sky-900">Entrega por correo</p><p class="text-xs text-slate-700 mt-1">Un integrante envía a 27758801@psm.edu.ve desde su correo institucional, con copia a los otros dos. Asunto: <code>Electiva II SQL - Informe Corte I - Apellidos</code>. Fecha límite: por confirmar.</p></div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-3"><p class="font-bold text-amber-900">Todos explican todo</p><p class="text-xs text-slate-700 mt-1">Misma nota para los 3, pero cada integrante debe saber explicar cualquier parte (puede haber preguntas orales).</p></div>
+          </div>
+          <div class="bg-white border rounded-xl p-3 text-xs space-y-1">
+            <p class="font-bold text-sm">Estructura</p>
+            <p><strong>Portada</strong> (3 integrantes, asignatura, sección, docente, fecha) · <strong>1. Introducción</strong>: base de datos, SGBD y SQL · <strong>2. Desarrollo</strong> (4 a 8 líneas por punto, con sus palabras):</p>
+            <ul class="list-disc list-inside text-slate-700">
+              <li><strong>2.1</strong> Modelo relacional: tabla, registro, campo, PK, FK; tipos de datos; DDL, DML y DQL.</li>
+              <li><strong>2.2</strong> SELECT, FROM, WHERE, ORDER BY y funciones COUNT, SUM, AVG, MAX, MIN.</li>
+              <li><strong>2.3</strong> GROUP BY y HAVING (frente a WHERE) e INNER JOIN.</li>
+              <li><strong>2.4</strong> INSERT, UPDATE y DELETE; por qué llevan WHERE; NULL (IS NULL frente a = NULL).</li>
+              <li><strong>2.5</strong> Dos ejemplos cortos con las tablas <strong>ruta, bus y pasaje</strong> de la diapositiva 5.</li>
+            </ul>
+            <p><strong>3. Cuadro comparativo</strong>: DDL / DML / DQL y WHERE / HAVING · <strong>4. Conclusiones</strong> (3 a 5 líneas) · <strong>5. Referencias</strong> en APA 7: apuntes de clase y una fuente adicional; citen en el texto como (Apellido, año).</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 text-xs">
+            <div class="bg-slate-50 border rounded-xl p-3"><p class="font-bold text-sm">Ejemplo A</p><p class="mt-1">Tabla de salida de esta consulta y una línea que explique por qué la <strong>Ruta 7</strong> no aparece:</p><pre class="mt-1 whitespace-pre-wrap bg-white border rounded p-2">SELECT r.nombre, COUNT(*) AS viajes
+FROM ruta r INNER JOIN pasaje p ON p.id_ruta = r.id_ruta
+GROUP BY r.nombre ORDER BY r.nombre;</pre></div>
+            <div class="bg-slate-50 border rounded-xl p-3"><p class="font-bold text-sm">Ejemplo B</p><p class="mt-1">Cómo queda la tabla <strong>ruta</strong> después de ejecutar, en orden:</p><pre class="mt-1 whitespace-pre-wrap bg-white border rounded p-2">INSERT INTO ruta VALUES (5, 'Ruta 9', 'Centro');
+UPDATE ruta SET zona = 'Centro' WHERE nombre = 'Ruta 7';
+DELETE FROM ruta WHERE id_ruta = 3;</pre></div>
+          </div>
+          <p class="text-xs text-slate-500">Se califica con 10 aspectos de 2 puntos (20 en total): presentación, organización, redacción, introducción, desarrollo, lenguaje técnico, citas en el texto, cuadro comparativo, conclusiones y referencias. 2 completo · 1 parcial · 0 ausente. Los ejemplos pueden escribirse en el documento o hacerse a mano y fotografiarse.</p>
+        </div>
+      `,
+      notes: 'Solo docente. Respuestas: Ejemplo A: Ruta 1 = 3, Ruta 3 = 3, Ruta 5 = 1; la Ruta 7 no aparece porque el INNER JOIN descarta las rutas sin pasajes. Ejemplo B: queda (1 Ruta 1 Norte), (2 Ruta 3 Centro), (4 Ruta 7 Centro), (5 Ruta 9 Centro). 2.4: = NULL nunca es verdadero, se usa IS NULL (pasaje 5); sin WHERE, UPDATE y DELETE afectan todas las filas. Cuadro: DDL (CREATE/ALTER/DROP), DML (INSERT/UPDATE/DELETE), DQL (SELECT); WHERE filtra filas antes de agrupar y HAVING filtra grupos después. Misma nota para los 3 integrantes; si hay dudas de participación, verificar oralmente. Fecha límite por confirmar. Detalle en 04-Evaluaciones/ELECTIVA-II-SQL/Revisado-2026-2/INFORME-corte-I-sql-borrador-2026-10-30.md.'
+    },
+    {
       id: 'sql6-22',
       title: 'Fuentes',
       contentHtml: `
@@ -503,6 +538,6 @@ WHERE SUM(monto) &gt;= 60 GROUP BY id_ruta;</pre></div>
     corte: 1,
     weight: '20 %',
     kind: 'evaluacion',
-    slideId: 'sql6-5',
+    slideId: 'sql6-21a',
   }],
 };
