@@ -511,7 +511,7 @@ GROUP BY r.nombre ORDER BY r.nombre;</pre></div>
 UPDATE ruta SET zona = 'Centro' WHERE nombre = 'Ruta 7';
 DELETE FROM ruta WHERE id_ruta = 3;</pre></div>
           </div>
-          <p class="text-xs text-slate-500">Se califica con 10 aspectos de 2 puntos (20 en total): presentación, organización, redacción, introducción, desarrollo, lenguaje técnico, citas en el texto, ejemplos A y B, conclusiones y referencias. 2 completo · 1 parcial · 0 ausente. Los ejemplos pueden escribirse en el documento o hacerse a mano y fotografiarse.</p>
+          <p class="text-xs text-slate-500">Se califica con 10 aspectos de 2 puntos (20 en total): presentación, organización, redacción, introducción, desarrollo, lenguaje técnico, citas en el texto, ejemplos A y B, conclusiones y referencias. 2 completo · 1 parcial · 0 ausente. Todo se entrega en digital: los ejemplos se escriben (tablas de salida y estados) directamente en el documento.</p>
         </div>
       `,
       notes: 'Solo docente. Respuestas: Ejemplo A: Ruta 1 = 3, Ruta 3 = 3, Ruta 5 = 1; la Ruta 7 no aparece porque el INNER JOIN descarta las rutas sin pasajes. Ejemplo B: queda (1 Ruta 1 Norte), (2 Ruta 3 Centro), (4 Ruta 7 Centro), (5 Ruta 9 Centro). 2.4: = NULL nunca es verdadero, se usa IS NULL (pasaje 5); sin WHERE, UPDATE y DELETE afectan todas las filas. En 2.1 y 2.3: DDL (CREATE/ALTER/DROP), DML (INSERT/UPDATE/DELETE), DQL (SELECT); WHERE filtra filas antes de agrupar y HAVING filtra grupos después. Misma nota para los 3 integrantes; si hay dudas de participación, verificar oralmente. Fecha límite por confirmar. Detalle en 04-Evaluaciones/ELECTIVA-II-SQL/Revisado-2026-2/INFORME-corte-I-sql-borrador-2026-10-30.md.'
