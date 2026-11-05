@@ -4,6 +4,10 @@ App estática (Vite + React + TS). Contenido en `data/<curso>/<prefijo>_module<N
 El docente es el Prof. Luis Felipe Moreno Oropeza (IUPSM, período 2026-2). Reglas pedagógicas y datos del período
 viven en el workspace PSM (`/home/akira/Documentos/PSM-2026-2/AGENTS.md`, `semestre.json`); no los inventes.
 
+**Skills del proyecto** (carpeta `.agents/skills/`, con enlaces en `.claude/skills/` para Claude Code):
+- `edupresenter-modulo`: crea un módulo con `tools/nuevo_modulo.mjs` y lo completa desde el plan de sesión.
+- `edupresenter-revision`: revisa lo escrito por un modelo con `tools/revisar_modulo.mjs` y la rúbrica de relevancia (§6).
+
 ## 1. Crear o editar un módulo
 
 ```ts
@@ -121,7 +125,62 @@ Los `<pre><code>` reciben un botón *Copiar* solos. Los `data-reveal` se ven tod
 - Las animaciones se desactivan con `prefers-reduced-motion` y al imprimir; el PDF muestra el diagrama final.
 - Los ids son los del código Mermaid (`A`, `Cliente`…); una arista `A --> B` es `A>B`. Un grupo que no coincide con nada avisa en la consola de `npm run dev`.
 
-## 5. Verificación antes de dar por terminado
+## 5. Imágenes
+
+Las imágenes viven **en el repositorio**, en `public/img/<curso>/s<NN>/<nombre>.webp`, donde `<curso>` es la
+carpeta de `data/`: `sis`, `ads`, `sql` o `pnn-2026-2`. Nunca se enlazan en caliente desde otros sitios: en el
+aula se dicta desde el hotspot (a veces sin internet), el PDF espera a que carguen y los enlaces externos se rompen.
+
+```html
+<figure class="flex flex-col items-center">
+  <img src="img/sql/s08/fn-1fn.webp" alt="Qué muestra la imagen"
+       class="max-h-[55vh] w-auto rounded-xl border border-slate-200 shadow-sm" />
+  <figcaption class="text-xs text-slate-500 mt-2 text-center">Fuente: … · Licencia</figcaption>
+</figure>
+```
+
+- **`src` relativo y sin «/» inicial** (`img/…`). El build usa `base: './'` y el sitio se sirve desde un
+  subdirectorio de GitHub Pages: con `/img/…` la imagen no carga.
+- **Obtención:** usa `~/.agents/skills/psm-diapositivas/scripts/obtener_imagen.py` (modos `url`, `captura`, `pdf`,
+  `epub` y `archivo`). El script:
+  - valida que el archivo sea una imagen;
+  - la reduce a ≤ 1600 px y la convierte a WebP;
+  - anota la fila en `public/img/CREDITOS.md`;
+  - imprime el `<figure>`.
+- **Crédito y licencia:** cada figura lleva `figcaption` con fuente y licencia, y la diapositiva final «Fuentes»
+  las lista todas. El sitio es público: se prefieren imágenes propias, de dominio público o CC.
+- **Nada de imágenes en diapositivas con `lock`.** `public/` se publica tal cual, sin cifrar.
+- **Seguridad:** nunca pegues en `contentHtml` el HTML o el SVG descargado; la imagen entra solo por `<img src>`.
+- **Peso:** ≤ 400 KB por imagen, con `alt` descriptivo.
+
+## 6. Revisión del contenido escrito por modelos (obligatoria en diapositivas nuevas)
+
+Todo módulo o diapositiva que un modelo genere o reescriba se revisa **antes** de darlo por terminado.
+El procedimiento completo y la rúbrica están en la skill `edupresenter-revision` (`.agents/skills/`).
+
+1. **Revisión mecánica.**
+   - Ejecuta `node tools/revisar_modulo.mjs data/<curso>/<prefijo>_module<N>.ts --plan <plan de sesión>.md`.
+   - Corrige todos los **errores** (contrato roto) y decide cada **aviso** (densidad, redacción, posible repetición).
+2. **Revisión de relevancia.**
+   - La hace un **revisor distinto del redactor**: un subagente si el harness lo permite; si no, una pasada
+     separada que trabaje solo con el plan y con el esquema que imprime el script.
+   - **Trazabilidad:** cada diapositiva responde al objetivo o a los contenidos del plan, o a «lo nuevo» de la nota
+     de continuidad. Lo que no responde a nada se elimina; lo que excede el alcance de la semana es un hallazgo.
+   - **Fuentes:** cada definición, dato o afirmación técnica tiene respaldo en «Fuentes consultadas» del plan.
+     - Lo que no lo tiene se elimina o se marca «pendiente de verificación docente» en `notes`.
+     - Las **referencias inventadas** son el fallo más probable: toda referencia de la diapositiva «Fuentes»
+       debe figurar en el plan.
+   - **Sin repetición:** compara con los títulos del módulo anterior que imprime el script.
+   - **Contexto y nivel:** ejemplos de Ingeniería de Sistemas y del entorno local.
+     - Nada de relleno genérico («en el mundo actual…»), listas que no aportan ni tono publicitario.
+     - Redacción sobria para estudiantes.
+   - **Código:** la salida mostrada es la del archivo ejecutado (`03-Clases/<Asignatura>/S<NN>-*`).
+   - **Diseño:** una idea por diapositiva; lo clave señalado; el guion del docente en `notes`, no en pantalla;
+     el texto junto a la figura que explica.
+3. **Informe.** Los hallazgos y lo corregido van al plan de sesión (sección «Notas para el docente»), nunca a
+   las diapositivas.
+
+## 7. Verificación antes de dar por terminado
 
 ```bash
 npx tsc --noEmit        # tipos
