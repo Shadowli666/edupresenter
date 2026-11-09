@@ -420,18 +420,5 @@ flowchart LR
         </div>
       `
     }
-  ],
-  tasks: [
-    {
-      id: 'sis7-t1',
-      title: 'Preparar la exposición de la semana 8',
-      description: 'Cada grupo prepara una exposición breve sobre el modelo de proceso que se le asigne (incremental, USDP, Cluster o Grady Booch). Se presenta en clase.',
-      items: ['Qué es el modelo', 'Cuándo conviene', 'Beneficios y limitaciones', 'Un ejemplo'],
-      due: '2026-11-09',
-      corte: 2,
-      weight: '0 % (formativa)',
-      kind: 'tarea',
-      slideId: 'sis7-16'
-    }
   ]
 };
