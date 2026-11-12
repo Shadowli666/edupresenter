@@ -2,9 +2,9 @@ import { Module } from '../../types';
 
 export const PNN_MODULE_8: Module = {
   id: 'pnn-mod-8',
-  title: '8. El método de adquisición y el almacenamiento en cintas',
+  title: '8. El método de adquisición: cintas magnéticas y bolsa de papel',
   description:
-    'Semana 8: jueves 12/11 — el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel (enunciado por confirmar). Unidad III.1.',
+    'Semana 8: jueves 12/11 — el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel en sus dos variantes: fraccionaria (el voraz es óptimo, prueba por intercambio) y 0/1 (el voraz falla: contraejemplo y programación dinámica). Unidad III.1–III.2.',
   evaluation: '0%',
   slides: [
     {
@@ -356,7 +356,7 @@ El orden creciente SI es el optimo.</pre>
     },
     {
       id: 'pnn8-14',
-      title: 'Fuentes',
+      title: 'Fuentes del jueves',
       contentHtml: `
         <div class="space-y-4 text-sm">
           <h3 class="text-xl font-bold text-slate-900">Fuentes de la semana</h3>
@@ -370,6 +370,354 @@ El orden creciente SI es el optimo.</pre>
         </div>
       `,
       notes: 'Si el docente incorpora Cormen a la biblioteca, fijar la página del argumento de intercambio (cap. 16, «Greedy Algorithms», sección de colas de prioridad / scheduling).'
+    },
+    {
+      id: 'pnn8-15',
+      title: 'Viernes 13/11 · El problema de la bolsa de papel',
+      contentHtml: `
+        <div class="space-y-7">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-teal-600 rounded-2xl flex items-center justify-center text-white text-4xl shadow-lg">🛍️</div>
+            <div>
+              <p class="text-sm uppercase tracking-widest font-bold text-teal-700">Programación No Numérica II · Unidad III</p>
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">El problema de la bolsa de papel</h2>
+              <p class="text-slate-500 mt-1">La misma bolsa, dos problemas distintos</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-teal-950"><p class="text-xs uppercase font-bold text-teal-700">Variante fraccionaria</p><p class="text-lg font-bold mt-1">El objeto se puede partir</p><p class="text-sm mt-1">Carga a granel: arena, harina, combustible.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 text-rose-950"><p class="text-xs uppercase font-bold text-rose-700">Variante 0/1</p><p class="text-lg font-bold mt-1">El objeto entra entero o no entra</p><p class="text-sm mt-1">Carga discreta: una laptop, un libro, un instrumento.</p></div>
+          </div>
+          <p class="text-sm text-slate-500">Viernes 13/11/2026 · 16:45–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
+        </div>
+      `,
+      notes: 'Inicio 5 min con las diap. 16 y 17. Devolución de 60 s del ticket del jueves (orden 1,5,9; MRT 8). Lista de cotejo (0 %) sobre la práctica.'
+    },
+    {
+      id: 'pnn8-16',
+      title: 'Ruta del viernes',
+      contentHtml: `
+        <div class="space-y-6">
+          <p class="text-slate-600 text-lg">El jueves el voraz funcionó. Hoy lo ponemos frente a un problema donde <strong>puede fallar</strong> — y aprendemos a saber <strong>cuándo</strong>.</p>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Teoría</p><h3 class="text-lg font-bold text-teal-950 mt-2">Dos enunciados</h3><p class="text-sm text-teal-900 mt-2">Qué cambia con una sola frase y qué no.</p></div>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-slate-700">Código en vivo</p><h3 class="text-lg font-bold text-slate-950 mt-2">Tres estrategias</h3><p class="text-sm text-slate-700 mt-2">Fraccionaria, voraz 0/1 y dinámica, sobre la misma instancia.</p></div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Llenar la tabla</h3><p class="text-sm text-emerald-900 mt-2">Una instancia de 15 celdas, a mano, en el cuaderno.</p></div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'pnn8-17',
+      title: 'Pregunta puente · ¿el voraz funciona siempre?',
+      contentHtml: `
+        <div class="space-y-5">
+          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white p-6 rounded-2xl">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Pregunta de partida</p>
+            <p class="text-xl md:text-2xl font-bold mt-2 leading-snug">En la cinta el voraz era óptimo porque cada longitud se pagaba varias veces. ¿Basta con ordenar y tomar lo mejor para <em>cualquier</em> problema?</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-white border-l-4 border-emerald-500 rounded-xl p-3" data-reveal><strong>Lo que sí se conserva:</strong> candidatos, función de selección, función objetivo.</div>
+            <div class="bg-white border-l-4 border-rose-500 rounded-xl p-3" data-reveal><strong>Lo que puede cambiar:</strong> la <strong>factibilidad</strong>. Y ahí se decide todo.</div>
+          </div>
+          <p class="text-sm text-slate-600">Se anota la respuesta del grupo en la pizarra y se vuelve a ella en el cierre.</p>
+        </div>
+      `,
+      notes: 'No responder todavía. La respuesta se construye con el contraejemplo de la diap. 20 y se cierra en la diap. 26.'
+    },
+    {
+      id: 'pnn8-18',
+      title: 'El problema · una bolsa, dos enunciados',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-white border rounded-xl p-4 text-sm text-slate-700">
+            <p class="font-bold text-slate-900">Enunciado</p>
+            <p class="mt-1">Una <strong>bolsa de papel</strong> resiste hasta <code class="bg-slate-100 px-1 rounded">W</code> unidades de peso. Hay <code class="bg-slate-100 px-1 rounded">n</code> objetos; el objeto <code>i</code> tiene peso <code>w<sub>i</sub></code> y valor <code>v<sub>i</sub></code>. Se quiere el <strong>valor total máximo</strong> sin pasarse de <code>W</code>.</p>
+          </div>
+          <table class="w-full text-sm border-collapse">
+            <thead><tr class="bg-teal-700 text-white"><th class="p-2 border text-left"></th><th class="p-2 border text-left">Fraccionaria</th><th class="p-2 border text-left">0/1</th></tr></thead>
+            <tbody>
+              <tr data-reveal><td class="p-2 border font-bold">¿Se puede partir?</td><td class="p-2 border">Sí: <code>0 ≤ x<sub>i</sub> ≤ 1</code></td><td class="p-2 border">No: <code>x<sub>i</sub> ∈ {0, 1}</code></td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Caso real</td><td class="p-2 border">Arena, harina, combustible</td><td class="p-2 border">Laptop, libro, instrumento</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Método</td><td class="p-2 border"><strong>Voraz</strong> (adquisición)</td><td class="p-2 border"><strong>Programación dinámica</strong></td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Costo</td><td class="p-2 border"><code>O(n log n)</code></td><td class="p-2 border"><code>O(n · W)</code></td></tr>
+            </tbody>
+          </table>
+          <div class="bg-slate-900 text-white rounded-xl p-4">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Para dejar escrito</p>
+            <p class="text-lg font-semibold mt-1">La selección es la misma; la factibilidad no.</p>
+          </div>
+        </div>
+      `,
+      notes: 'Escribir la frase final en la pizarra y dejarla toda la clase. Es la idea que se evalúa en el ticket de salida.'
+    },
+    {
+      id: 'pnn8-19',
+      title: 'Fraccionaria · densidad y prueba',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-teal-50 border-2 border-teal-400 rounded-2xl p-4">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-700">Criterio de selección</p>
+            <p class="font-mono text-lg md:text-xl text-teal-950 mt-1">densidad<sub>i</sub> = v<sub>i</sub> / w<sub>i</sub></p>
+            <p class="text-sm text-teal-900 mt-2">Ordenar de mayor a menor y llenar la bolsa; si el siguiente no cabe entero, se toma la fracción que cabe y se termina.</p>
+          </div>
+          <div class="bg-white border rounded-xl p-4 text-sm">
+            <p class="font-bold text-slate-900">Por qué es óptimo (intercambio)</p>
+            <ol class="mt-2 space-y-1 list-decimal list-inside text-slate-700">
+              <li data-reveal>Si en una solución óptima <strong>sobra capacidad</strong>, se añade una porción del objeto más denso: el valor aumenta → no era óptima.</li>
+              <li data-reveal>Si está llena, hay dentro una porción de un objeto de densidad <strong>menor o igual</strong>. Se cambia por la misma cantidad del más denso: el peso no cambia y el valor no baja.</li>
+              <li data-reveal>Repitiendo el cambio, la solución óptima <strong>coincide con la elección voraz</strong>.</li>
+            </ol>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3"><strong>Costo:</strong> ordenar <code>O(n log n)</code> + recorrer <code>O(n)</code>.</div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><strong>Mismo razonamiento</strong> que el intercambio de las cintas: cambió el criterio, no el método.</div>
+          </div>
+        </div>
+      `,
+      notes: 'El argumento se construye con preguntas: «si sobra capacidad, ¿qué hago?»; «si está llena, ¿qué hay dentro que valga menos por unidad de peso?». No dictar los tres pasos.'
+    },
+    {
+      id: 'pnn8-20',
+      title: '0/1 · el contraejemplo',
+      contentHtml: `
+        <div class="space-y-4">
+          <p class="text-sm text-slate-600">Capacidad <strong>10</strong>. Tres objetos:</p>
+          <table class="w-full text-sm border-collapse">
+            <thead><tr class="bg-slate-700 text-white"><th class="p-2 border text-left">Objeto</th><th class="p-2 border text-left">Peso</th><th class="p-2 border text-left">Valor</th><th class="p-2 border text-left">Densidad</th></tr></thead>
+            <tbody>
+              <tr><td class="p-2 border font-bold">1</td><td class="p-2 border">6</td><td class="p-2 border">30</td><td class="p-2 border font-mono text-emerald-700">5,00</td></tr>
+              <tr><td class="p-2 border font-bold">2</td><td class="p-2 border">5</td><td class="p-2 border">20</td><td class="p-2 border font-mono">4,00</td></tr>
+              <tr><td class="p-2 border font-bold">3</td><td class="p-2 border">5</td><td class="p-2 border">20</td><td class="p-2 border font-mono">4,00</td></tr>
+            </tbody>
+          </table>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-rose-50 border border-rose-300 rounded-2xl p-4">
+              <p class="text-xs uppercase font-bold text-rose-700">Lo que hace el voraz</p>
+              <p class="mt-1 text-rose-950">Toma el <strong>1</strong> (peso 6, valor 30). Quedan 4 unidades y ningún objeto cabe: <strong>30</strong>.</p>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-300 rounded-2xl p-4">
+              <p class="text-xs uppercase font-bold text-emerald-700">Lo que es óptimo</p>
+              <p class="mt-1 text-emerald-950">Toma <strong>2 + 3</strong>: peso 10 exacto, valor <strong>40</strong>.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900 text-white rounded-xl p-4">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Diagnóstico con las condiciones del jueves</p>
+            <p class="text-sm mt-1">Subestructura óptima: <strong>sí</strong>. Propiedad de elección voraz: <strong>no</strong>. Tomar el objeto 1 no pertenece a ninguna solución óptima.</p>
+          </div>
+          <p class="text-sm text-rose-800"><strong>El voraz deja 10 sobre la mesa: el 25 % del óptimo.</strong></p>
+        </div>
+      `,
+      notes: 'Escribir la instancia en la pizarra y dejar que la resuelvan antes de mostrar la comparación. La frase «no pertenece a ninguna solución óptima» es la clave conceptual.'
+    },
+    {
+      id: 'pnn8-21',
+      title: '0/1 · la tabla y la recurrencia',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-white border-2 border-teal-300 rounded-2xl p-4 text-sm">
+            <p class="font-bold text-slate-900">Definición</p>
+            <p class="text-slate-700 mt-1"><code>V(i, w)</code> = mejor valor usando los <strong>primeros <code>i</code></strong> objetos con capacidad <code>w</code>.</p>
+            <div class="bg-slate-100 rounded p-3 mt-3 font-mono text-xs md:text-sm leading-6">
+V(0, w) = 0 ·  V(i, 0) = 0<br>
+V(i, w) = V(i−1, w)                        si w<sub>i</sub> &gt; w<br>
+V(i, w) = max( V(i−1, w),                  si w<sub>i</sub> ≤ w<br>
+               V(i−1, w − w<sub>i</sub>) + v<sub>i</sub> )
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-3 text-sm">
+            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">Se llena por filas</p><p class="text-slate-700 mt-1">Fila = un objeto más. Columna = capacidad disponible.</p></div>
+            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">La respuesta</p><p class="text-slate-700 mt-1">Está en la última celda: <code>V(n, W)</code>.</p></div>
+            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">Se reconstruye</p><p class="text-slate-700 mt-1">Si <code>V(i,w) ≠ V(i−1,w)</code>, el objeto <code>i</code> entró.</p></div>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-950">
+            <strong>Pseudopolinomial:</strong> <code>O(n · W)</code> depende del <strong>valor</strong> de <code>W</code>, no del tamaño de los datos. Con <code>W = 10⁹</code> la tabla no cabe en ningún equipo.
+          </div>
+        </div>
+      `,
+      notes: 'No dar la tabla hecha: se construye en el código (diap. 23) y en la práctica guiada (diap. 24). Aquí solo la definición y el costo.'
+    },
+    {
+      id: 'pnn8-22',
+      title: 'Código en vivo · S08-bolsa.c',
+      contentHtml: `
+        <div class="space-y-3">
+          <p class="text-sm text-slate-600">Un solo programa, <strong>una sola instancia</strong> (W = 10; objetos (6,30), (5,20), (5,20)) y las tres estrategias.</p>
+          <div data-tabs>
+            <section data-tab="Fraccionaria">
+              <div class="bg-slate-900 text-slate-100 rounded-xl p-4 overflow-x-auto"><p class="text-[10px] uppercase tracking-widest text-slate-400 mb-2">C</p><pre class="text-xs font-mono leading-5">double voraz_fraccionario(Objeto a[], int n, int capacidad)
+{
+    double total = 0.0;
+    int resto = capacidad;
+
+    for (int i = 0; i &lt; n &amp;&amp; resto &gt; 0; i++) {
+        if (a[i].peso &lt;= resto) {            /* cabe entero        */
+            total += a[i].valor;
+            resto -= a[i].peso;
+        } else {                             /* cabe una fraccion  */
+            double frac = (double) resto / a[i].peso;
+            total += a[i].valor * frac;
+            resto = 0;
+        }
+    }
+    return total;
+}</pre></div>
+            </section>
+            <section data-tab="Dinámica">
+              <div class="bg-slate-900 text-slate-100 rounded-xl p-4 overflow-x-auto"><p class="text-[10px] uppercase tracking-widest text-slate-400 mb-2">C</p><pre class="text-xs font-mono leading-5">int V[N + 1][W + 1];
+
+int dinamica_cero_uno(Objeto a[], int n, int capacidad)
+{
+    for (int w = 0; w &lt;= capacidad; w++) V[0][w] = 0;
+
+    for (int i = 1; i &lt;= n; i++) {
+        for (int w = 0; w &lt;= capacidad; w++) {
+            V[i][w] = V[i - 1][w];                 /* no se toma */
+            if (a[i - 1].peso &lt;= w) {              /* si cabe     */
+                int con = V[i - 1][w - a[i - 1].peso] + a[i - 1].valor;
+                if (con &gt; V[i][w]) V[i][w] = con;
+            }
+        }
+    }
+    return V[n][capacidad];
+}</pre></div>
+            </section>
+            <section data-tab="Reconstrucción">
+              <div class="bg-slate-900 text-slate-100 rounded-xl p-4 overflow-x-auto"><p class="text-[10px] uppercase tracking-widest text-slate-400 mb-2">C</p><pre class="text-xs font-mono leading-5">void reconstruir(Objeto a[], int n, int capacidad)
+{
+    int w = capacidad;
+
+    printf("  objetos elegidos:");
+    for (int i = n; i &gt; 0; i--) {
+        if (V[i][w] != V[i - 1][w]) {         /* el objeto i entro */
+            printf(" %d", a[i - 1].indice);
+            w -= a[i - 1].peso;
+        }
+    }
+    printf("   (peso usado %d de %d)\n", capacidad - w, capacidad);
+}</pre></div>
+            </section>
+          </div>
+        </div>
+      `,
+      notes: 'Código en vivo 20 min con la diap. 23. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-bolsa.c. Compilar: gcc -Wall -o bolsa S08-bolsa.c && ./bolsa. Predicción (3 min): cada pareja anota cuánto dará el voraz 0/1; casi todos dirán 40 y la salida dirá 30.'
+    },
+    {
+      id: 'pnn8-23',
+      title: 'Salida real · 46 / 30 / 40',
+      contentHtml: `
+        <div class="space-y-3">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4" data-reveal>
+            <p class="text-xs font-bold text-emerald-900 mb-1">Salida de ./bolsa (extracto)</p>
+            <pre class="text-[11px] font-mono text-emerald-950 leading-5">  fraccionaria: objeto 1 entero  ( 6/10)  valor   30.0
+  fraccionaria: objeto 2 al 80%      ( 4/10)  valor   46.0
+  voraz 0/1:     objeto 1 entero  ( 6/10)  valor     30
+  voraz 0/1:     objeto 2 descartado ( 5/10)
+  voraz 0/1:     objeto 3 descartado ( 5/10)
+
+  RESULTADO fraccionaria (voraz) :   46.0
+  RESULTADO 0/1 voraz            :     30   &lt;-- no es el optimo
+  RESULTADO 0/1 dinamica         :     40
+
+      w:   0   1   2   3   4   5   6   7   8   9  10
+  i=0         0   0   0   0   0   0   0   0   0   0   0
+  i=1 o1     0   0   0   0   0   0  30  30  30  30  30
+  i=2 o2     0   0   0   0   0  20  30  30  30  30  30
+  i=3 o3     0   0   0   0   0  20  30  30  30  30  40
+  objetos elegidos: 3 2   (peso usado 10 de 10)</pre>
+          </div>
+          <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+            <li data-reveal><strong>46,0</strong>: la fraccionaria usa toda la capacidad (80 % del objeto 2). Por eso el voraz es óptimo ahí.</li>
+            <li data-reveal><strong>30</strong>: el mismo orden, sin poder partir, <strong>desperdicia 4 unidades</strong> de capacidad.</li>
+            <li data-reveal><strong>40</strong>: el óptimo está en la combinación 2 + 3, que el voraz nunca consideró.</li>
+            <li data-reveal>En la fila <code>i=3</code>, columna 10, el valor <strong>salta de 30 a 40</strong>: ahí se ve el punto exacto donde el voraz se detuvo.</li>
+            <li data-reveal>La reconstrucción devuelve los objetos <strong>2 y 3</strong>: la tabla da el valor <em>y</em> la decisión.</li>
+          </ol>
+        </div>
+      `,
+      notes: 'Salida real (gcc, 12/11/2026); sin aleatoriedad, idéntica en cualquier equipo. Aclarar que el programa verifica esta instancia, no demuestra los teoremas: la prueba está en las diap. 19 y 21.'
+    },
+    {
+      id: 'pnn8-24',
+      title: 'Práctica guiada · la tabla de W = 4',
+      contentHtml: `
+        <div class="space-y-3">
+          <div class="bg-teal-50 border border-teal-300 rounded-xl p-3 text-sm text-teal-950 font-mono">
+            W = 4 &nbsp;·&nbsp; A (3, 5) &nbsp;·&nbsp; B (2, 3) &nbsp;·&nbsp; C (2, 3)
+          </div>
+          <div class="grid md:grid-cols-4 gap-2 text-xs text-slate-600">
+            <div class="bg-white border rounded-lg p-2">1 · Densidades y orden voraz</div>
+            <div class="bg-white border rounded-lg p-2">2 · ¿Cuánto da el voraz 0/1?</div>
+            <div class="bg-white border rounded-lg p-2">3 · Llenar la tabla 3 × 5</div>
+            <div class="bg-white border rounded-lg p-2">4 · Reconstruir y comparar</div>
+          </div>
+          <table class="w-full text-sm border-collapse">
+            <thead><tr class="bg-slate-700 text-white"><th class="p-2 border text-left">V(i, w)</th><th class="p-2 border">0</th><th class="p-2 border">1</th><th class="p-2 border">2</th><th class="p-2 border">3</th><th class="p-2 border">4</th></tr></thead>
+            <tbody>
+              <tr><td class="p-2 border font-bold">i = 0</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td></tr>
+              <tr><td class="p-2 border font-bold">i = 1 · A</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td></tr>
+              <tr><td class="p-2 border font-bold">i = 2 · B</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td></tr>
+              <tr><td class="p-2 border font-bold">i = 3 · C</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td></tr>
+            </tbody>
+          </table>
+          <p class="text-sm text-slate-600">12 min en parejas. La tabla se llena en el <strong>cuaderno</strong> y se completa en la pizarra entre todos; no se proyecta resuelta.</p>
+        </div>
+      `,
+      notes: 'Respuestas: densidades A 1,67 · B 1,50 · C 1,50. Voraz 0/1: A (peso 3) y nada más → 5. Tabla: fila 1 = 0 0 0 5 5 · fila 2 = 0 0 3 5 5 · fila 3 = 0 0 3 5 6. Óptimo 6 con B + C (peso 4). La tabla contradice al voraz, igual que en la instancia grande.'
+    },
+    {
+      id: 'pnn8-25',
+      title: 'Práctica autónoma en parejas',
+      contentHtml: `
+        <div class="space-y-3">
+          <p class="text-sm text-slate-600">16 min. Cuaderno. Se corrigen dos ejercicios al final; no se entrega.</p>
+          <div class="space-y-2 text-sm text-slate-700">
+            <div class="bg-white border rounded-xl p-3" data-reveal><strong>1.</strong> La instancia del código con capacidad <strong>8</strong>: calcule el valor de la fraccionaria y el de la 0/1. ¿Se acercan o se separan?</div>
+            <div class="bg-white border rounded-xl p-3" data-reveal><strong>2.</strong> <em>Casos borde:</em> ¿qué pasa si un objeto pesa 0? ¿Y si la capacidad es 0? Una línea por caso.</div>
+            <div class="bg-white border rounded-xl p-3" data-reveal><strong>3.</strong> Con <code>n = 100</code>: ¿cuántas combinaciones tiene la búsqueda exhaustiva? ¿Qué implica frente a una tabla de <code>100 × W</code>?</div>
+            <div class="bg-white border rounded-xl p-3" data-reveal><strong>4.</strong> <code>W = 3</code>; A (1, 100) y B (2, 50). ¿Se equivoca aquí el voraz? Explique por qué.</div>
+          </div>
+        </div>
+      `,
+      notes: 'Respuestas: 1. Fraccionaria 30 + 2/5·20 = 38,0; 0/1 óptimo 30 (B+C pesa 10 > 8) → se separan en 8. 2. Peso 0: la densidad divide entre cero (precondición w > 0); en 0/1 entra siempre. Capacidad 0: ambos dan 0. 3. 2^100 ≈ 1,27·10^30; la dinámica es pseudopolinomial (depende de W), no polinomial en n. 4. Voraz 150 = óptimo: el más denso también es el más pequeño y no bloquea nada.'
+    },
+    {
+      id: 'pnn8-26',
+      title: 'Cierre · misma selección, distinta factibilidad',
+      contentHtml: `
+        <div class="space-y-4">
+          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white p-6 rounded-2xl">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Idea de la clase</p>
+            <p class="text-lg md:text-xl font-bold mt-2 leading-snug">La selección es la misma; la factibilidad no. Con fracciones el voraz es óptimo y se prueba por intercambio; sin fracciones hay que ver todas las combinaciones — y eso se hace con una tabla, no con una corazonada.</p>
+          </div>
+          <div class="bg-white border-l-4 border-teal-600 rounded-xl p-4">
+            <p class="font-bold text-slate-900">Ticket de salida</p>
+            <p class="text-slate-700 text-sm mt-1">En dos líneas: ¿por qué el método de adquisición falla en la variante 0/1 y por qué no falla en la fraccionaria?</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Jueves 19/11 · prueba 10 %</p><p class="text-rose-900 mt-1">Unidad II, divide y conquista. Incluye Sortmerge 2: la variante se confirma al inicio de esa sesión.</p></div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Para la próxima</p><p class="text-slate-700 mt-1">Traer el cuaderno con la tabla de hoy y la comparación de las tres estrategias.</p></div>
+          </div>
+        </div>
+      `,
+      notes: 'Respuesta esperada del ticket: en la fraccionaria siempre se puede llenar el hueco restante con una porción del objeto más denso, y el intercambio no pierde valor; en la 0/1 la elección local puede bloquear una combinación mejor (la de los objetos 2 + 3). Sin prueba, el método es una costumbre.'
+    },
+    {
+      id: 'pnn8-27',
+      title: 'Fuentes del viernes',
+      contentHtml: `
+        <div class="space-y-4 text-sm">
+          <h3 class="text-xl font-bold text-slate-900">Fuentes de la sesión</h3>
+          <ul class="space-y-2 text-slate-700">
+            <li>GeeksforGeeks. <em>Fractional Knapsack</em>. https://www.geeksforgeeks.org/dsa/fractional-knapsack-problem/</li>
+            <li>GeeksforGeeks. <em>0/1 Knapsack Problem</em>. https://www.geeksforgeeks.org/dsa/0-1-knapsack-problem-dp-10/</li>
+            <li>Cormen, T., Leiserson, C., Rivest, R. y Stein, C. (2009). <em>Introduction to Algorithms</em> (3.ª ed.), cap. 15 y 16. MIT Press.</li>
+            <li>Bourke, C. <em>Computer Science II</em>, cap. 5 «Algorithm Analysis».</li>
+          </ul>
+          <p class="text-xs text-slate-500">Programa analítico U-III y PGA 2026-2. Cormen se cita como referencia teórica de la programación dinámica y del argumento de intercambio: no hay ejemplar en la biblioteca del docente.</p>
+        </div>
+      `,
+      notes: 'Si el docente incorpora Cormen a la biblioteca, fijar las páginas del capítulo 15 (subestructura óptima) y del capítulo 16 (argumento de intercambio).'
     }
   ]
 };
