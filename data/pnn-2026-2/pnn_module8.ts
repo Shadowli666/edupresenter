@@ -4,7 +4,7 @@ export const PNN_MODULE_8: Module = {
   id: 'pnn-mod-8',
   title: '8. El método de adquisición: cintas magnéticas y bolsa de papel',
   description:
-    'Semana 8: jueves 12/11 — el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel en sus dos variantes: fraccionaria (el voraz es óptimo, prueba por intercambio) y 0/1 (el voraz falla: contraejemplo y programación dinámica). Unidad III.1–III.2.',
+    'Semana 8: jueves 12/11 — devolución de la ficha de la S7 y rescate de la noción de eficiencia (qué mide la O grande, tabla de crecimiento y comparación entre algoritmos) antes de abrir la unidad; después, el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel en sus dos variantes: fraccionaria (el voraz es óptimo, prueba por intercambio) y 0/1 (el voraz falla: contraejemplo y programación dinámica). Unidad III.1–III.2.',
   evaluation: '0%',
   slides: [
     {
@@ -26,24 +26,137 @@ export const PNN_MODULE_8: Module = {
           <p class="text-sm text-slate-500">Jueves 12/11/2026 · 16:45–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
-      notes: 'Activación 7 min con las diap. 2 y 3. Sin laboratorio: el docente ejecuta S08-cintas.c desde el proyector; los estudiantes trabajan en el cuaderno. Lista de cotejo (0 %) sobre la práctica.'
+      notes: 'La clase abre con la devolución de la ficha y el rescate de la O grande en las diap. 3 a 6 (22 min); el método de adquisición empieza en la diap. 7. Sin laboratorio: el docente ejecuta S08-cintas.c desde el proyector; los estudiantes trabajan en el cuaderno. Lista de cotejo (0 %) sobre la práctica guiada.'
     },
     {
       id: 'pnn8-2',
       title: 'Ruta del jueves',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-slate-600 text-lg">En la S7 comparamos el costo de <strong>partir</strong> un problema. Hoy la pregunta cambia: ¿qué hacemos cuando el problema <strong>no se parte</strong>, sino que hay que <strong>elegir</strong> paso a paso?</p>
+          <p class="text-slate-600 text-lg">Abrimos con la <strong>devolución de la ficha</strong> y una idea que faltaba: qué mide la O grande y cómo se comparan dos algoritmos. Después cambia la pregunta: ¿qué hacemos cuando el problema <strong>no se parte</strong>, sino que hay que <strong>elegir</strong> paso a paso?</p>
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Teoría</p><h3 class="text-lg font-bold text-teal-950 mt-2">El método</h3><p class="text-sm text-teal-900 mt-2">Cuatro piezas, dos condiciones de uso y una fórmula.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-slate-700">Código en vivo</p><h3 class="text-lg font-bold text-slate-950 mt-2">Cintas en C</h3><p class="text-sm text-slate-700 mt-2">Creciente, decreciente y las 120 permutaciones.</p></div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Calcular el MRT</h3><p class="text-sm text-emerald-900 mt-2">Guiada en pizarra y autónoma en parejas.</p></div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Calcular el MRT</h3><p class="text-sm text-emerald-900 mt-2">Guiada en pizarra, completando la tabla entre todos.</p></div>
           </div>
         </div>
       `
     },
     {
       id: 'pnn8-3',
+      title: 'Devolución · lo que la ficha pidió y lo que se respondió',
+      contentHtml: `
+        <div class="space-y-5">
+          <div class="bg-slate-900 text-white rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-widest font-bold text-amber-300">Devolución de la ficha del viernes 06/11</p>
+            <p class="text-lg md:text-xl font-semibold mt-2 leading-snug">La ficha pidió <strong>aplicar el Teorema Maestro</strong> a cuatro casos nuevos. Eso exige tener el Teorema consolidado; no era el objetivo de la semana ni es el centro de la prueba del 19/11.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-4">
+              <p class="text-xs uppercase font-bold text-rose-700">Lo que costó</p>
+              <ul class="mt-2 space-y-1 text-rose-950">
+                <li data-reveal>Tres representaciones formales nuevas en 24 minutos.</li>
+                <li data-reveal>Una regla de tres casos (<code>a</code> frente a <code>b<sup>d</sup></code>) sin imagen que la sostenga.</li>
+                <li data-reveal>Cuatro recurrencias para resolver el viernes, sin margen para consolidar.</li>
+              </ul>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+              <p class="text-xs uppercase font-bold text-emerald-700">Lo que sí funcionó</p>
+              <ul class="mt-2 space-y-1 text-emerald-950">
+                <li data-reveal>Leer la tabla de conteos y comparar los dos algoritmos.</li>
+                <li data-reveal>Explicar por qué el arreglo ordenado castiga a Quicksort.</li>
+                <li data-reveal>Contar comparaciones en una traza concreta.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600">Hoy se recupera la idea que hacía falta —qué significa que un algoritmo sea eficiente— y se deja el Teorema Maestro como herramienta de consulta. Los 20 minutos siguientes valen más que la fórmula.</p>
+        </div>
+      `,
+      notes: 'Devolución en 4 min, sin nombres ni notas individuales. Tono: el diseño de la sesión pidió más de lo que el objetivo requería; el grupo respondió a lo que se le pidió. No abrir debate sobre la calificación de la ficha: es formativa (0 %).'
+    },
+    {
+      id: 'pnn8-4',
+      title: 'Qué mide la O grande (y qué no)',
+      contentHtml: `
+        <div class="space-y-5">
+          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white p-6 rounded-2xl">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">La idea en una frase</p>
+            <p class="text-xl md:text-2xl font-bold mt-2 leading-snug">La O grande no mide segundos: mide <em>cómo crece</em> el trabajo cuando crece el tamaño de los datos.</p>
+          </div>
+          <div class="bg-white border rounded-xl p-4 text-sm text-slate-700">
+            <p><strong>Definición operativa.</strong> Decimos que el costo <code>f(n)</code> es <code>O(g(n))</code> si, a partir de cierto tamaño, <code>f(n)</code> no supera a <code>g(n)</code> multiplicada por una constante. Es decir: <strong>a partir de cierto punto, se comporta como <code>g</code></strong>.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p class="font-bold text-amber-950">Con pocos datos no se nota</p>
+              <p class="text-amber-900 mt-1">Con 10 elementos, un algoritmo <code>n²</code> y uno <code>n log n</code> tardan prácticamente lo mismo.</p>
+            </div>
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-4">
+              <p class="font-bold text-rose-950">Con muchos datos, decide todo</p>
+              <p class="text-rose-900 mt-1">Un algoritmo <code>n²</code> con 10⁶ de datos tarda minutos; con 10⁷, <strong>horas</strong>. El mismo programa, otro tamaño.</p>
+            </div>
+          </div>
+          <div class="bg-slate-100 rounded-xl p-4">
+            <p class="text-sm text-slate-700"><strong>La pregunta útil:</strong> si duplico los datos, ¿cuánto más trabajo hay? Si se duplica, es lineal; si se cuadruplica, es cuadrático; si casi no cambia, es logarítmico.</p>
+          </div>
+        </div>
+      `,
+      notes: 'No entrar en la definición formal con épsilon y n0: la definición operativa basta para la asignatura y el libro la desarrolla en §5.4.1 (pp. 109-110). El dato de los 8 minutos con 10⁶ y las 13 horas con 10⁷ es de Bourke, §5.1 (p. 102).'
+    },
+    {
+      id: 'pnn8-5',
+      title: 'La tabla de crecimiento',
+      contentHtml: `
+        <div class="space-y-3">
+          <p class="text-sm text-slate-600">Costo aproximado según el tamaño de la entrada. Se genera con <code>S08-big-o.c</code> y se copia en el cuaderno.</p>
+          <table class="w-full text-sm border-collapse text-center">
+            <thead><tr class="bg-slate-700 text-white"><th class="p-2 border">n</th><th class="p-2 border">log₂ n</th><th class="p-2 border">n</th><th class="p-2 border">n log₂ n</th><th class="p-2 border">n²</th><th class="p-2 border">2ⁿ</th></tr></thead>
+            <tbody class="font-mono">
+              <tr><td class="p-2 border font-bold">10</td><td class="p-2 border">3,3</td><td class="p-2 border">10</td><td class="p-2 border">33</td><td class="p-2 border">100</td><td class="p-2 border">1 024</td></tr>
+              <tr class="bg-slate-50"><td class="p-2 border font-bold">100</td><td class="p-2 border">6,6</td><td class="p-2 border">100</td><td class="p-2 border">664</td><td class="p-2 border">10 000</td><td class="p-2 border">1,27·10³⁰</td></tr>
+              <tr><td class="p-2 border font-bold">1 000</td><td class="p-2 border">10,0</td><td class="p-2 border">1 000</td><td class="p-2 border">9 966</td><td class="p-2 border">1 000 000</td><td class="p-2 border">inabordable</td></tr>
+              <tr class="bg-slate-50"><td class="p-2 border font-bold">1 000 000</td><td class="p-2 border">19,9</td><td class="p-2 border">1 000 000</td><td class="p-2 border">19 931 396</td><td class="p-2 border">10¹²</td><td class="p-2 border">—</td></tr>
+            </tbody>
+          </table>
+          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
+            <p><strong>Cómo se lee:</strong> al pasar de 1 000 a 1 000 000 de datos (mil veces más), <code>log n</code> apenas se duplica, <code>n log n</code> se multiplica por 2 000 y <code>n²</code> por un millón. La misma comparación de antes, ahora con números.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-white border rounded-xl p-3"><strong>La tabla es el significado.</strong> Sirve para decidir sin ejecutar nada.</div>
+            <div class="bg-white border rounded-xl p-3"><strong>La recurrencia es el cálculo.</strong> Permite escribir la columna sin correr el programa.</div>
+          </div>
+        </div>
+      `,
+      notes: 'Proyectar la salida real de S08-big-o.c (tabla 1) y llenar la misma tabla en la pizarra antes de mostrarla. Preguntar primero: «¿cuántas veces más trabajo hay con mil veces más datos?». La respuesta 1 000 000 para n² es la que fija la idea.'
+    },
+    {
+      id: 'pnn8-6',
+      title: 'Comparar algoritmos · y el puente con la S7',
+      contentHtml: `
+        <div class="space-y-3">
+          <p class="text-sm text-slate-600">Los cuatro algoritmos de la unidad, con <code>n = 1 000 000</code> y la misma operación contada (comparaciones).</p>
+          <table class="w-full text-sm border-collapse">
+            <thead><tr class="bg-teal-700 text-white"><th class="p-2 border text-left">Algoritmo</th><th class="p-2 border">Orden</th><th class="p-2 border">Operaciones</th><th class="p-2 border text-left">Condición o riesgo</th></tr></thead>
+            <tbody>
+              <tr data-reveal><td class="p-2 border font-bold">Búsqueda binaria</td><td class="p-2 border"><code>O(log n)</code></td><td class="p-2 border font-mono">20</td><td class="p-2 border">Exige el arreglo ordenado</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Búsqueda secuencial</td><td class="p-2 border"><code>O(n)</code></td><td class="p-2 border font-mono">500 000</td><td class="p-2 border">No exige nada; paga el costo</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Sotmerge</td><td class="p-2 border"><code>O(n log n)</code></td><td class="p-2 border font-mono">19 931 396</td><td class="p-2 border">Necesita arreglo auxiliar</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Quicksort</td><td class="p-2 border"><code>O(n log n)</code> / <code>O(n²)</code></td><td class="p-2 border font-mono">19 931 396 / 5·10¹¹</td><td class="p-2 border">Depende del pivote y de la entrada</td></tr>
+            </tbody>
+          </table>
+          <div class="bg-slate-900 text-white rounded-xl p-4">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">El puente con la clase del jueves pasado</p>
+            <p class="text-sm mt-1 leading-relaxed">La recurrencia era la manera de obtener la columna «operaciones» <em>sin ejecutar el programa</em>: cuántas partes (<code>a</code>), de qué tamaño (<code>n/b</code>), cuánto cuesta juntarlas (<code>f(n)</code>). El árbol de recursión solo cuenta niveles. <strong>El Teorema Maestro es el atajo; la tabla es el significado.</strong></p>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-sm text-emerald-950">
+            <strong>Y lo que la prueba pide:</strong> trazas y comparaciones. Con <code>n = 1024</code> los conteos reales dieron 5 120 (Sotmerge, ordenado) y 523 776 (Quicksort, ordenado): <strong>102 veces más</strong>, con la misma recurrencia.
+          </div>
+        </div>
+      `,
+      notes: 'Este es el cierre del rescate y la frase que hay que dejar escrita: «el Teorema Maestro es el atajo; la tabla es el significado». Los conteos reales son de S07-conteo.c. Si preguntan si el Teorema entra en la prueba: lo que se evalúa son trazas y comparaciones; el Teorema queda como herramienta de consulta.'
+    },
+    {
+      id: 'pnn8-7',
       title: 'Activación · ¿partir o elegir?',
       contentHtml: `
         <div class="space-y-5">
@@ -56,13 +169,13 @@ export const PNN_MODULE_8: Module = {
             <div class="bg-white border-l-4 border-teal-500 rounded-xl p-3" data-reveal><strong>Ahora:</strong> ¿qué se elige en cada paso y qué se gana con esa elección?</div>
             <div class="bg-white border-l-4 border-teal-500 rounded-xl p-3" data-reveal><strong>Siempre:</strong> una función de costo. Sin ella no hay optimización posible.</div>
           </div>
-          <p class="text-sm text-slate-600">Se anotan dos o tres respuestas en la pizarra <strong>sin corregirlas</strong>: se contrastan con la diapositiva 7 y con el código.</p>
+          <p class="text-sm text-slate-600">Se anotan dos o tres respuestas en la pizarra <strong>sin corregirlas</strong>: se contrastan con la diapositiva 11 y con el código.</p>
         </div>
       `,
       notes: 'No corregir las respuestas iniciales: la clase se cierra volviendo a ellas. Si alguien menciona «el más pequeño primero», no confirmarlo todavía: es la hipótesis que hay que probar.'
     },
     {
-      id: 'pnn8-4',
+      id: 'pnn8-8',
       title: 'El método de adquisición',
       contentHtml: `
         <div class="space-y-4">
@@ -85,7 +198,7 @@ export const PNN_MODULE_8: Module = {
       notes: 'Las cuatro piezas se escriben en la pizarra antes de la diapositiva y se piden con la pregunta, no se leen. «Adquisición» es el nombre de la cátedra; «voraz» es el de la literatura: conviene decir ambos.'
     },
     {
-      id: 'pnn8-5',
+      id: 'pnn8-9',
       title: 'Condiciones de uso · cuándo falla',
       contentHtml: `
         <div class="space-y-4">
@@ -113,7 +226,7 @@ export const PNN_MODULE_8: Module = {
       notes: 'No desarrollar la mochila: solo se nombra como contraejemplo y se deja abierta para el viernes (sugerencia didáctica 3). La distinción fraccionaria/0-1 es la que hace visible por qué falla.'
     },
     {
-      id: 'pnn8-6',
+      id: 'pnn8-10',
       title: 'La cinta magnética · T_i y MRT',
       contentHtml: `
         <div class="space-y-4">
@@ -142,10 +255,10 @@ export const PNN_MODULE_8: Module = {
           </div>
         </div>
       `,
-      notes: 'Preguntar «¿cuál va primero?» y anotar en la pizarra sin corregir. La respuesta se contrasta en la diap. 7 (fórmula) y en la diap. 10 (salida real).'
+      notes: 'Preguntar «¿cuál va primero?» y anotar en la pizarra sin corregir. La respuesta se contrasta en la diap. 11 (fórmula) y en la diap. 13 (salida real).'
     },
     {
-      id: 'pnn8-7',
+      id: 'pnn8-11',
       title: 'Por qué el orden creciente es óptimo',
       contentHtml: `
         <div class="space-y-4">
@@ -170,7 +283,7 @@ export const PNN_MODULE_8: Module = {
       notes: 'La fórmula se escribe en la pizarra con los coeficientes n, n−1, …, 1 debajo de las longitudes. Sugerencia didáctica 2: mover una tarjeta con un número grande al último lugar para que se vea el efecto en el coeficiente.'
     },
     {
-      id: 'pnn8-8',
+      id: 'pnn8-12',
       title: 'Tabla comparativa · partir frente a elegir',
       contentHtml: `
         <div class="space-y-4">
@@ -188,10 +301,10 @@ export const PNN_MODULE_8: Module = {
           </div>
         </div>
       `,
-      notes: 'Cerrar la teoría con esta tabla y volver a la pregunta de la diap. 3: lo que se elige en cada paso es lo que distingue al método. No se resuelven recurrencias: solo se contrasta.'
+      notes: 'Cerrar la teoría con esta tabla y volver a la pregunta de la diap. 7: lo que se elige en cada paso es lo que distingue al método. No se resuelven recurrencias: solo se contrasta.'
     },
     {
-      id: 'pnn8-9',
+      id: 'pnn8-13',
       title: 'Código en vivo · S08-cintas.c',
       contentHtml: `
         <div class="space-y-3">
@@ -262,10 +375,10 @@ void permutar(int nivel, int n)
           </div>
         </div>
       `,
-      notes: 'Código en vivo 20 min con la diap. 10. El archivo también guarda peor_suma/peor_orden y el contador de permutaciones exploradas: en la diapositiva solo se muestra el bloque mínimo. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-cintas.c. Compilar con: gcc -Wall -o cintas S08-cintas.c && ./cintas. Predicción (3 min) antes de ejecutar: cada pareja anota su MRT estimado para el orden creciente. La enumeración es solo verificación: la demostración general es el argumento de intercambio de la diap. 7.'
+      notes: 'Código en vivo 18 min con las diap. 12 y 13. El archivo también guarda peor_suma/peor_orden y el contador de permutaciones exploradas: en la diapositiva solo se muestra el bloque mínimo. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-cintas.c. Compilar con: gcc -Wall -o cintas S08-cintas.c && ./cintas. Predicción (3 min) antes de ejecutar: cada pareja anota su MRT estimado para el orden creciente. La enumeración es solo verificación: la demostración general es el argumento de intercambio de la diap. 11.'
     },
     {
-      id: 'pnn8-10',
+      id: 'pnn8-14',
       title: 'Salida real · 77 frente a 127',
       contentHtml: `
         <div class="space-y-4">
@@ -291,10 +404,10 @@ El orden creciente SI es el optimo.</pre>
           </ol>
         </div>
       `,
-      notes: 'Salida real (gcc, 12/11/2026); sin generador aleatorio, es idéntica en cualquier equipo. Volver a las respuestas anotadas en la diap. 3/6: ¿quién dijo «el más pequeño primero»? ¿quién dijo «el más grande primero»?'
+      notes: 'Salida real (gcc, 12/11/2026); sin generador aleatorio, es idéntica en cualquier equipo. Volver a las respuestas anotadas en la diap. 7 y 11: ¿quién dijo «el más pequeño primero»? ¿quién dijo «el más grande primero»?'
     },
     {
-      id: 'pnn8-11',
+      id: 'pnn8-15',
       title: 'Práctica guiada · los seis órdenes de {2, 5, 4}',
       contentHtml: `
         <div class="space-y-3">
@@ -318,11 +431,11 @@ El orden creciente SI es el optimo.</pre>
       notes: 'Respuestas: 2,5,4 → 20 / 6,67 · 2,4,5 → 19 / 6,33 (óptimo) · 5,2,4 → 23 / 7,67 · 5,4,2 → 25 / 8,33 · 4,2,5 → 21 / 7,00 · 4,5,2 → 24 / 8,00. No dictar la tabla: se construye con los estudiantes en la pizarra (12 min).'
     },
     {
-      id: 'pnn8-12',
-      title: 'Práctica autónoma en parejas',
+      id: 'pnn8-16',
+      title: 'Ejercicios para la casa',
       contentHtml: `
         <div class="space-y-4">
-          <p class="text-sm text-slate-600">18 min. Cuaderno. Se corrige al final, no se entrega.</p>
+          <p class="text-sm text-slate-600">No se resuelven en clase. Se corrigen al inicio del viernes, en 4 minutos, y no se entregan.</p>
           <div class="space-y-2 text-sm text-slate-700">
             <div class="bg-white border rounded-xl p-3" data-reveal><strong>1.</strong> Longitudes <code>10, 3, 7, 1, 6</code>. Escriba el orden óptimo, la suma de los <code>T<sub>i</sub></code> y el MRT.</div>
             <div class="bg-white border rounded-xl p-3" data-reveal><strong>2.</strong> Si <em>todas</em> las longitudes fueran iguales a <code>L</code>, ¿importa el orden? Justifique con la fórmula.</div>
@@ -331,10 +444,10 @@ El orden creciente SI es el optimo.</pre>
           </div>
         </div>
       `,
-      notes: 'Respuestas: 1. Orden 1,3,6,7,10; Σ T = 5·1+4·3+3·6+2·7+1·10 = 59; MRT = 11,8. 2. No importa: Σ T = L·n(n+1)/2, independiente del orden. 3. (A) 10 + 28 = 38; (B) 14 + 20 = 34 → mejor B. 4. La enumeración es O(n!) y deja de ser viable; solo se usa para verificar en casos pequeños, y el algoritmo voraz se justifica con la prueba.'
+      notes: 'Sin práctica autónoma en clase (decisión docente del 12/11): la diapositiva queda como trabajo para la casa y se corrige en 4 min al inicio del viernes. Respuestas: 1. Orden 1,3,6,7,10; Σ T = 5·1+4·3+3·6+2·7+1·10 = 59; MRT = 11,8. 2. No importa: Σ T = L·n(n+1)/2, independiente del orden. 3. (A) 10 + 28 = 38; (B) 14 + 20 = 34 → mejor B. 4. La enumeración es O(n!) y deja de ser viable; solo se usa para verificar en casos pequeños, y el algoritmo voraz se justifica con la prueba.'
     },
     {
-      id: 'pnn8-13',
+      id: 'pnn8-17',
       title: 'Cierre y anuncio del viernes',
       contentHtml: `
         <div class="space-y-5">
@@ -355,24 +468,25 @@ El orden creciente SI es el optimo.</pre>
       notes: 'Ticket esperado: 1, 5, 9; Σ T = 3 + 6 + 15 = 24; MRT = 8. Anunciar el viernes (bolsa de papel) y la prueba del 19/11. El enunciado exacto de la bolsa de papel está pendiente de confirmación por el docente.'
     },
     {
-      id: 'pnn8-14',
+      id: 'pnn8-18',
       title: 'Fuentes del jueves',
       contentHtml: `
         <div class="space-y-4 text-sm">
-          <h3 class="text-xl font-bold text-slate-900">Fuentes de la semana</h3>
+          <h3 class="text-xl font-bold text-slate-900">Fuentes de la sesión</h3>
           <ul class="space-y-2 text-slate-700">
+            <li>Bourke, C. <em>Computer Science II</em>, cap. 5 «Algorithm Analysis» — §5.1 (p. 102) y §5.4.1 (pp. 109–110).</li>
             <li>GeeksforGeeks. <em>Optimal Storage on Tapes</em>. https://www.geeksforgeeks.org/dsa/optimal-storage-tapes/</li>
             <li>GeeksforGeeks. <em>Greedy Algorithms</em>. https://www.geeksforgeeks.org/dsa/greedy-algorithms/</li>
-            <li>Bourke, C. <em>Computer Science II</em>, cap. 5 «Algorithm Analysis».</li>
             <li>Cormen, T., Leiserson, C., Rivest, R. y Stein, C. (2009). <em>Introduction to Algorithms</em> (3.ª ed.). MIT Press.</li>
+            <li>Programas de la cátedra: <code>S08-big-o.c</code> y <code>S08-cintas.c</code> (salidas reales del 12/11/2026).</li>
           </ul>
-          <p class="text-xs text-slate-500">Programa analítico U-III y PGA 2026-2. Cormen se cita como referencia teórica del argumento de intercambio: no hay ejemplar en la biblioteca del docente.</p>
+          <p class="text-xs text-slate-500">Programa analítico U-II y U-III y PGA 2026-2. Bourke es la fuente del rescate: definición de O grande y evidencia empírica. Cormen se cita como referencia teórica del argumento de intercambio: no hay ejemplar en la biblioteca del docente.</p>
         </div>
       `,
       notes: 'Si el docente incorpora Cormen a la biblioteca, fijar la página del argumento de intercambio (cap. 16, «Greedy Algorithms», sección de colas de prioridad / scheduling).'
     },
     {
-      id: 'pnn8-15',
+      id: 'pnn8-19',
       title: 'Viernes 13/11 · El problema de la bolsa de papel',
       contentHtml: `
         <div class="space-y-7">
@@ -391,10 +505,10 @@ El orden creciente SI es el optimo.</pre>
           <p class="text-sm text-slate-500">Viernes 13/11/2026 · 16:45–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
-      notes: 'Inicio 5 min con las diap. 16 y 17. Devolución de 60 s del ticket del jueves (orden 1,5,9; MRT 8). Lista de cotejo (0 %) sobre la práctica.'
+      notes: 'Inicio 5 min con las diap. 20 y 21. Devolución de 60 s del ticket del jueves (orden 1,5,9; MRT 8). Lista de cotejo (0 %) sobre la práctica.'
     },
     {
-      id: 'pnn8-16',
+      id: 'pnn8-20',
       title: 'Ruta del viernes',
       contentHtml: `
         <div class="space-y-6">
@@ -408,7 +522,7 @@ El orden creciente SI es el optimo.</pre>
       `
     },
     {
-      id: 'pnn8-17',
+      id: 'pnn8-21',
       title: 'Pregunta puente · ¿el voraz funciona siempre?',
       contentHtml: `
         <div class="space-y-5">
@@ -423,10 +537,10 @@ El orden creciente SI es el optimo.</pre>
           <p class="text-sm text-slate-600">Se anota la respuesta del grupo en la pizarra y se vuelve a ella en el cierre.</p>
         </div>
       `,
-      notes: 'No responder todavía. La respuesta se construye con el contraejemplo de la diap. 20 y se cierra en la diap. 26.'
+      notes: 'No responder todavía. La respuesta se construye con el contraejemplo de la diap. 24 y se cierra en la diap. 30.'
     },
     {
-      id: 'pnn8-18',
+      id: 'pnn8-22',
       title: 'El problema · una bolsa, dos enunciados',
       contentHtml: `
         <div class="space-y-4">
@@ -452,7 +566,7 @@ El orden creciente SI es el optimo.</pre>
       notes: 'Escribir la frase final en la pizarra y dejarla toda la clase. Es la idea que se evalúa en el ticket de salida.'
     },
     {
-      id: 'pnn8-19',
+      id: 'pnn8-23',
       title: 'Fraccionaria · densidad y prueba',
       contentHtml: `
         <div class="space-y-4">
@@ -478,7 +592,7 @@ El orden creciente SI es el optimo.</pre>
       notes: 'El argumento se construye con preguntas: «si sobra capacidad, ¿qué hago?»; «si está llena, ¿qué hay dentro que valga menos por unidad de peso?». No dictar los tres pasos.'
     },
     {
-      id: 'pnn8-20',
+      id: 'pnn8-24',
       title: '0/1 · el contraejemplo',
       contentHtml: `
         <div class="space-y-4">
@@ -511,7 +625,7 @@ El orden creciente SI es el optimo.</pre>
       notes: 'Escribir la instancia en la pizarra y dejar que la resuelvan antes de mostrar la comparación. La frase «no pertenece a ninguna solución óptima» es la clave conceptual.'
     },
     {
-      id: 'pnn8-21',
+      id: 'pnn8-25',
       title: '0/1 · la tabla y la recurrencia',
       contentHtml: `
         <div class="space-y-4">
@@ -535,10 +649,10 @@ V(i, w) = max( V(i−1, w),                  si w<sub>i</sub> ≤ w<br>
           </div>
         </div>
       `,
-      notes: 'No dar la tabla hecha: se construye en el código (diap. 23) y en la práctica guiada (diap. 24). Aquí solo la definición y el costo.'
+      notes: 'No dar la tabla hecha: se construye en el código (diap. 27) y en la práctica guiada (diap. 28). Aquí solo la definición y el costo.'
     },
     {
-      id: 'pnn8-22',
+      id: 'pnn8-26',
       title: 'Código en vivo · S08-bolsa.c',
       contentHtml: `
         <div class="space-y-3">
@@ -600,10 +714,10 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
           </div>
         </div>
       `,
-      notes: 'Código en vivo 20 min con la diap. 23. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-bolsa.c. Compilar: gcc -Wall -o bolsa S08-bolsa.c && ./bolsa. Predicción (3 min): cada pareja anota cuánto dará el voraz 0/1; casi todos dirán 40 y la salida dirá 30.'
+      notes: 'Código en vivo 20 min con la diap. 27. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-bolsa.c. Compilar: gcc -Wall -o bolsa S08-bolsa.c && ./bolsa. Predicción (3 min): cada pareja anota cuánto dará el voraz 0/1; casi todos dirán 40 y la salida dirá 30.'
     },
     {
-      id: 'pnn8-23',
+      id: 'pnn8-27',
       title: 'Salida real · 46 / 30 / 40',
       contentHtml: `
         <div class="space-y-3">
@@ -635,10 +749,10 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
           </ol>
         </div>
       `,
-      notes: 'Salida real (gcc, 12/11/2026); sin aleatoriedad, idéntica en cualquier equipo. Aclarar que el programa verifica esta instancia, no demuestra los teoremas: la prueba está en las diap. 19 y 21.'
+      notes: 'Salida real (gcc, 12/11/2026); sin aleatoriedad, idéntica en cualquier equipo. Aclarar que el programa verifica esta instancia, no demuestra los teoremas: la prueba está en las diap. 23 y 25.'
     },
     {
-      id: 'pnn8-24',
+      id: 'pnn8-28',
       title: 'Práctica guiada · la tabla de W = 4',
       contentHtml: `
         <div class="space-y-3">
@@ -666,7 +780,7 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
       notes: 'Respuestas: densidades A 1,67 · B 1,50 · C 1,50. Voraz 0/1: A (peso 3) y nada más → 5. Tabla: fila 1 = 0 0 0 5 5 · fila 2 = 0 0 3 5 5 · fila 3 = 0 0 3 5 6. Óptimo 6 con B + C (peso 4). La tabla contradice al voraz, igual que en la instancia grande.'
     },
     {
-      id: 'pnn8-25',
+      id: 'pnn8-29',
       title: 'Práctica autónoma en parejas',
       contentHtml: `
         <div class="space-y-3">
@@ -682,7 +796,7 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
       notes: 'Respuestas: 1. Fraccionaria 30 + 2/5·20 = 38,0; 0/1 óptimo 30 (B+C pesa 10 > 8) → se separan en 8. 2. Peso 0: la densidad divide entre cero (precondición w > 0); en 0/1 entra siempre. Capacidad 0: ambos dan 0. 3. 2^100 ≈ 1,27·10^30; la dinámica es pseudopolinomial (depende de W), no polinomial en n. 4. Voraz 150 = óptimo: el más denso también es el más pequeño y no bloquea nada.'
     },
     {
-      id: 'pnn8-26',
+      id: 'pnn8-30',
       title: 'Cierre · misma selección, distinta factibilidad',
       contentHtml: `
         <div class="space-y-4">
@@ -703,7 +817,7 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
       notes: 'Respuesta esperada del ticket: en la fraccionaria siempre se puede llenar el hueco restante con una porción del objeto más denso, y el intercambio no pierde valor; en la 0/1 la elección local puede bloquear una combinación mejor (la de los objetos 2 + 3). Sin prueba, el método es una costumbre.'
     },
     {
-      id: 'pnn8-27',
+      id: 'pnn8-31',
       title: 'Fuentes del viernes',
       contentHtml: `
         <div class="space-y-4 text-sm">
