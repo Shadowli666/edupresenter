@@ -347,8 +347,8 @@ El orden creciente SI es el optimo.</pre>
             <p class="text-slate-700 text-sm mt-1">Cinta con longitudes <code>5, 1, 9</code>: orden óptimo, <code>Σ T<sub>i</sub></code> y MRT.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-amber-800">Viernes 13/11</p><p class="font-bold text-amber-950 mt-1">El problema de la bolsa de papel</p><p class="text-amber-900 mt-1">Selección con restricción de capacidad y cierre de la Unidad III. Traer el cuaderno con la tabla de hoy.</p></div>
-            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Jueves 19/11</p><p class="font-bold text-rose-950 mt-1">Prueba escrita · 10 %</p><p class="text-rose-900 mt-1">Incluye Sortmerge 2: revisar la variante antes de la prueba.</p></div>
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-amber-800">Viernes 13/11</p><p class="font-bold text-amber-950 mt-1">El problema de la bolsa de papel</p><p class="text-amber-900 mt-1">Selección con restricción de capacidad y cierre del método de adquisición (III.1–III.2). Traer el cuaderno con la tabla de hoy.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Jueves 19/11</p><p class="font-bold text-rose-950 mt-1">Prueba escrita · 10 %</p><p class="text-rose-900 mt-1">Unidad II, divide y conquista. Incluye Sortmerge 2: revisar la variante antes de la prueba.</p></div>
           </div>
         </div>
       `,
