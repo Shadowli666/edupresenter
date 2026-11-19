@@ -22,6 +22,21 @@ const EVALUATIVAS = /\b(breves?|sencill[oa]s?|f[aá]cil(?:es|mente)?|cort[oa]s?|
 const JAVA = /(public\s+static\s+void\s+main|System\.out\.print|import\s+java\.|language-java|\bArrayList<|public\s+class\s+\w+)/;
 const TITULO_FUENTES = /^(fuentes|referencias|bibliograf[ií]a)/i;
 const ACTIVIDAD = /(pr[aá]ctica|ficha|ejercicio|taller|actividad|reto)/i;
+// Texto de guion en pantalla (decisión del docente 2026-11-19): la diapositiva no lleva
+// instrucciones de conducción, tiempos, etiquetas del plan ni remisiones a otra sesión.
+// Todo eso vive en `notes`. Cada pareja [patrón, descripción] produce un ERROR.
+const GUION_PANTALLA = [
+  [/[a-záéíóúüñ]\s*\(\s*\d{1,3}\s*min(utos)?\s*\)/i, 'tiempo de conducción («(N min)»)'],
+  [/pregunta puente/i, '«pregunta puente»'],
+  [/gui[oó]n de la sesi[oó]n/i, '«guion de la sesión»'],
+  [/conclusi[oó]n intuitiva/i, '«conclusión intuitiva»'],
+  [/vocabulario en la pizarra/i, '«vocabulario en la pizarra»'],
+  [/\b(diap\.|diapositivas?)\s*\d/i, 'referencia numerada a una diapositiva'],
+  [/(seg[uú]n el plan|plan de sesi[oó]n|nota de continuidad)/i, 'referencia al plan de sesión'],
+  [/\b(abrimos|cerramos|vemos|volvemos|seguimos|contrastamos)\s+(el|la|los|las|con|en)\s+(viernes|jueves|lunes)/i, 'remisión a otra sesión'],
+  [/predicci[oó]n\s*\(\d/i, 'etiqueta de momento con tiempo'],
+];
+const PAREJAS = /\bparejas?\b/i;
 
 function uso(msg) {
   if (msg) console.error(`ERROR: ${msg}`);
@@ -166,7 +181,11 @@ async function main() {
     else if (/\bPENDIENTE:/.test(notas)) W(d, 'las notas conservan un PENDIENTE del andamiaje');
     if (/\bSAIA\b/.test(html)) E(d, 'menciona SAIA en el contenido para estudiantes');
     if (curso.startsWith('pnn') && (JAVA.test(html) || JAVA.test(notas))) E(d, 'código en Java (PNN II usa C, C++ o Python)');
-    const evaluativas = [...new Set((sinEtiquetas(html).match(EVALUATIVAS) || []).map((x) => x.toLowerCase()))];
+    const texto = sinEtiquetas(html);
+    const guion = [...new Set(GUION_PANTALLA.filter(([re]) => re.test(texto)).map(([, msg]) => msg))];
+    if (guion.length) E(d, `texto de guion en pantalla (${guion.join('; ')}): va en «notes», no en la diapositiva`);
+    if (PAREJAS.test(texto)) W(d, 'menciona trabajo en parejas: confirmar que la cátedra lo admite (en PNN II se trabaja individual desde el 19/11/2026)');
+    const evaluativas = [...new Set((texto.match(EVALUATIVAS) || []).map((x) => x.toLowerCase()))];
     if (evaluativas.length) W(d, `redacción valorativa para estudiantes: ${evaluativas.join(', ')}`);
     const nPal = palabras(html);
     if (nPal > UMBRAL_PALABRAS) W(d, `${nPal} palabras: probablemente no cabe o no es una sola idea (umbral ${UMBRAL_PALABRAS})`);

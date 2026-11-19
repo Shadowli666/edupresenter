@@ -38,9 +38,8 @@ export const PNN_MODULE_9: Module = {
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Teoría</p><h3 class="text-lg font-bold text-teal-950 mt-2">El método y la cinta</h3><p class="text-sm text-teal-900 mt-2">Cuatro piezas, dos condiciones de uso, la fila de pago y la fórmula del MRT.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-slate-700">Código en vivo</p><h3 class="text-lg font-bold text-slate-950 mt-2">Dos programas en C</h3><p class="text-sm text-slate-700 mt-2">Cintas: 15,40 frente a 25,40. Bolsa: 46,0 / 30 / 40 sobre la misma instancia.</p></div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Pizarra y parejas</h3><p class="text-sm text-emerald-900 mt-2">Los seis órdenes de la cinta corta; ficha de dos ejercicios para el cuaderno.</p></div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Pizarra y cuaderno</h3><p class="text-sm text-emerald-900 mt-2">Los seis órdenes de la cinta corta y dos ejercicios para el cuaderno.</p></div>
           </div>
-          <p class="text-sm text-slate-500">Balance del bloque: teoría 38 min · código 21 · práctica 19 · inicio y cierre 12. Total 90.</p>
         </div>
       `,
       notes: "La proporción expositiva sube a 42 % porque esta sesión comprime el contenido pendiente de la S8 (cintas y bolsa no se dictaron el 12 y 13/11). Es una corrección puntual: el viernes vuelve al patrón teoría 20–30 %."
@@ -60,9 +59,9 @@ export const PNN_MODULE_9: Module = {
               <p data-explain>O(n²) crece con el cuadrado: duplicar n cuadruplica el trabajo. La O grande mide crecimiento, no segundos.</p>
             </div>
           </div>
-          <p class="text-slate-700">2. ¿Cuál va primero en la cinta: el programa corto o el largo? Anote dos razones en el cuaderno; las contrastamos en la teoría.</p>
+          <p class="text-slate-700">2. ¿Cuál va primero en la cinta: el programa corto o el largo? Anote dos razones en el cuaderno.</p>
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p><strong>Pregunta puente:</strong> la S4–S7 partían el problema. ¿Qué pasa con los problemas que <strong>no se pueden partir</strong>, sino que hay que <strong>recorrer eligiendo</strong>?</p>
+            <p>La S4–S7 partían el problema. ¿Qué pasa con los problemas que <strong>no se pueden partir</strong>, sino que hay que <strong>recorrer eligiendo</strong>?</p>
           </div>
         </div>
       `,
@@ -112,8 +111,8 @@ export const PNN_MODULE_9: Module = {
             <p><strong>Sin las condiciones el método entrega una solución, no LA solución.</strong> Falla cuando una elección local buena cierra una puerta que después se necesita.</p>
           </div>
           <div class="bg-slate-900 text-white rounded-xl p-4 text-center">
-            <p class="text-sm uppercase tracking-widest text-teal-300">Guion de la sesión</p>
-            <p class="text-lg font-semibold mt-1">Hoy veremos al método <strong>ganar dos veces</strong> (cinta, bolsa fraccionaria) y <strong>perder una</strong> (bolsa 0/1).</p>
+            <p class="text-sm uppercase tracking-widest text-teal-300">Tres problemas, tres veredictos</p>
+            <p class="text-lg font-semibold mt-1">El método <strong>gana</strong> en la cinta y en la bolsa fraccionaria; <strong>pierde</strong> en la bolsa 0/1.</p>
           </div>
         </div>
       `,
@@ -156,7 +155,7 @@ export const PNN_MODULE_9: Module = {
               <p class="text-slate-600 mt-1">Los coeficientes <strong>decrecen</strong> (5, 4, 3, 2, 1): lo de adelante se paga en TODAS las recuperaciones.</p>
             </div>
             <div class="mt-2 text-sm bg-teal-50 border border-teal-200 rounded-lg p-3 text-teal-950" data-reveal>
-              <p><strong>Conclusión intuitiva:</strong> lo que se paga más veces debe ser lo más pequeño.</p>
+              <p><strong>Lo que se paga más veces debe ser lo más pequeño.</strong></p>
             </div>
           </div>
           <div class="bg-white border border-slate-200 rounded-xl p-4">
@@ -166,7 +165,7 @@ export const PNN_MODULE_9: Module = {
               <p class="text-slate-600 mt-1">Ningún orden con una inversión puede ser óptimo. El creciente es el óptimo.</p>
             </div>
           </div>
-          <p class="text-xs text-slate-500">Vocabulario en la pizarra: coeficiente (cuántas veces se paga) · inversión (dos en orden equivocado) · SPT (shortest processing time first).</p>
+          <p class="text-xs text-slate-500">Vocabulario: coeficiente (cuántas veces se paga) · inversión (dos en orden equivocado) · SPT (shortest processing time first).</p>
         </div>
       `,
       notes: "7 min. Este es el bloque que responde la pregunta puente de pnn9-3: 'el corto primero' era correcto, pero la razón son los coeficientes. El argumento de intercambio es la misma herramienta que la S7 llamó 'prueba': aquí se usa para ELEGIR, no para analizar recurrencias. Con la respuesta de la fila de pago ya dada, este formalismo es traducción, no contenido nuevo."
@@ -177,7 +176,7 @@ export const PNN_MODULE_9: Module = {
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm text-amber-950">
-            <p><strong>Predicción (2 min):</strong> cada pareja anota en el cuaderno el MRT estimado del orden creciente, ANTES de ejecutar.</p>
+            <p><strong>Antes de ejecutar:</strong> estime el MRT del orden creciente y anótelo en el cuaderno.</p>
           </div>
           <pre><code>/* cinco longitudes, ordenadas y no ordenadas */
 int L[] = {12, 4, 9, 2, 7};
@@ -225,7 +224,7 @@ El orden creciente SI es el optimo.</code></pre>
       title: 'Práctica guiada · los seis órdenes de {2, 5, 4}',
       contentHtml: `
         <div class="space-y-5">
-          <p class="text-slate-700">Cada pareja calcula <strong>su orden</strong> (dos parejas por orden) y completa la tabla en la pizarra. Luego verificamos el ganador con la fórmula.</p>
+          <p class="text-slate-700">Cada uno calcula los seis órdenes en su cuaderno; la tabla se completa en voz alta y se escribe en la pizarra. El ganador se verifica con la fórmula.</p>
           <div class="grid md:grid-cols-3 gap-3 text-sm">
             <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 5, 4</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
             <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 4, 5</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
@@ -258,7 +257,7 @@ El orden creciente SI es el optimo.</code></pre>
               <p class="text-xs uppercase tracking-wider font-bold text-rose-700">0/1</p>
               <p class="text-sm text-rose-950 mt-2"><strong>No</strong> se puede partir: x_i ∈ {0, 1} — entero o nada.</p>
               <p class="text-sm text-rose-900 mt-2">Real: carga discreta — una laptop, un libro, un instrumento.</p>
-              <p class="text-sm font-bold text-rose-900 mt-2">El voraz no basta (se ve en 2 diapositivas).</p>
+              <p class="text-sm font-bold text-rose-900 mt-2">El voraz no basta: el contraejemplo lo demuestra.</p>
             </div>
           </div>
           <p class="text-center text-slate-600 text-lg"><strong>La única frase que separa las variantes:</strong> ¿el objeto se puede partir?</p>
@@ -310,7 +309,7 @@ El orden creciente SI es el optimo.</code></pre>
             <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3"><p class="font-bold text-emerald-900">Subestructura óptima</p><p class="text-emerald-900 mt-1">Sí se cumple. Por eso la programación dinámica funciona.</p></div>
             <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-900">Elección voraz</p><p class="text-rose-900 mt-1"><strong>No se cumple:</strong> tomar el objeto 1 no pertenece a ninguna solución óptima.</p></div>
           </div>
-          <p class="text-sm text-slate-600">¿Qué se hace entonces? La <strong>programación dinámica</strong>: una tabla con las mejores soluciones parciales. La mira el código, la abrimos el viernes.</p>
+          <p class="text-sm text-slate-600">¿Qué se hace entonces? La <strong>programación dinámica</strong>: una tabla con las mejores soluciones parciales. El código la construye fila por fila.</p>
         </div>
       `,
       notes: "7 min. Escribir el contraejemplo en la pizarra ANTES de proyectar. Diagnóstico con las condiciones de la teoría 1: es el caso exacto anunciado — la elección local cerró la puerta. La tabla V(i,w) de la salida se lee en la siguiente diapositiva; el viernes NO se re-explica (se usa en la variante C del ejercicio para casa)."
@@ -348,10 +347,10 @@ else
     },
     {
       id: 'pnn9-15',
-      title: 'Práctica autónoma · ficha en parejas',
+      title: 'Práctica autónoma · ficha individual',
       contentHtml: `
         <div class="space-y-5">
-          <p class="text-slate-600">En parejas, en el cuaderno. La corrección es el viernes a las 16:45 (4 min), sin entrega.</p>
+          <p class="text-slate-600">En el cuaderno, sin entrega.</p>
           <div class="bg-white border border-slate-200 rounded-xl p-4">
             <p class="font-bold text-slate-900">1 · Cinta</p>
             <p class="text-sm text-slate-700 mt-1">Longitudes <code>{8, 3, 5}</code>: orden óptimo, Σ T_i, MRT y verificación con la fórmula de coeficientes.</p>
@@ -361,7 +360,7 @@ else
             <p class="text-sm text-slate-700 mt-1">W = 20; objetos A (10, 60) · B (20, 100) · C (30, 120): valor máximo y cómo se llena la bolsa.</p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <p class="font-bold text-slate-900 text-sm">3 · Bonus oral (si la pareja termina)</p>
+            <p class="font-bold text-slate-900 text-sm">3 · Bonus oral (si termina)</p>
             <p class="text-sm text-slate-700 mt-1">Con la misma instancia pero 0/1: ¿qué escogería el voraz y cuál es el óptimo?</p>
           </div>
         </div>
@@ -431,7 +430,7 @@ else
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">El orden importa</p><p class="text-slate-600 mt-1">Con n archivos hay n! árboles posibles: con 5, 120.</p></div>
           </div>
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p><strong>Pregunta puente (sin corregir):</strong> seis archivos de texto se combinan en uno, mezclando de a dos. ¿Importa el orden en que se mezclan?</p>
+            <p>Seis archivos de texto se combinan en uno, mezclando de a dos. ¿Importa el orden en que se mezclan?</p>
           </div>
         </div>
       `,
@@ -492,7 +491,7 @@ flowchart TB
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm text-amber-950">
-            <p><strong>Predicción (2 min):</strong> ¿cuánto más caro es mezclar «en el orden en que están listados» frente al voraz?</p>
+            <p><strong>Antes de ejecutar:</strong> ¿cuánto más caro es mezclar «en el orden en que están listados» frente al voraz?</p>
           </div>
           <pre><code>Archivos (tamanos): 20 30 10 5 30
 VORAZ (los dos mas pequenos en cada ronda)
@@ -546,7 +545,7 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
       title: 'Repaso activo · ficha U-II + U-III',
       contentHtml: `
         <div class="space-y-4">
-          <p class="text-slate-600">En parejas, en el cuaderno. Corregimos 2 al final; el resto queda para el repaso del fin de semana. <strong>Este formato es el mismo de la práctica evaluada.</strong></p>
+          <p class="text-slate-600">En el cuaderno. Se corrigen dos al final; el resto queda para el repaso del fin de semana. <strong>Este formato es el mismo de la práctica evaluada.</strong></p>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">1 · Búsqueda binaria (traza)</p><p class="text-sm text-slate-700 mt-1">En <code>[3, 7, 11, 18, 25, 31, 40]</code>, localice el 25 con índices desde 0 y medio ⌊(izq+der)/2⌋. Registre índice medio y valor comparado en cada paso.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">2 · Cinta (decisión + fórmula)</p><p class="text-sm text-slate-700 mt-1">Longitudes <code>{6, 2, 9}</code>: orden óptimo, Σ T_i, MRT y verificación con coeficientes.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">3 · Bolsa fraccionaria (decisión)</p><p class="text-sm text-slate-700 mt-1">W = 12; objetos A (5, 30) · B (10, 50) · C (8, 40): valor máximo y llenado.</p></div>

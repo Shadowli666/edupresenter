@@ -177,6 +177,13 @@ El procedimiento completo y la rúbrica están en la skill `edupresenter-revisio
    - **Código:** la salida mostrada es la del archivo ejecutado (`03-Clases/<Asignatura>/S<NN>-*`).
    - **Diseño:** una idea por diapositiva; lo clave señalado; el guion del docente en `notes`, no en pantalla;
      el texto junto a la figura que explica.
+   - **Sin guion en pantalla (regla dura, 2026-11-19):** la diapositiva no lleva tiempos de conducción
+     entre paréntesis («(2 min)»), etiquetas del plan («Pregunta puente», «Guion de la sesión»,
+     «Conclusión intuitiva», «Vocabulario en la pizarra»), remisiones a otra sesión («lo abrimos el
+     viernes») ni referencias numeradas a diapositivas. El enunciado se escribe como contenido, no como
+     instrucción de conducción. `revisar_modulo.mjs` lo marca como **error** (grupo `GUION_PANTALLA`).
+     Excepción razonable: los tiempos de un examen o taller que el estudiante necesita para administrarse
+     («apartado 2: 12 min»), que sí son contenido.
 3. **Informe.** Los hallazgos y lo corregido van al plan de sesión (sección «Notas para el docente»), nunca a
    las diapositivas.
 
