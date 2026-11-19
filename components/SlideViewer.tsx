@@ -53,8 +53,8 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
   return (
     <div className={`w-full animate-fade-in flex flex-col ${compact ? '' : 'min-h-[60vh]'}`}>
       {/* Document Header */}
-      <div className="mb-8 pb-4 border-b border-slate-200">
-        <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">{slide.title}</h2>
+      <div className="mb-3 pb-3 border-b border-slate-200">
+        <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-1">{slide.title}</h2>
       </div>
 
       {/* Document Body */}

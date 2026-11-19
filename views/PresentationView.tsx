@@ -1,5 +1,5 @@
-import React from 'react';
-import { CheckCircle, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { CheckCircle, ChevronLeft, ChevronRight, Minus, Plus, X } from 'lucide-react';
 import { Course, Module, Slide } from '../types';
 import { SlideViewer } from '../components/SlideViewer';
 import { PdfExport } from '../components/PdfExport';
@@ -15,6 +15,17 @@ interface PresentationViewProps {
   onClose: () => void;
 }
 
+/** Zoom del contenido de la diapositiva (no del marco): 1 = tamaño base. */
+const ZOOM_DEFAULT = 1.3;
+const ZOOM_MIN = 0.9;
+const ZOOM_MAX = 2;
+const ZOOM_KEY = 'edupresenter:zoom';
+
+const readZoom = () => {
+  const raw = Number(localStorage.getItem(ZOOM_KEY));
+  return Number.isFinite(raw) && raw >= ZOOM_MIN && raw <= ZOOM_MAX ? raw : ZOOM_DEFAULT;
+};
+
 export const PresentationView: React.FC<PresentationViewProps> = ({
   course,
   activeModule,
@@ -24,6 +35,15 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
   onSelect,
   onClose
 }) => {
+  const [zoom, setZoom] = useState<number>(readZoom);
+
+  useEffect(() => {
+    try { localStorage.setItem(ZOOM_KEY, String(zoom)); } catch { /* sin almacenamiento */ }
+  }, [zoom]);
+
+  const zoomBy = (delta: number) =>
+    setZoom(z => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, Math.round((z + delta) * 10) / 10)));
+
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans text-slate-800 animate-fade-in">
       
@@ -40,6 +60,36 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Tamaño del texto: hace lo que el zoom del navegador, pero solo con la diapositiva */}
+          <div className="hidden sm:flex items-center gap-1 mr-1 px-1 py-1 rounded-full bg-slate-50 border border-slate-200">
+            <button
+              onClick={() => zoomBy(-0.1)}
+              className="w-7 h-7 rounded-full hover:bg-white hover:shadow-sm flex items-center justify-center text-slate-600 transition-colors"
+              title="Texto más pequeño"
+              aria-label="Reducir el tamaño del texto"
+            >
+              <Minus size={14} />
+            </button>
+            <button
+              onClick={() => setZoom(ZOOM_DEFAULT)}
+              className="px-2 text-xs font-mono font-bold text-slate-600 hover:text-blue-600"
+              title="Volver al tamaño normal"
+            >
+              {Math.round(zoom * 100)}%
+            </button>
+            <button
+              onClick={() => zoomBy(0.1)}
+              className="w-7 h-7 rounded-full hover:bg-white hover:shadow-sm flex items-center justify-center text-slate-600 transition-colors"
+              title="Texto más grande"
+              aria-label="Aumentar el tamaño del texto"
+            >
+              <Plus size={14} />
+            </button>
+          </div>
+
+          {/* Sala del botón «Mostrar siguiente» que crea lib/enhance.ts */}
+          <div id="edup-reveal-slot" className="flex items-center" />
+
           <NotesPanel key={activeSlide.id} slide={activeSlide} />
           {(
             <PdfExport
@@ -65,7 +115,10 @@ export const PresentationView: React.FC<PresentationViewProps> = ({
 
       {/* Slide Content */}
       <div className="flex-1 overflow-y-auto bg-white scroll-smooth">
-        <div className="max-w-4xl mx-auto px-6 py-12 md:px-12 md:py-16 min-h-[calc(100vh-140px)]">
+        <div
+          className="max-w-4xl mx-auto px-6 pt-8 pb-12 md:px-12 md:pt-10 md:pb-16 min-h-[calc(100vh-140px)]"
+          style={{ zoom } as React.CSSProperties}
+        >
           {(
             <SlideViewer 
               key={activeSlide.id}

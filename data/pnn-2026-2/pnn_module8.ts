@@ -4,7 +4,7 @@ export const PNN_MODULE_8: Module = {
   id: 'pnn-mod-8',
   title: '8. El método de adquisición: cintas magnéticas y bolsa de papel',
   description:
-    'Semana 8: jueves 12/11 — devolución de la ficha de la S7 y rescate de la noción de eficiencia (qué mide la O grande, tabla de crecimiento y comparación entre algoritmos) antes de abrir la unidad; después, el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel en sus dos variantes: fraccionaria (el voraz es óptimo, prueba por intercambio) y 0/1 (el voraz falla: contraejemplo y programación dinámica). Unidad III.1–III.2.',
+    'Semana 8: jueves 12/11 — origen del nombre de la notación Big O y rescate de la noción de eficiencia (qué mide la O grande, tabla de crecimiento y comparación entre algoritmos) antes de abrir la unidad; después, el método de adquisición (voraz): candidatos, función de selección, factibilidad y objetivo; condiciones de uso; almacenamiento óptimo en cintas magnéticas con la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C. Viernes 13/11 — el problema de la bolsa de papel en sus dos variantes: fraccionaria (el voraz es óptimo, prueba por intercambio) y 0/1 (el voraz falla: contraejemplo y programación dinámica). Unidad III.1–III.2.',
   evaluation: '0%',
   slides: [
     {
@@ -22,18 +22,19 @@ export const PNN_MODULE_8: Module = {
           </div>
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-5 text-teal-950">
             <p class="text-lg"><strong>Objetivo:</strong> aplicar el método de adquisición al almacenamiento óptimo en cintas magnéticas.</p>
+            <p class="text-sm text-teal-800 mt-2">La sesión abre con 22 min de <strong>Big O notation</strong>: el origen del nombre, qué mide y cómo se comparan dos algoritmos.</p>
           </div>
           <p class="text-sm text-slate-500">Jueves 12/11/2026 · 16:45–18:15 · Aula A-06 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
-      notes: 'La clase abre con la devolución de la ficha y el rescate de la O grande en las diap. 3 a 6 (22 min); el método de adquisición empieza en la diap. 7. Sin laboratorio: el docente ejecuta S08-cintas.c desde el proyector; los estudiantes trabajan en el cuaderno. Lista de cotejo (0 %) sobre la práctica guiada.'
+      notes: 'La clase abre con el origen del nombre de la Big O notation y el rescate de la O grande en las diap. 3 a 6 (22 min); el método de adquisición empieza en la diap. 7. Sin laboratorio: el docente ejecuta S08-cintas.c desde el proyector; los estudiantes trabajan en el cuaderno. Lista de cotejo (0 %) sobre la práctica guiada.'
     },
     {
       id: 'pnn8-2',
       title: 'Ruta del jueves',
       contentHtml: `
         <div class="space-y-6">
-          <p class="text-slate-600 text-lg">Abrimos con la <strong>devolución de la ficha</strong> y una idea que faltaba: qué mide la O grande y cómo se comparan dos algoritmos. Después cambia la pregunta: ¿qué hacemos cuando el problema <strong>no se parte</strong>, sino que hay que <strong>elegir</strong> paso a paso?</p>
+          <p class="text-slate-600 text-lg">Abrimos con el <strong>origen del nombre de la Big O notation</strong> y la idea central: qué mide la O grande y cómo se comparan dos algoritmos. Después cambia la pregunta: ¿qué hacemos cuando el problema <strong>no se parte</strong>, sino que hay que <strong>elegir</strong> paso a paso?</p>
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Teoría</p><h3 class="text-lg font-bold text-teal-950 mt-2">El método</h3><p class="text-sm text-teal-900 mt-2">Cuatro piezas, dos condiciones de uso y una fórmula.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-slate-700">Código en vivo</p><h3 class="text-lg font-bold text-slate-950 mt-2">Cintas en C</h3><p class="text-sm text-slate-700 mt-2">Creciente, decreciente y las 120 permutaciones.</p></div>
@@ -44,116 +45,150 @@ export const PNN_MODULE_8: Module = {
     },
     {
       id: 'pnn8-3',
-      title: 'Devolución · lo que la ficha pidió y lo que se respondió',
+      title: 'Big O notation · el origen del nombre',
       contentHtml: `
         <div class="space-y-5">
-          <div class="bg-slate-900 text-white rounded-2xl p-5">
-            <p class="text-xs uppercase tracking-widest font-bold text-amber-300">Devolución de la ficha del viernes 06/11</p>
-            <p class="text-lg md:text-xl font-semibold mt-2 leading-snug">La ficha pidió <strong>aplicar el Teorema Maestro</strong> a cuatro casos nuevos. Eso exige tener el Teorema consolidado; no era el objetivo de la semana ni es el centro de la prueba del 19/11.</p>
+          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white rounded-2xl p-5">
+            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Big O notation · el nombre</p>
+            <p class="text-lg md:text-xl font-semibold mt-2 leading-snug">La <strong>O</strong> no viene de «óptimo» ni de «operación»: viene de <em>Ordnung</em>, la palabra alemana para <strong>orden</strong>.</p>
+            <p class="text-sm text-teal-200 mt-2">«Orden de crecimiento» = cómo aumenta el trabajo de un algoritmo cuando crecen los datos.</p>
           </div>
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="bg-rose-50 border border-rose-200 rounded-xl p-4">
-              <p class="text-xs uppercase font-bold text-rose-700">Lo que costó</p>
-              <ul class="mt-2 space-y-1 text-rose-950">
-                <li data-reveal>Tres representaciones formales nuevas en 24 minutos.</li>
-                <li data-reveal>Una regla de tres casos (<code>a</code> frente a <code>b<sup>d</sup></code>) sin imagen que la sostenga.</li>
-                <li data-reveal>Cuatro recurrencias para resolver el viernes, sin margen para consolidar.</li>
-              </ul>
+          <div class="grid md:grid-cols-3 gap-3 text-sm">
+            <div class="bg-white border-l-4 border-teal-500 rounded-xl p-4" data-reveal>
+              <p class="text-xs uppercase font-bold text-teal-700">1894</p>
+              <p class="font-bold text-slate-900 mt-1">Paul Bachmann</p>
+              <p class="text-slate-700 mt-1">Introduce el símbolo en teoría de números para describir el <strong>orden de crecimiento</strong> de una función.</p>
             </div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
-              <p class="text-xs uppercase font-bold text-emerald-700">Lo que sí funcionó</p>
-              <ul class="mt-2 space-y-1 text-emerald-950">
-                <li data-reveal>Leer la tabla de conteos y comparar los dos algoritmos.</li>
-                <li data-reveal>Explicar por qué el arreglo ordenado castiga a Quicksort.</li>
-                <li data-reveal>Contar comparaciones en una traza concreta.</li>
-              </ul>
+            <div class="bg-white border-l-4 border-teal-500 rounded-xl p-4" data-reveal>
+              <p class="text-xs uppercase font-bold text-teal-700">1909</p>
+              <p class="font-bold text-slate-900 mt-1">Edmund Landau</p>
+              <p class="text-slate-700 mt-1">La extiende y sistematiza: de ahí el nombre <strong>notación de Bachmann–Landau</strong>.</p>
+            </div>
+            <div class="bg-white border-l-4 border-teal-500 rounded-xl p-4" data-reveal>
+              <p class="text-xs uppercase font-bold text-teal-700">1976</p>
+              <p class="font-bold text-slate-900 mt-1">Donald Knuth</p>
+              <p class="text-slate-700 mt-1">La lleva al <strong>análisis de algoritmos</strong> en «Big Omicron and Big Omega and Big Theta».</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600">Hoy se recupera la idea que hacía falta —qué significa que un algoritmo sea eficiente— y se deja el Teorema Maestro como herramienta de consulta. Los 20 minutos siguientes valen más que la fórmula.</p>
+          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
+            <p><strong>La precisión de Knuth:</strong> el símbolo es en rigor la <strong>ómicron</strong> mayúscula del griego (Ο). Como se confunde con la O latina, quedó «Big O» y no «Big Omicron».</p>
+          </div>
         </div>
       `,
-      notes: 'Devolución en 4 min, sin nombres ni notas individuales. Tono: el diseño de la sesión pidió más de lo que el objetivo requería; el grupo respondió a lo que se le pidió. No abrir debate sobre la calificación de la ficha: es formativa (0 %).'
+      notes: '4 min (diap. 3). Abre el bloque de Big O notation, sin devolución ni ejercicio. Bachmann (1894), Knuth (1976) y la ómicron mayúscula: Bourke, cap. 5, §5.4.1 y nota 6 (p. 109). Landau (1909) y la etimología Ordnung: Wikipedia, «Big O notation» (lead y sección History).'
     },
     {
       id: 'pnn8-4',
-      title: 'Qué mide la O grande (y qué no)',
+      title: 'Big O notation · qué mide la O grande (y qué no)',
       contentHtml: `
-        <div class="space-y-5">
-          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white p-6 rounded-2xl">
+        <div class="space-y-4">
+          <div class="bg-gradient-to-br from-slate-900 to-teal-900 text-white px-5 py-3 rounded-2xl">
             <p class="text-xs uppercase tracking-widest font-bold text-teal-300">La idea en una frase</p>
-            <p class="text-xl md:text-2xl font-bold mt-2 leading-snug">La O grande no mide segundos: mide <em>cómo crece</em> el trabajo cuando crece el tamaño de los datos.</p>
+            <p class="text-lg md:text-xl font-bold mt-1 leading-snug">La O grande no mide segundos: mide <em>cuánto crece</em> el trabajo cuando crecen los datos.</p>
           </div>
-          <div class="bg-white border rounded-xl p-4 text-sm text-slate-700">
-            <p><strong>Definición operativa.</strong> Decimos que el costo <code>f(n)</code> es <code>O(g(n))</code> si, a partir de cierto tamaño, <code>f(n)</code> no supera a <code>g(n)</code> multiplicada por una constante. Es decir: <strong>a partir de cierto punto, se comporta como <code>g</code></strong>.</p>
-          </div>
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
-              <p class="font-bold text-amber-950">Con pocos datos no se nota</p>
-              <p class="text-amber-900 mt-1">Con 10 elementos, un algoritmo <code>n²</code> y uno <code>n log n</code> tardan prácticamente lo mismo.</p>
+
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Con n = 1 000 datos, cuántos pasos hace cada estrategia</p>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-center">
+            <div class="bg-white border border-slate-200 rounded-xl p-2">
+              <svg viewBox="0 0 48 48" class="w-9 h-9 mx-auto text-teal-600" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 13c-4-3-9-4-14-4v25c5 0 10 1 14 4 4-3 9-4 14-4V9c-5 0-10 1-14 4z"/><path d="M24 13v25"/></svg>
+              <p class="font-mono font-bold text-slate-900 text-sm mt-1">O(log n)</p>
+              <p class="text-[11px] text-slate-600 leading-tight mt-1">Buscar en el diccionario abriendo por la mitad</p>
+              <p class="text-[11px] text-teal-700 font-bold mt-1">10 pasos</p>
             </div>
-            <div class="bg-rose-50 border border-rose-200 rounded-xl p-4">
-              <p class="font-bold text-rose-950">Con muchos datos, decide todo</p>
-              <p class="text-rose-900 mt-1">Un algoritmo <code>n²</code> con 10⁶ de datos tarda minutos; con 10⁷, <strong>horas</strong>. El mismo programa, otro tamaño.</p>
+            <div class="bg-white border border-slate-200 rounded-xl p-2">
+              <svg viewBox="0 0 48 48" class="w-9 h-9 mx-auto text-sky-600" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="9" cy="15" r="4"/><path d="M3 35c0-4 3-7 6-7s6 3 6 7"/><circle cx="24" cy="15" r="4"/><path d="M18 35c0-4 3-7 6-7s6 3 6 7"/><circle cx="39" cy="15" r="4"/><path d="M33 35c0-4 3-7 6-7s6 3 6 7"/></svg>
+              <p class="font-mono font-bold text-slate-900 text-sm mt-1">O(n)</p>
+              <p class="text-[11px] text-slate-600 leading-tight mt-1">Revisar una fila de personas una por una</p>
+              <p class="text-[11px] text-sky-700 font-bold mt-1">1 000 pasos</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-2">
+              <svg viewBox="0 0 48 48" class="w-9 h-9 mx-auto text-teal-600" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="7" y="17" width="14" height="20" rx="2"/><rect x="17" y="10" width="14" height="20" rx="2"/><rect x="27" y="17" width="14" height="20" rx="2"/></svg>
+              <p class="font-mono font-bold text-slate-900 text-sm mt-1">O(n log n)</p>
+              <p class="text-[11px] text-slate-600 leading-tight mt-1">Ordenar una baraja por montones y mezclarlos</p>
+              <p class="text-[11px] text-teal-700 font-bold mt-1">10 000 pasos</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-2">
+              <svg viewBox="0 0 48 48" class="w-9 h-9 mx-auto text-amber-600" fill="none" stroke="currentColor" stroke-width="3"><rect x="7" y="7" width="10" height="10"/><rect x="19" y="7" width="10" height="10"/><rect x="31" y="7" width="10" height="10"/><rect x="7" y="19" width="10" height="10"/><rect x="19" y="19" width="10" height="10"/><rect x="31" y="19" width="10" height="10"/><rect x="7" y="31" width="10" height="10"/><rect x="19" y="31" width="10" height="10"/><rect x="31" y="31" width="10" height="10"/></svg>
+              <p class="font-mono font-bold text-slate-900 text-sm mt-1">O(n²)</p>
+              <p class="text-[11px] text-slate-600 leading-tight mt-1">Comparar a cada persona con todas las demás</p>
+              <p class="text-[11px] text-amber-700 font-bold mt-1">1 000 000 de pasos</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-2">
+              <svg viewBox="0 0 48 48" class="w-9 h-9 mx-auto text-rose-600" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="15" cy="18" r="8"/><path d="M21 24l18 18"/><path d="M31 34l5-5"/><path d="M37 40l5-5"/></svg>
+              <p class="font-mono font-bold text-slate-900 text-sm mt-1">O(2ⁿ)</p>
+              <p class="text-[11px] text-slate-600 leading-tight mt-1">Probar todas las combinaciones de una clave</p>
+              <p class="text-[11px] text-rose-700 font-bold mt-1">imposible</p>
             </div>
           </div>
-          <div class="bg-slate-100 rounded-xl p-4">
-            <p class="text-sm text-slate-700"><strong>La pregunta útil:</strong> si duplico los datos, ¿cuánto más trabajo hay? Si se duplica, es lineal; si se cuadruplica, es cuadrático; si casi no cambia, es logarítmico.</p>
-          </div>
+
+          <p class="text-xs text-slate-500">
+            <strong class="text-slate-700">n</strong> = cantidad de datos ·
+            <strong class="text-slate-700">operación</strong> = trabajo que se cuenta (una comparación, una suma) ·
+            <strong class="text-slate-700">O(…)</strong> = techo de crecimiento
+          </p>
         </div>
       `,
-      notes: 'No entrar en la definición formal con épsilon y n0: la definición operativa basta para la asignatura y el libro la desarrolla en §5.4.1 (pp. 109-110). El dato de los 8 minutos con 10⁶ y las 13 horas con 10⁷ es de Bourke, §5.1 (p. 102).'
+      notes: 'No entrar en la definición formal con épsilon y n0: la analogía de las cinco tarjetas da la intuición y el libro desarrolla la definición en §5.4.1 (pp. 109-110). Los números de cada tarjeta corresponden a n = 1 000 y salen de S08-big-o.c. La pregunta que se hace en voz alta al cerrar esta diapositiva: «si duplico los datos, ¿cuánto más trabajo hay?». El dato de los 8 minutos con 10⁶ y las 13 horas con 10⁷ es de Bourke, §5.1 (p. 102).'
     },
     {
       id: 'pnn8-5',
-      title: 'La tabla de crecimiento',
+      title: 'Big O notation · la tabla y la gráfica de crecimiento',
       contentHtml: `
         <div class="space-y-3">
-          <p class="text-sm text-slate-600">Costo aproximado según el tamaño de la entrada. Se genera con <code>S08-big-o.c</code> y se copia en el cuaderno.</p>
-          <table class="w-full text-sm border-collapse text-center">
-            <thead><tr class="bg-slate-700 text-white"><th class="p-2 border">n</th><th class="p-2 border">log₂ n</th><th class="p-2 border">n</th><th class="p-2 border">n log₂ n</th><th class="p-2 border">n²</th><th class="p-2 border">2ⁿ</th></tr></thead>
-            <tbody class="font-mono">
-              <tr><td class="p-2 border font-bold">10</td><td class="p-2 border">3,3</td><td class="p-2 border">10</td><td class="p-2 border">33</td><td class="p-2 border">100</td><td class="p-2 border">1 024</td></tr>
-              <tr class="bg-slate-50"><td class="p-2 border font-bold">100</td><td class="p-2 border">6,6</td><td class="p-2 border">100</td><td class="p-2 border">664</td><td class="p-2 border">10 000</td><td class="p-2 border">1,27·10³⁰</td></tr>
-              <tr><td class="p-2 border font-bold">1 000</td><td class="p-2 border">10,0</td><td class="p-2 border">1 000</td><td class="p-2 border">9 966</td><td class="p-2 border">1 000 000</td><td class="p-2 border">inabordable</td></tr>
-              <tr class="bg-slate-50"><td class="p-2 border font-bold">1 000 000</td><td class="p-2 border">19,9</td><td class="p-2 border">1 000 000</td><td class="p-2 border">19 931 396</td><td class="p-2 border">10¹²</td><td class="p-2 border">—</td></tr>
-            </tbody>
-          </table>
-          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p><strong>Cómo se lee:</strong> al pasar de 1 000 a 1 000 000 de datos (mil veces más), <code>log n</code> apenas se duplica, <code>n log n</code> se multiplica por 2 000 y <code>n²</code> por un millón. La misma comparación de antes, ahora con números.</p>
-          </div>
-          <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-white border rounded-xl p-3"><strong>La tabla es el significado.</strong> Sirve para decidir sin ejecutar nada.</div>
-            <div class="bg-white border rounded-xl p-3"><strong>La recurrencia es el cálculo.</strong> Permite escribir la columna sin correr el programa.</div>
+          <p class="text-sm text-slate-600">Muevan el deslizador: la gráfica muestra cómo crece el número de operaciones con <code>n</code>. La tabla queda como referencia para el cuaderno.</p>
+          <p class="text-xs text-slate-500"><code>log₂ n</code> se lee «cuántas veces puedo partir <code>n</code> a la mitad hasta quedarme con 1»: con 1 000 datos son 10 veces.</p>
+          <div class="grid md:grid-cols-5 gap-5 items-start">
+            <div class="md:col-span-3" data-curves data-curves-nmax="40" data-curves-ymax="1024">
+              <input type="range" min="2" max="40" step="1" value="8" data-curves-input class="w-full accent-teal-600" aria-label="Tamaño de la entrada n" />
+              <div class="grid grid-cols-5 gap-1 text-center text-xs mt-1 font-mono">
+                <div><span class="block text-[10px]" style="color:#94a3b8">log₂ n</span><span data-curves-out="log">3</span></div>
+                <div><span class="block text-[10px]" style="color:#0ea5e9">n</span><span data-curves-out="n">8</span></div>
+                <div><span class="block text-[10px]" style="color:#14b8a6">n log₂ n</span><span data-curves-out="nlogn">24</span></div>
+                <div><span class="block text-[10px]" style="color:#f59e0b">n²</span><span data-curves-out="n2">64</span></div>
+                <div><span class="block text-[10px]" style="color:#e11d48">2ⁿ</span><span data-curves-out="2n">256</span></div>
+              </div>
+              <svg data-curves-svg viewBox="0 0 600 240" class="w-full mt-2" role="img" aria-label="Gráfica del crecimiento de log n, n, n log n, n al cuadrado y 2 elevado a n"></svg>
+            </div>
+            <div class="md:col-span-2 space-y-2">
+              <table class="w-full text-[11px] border-collapse text-center">
+                <thead><tr class="bg-slate-700 text-white"><th class="p-1 border">n</th><th class="p-1 border">log₂ n</th><th class="p-1 border">n log₂ n</th><th class="p-1 border">n²</th><th class="p-1 border">2ⁿ</th></tr></thead>
+                <tbody class="font-mono">
+                  <tr><td class="p-1 border font-bold">10</td><td class="p-1 border">3,3</td><td class="p-1 border">33</td><td class="p-1 border">100</td><td class="p-1 border">1 024</td></tr>
+                  <tr class="bg-slate-50"><td class="p-1 border font-bold">100</td><td class="p-1 border">6,6</td><td class="p-1 border">664</td><td class="p-1 border">10 000</td><td class="p-1 border">1,27·10³⁰</td></tr>
+                  <tr><td class="p-1 border font-bold">1 000</td><td class="p-1 border">10,0</td><td class="p-1 border">9 966</td><td class="p-1 border">1 000 000</td><td class="p-1 border">inabordable</td></tr>
+                  <tr class="bg-slate-50"><td class="p-1 border font-bold">10⁶</td><td class="p-1 border">19,9</td><td class="p-1 border">19 931 396</td><td class="p-1 border">10¹²</td><td class="p-1 border">inabordable</td></tr>
+                </tbody>
+              </table>
+              <div class="bg-teal-50 border border-teal-200 rounded-lg p-3 text-xs text-teal-950">
+                <strong>Al pasar de 1 000 a 1 000 000 de datos</strong> (mil veces más): <code>log n</code> se duplica, <code>n log n</code> se multiplica por 2 000 y <code>n²</code> por un millón.
+              </div>
+            </div>
           </div>
         </div>
       `,
-      notes: 'Proyectar la salida real de S08-big-o.c (tabla 1) y llenar la misma tabla en la pizarra antes de mostrarla. Preguntar primero: «¿cuántas veces más trabajo hay con mil veces más datos?». La respuesta 1 000 000 para n² es la que fija la idea.'
+      notes: 'Mover el deslizador de n = 2 a 40 antes de mostrar la tabla: 2ⁿ se sale del gráfico en n = 10 y n² en n = 32, y ese es el argumento visual. Los valores exactos aparecen sobre la gráfica; la tabla de la derecha es la referencia que se copia. Si no hay proyector interactivo, recorrer los tres valores de la tabla. '
     },
     {
       id: 'pnn8-6',
-      title: 'Comparar algoritmos · y el puente con la S7',
+      title: 'Big O notation · comparar algoritmos',
       contentHtml: `
         <div class="space-y-3">
           <p class="text-sm text-slate-600">Los cuatro algoritmos de la unidad, con <code>n = 1 000 000</code> y la misma operación contada (comparaciones).</p>
           <table class="w-full text-sm border-collapse">
             <thead><tr class="bg-teal-700 text-white"><th class="p-2 border text-left">Algoritmo</th><th class="p-2 border">Orden</th><th class="p-2 border">Operaciones</th><th class="p-2 border text-left">Condición o riesgo</th></tr></thead>
             <tbody>
-              <tr data-reveal><td class="p-2 border font-bold">Búsqueda binaria</td><td class="p-2 border"><code>O(log n)</code></td><td class="p-2 border font-mono">20</td><td class="p-2 border">Exige el arreglo ordenado</td></tr>
-              <tr data-reveal><td class="p-2 border font-bold">Búsqueda secuencial</td><td class="p-2 border"><code>O(n)</code></td><td class="p-2 border font-mono">500 000</td><td class="p-2 border">No exige nada; paga el costo</td></tr>
-              <tr data-reveal><td class="p-2 border font-bold">Sotmerge</td><td class="p-2 border"><code>O(n log n)</code></td><td class="p-2 border font-mono">19 931 396</td><td class="p-2 border">Necesita arreglo auxiliar</td></tr>
-              <tr data-reveal><td class="p-2 border font-bold">Quicksort</td><td class="p-2 border"><code>O(n log n)</code> / <code>O(n²)</code></td><td class="p-2 border font-mono">19 931 396 / 5·10¹¹</td><td class="p-2 border">Depende del pivote y de la entrada</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Búsqueda binaria</td><td class="p-2 border"><code>O(log n)</code></td><td class="p-2 border font-mono">20</td><td class="p-2 border">Los datos deben estar ordenados antes</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Búsqueda secuencial</td><td class="p-2 border"><code>O(n)</code></td><td class="p-2 border font-mono">500 000 (prom.)</td><td class="p-2 border">No exige nada; paga el costo</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Sotmerge <span class="block text-[11px] font-normal text-slate-500">ordenar por mezcla</span></td><td class="p-2 border"><code>O(n log n)</code></td><td class="p-2 border font-mono">19 931 396</td><td class="p-2 border">Necesita una copia temporal de los datos</td></tr>
+              <tr data-reveal><td class="p-2 border font-bold">Quicksort <span class="block text-[11px] font-normal text-slate-500">ordenar por pivote</span></td><td class="p-2 border"><code>O(n log n)</code> / <code>O(n²)</code></td><td class="p-2 border font-mono">19 931 396 / 5·10¹¹</td><td class="p-2 border">Depende de cómo se elija el pivote</td></tr>
             </tbody>
           </table>
-          <div class="bg-slate-900 text-white rounded-xl p-4">
-            <p class="text-xs uppercase tracking-widest font-bold text-teal-300">El puente con la clase del jueves pasado</p>
-            <p class="text-sm mt-1 leading-relaxed">La recurrencia era la manera de obtener la columna «operaciones» <em>sin ejecutar el programa</em>: cuántas partes (<code>a</code>), de qué tamaño (<code>n/b</code>), cuánto cuesta juntarlas (<code>f(n)</code>). El árbol de recursión solo cuenta niveles. <strong>El Teorema Maestro es el atajo; la tabla es el significado.</strong></p>
-          </div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-sm text-emerald-950">
-            <strong>Y lo que la prueba pide:</strong> trazas y comparaciones. Con <code>n = 1024</code> los conteos reales dieron 5 120 (Sotmerge, ordenado) y 523 776 (Quicksort, ordenado): <strong>102 veces más</strong>, con la misma recurrencia.
+            <strong>Los conteos reales cierran el argumento:</strong> con <code>n = 1024</code>, Sotmerge ordenado hace 5 120 comparaciones y Quicksort ordenado 523 776 — <strong>102 veces más</strong>, con la misma recurrencia.
           </div>
         </div>
       `,
-      notes: 'Este es el cierre del rescate y la frase que hay que dejar escrita: «el Teorema Maestro es el atajo; la tabla es el significado». Los conteos reales son de S07-conteo.c. Si preguntan si el Teorema entra en la prueba: lo que se evalúa son trazas y comparaciones; el Teorema queda como herramienta de consulta.'
+      notes: 'Cierre del rescate (5 min): la tabla de comparación, sin la digresión sobre recurrencias de la S7. Los conteos reales son de S07-conteo.c. Si preguntan si el Teorema entra en la prueba: lo que se evalúa son trazas y comparaciones; el Teorema queda como herramienta de consulta.'
     },
     {
       id: 'pnn8-7',
@@ -478,6 +513,8 @@ El orden creciente SI es el optimo.</pre>
             <li>GeeksforGeeks. <em>Optimal Storage on Tapes</em>. https://www.geeksforgeeks.org/dsa/optimal-storage-tapes/</li>
             <li>GeeksforGeeks. <em>Greedy Algorithms</em>. https://www.geeksforgeeks.org/dsa/greedy-algorithms/</li>
             <li>Cormen, T., Leiserson, C., Rivest, R. y Stein, C. (2009). <em>Introduction to Algorithms</em> (3.ª ed.). MIT Press.</li>
+            <li>Knuth, D. E. (1976). <em>Big omicron and big omega and big theta</em>. SIGACT News, 8(2), 18–24.</li>
+            <li>Wikipedia. <em>Big O notation</em>. https://en.wikipedia.org/wiki/Big_O_notation (historia de la notación).</li>
             <li>Programas de la cátedra: <code>S08-big-o.c</code> y <code>S08-cintas.c</code> (salidas reales del 12/11/2026).</li>
           </ul>
           <p class="text-xs text-slate-500">Programa analítico U-II y U-III y PGA 2026-2. Bourke es la fuente del rescate: definición de O grande y evidencia empírica. Cormen se cita como referencia teórica del argumento de intercambio: no hay ejemplar en la biblioteca del docente.</p>

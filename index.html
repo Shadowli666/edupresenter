@@ -53,6 +53,10 @@
         color: inherit;
       }
 
+      /* El código en línea ya se distingue por la tipografía monoespaciada y el
+         fondo: las comillas que agrega `prose` ensucian la lectura en pantalla. */
+      .prose code::before, .prose code::after { content: none !important; }
+
       /* Diagramas mermaid: mermaid inserta el SVG con su propio `max-width` en px,
          que lo deja diminuto dentro del contenedor. Estas reglas lo escalan al
          ancho disponible y le reservan una altura mínima legible. */
@@ -83,12 +87,16 @@
 
       /* --- Interactivos declarativos (lib/enhance.ts) --- */
       .edup-hidden { display: none !important; }
+      /* Botón de revelado: vive en la barra superior (#edup-reveal-slot), no flota
+         sobre la diapositiva. Fuera de la barra (impresión, lectura) se oculta. */
       .edup-reveal-hint {
-        position: fixed; right: 1.25rem; bottom: 7rem; z-index: 40;
         background: #0f172a; color: #fff; font-size: 0.8rem; font-weight: 700;
-        padding: 0.6rem 1rem; border-radius: 9999px; box-shadow: 0 8px 24px rgba(15,23,42,.25);
+        padding: 0.45rem 0.9rem; border-radius: 9999px; white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(15,23,42,.18); transition: background .2s ease, opacity .2s ease;
       }
+      .edup-reveal-hint:hover:not(:disabled) { background: #1e293b; }
       .edup-reveal-hint:disabled { background: #059669; }
+      .edup-reveal-hint.is-done { opacity: .45; font-weight: 600; }
       .edup-copy {
         position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.7rem; font-weight: 700;
         background: rgba(255,255,255,.12); color: #e2e8f0; border: 1px solid rgba(255,255,255,.2);
@@ -177,7 +185,7 @@
       }
 
       @media print {
-        .edup-copy, .edup-reveal-hint, .edup-tabbar { display: none !important; }
+        .edup-copy, .edup-reveal-hint, .edup-tabbar, [data-curves-input] { display: none !important; }
       }
 
       /* --- Exportación a PDF (Exportar PDF) ---
