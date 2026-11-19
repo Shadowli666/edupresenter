@@ -139,6 +139,9 @@ export const PNN_MODULE_9: Module = {
               <p class="text-slate-600 mt-2">El objetivo: elegir el <strong>orden</strong> de los programas que minimiza el MRT.</p>
             </div>
           </div>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> L<sub>i</sub> longitud del programa i · n número de programas · T<sub>i</sub> espera acumulada hasta el programa i · MRT promedio de las n esperas.
+          </div>
         </div>
       `,
       notes: "6 min de los 13 de la teoría 2. La fila de pago baja la carga cognitiva: la pregunta '¿sube o baja?' se responde con intuición; la formalización solo la traduce. Los 120 órdenes con 5 programas es el dato que justifica el método (la S4 ya mostró que n! es inabordable)."
@@ -166,6 +169,9 @@ export const PNN_MODULE_9: Module = {
             </div>
           </div>
           <p class="text-xs text-slate-500">Vocabulario: coeficiente (cuántas veces se paga) · inversión (dos en orden equivocado) · SPT (shortest processing time first).</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> L<sub>i</sub> longitud del programa en la posición i · n número de programas · ΣT<sub>i</sub> suma de todas las esperas · i y j posiciones en el orden.
+          </div>
         </div>
       `,
       notes: "7 min. Este es el bloque que responde la pregunta puente de pnn9-3: 'el corto primero' era correcto, pero la razón son los coeficientes. El argumento de intercambio es la misma herramienta que la S7 llamó 'prueba': aquí se usa para ELEGIR, no para analizar recurrencias. Con la respuesta de la fila de pago ya dada, este formalismo es traducción, no contenido nuevo."
@@ -234,6 +240,9 @@ El orden creciente SI es el optimo.</code></pre>
             <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">4, 5, 2</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
           </div>
           <p class="text-sm text-slate-600"><strong>Verificación final:</strong> 3·2 + 2·4 + 1·5 = <span class="font-bold">?</span> (el valor del mejor orden).</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> T<sub>i</sub> espera acumulada del programa i · MRT promedio de las n esperas.
+          </div>
         </div>
       `,
       notes: "9 min. Solución: mejor orden 2, 4, 5 con Σ T<sub>i</sub> = 2+6+11 = 19 y MRT 6,33; los otros: 2,5,4 → 20/6,67; 5,2,4 → 23/7,67; 5,4,2 → 25/8,33; 4,2,5 → 21/7,00; 4,5,2 → 24/8,00. Verificación: 3·2+2·4+1·5 = 19. Pregunta de comprobación al cerrar: 'en un orden óptimo, ¿puede haber una inversión?' (NO)."
@@ -261,6 +270,9 @@ El orden creciente SI es el optimo.</code></pre>
             </div>
           </div>
           <p class="text-center text-slate-600 text-lg"><strong>La única frase que separa las variantes:</strong> ¿el objeto se puede partir?</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> W capacidad de la bolsa · n número de objetos · w<sub>i</sub> peso del objeto i · v<sub>i</sub> valor del objeto i · x<sub>i</sub> fracción del objeto i que se lleva (0 ≤ x<sub>i</sub> ≤ 1).
+          </div>
         </div>
       `,
       notes: "4 min de la teoría 3. Lo que comparten: candidatos, objetivo (maximizar valor) y restricción de capacidad. Lo que cambia: la función de FACTIBILIDAD (depende del hueco que queda). Escribir en la pizarra: 'la selección es la misma; la factibilidad no'."
@@ -281,6 +293,9 @@ El orden creciente SI es el optimo.</code></pre>
           <div class="grid md:grid-cols-2 gap-3 text-sm">
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Costo</p><p class="font-mono text-slate-700 mt-1">O(n log n) ordenar + O(n) recorrer</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Contraste con la cinta</p><p class="text-slate-600 mt-1">Mismo razonamiento de intercambio, otro criterio (longitud → densidad). El método no cambió; cambió el problema.</p></div>
+          </div>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> v valor del objeto · w peso que ocupa · densidad valor por unidad de peso · n número de objetos.
           </div>
         </div>
       `,
@@ -310,6 +325,9 @@ El orden creciente SI es el optimo.</code></pre>
             <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-900">Elección voraz</p><p class="text-rose-900 mt-1"><strong>No se cumple:</strong> tomar el objeto 1 no pertenece a ninguna solución óptima.</p></div>
           </div>
           <p class="text-sm text-slate-600">¿Qué se hace entonces? La <strong>programación dinámica</strong>: una tabla con las mejores soluciones parciales. El código la construye fila por fila.</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> W capacidad de la bolsa · w<sub>i</sub> peso del objeto i · v<sub>i</sub> valor del objeto i.
+          </div>
         </div>
       `,
       notes: "7 min. Escribir el contraejemplo en la pizarra ANTES de proyectar. Diagnóstico con las condiciones de la teoría 1: es el caso exacto anunciado — la elección local cerró la puerta. La tabla V(i,w) de la salida se lee en la siguiente diapositiva; el viernes NO se re-explica (se usa en la variante C del ejercicio para casa)."
@@ -341,6 +359,9 @@ else
             </tbody>
           </table>
           <p class="text-xs text-slate-500">La celda V(3, 10) = 40 es el óptimo; la reconstrucción marca los objetos 3 y 2 (peso usado 10 de 10).</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> i primeros i objetos considerados · w capacidad disponible · V(i,w) mejor valor alcanzable · v<sub>i</sub> valor del objeto i · w<sub>i</sub> su peso.
+          </div>
         </div>
       `,
       notes: "10 min (con la diap. 13 cierra la teoría 4). Salida real de S08-bolsa.c re-ejecutada el 17/11/2026 (gcc). La tabla aquí es PARCIAL (columnas clave); la salida completa del programa la imprime el docente. HOY solo se lee la tabla y su resultado: el viernes no se reconstruye (no repetir). Pregunta de comprobación: '¿por qué la fraccionaria sí permite el voraz y la 0/1 no?' (partir permite llenar exactamente la capacidad con lo mejor; sin partir, el objeto 1 bloquea 2+3)."
@@ -432,6 +453,9 @@ else
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
             <p>Seis archivos de texto se combinan en uno, mezclando de a dos. ¿Importa el orden en que se mezclan?</p>
           </div>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> tamaño número de hojas del archivo · n número de archivos · n! árboles de mezcla posibles.
+          </div>
         </div>
       `,
       notes: "6 min de los 12 de la teoría 1. La fotocopiadora es la analogía rectora del dossier: el costo es físico y visible, la profundidad se vuelve obvia (un fajo que se junta tres veces se fotocopia tres veces) y la regla voraz se justifica sola. Con la pregunta puente del jueves (corregida a las 16:50) se conecta."
@@ -455,6 +479,9 @@ else
             <p><strong>Por qué:</strong> el archivo que se mezcla temprano <strong>vuelve</strong> a pagarse en las mezclas siguientes; el que se mezcla al final se paga una sola vez. Un árbol óptimo nunca deja un archivo grande «profundo» mientras uno pequeño está «arriba» (se prueba por intercambio sobre las profundidades).</p>
           </div>
           <p class="text-xs text-slate-500">Nombre en la literatura: patrones óptimos de mezcla (optimal merge patterns); el árbol es equivalente al de Huffman.</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> tamaño hojas del archivo · costo de una mezcla suma de los tamaños de los dos archivos mezclados.
+          </div>
         </div>
       `,
       notes: "6 min. Las cuatro piezas se NOMBRAN (no se re-explican): es la señal de que es el mismo método. Si alguien pide la demostración completa: argumento de intercambio sobre las profundidades, marcado como consulta. Empates: cualquier elección entre dos 'más pequeños' empatados da el mismo costo total."
@@ -477,9 +504,12 @@ flowchart TB
   N60 --> R
           </div>
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p class="font-bold">La fórmula que conecta con la cinta</p>
+            <p class="font-bold">La fórmula</p>
             <p class="font-mono text-base mt-1">costo total = Σ (tamaño × profundidad)</p>
             <p class="mt-2">Cinta: Σ T<sub>i</sub> = n·L<sub>1</sub> + (n−1)·L<sub>2</sub> + … + 1·L<sub>n</sub> (coeficientes = posiciones). Intercalación: los coeficientes son <strong>profundidades</strong> del árbol. <strong>Es el mismo principio: lo que se paga muchas veces debe ser pequeño.</strong></p>
+          </div>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> tamaño hojas del archivo · profundidad veces que se paga ese archivo.
           </div>
         </div>
       `,
@@ -536,6 +566,9 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
           </table>
           <p class="text-sm text-slate-600"><strong>Verificación:</strong> 2×3 + 4×3 + 6×2 + 8×1 = <span class="font-bold">?</span> (el costo total).</p>
           <p class="text-sm text-slate-600"><strong>Pregunta de comprobación:</strong> ¿quedó algún archivo grande con profundidad mayor que uno pequeño?</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <span class="font-bold text-slate-700">Variables:</span> cada producto es tamaño × profundidad de un archivo · la suma es el costo total de la intercalación.
+          </div>
         </div>
       `,
       notes: "12 min. Solución: ronda 1: 2+4=6 → quedan {8, 6, 6}; ronda 2: 6+6=12 → {8, 12}; ronda 3: 8+12=20 → {20}. Costo total 6+12+20 = 38. Verificación: 2×3+4×3+6×2+8×1 = 6+12+12+8 = 38. Pregunta de comprobación: NO (el 8 es el menos profundo). El dibujo a mano enseña la estructura; el código solo confirma."
