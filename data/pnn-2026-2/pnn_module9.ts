@@ -120,7 +120,7 @@ export const PNN_MODULE_9: Module = {
     },
     {
       id: 'pnn9-6',
-      title: 'La cinta · la fila de pago, T_i y el MRT',
+      title: 'La cinta · la fila de pago y el MRT',
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-700">
@@ -130,12 +130,12 @@ export const PNN_MODULE_9: Module = {
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
               <p class="font-bold text-slate-900">Cinta magnética</p>
               <p class="text-slate-600 mt-2">Almacenamiento de <strong>acceso secuencial</strong>: para leer el programa i hay que recorrer todos los anteriores.</p>
-              <p class="mt-2 font-mono text-slate-900">T_i = L1 + L2 + ... + L_i</p>
+              <p class="mt-2 font-mono text-slate-900">T<sub>i</sub> = L<sub>1</sub> + L<sub>2</sub> + … + L<sub>i</sub></p>
               <p class="text-slate-600 mt-1">Para 5 programas hay <strong>5! = 120</strong> órdenes posibles; con 10: 3 628 800. Probarlos todos no es estrategia.</p>
             </div>
             <div class="bg-teal-50 border border-teal-200 rounded-xl p-4">
               <p class="font-bold text-teal-900">Tiempo medio de recuperación</p>
-              <p class="mt-2 font-mono text-lg text-slate-900">MRT = (1/n) · suma de los T_i</p>
+              <p class="mt-2 font-mono text-lg text-slate-900">MRT = (1/n) · (T<sub>1</sub> + … + T<sub>n</sub>)</p>
               <p class="text-slate-600 mt-2">El objetivo: elegir el <strong>orden</strong> de los programas que minimiza el MRT.</p>
             </div>
           </div>
@@ -151,7 +151,7 @@ export const PNN_MODULE_9: Module = {
           <div class="bg-white border border-slate-200 rounded-xl p-4">
             <p class="font-bold text-slate-900 text-sm">1. Contar cuántas veces se paga cada longitud</p>
             <div class="mt-2 text-sm" data-reveal>
-              <p class="font-mono text-slate-900">suma de T_i = n·L1 + (n−1)·L2 + ... + 2·L(n−1) + 1·L_n</p>
+              <p class="font-mono text-slate-900">Σ T<sub>i</sub> = n·L<sub>1</sub> + (n−1)·L<sub>2</sub> + … + 2·L<sub>n−1</sub> + 1·L<sub>n</sub></p>
               <p class="text-slate-600 mt-1">Los coeficientes <strong>decrecen</strong> (5, 4, 3, 2, 1): lo de adelante se paga en TODAS las recuperaciones.</p>
             </div>
             <div class="mt-2 text-sm bg-teal-50 border border-teal-200 rounded-lg p-3 text-teal-950" data-reveal>
@@ -161,7 +161,7 @@ export const PNN_MODULE_9: Module = {
           <div class="bg-white border border-slate-200 rounded-xl p-4">
             <p class="font-bold text-slate-900 text-sm">2. Intercambio</p>
             <div class="mt-2 text-sm" data-reveal>
-              <p class="font-mono text-slate-900">si i &lt; j y L_i &gt; L_j, intercambiar cambia la suma en (j−i)·(L_j−L_i) &lt; 0 → disminuye</p>
+              <p class="font-mono text-slate-900">si i &lt; j y L<sub>i</sub> &gt; L<sub>j</sub>, intercambiar cambia la suma en (j−i)·(L<sub>j</sub>−L<sub>i</sub>) &lt; 0 → disminuye</p>
               <p class="text-slate-600 mt-1">Ningún orden con una inversión puede ser óptimo. El creciente es el óptimo.</p>
             </div>
           </div>
@@ -226,17 +226,17 @@ El orden creciente SI es el optimo.</code></pre>
         <div class="space-y-5">
           <p class="text-slate-700">Cada uno calcula los seis órdenes en su cuaderno; la tabla se completa en voz alta y se escribe en la pizarra. El ganador se verifica con la fórmula.</p>
           <div class="grid md:grid-cols-3 gap-3 text-sm">
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 5, 4</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 4, 5</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">5, 2, 4</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">5, 4, 2</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">4, 2, 5</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
-            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">4, 5, 2</p><p class="text-slate-500 mt-1">Σ T_i = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 5, 4</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">2, 4, 5</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">5, 2, 4</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">5, 4, 2</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">4, 2, 5</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-mono font-bold text-slate-900">4, 5, 2</p><p class="text-slate-500 mt-1">Σ T<sub>i</sub> = <span class="font-bold text-teal-700">?</span> · MRT = <span class="font-bold text-teal-700">?</span></p></div>
           </div>
           <p class="text-sm text-slate-600"><strong>Verificación final:</strong> 3·2 + 2·4 + 1·5 = <span class="font-bold">?</span> (el valor del mejor orden).</p>
         </div>
       `,
-      notes: "9 min. Solución: mejor orden 2, 4, 5 con Σ T_i = 2+6+11 = 19 y MRT 6,33; los otros: 2,5,4 → 20/6,67; 5,2,4 → 23/7,67; 5,4,2 → 25/8,33; 4,2,5 → 21/7,00; 4,5,2 → 24/8,00. Verificación: 3·2+2·4+1·5 = 19. Pregunta de comprobación al cerrar: 'en un orden óptimo, ¿puede haber una inversión?' (NO)."
+      notes: "9 min. Solución: mejor orden 2, 4, 5 con Σ T<sub>i</sub> = 2+6+11 = 19 y MRT 6,33; los otros: 2,5,4 → 20/6,67; 5,2,4 → 23/7,67; 5,4,2 → 25/8,33; 4,2,5 → 21/7,00; 4,5,2 → 24/8,00. Verificación: 3·2+2·4+1·5 = 19. Pregunta de comprobación al cerrar: 'en un orden óptimo, ¿puede haber una inversión?' (NO)."
     },
     {
       id: 'pnn9-11',
@@ -244,18 +244,18 @@ El orden creciente SI es el optimo.</code></pre>
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-700">
-            <p><strong>Enunciado de cátedra:</strong> una bolsa de papel resiste hasta <strong>W</strong> unidades de peso y hay n objetos, cada uno con peso w_i y valor v_i. Escoga objetos para que el valor total sea <strong>máximo</strong> sin pasar de W.</p>
+            <p><strong>Enunciado de cátedra:</strong> una bolsa de papel resiste hasta <strong>W</strong> unidades de peso y hay n objetos, cada uno con peso w<sub>i</sub> y valor v<sub>i</sub>. Escoga objetos para que el valor total sea <strong>máximo</strong> sin pasar de W.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
               <p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Fraccionaria</p>
-              <p class="text-sm text-emerald-950 mt-2">Se puede <strong>partir</strong> un objeto: una fracción 0 ≤ x_i ≤ 1.</p>
+              <p class="text-sm text-emerald-950 mt-2">Se puede <strong>partir</strong> un objeto: una fracción 0 ≤ x<sub>i</sub> ≤ 1.</p>
               <p class="text-sm text-emerald-900 mt-2">Real: carga a granel — arena, harina, combustible.</p>
               <p class="text-sm font-bold text-emerald-900 mt-2">Estrategia: voraz (método de adquisición).</p>
             </div>
             <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4">
               <p class="text-xs uppercase tracking-wider font-bold text-rose-700">0/1</p>
-              <p class="text-sm text-rose-950 mt-2"><strong>No</strong> se puede partir: x_i ∈ {0, 1} — entero o nada.</p>
+              <p class="text-sm text-rose-950 mt-2"><strong>No</strong> se puede partir: x<sub>i</sub> ∈ {0, 1} — entero o nada.</p>
               <p class="text-sm text-rose-900 mt-2">Real: carga discreta — una laptop, un libro, un instrumento.</p>
               <p class="text-sm font-bold text-rose-900 mt-2">El voraz no basta: el contraejemplo lo demuestra.</p>
             </div>
@@ -353,7 +353,7 @@ else
           <p class="text-slate-600">En el cuaderno, sin entrega.</p>
           <div class="bg-white border border-slate-200 rounded-xl p-4">
             <p class="font-bold text-slate-900">1 · Cinta</p>
-            <p class="text-sm text-slate-700 mt-1">Longitudes <code>{8, 3, 5}</code>: orden óptimo, Σ T_i, MRT y verificación con la fórmula de coeficientes.</p>
+            <p class="text-sm text-slate-700 mt-1">Longitudes <code>{8, 3, 5}</code>: orden óptimo, Σ T<sub>i</sub>, MRT y verificación con la fórmula de coeficientes.</p>
           </div>
           <div class="bg-white border border-slate-200 rounded-xl p-4">
             <p class="font-bold text-slate-900">2 · Bolsa fraccionaria</p>
@@ -365,7 +365,7 @@ else
           </div>
         </div>
       `,
-      notes: "10 min. Respuestas: (1) orden 3, 5, 8 → Σ T_i = 3+8+16 = 27, MRT 9, fórmula 3·3+2·5+1·8 = 27. (2) densidades 6,00/5,00/4,00 → A entero (60) + 50 % de B (50) = 110. (3) voraz 0/1: A = 60; óptimo: B solo = 100 (el voraz pierde 40). Los ejercicios replican el formato de la práctica del 10 % que se asigna el viernes."
+      notes: "10 min. Respuestas: (1) orden 3, 5, 8 → Σ T<sub>i</sub> = 3+8+16 = 27, MRT 9, fórmula 3·3+2·5+1·8 = 27. (2) densidades 6,00/5,00/4,00 → A entero (60) + 50 % de B (50) = 110. (3) voraz 0/1: A = 60; óptimo: B solo = 100 (el voraz pierde 40). Los ejercicios replican el formato de la práctica del 10 % que se asigna el viernes."
     },
     {
       id: 'pnn9-16',
@@ -386,13 +386,13 @@ else
             </tbody>
           </table>
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p><strong>Ticket de salida:</strong> cinta con longitudes {7, 1, 4}. Orden óptimo, Σ T_i y MRT.</p>
+            <p><strong>Ticket de salida:</strong> cinta con longitudes {7, 1, 4}. Orden óptimo, Σ T<sub>i</sub> y MRT.</p>
             <p class="mt-2 text-xs text-teal-800">Se responde en el cuaderno y se recoge al salir.</p>
           </div>
           <p class="text-sm text-slate-600"><strong>Viernes:</strong> modelos óptimos de intercalación (contenido nuevo) + asignación de la práctica evaluada del 10 %.</p>
         </div>
       `,
-      notes: "8 min. Ticket de salida: orden 1, 4, 7 → Σ T_i = 1+5+12 = 18, MRT 6; fórmula 3·1+2·4+1·7 = 18. La tabla 'voraz funciona / no funciona' es el síntesis que la práctica para casa podrá pedir. Anuncios: (1) viernes intercalación + asignación del 10 %; (2) corrección de los dos ejercicios a las 16:45; (3) Sortmerge 2 no se dicta esta semana (decisión del docente)."
+      notes: "8 min. Ticket de salida: orden 1, 4, 7 → Σ T<sub>i</sub> = 1+5+12 = 18, MRT 6; fórmula 3·1+2·4+1·7 = 18. La tabla 'voraz funciona / no funciona' es el síntesis que la práctica para casa podrá pedir. Anuncios: (1) viernes intercalación + asignación del 10 %; (2) corrección de los dos ejercicios a las 16:45; (3) Sortmerge 2 no se dicta esta semana (decisión del docente)."
     },
     {
       id: 'pnn9-17',
@@ -479,7 +479,7 @@ flowchart TB
           <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
             <p class="font-bold">La fórmula que conecta con la cinta</p>
             <p class="font-mono text-base mt-1">costo total = Σ (tamaño × profundidad)</p>
-            <p class="mt-2">Cinta: Σ T_i = n·L1 + (n−1)·L2 + ... + 1·L_n (coeficientes = posiciones). Intercalación: los coeficientes son <strong>profundidades</strong> del árbol. <strong>Es el mismo principio: lo que se paga muchas veces debe ser pequeño.</strong></p>
+            <p class="mt-2">Cinta: Σ T<sub>i</sub> = n·L<sub>1</sub> + (n−1)·L<sub>2</sub> + … + 1·L<sub>n</sub> (coeficientes = posiciones). Intercalación: los coeficientes son <strong>profundidades</strong> del árbol. <strong>Es el mismo principio: lo que se paga muchas veces debe ser pequeño.</strong></p>
           </div>
         </div>
       `,
@@ -547,12 +547,12 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
         <div class="space-y-4">
           <p class="text-slate-600">En el cuaderno. Se corrigen dos al final; el resto queda para el repaso del fin de semana. <strong>Este formato es el mismo de la práctica evaluada.</strong></p>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">1 · Búsqueda binaria (traza)</p><p class="text-sm text-slate-700 mt-1">En <code>[3, 7, 11, 18, 25, 31, 40]</code>, localice el 25 con índices desde 0 y medio ⌊(izq+der)/2⌋. Registre índice medio y valor comparado en cada paso.</p></div>
-          <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">2 · Cinta (decisión + fórmula)</p><p class="text-sm text-slate-700 mt-1">Longitudes <code>{6, 2, 9}</code>: orden óptimo, Σ T_i, MRT y verificación con coeficientes.</p></div>
+          <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">2 · Cinta (decisión + fórmula)</p><p class="text-sm text-slate-700 mt-1">Longitudes <code>{6, 2, 9}</code>: orden óptimo, Σ T<sub>i</sub>, MRT y verificación con coeficientes.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">3 · Bolsa fraccionaria (decisión)</p><p class="text-sm text-slate-700 mt-1">W = 12; objetos A (5, 30) · B (10, 50) · C (8, 40): valor máximo y llenado.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">4 · Intercalación (contraste)</p><p class="text-sm text-slate-700 mt-1">Archivos <code>{12, 3, 7, 5}</code> en el orden listado: costo voraz y costo de la cascada.</p></div>
         </div>
       `,
-      notes: "16 min (corrección de 2 al final, 4 min). Respuestas: (1) índice 3 → 18; derecho [4,6] índice 5 → 31; izquierdo [4,4] índice 4 → 25. Encontrado en índice 4. (2) orden 2, 6, 9 → Σ T_i = 2+8+17 = 27, MRT 9; fórmula 3·2+2·6+1·9 = 27. (3) densidades 6,00/5,00/5,00 → A entero (30) + 7/10 de B (35) = 65. (4) voraz 3+5=8; 7+8=15; 12+15=27 → 50. Cascada: 12+3=15; 15+7=22; 22+5=27 → 64. Diferencia 14. Formato replicado del instrumento: traza, decisión, fórmula, contraste."
+      notes: "16 min (corrección de 2 al final, 4 min). Respuestas: (1) índice 3 → 18; derecho [4,6] índice 5 → 31; izquierdo [4,4] índice 4 → 25. Encontrado en índice 4. (2) orden 2, 6, 9 → Σ T<sub>i</sub> = 2+8+17 = 27, MRT 9; fórmula 3·2+2·6+1·9 = 27. (3) densidades 6,00/5,00/5,00 → A entero (30) + 7/10 de B (35) = 65. (4) voraz 3+5=8; 7+8=15; 12+15=27 → 50. Cascada: 12+3=15; 15+7=22; 22+5=27 → 64. Diferencia 14. Formato replicado del instrumento: traza, decisión, fórmula, contraste."
     },
     {
       id: 'pnn9-24',
@@ -563,7 +563,7 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
             <p><strong>Práctica individual para casa · 10 % del Corte II</strong> (sustituye a la prueba escrita de la S9). Programa en <strong>C, C++ o Python</strong> (no Java) que resuelva la variante asignada por el último dígito de la cédula.</p>
           </div>
           <div class="grid md:grid-cols-3 gap-3 text-sm">
-            <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">A · cédula 0–3</p><p class="text-slate-600 mt-1">Cintas magnéticas: Σ T_i y MRT del orden dado, orden creciente (SPT) y verificación con coeficientes. L = {14, 3, 8, 6, 11}.</p></div>
+            <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">A · cédula 0–3</p><p class="text-slate-600 mt-1">Cintas magnéticas: Σ T<sub>i</sub> y MRT del orden dado, orden creciente (SPT) y verificación con coeficientes. L = {14, 3, 8, 6, 11}.</p></div>
             <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">B · cédula 4–6</p><p class="text-slate-600 mt-1">Bolsa fraccionaria: densidades, llenado voraz con fracciones y valor total; contraste 0/1. W = 30; A(18,90) B(15,70) C(15,70).</p></div>
             <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">C · cédula 7–9</p><p class="text-slate-600 mt-1">Bolsa 0/1: tabla V(i,w) programada, valor máximo y reconstrucción. W = 10; A(6,42) B(5,25) C(5,25).</p></div>
           </div>

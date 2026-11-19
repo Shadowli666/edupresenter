@@ -37,6 +37,9 @@ const GUION_PANTALLA = [
   [/predicci[oó]n\s*\(\d/i, 'etiqueta de momento con tiempo'],
 ];
 const PAREJAS = /\bparejas?\b/i;
+// Notación con subíndice escrita con guion bajo en el texto de pantalla («w_i», «T_i»).
+// En HTML se escribe con <sub>; el guion bajo se lee como código y no es notación matemática.
+const GUION_BAJO = /(?:^|\s)[A-Za-zΑ-Ωα-ω]\s*_[0-9A-Za-z]\b/;
 
 function uso(msg) {
   if (msg) console.error(`ERROR: ${msg}`);
@@ -185,6 +188,7 @@ async function main() {
     const guion = [...new Set(GUION_PANTALLA.filter(([re]) => re.test(texto)).map(([, msg]) => msg))];
     if (guion.length) E(d, `texto de guion en pantalla (${guion.join('; ')}): va en «notes», no en la diapositiva`);
     if (PAREJAS.test(texto)) W(d, 'menciona trabajo en parejas: confirmar que la cátedra lo admite (en PNN II se trabaja individual desde el 19/11/2026)');
+    if (GUION_BAJO.test(texto)) W(d, 'subíndice con guion bajo en pantalla («w_i»): escribe w<sub>i</sub>');
     const evaluativas = [...new Set((texto.match(EVALUATIVAS) || []).map((x) => x.toLowerCase()))];
     if (evaluativas.length) W(d, `redacción valorativa para estudiantes: ${evaluativas.join(', ')}`);
     const nPal = palabras(html);
