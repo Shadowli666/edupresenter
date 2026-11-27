@@ -42,6 +42,10 @@ export const SIS_MODULE_4: Module = {
 | `notes: '…'` | en claro | **cifrado** con el código de la clave `notas` |
 | `lock: 'eval-corte-1'` | en claro | `contentHtml` **cifrado** con el código de esa clave |
 
+Excepción autorizada: los guiones de clase de `data/ads/ads_module10.ts` y
+`data/pnn-2026-2/pnn_module10.ts` se publican en claro, salvo en diapositivas con
+`lock`. Son accesibles públicamente, incluidas las respuestas de práctica que contengan.
+
 Reglas para que el plugin (`tools/protectedContent.ts`) no falle y nada se filtre:
 
 1. `notes` y `lock` deben ser **texto literal** (`'…'`, `"…"` o plantilla sin `${}`). Nada de variables, spread (`...base`) ni propiedades abreviadas: el build **se detiene con error** en vez de publicar en claro.

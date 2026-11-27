@@ -25,6 +25,11 @@ import path from 'node:path';
 const normalize = (code: string) => code.trim().toUpperCase();
 
 export const NOTES_KEY = 'notas';
+// Guiones autorizados para consulta pública; nunca afecta diapositivas con lock.
+const PUBLIC_CLASS_NOTES = new Set([
+  '/data/ads/ads_module10.ts',
+  '/data/pnn-2026-2/pnn_module10.ts',
+]);
 const CODES_FILE = 'unlock-codes.local';
 const ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // sin 0/O/1/I/L
 
@@ -129,7 +134,8 @@ export function protectedContent(options: { root: string }): Plugin {
             }
             // 1. Notas del docente -> cifradas con la clave 'notas'
             const notes = props.get('notes');
-            if (notes && ts.isPropertyAssignment(notes)) {
+            const publicClassNotes = !lockProp && [...PUBLIC_CLASS_NOTES].some((file) => src.endsWith(file));
+            if (notes && ts.isPropertyAssignment(notes) && !publicClassNotes) {
               const text = ts.isStringLiteralLike(notes.initializer) ? notes.initializer.text : null;
               if (text === null) throw new Error(`${src}: 'notes' debe ser texto literal (sin \${})`);
               const c = codeFor(NOTES_KEY, warn);
