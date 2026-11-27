@@ -4,7 +4,7 @@ export const PNN_MODULE_7: Module = {
   id: 'pnn-mod-7',
   title: '7. Eficiencia de los algoritmos divide y conquista',
   description:
-    'Semana 7: jueves 05/11 — análisis de eficiencia de los algoritmos divide y conquista (recurrencias, árbol de recursión, Teorema Maestro) y conteo de comparaciones con código en C. Viernes 06/11 — ejercicio integrador en grupos: comparación de eficiencia entre búsqueda binaria, máximos y mínimos, Sotmerge y Quicksort (ficha grupal, formativa). Unidad II.3.',
+    'Semana 7: jueves 05/11 — análisis de eficiencia de los algoritmos divide y conquista (recurrencias, árbol de recursión, Teorema Maestro) y conteo de comparaciones con código en C. Viernes 06/11 — ejercicio integrador individual: comparación de eficiencia entre búsqueda binaria, máximos y mínimos, Sotmerge y Quicksort (ficha individual, formativa). Unidad II.3.',
   evaluation: '0%',
   slides: [
     {
@@ -37,7 +37,7 @@ export const PNN_MODULE_7: Module = {
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-teal-50 border border-teal-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-teal-700">Teoría</p><h3 class="text-lg font-bold text-teal-950 mt-2">Recurrencias</h3><p class="text-sm text-teal-900 mt-2">Árbol de recursión y Teorema Maestro.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-slate-700">Código en vivo</p><h3 class="text-lg font-bold text-slate-950 mt-2">Contar comparaciones</h3><p class="text-sm text-slate-700 mt-2">Sotmerge y Quicksort instrumentados en C.</p></div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Resolver recurrencias</h3><p class="text-sm text-emerald-900 mt-2">Guiada en pizarra y en parejas en el cuaderno.</p></div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5"><p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Práctica</p><h3 class="text-lg font-bold text-emerald-950 mt-2">Resolver recurrencias</h3><p class="text-sm text-emerald-900 mt-2">Guiada en pizarra e individual en el cuaderno.</p></div>
           </div>
         </div>
       `
@@ -236,7 +236,7 @@ int main(void) {
           </div>
         </div>
       `,
-      notes: 'Código en vivo (15 min con la diap. 9). Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S07-conteo.c (workspace PSM). Compilar con: gcc -Wall -o conteo S07-conteo.c && ./conteo. Orden del archivo: include y declaraciones de comps/aux arriba, luego Sotmerge, Quicksort, datos y main. Antes de ejecutar, cada pareja predice cuántas comparaciones hará Quicksort con el arreglo ordenado de n = 64 (sugerencia didáctica 1; respuesta real 2016).'
+      notes: 'Código en vivo (15 min con la diap. 9). Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S07-conteo.c (workspace PSM). Compilar con: gcc -Wall -o conteo S07-conteo.c && ./conteo. Orden del archivo: include y declaraciones de comps/aux arriba, luego Sotmerge, Quicksort, datos y main. Antes de ejecutar, cada estudiante predice cuántas comparaciones hará Quicksort con el arreglo ordenado de n = 64 (sugerencia didáctica 1; respuesta real 2016).'
     },
     {
       id: 'pnn7-9',
@@ -293,10 +293,10 @@ int main(void) {
     },
     {
       id: 'pnn7-12',
-      title: 'Práctica autónoma en parejas',
+      title: 'Práctica autónoma individual',
       contentHtml: `
         <div class="space-y-4">
-          <p class="text-slate-600">Resuelve en el cuaderno, en parejas:</p>
+          <p class="text-slate-600">Resuelvan individualmente en el cuaderno:</p>
           <ol class="space-y-3">
             <li class="bg-white border-l-4 border-emerald-500 rounded-xl p-3"><strong>1.</strong> Resuelve con el Teorema Maestro: <span class="font-mono">T(n) = 4T(n/2) + n</span>.</li>
             <li class="bg-white border-l-4 border-emerald-500 rounded-xl p-3"><strong>2.</strong> Resuelve: <span class="font-mono">T(n) = 2T(n/2) + n²</span>.</li>
@@ -317,7 +317,7 @@ int main(void) {
             <p class="text-xs uppercase tracking-widest font-bold text-teal-300">Ticket de salida</p>
             <p class="text-lg font-bold mt-2">Un algoritmo divide el problema en 3 partes de tamaño n/3 y combina en tiempo lineal. Escribe su recurrencia y resuélvela.</p>
           </div>
-          <div class="flex gap-4 bg-white border-l-4 border-emerald-500 rounded-xl p-4"><span class="font-bold text-emerald-600">⏭️</span><p class="text-slate-800"><strong>Viernes 06/11:</strong> ejercicio integrador en grupos. Trae la tabla de la diapositiva 7 en el cuaderno.</p></div>
+          <div class="flex gap-4 bg-white border-l-4 border-emerald-500 rounded-xl p-4"><span class="font-bold text-emerald-600">⏭️</span><p class="text-slate-800"><strong>Viernes 06/11:</strong> ejercicio integrador individual. Traigan la tabla al cuaderno.</p></div>
         </div>
       `,
       notes: 'Ticket: T(n) = 3T(n/3) + n → a = 3 = b^d → Θ(n log n).'
@@ -332,7 +332,7 @@ int main(void) {
             <div>
               <p class="text-sm uppercase tracking-widest font-bold text-emerald-700">Programación No Numérica II · Unidad II</p>
               <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Comparar la eficiencia con rigor</h2>
-              <p class="text-slate-500 mt-1">Ejercicio integrador en grupos</p>
+              <p class="text-slate-500 mt-1">Ejercicio integrador individual</p>
             </div>
           </div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-emerald-950">
@@ -404,10 +404,10 @@ int main(void) {
     },
     {
       id: 'pnn7-19',
-      title: 'Ficha grupal · organización',
+      title: 'Ficha individual · organización',
       contentHtml: `
         <div class="space-y-5">
-          <div class="bg-emerald-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-emerald-100">Ficha de trabajo grupal · formativa</p><p class="mt-1">Grupos de 3 o 4 integrantes. Una hoja propia por grupo, con los nombres de todos.</p></div>
+          <div class="bg-emerald-600 text-white rounded-xl p-4"><p class="text-xs uppercase tracking-widest font-bold text-emerald-100">Ficha de trabajo individual · formativa</p><p class="mt-1">Trabajen individualmente en el cuaderno, con nombre y cédula.</p></div>
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-white border rounded-2xl p-4"><p class="font-bold text-slate-900">Redactor</p><p class="text-sm text-slate-700 mt-1">Escribe las respuestas acordadas.</p></div>
             <div class="bg-white border rounded-2xl p-4"><p class="font-bold text-slate-900">Verificador</p><p class="text-sm text-slate-700 mt-1">Rehace los conteos de la parte 2 por su cuenta.</p></div>
@@ -452,7 +452,7 @@ int main(void) {
             <li class="bg-white border-l-4 border-emerald-500 rounded-xl p-3"><strong>b)</strong> Sotmerge: número de comparaciones de cada intercalación y total.</li>
             <li class="bg-white border-l-4 border-emerald-500 rounded-xl p-3"><strong>c)</strong> Repite a) con <span class="font-mono">B = [1, 2, 3, 4, 5, 6, 7, 8]</span> usando la fórmula del peor caso.</li>
           </ol>
-          <p class="text-sm text-slate-600">Usa la partición y la intercalación de conteo.c (diapositiva 8).</p>
+          <p class="text-sm text-slate-600">Utilicen la partición y la intercalación de conteo.c.</p>
         </div>
       `,
       notes: 'Clave parte 2 (verificada con Python). a) [0..7] piv 4, 7 comp → [2,1,3,4,8,7,6,5]; [0..2] piv 3, 2 comp; [0..1] piv 1, 1 comp; [4..7] piv 5, 3 comp → [5,7,6,8]; [5..7] piv 8, 2 comp; [5..6] piv 6, 1 comp. Total 16. b) pares 1+1+1+1, cuartetos 3+3, final 7 → total 17. c) n(n − 1)/2 = 28.'
@@ -488,11 +488,11 @@ int main(void) {
             <div class="bg-white border rounded-2xl p-4"><p class="font-bold">Parte 1</p><p class="text-sm text-slate-700">¿Qué filas tienen «no aplica» y por qué? ¿Strassen o la clásica?</p></div>
             <div class="bg-white border rounded-2xl p-4"><p class="font-bold">Parte 2</p><p class="text-sm text-slate-700">¿Coincidieron el redactor y el verificador?</p></div>
             <div class="bg-white border rounded-2xl p-4"><p class="font-bold">Parte 3</p><p class="text-sm text-slate-700">«No es válida porque…; lo correcto sería…»</p></div>
-            <div class="bg-white border rounded-2xl p-4"><p class="font-bold">Parte 4</p><p class="text-sm text-slate-700">Dos grupos con elecciones distintas defienden su opción.</p></div>
+            <div class="bg-white border rounded-2xl p-4"><p class="font-bold">Parte 4</p><p class="text-sm text-slate-700">Estudiantes con elecciones distintas defienden su opción a voz populi.</p></div>
           </div>
         </div>
       `,
-      notes: 'Plenaria (13 min). Un vocero por parte, de grupos distintos. En la parte 4 b) ambas opciones son aceptables si se justifican (sugerencia didáctica 3). Anotar errores frecuentes para la prueba S9.'
+      notes: 'Plenaria (13 min). Respuestas a voz populi, con aportes individuales. En la parte 4 b) ambas opciones son aceptables si se justifican (sugerencia didáctica 3). Anotar errores frecuentes para la prueba S9.'
     },
     {
       id: 'pnn7-24',
@@ -502,7 +502,7 @@ int main(void) {
           <div class="bg-emerald-600 text-white rounded-2xl p-5"><p class="text-lg font-bold">Comparar es medir lo mismo, sobre la misma entrada y en el mismo caso.</p></div>
           <div class="space-y-3">
             <div class="flex gap-4 bg-white border-l-4 border-sky-500 rounded-xl p-4"><span class="font-bold text-sky-600">S8</span><p class="text-slate-800"><strong>Jueves 12/11 y viernes 13/11:</strong> Unidad III, método de adquisición: almacenamiento óptimo en cintas y problema de la bolsa de papel.</p></div>
-            <div class="flex gap-4 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">S9</span><p class="text-slate-800"><strong>Jueves 19/11:</strong> prueba escrita de la Unidad II (divide y conquista) · <strong>10 %</strong> del Corte II.</p></div>
+            <div class="flex gap-4 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">S9</span><p class="text-slate-800">Informe teórico sobre métodos de adquisición · <strong>10 %</strong> del Corte II. La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,
@@ -528,8 +528,8 @@ int main(void) {
   ],
   tasks: [{
     id: 'pnn7-t1',
-    title: 'Ficha grupal: comparación de eficiencia',
-    description: 'Ejercicio integrador en grupos de 3 o 4 en clase: análisis de recurrencias de algoritmos nuevos, conteo de comparaciones a mano, análisis de una conclusión y decisión del algoritmo para tres escenarios.',
+    title: 'Ficha individual: comparación de eficiencia',
+    description: 'Ejercicio integrador individual de 3 o 4 en clase: análisis de recurrencias de algoritmos nuevos, conteo de comparaciones a mano, análisis de una conclusión y decisión del algoritmo para tres escenarios.',
     items: ['Parte 1: recurrencias de algoritmos nuevos', 'Parte 2: conteos con A y B', 'Parte 3: validez de una conclusión', 'Parte 4: decisión en tres escenarios'],
     due: '2026-11-06',
     corte: 2,

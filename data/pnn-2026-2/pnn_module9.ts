@@ -4,8 +4,8 @@ export const PNN_MODULE_9: Module = {
   id: 'pnn-mod-9',
   title: '9. El método de adquisición: cintas, bolsa e intercalación',
   description:
-    'Semana 9: jueves 19/11 — el método de adquisición (voraz): las cuatro piezas, las dos condiciones de uso y cuándo falla; almacenamiento óptimo en cintas magnéticas con la fila de pago como analogía, la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C; el problema de la bolsa de papel en sus dos variantes (fraccionaria: el voraz es óptimo; 0/1: el voraz falla 30 frente a 40 y entra la programación dinámica con la tabla V(i,w)). Viernes 20/11 — modelos óptimos de intercalación: mezclar archivos de dos en dos, la analogía de la fotocopiadora, el árbol de mezcla y la lectura por profundidad, verificación en C (voraz 205 frente a cascada 270), repaso activo de las Unidades II y III y asignación de la práctica evaluada del 10 % (ejercicio de código para casa). Unidad III.1–III.3.',
-  evaluation: '10 % (práctica para casa, asignada el viernes)',
+    'Semana 9: jueves 19/11 — el método de adquisición (voraz): las cuatro piezas, las dos condiciones de uso y cuándo falla; almacenamiento óptimo en cintas magnéticas con la fila de pago como analogía, la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C; el problema de la bolsa de papel en sus dos variantes (fraccionaria: el voraz es óptimo; 0/1: el voraz falla 30 frente a 40 y entra la programación dinámica con la tabla V(i,w)). Viernes 20/11 — modelos óptimos de intercalación: mezclar archivos de dos en dos, la analogía de la fotocopiadora, el árbol de mezcla y la lectura por profundidad, verificación en C (voraz 205 frente a cascada 270), repaso activo de las Unidades II y III y práctica de las Unidades II y III. Unidad III.1–III.3.',
+  evaluation: 'Corte II: informe teórico (10 %) y ejercicio aplicado (20 %)' ,
   slides: [
     {
       id: 'pnn9-1',
@@ -410,7 +410,7 @@ else
             <p><strong>Ticket de salida:</strong> cinta con longitudes {7, 1, 4}. Orden óptimo, Σ T<sub>i</sub> y MRT.</p>
             <p class="mt-2 text-xs text-teal-800">Se responde en el cuaderno y se recoge al salir.</p>
           </div>
-          <p class="text-sm text-slate-600"><strong>Viernes:</strong> modelos óptimos de intercalación (contenido nuevo) + asignación de la práctica evaluada del 10 %.</p>
+          <p class="text-sm text-slate-600">Modelos óptimos de intercalación y aplicación de los métodos estudiados.</p>
         </div>
       `,
       notes: "8 min. Ticket de salida: orden 1, 4, 7 → Σ T<sub>i</sub> = 1+5+12 = 18, MRT 6; fórmula 3·1+2·4+1·7 = 18. La tabla 'voraz funciona / no funciona' es el síntesis que la práctica para casa podrá pedir. Anuncios: (1) viernes intercalación + asignación del 10 %; (2) corrección de los dos ejercicios a las 16:45; (3) Sortmerge 2 no se dicta esta semana (decisión del docente)."
@@ -578,7 +578,7 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
       title: 'Repaso activo · ficha U-II + U-III',
       contentHtml: `
         <div class="space-y-4">
-          <p class="text-slate-600">En el cuaderno. Se corrigen dos al final; el resto queda para el repaso del fin de semana. <strong>Este formato es el mismo de la práctica evaluada.</strong></p>
+          <p class="text-slate-600">En el cuaderno. Se corrigen dos al final; el resto queda para el repaso del fin de semana. Estos ejercicios permiten practicar los métodos estudiados.</p>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">1 · Búsqueda binaria (traza)</p><p class="text-sm text-slate-700 mt-1">En <code>[3, 7, 11, 18, 25, 31, 40]</code>, localice el 25 con índices desde 0 y medio ⌊(izq+der)/2⌋. Registre índice medio y valor comparado en cada paso.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">2 · Cinta (decisión + fórmula)</p><p class="text-sm text-slate-700 mt-1">Longitudes <code>{6, 2, 9}</code>: orden óptimo, Σ T<sub>i</sub>, MRT y verificación con coeficientes.</p></div>
           <div class="bg-white border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900 text-sm">3 · Bolsa fraccionaria (decisión)</p><p class="text-sm text-slate-700 mt-1">W = 12; objetos A (5, 30) · B (10, 50) · C (8, 40): valor máximo y llenado.</p></div>
@@ -589,24 +589,11 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
     },
     {
       id: 'pnn9-24',
-      title: 'Práctica evaluada · ejercicio de código para casa (10 %)',
+      title: 'Corte II · informe teórico (10 %)',
       contentHtml: `
-        <div class="space-y-4">
-          <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-950">
-            <p><strong>Práctica individual para casa · 10 % del Corte II</strong> (sustituye a la prueba escrita de la S9). Programa en <strong>C, C++ o Python</strong> (no Java) que resuelva la variante asignada por el último dígito de la cédula.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-3 text-sm">
-            <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">A · cédula 0–3</p><p class="text-slate-600 mt-1">Cintas magnéticas: Σ T<sub>i</sub> y MRT del orden dado, orden creciente (SPT) y verificación con coeficientes. L = {14, 3, 8, 6, 11}.</p></div>
-            <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">B · cédula 4–6</p><p class="text-slate-600 mt-1">Bolsa fraccionaria: densidades, llenado voraz con fracciones y valor total; contraste 0/1. W = 30; A(18,90) B(15,70) C(15,70).</p></div>
-            <div class="bg-white border-2 border-teal-200 rounded-xl p-3"><p class="font-bold text-teal-800">C · cédula 7–9</p><p class="text-slate-600 mt-1">Bolsa 0/1: tabla V(i,w) programada, valor máximo y reconstrucción. W = 10; A(6,42) B(5,25) C(5,25).</p></div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Entregables</p><p class="text-slate-600 mt-1">Programa con los datos escritos en el código · salida completa · traza manual solicitada · dos respuestas escritas de justificación.</p></div>
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Entrega</p><p class="text-slate-600 mt-1">Individual · medio digital por confirmar · plazo por confirmar (propuesto: jueves 26/11) · el código debe ser propio.</p></div>
-          </div>
-        </div>
+        <div class="space-y-4"><p class="text-lg font-bold">Informe teórico sobre métodos de adquisición · 10 %</p><p>Elaboren un informe teórico sobre los métodos de adquisición.</p><p>La fecha y el medio de entrega se comunicarán en clase.</p></div>
       `,
-      notes: "15 min. Respuestas de referencia (solo docente, en el instrumento S09-practica-codigo-casa-10pct-borrador.md): A → 129/25,8 frente a 99/19,8; B → 146 fracc / 90 voraz 0/1 / 140 óptimo; C → tabla V(3,10) = 50 (B y C), voraz 42. PENDIENTES por confirmar: plazo y medio de entrega. El enunciado completo con la escala de 20 puntos está en la vista Tareas y con el docente."
+      notes: 'Decisión docente del 27/11. Verificar con la coordinación su adecuación a la normativa para materias prácticas y la aprobación del instrumento.'
     },
     {
       id: 'pnn9-25',
@@ -634,7 +621,7 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
             <button data-option>Cualquier orden: el costo no cambia</button>
             <p data-explain>El archivo que se mezcla temprano vuelve a pagarse en cada mezcla siguiente; por eso los pequeños van al fondo del árbol (mayor profundidad) y los grandes cerca de la raíz.</p>
           </div>
-          <p class="text-sm text-slate-600"><strong>S10 (23–28/11):</strong> luces de árbol de costo mínimo y paso más corto. <strong>Taller 20 % del método de adquisición: jueves 03/12.</strong></p>
+          <p class="text-sm text-slate-600"><strong>S10 (23–28/11):</strong> luces de árbol de costo mínimo y paso más corto. <strong>Evaluación del 20 %: ejercicio aplicado.</strong> La fecha y el medio se comunicarán en clase.</p>
         </div>
       `,
       notes: "10 min. La tabla completa es el síntesis de la Unidad III hasta hoy (4 problemas). Anuncios: (1) práctica del 10 % se entrega por el medio indicado (plazo por confirmar); (2) S10: Unidad III.3 (árbol de costo mínimo, paso más corto); (3) taller 20 % el 03/12 (PGA S11)."
@@ -666,20 +653,14 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
   ],
   tasks: [
     {
-      id: 'pnn9-t1',
-      title: 'Práctica evaluada: ejercicio de código para casa (10 %)',
-      description: 'Ejercicio individual de código (C, C++ o Python) según la variante por cédula: A cintas magnéticas, B bolsa fraccionaria, C bolsa 0/1 con tabla V(i,w). Entrega del programa, la salida, la traza manual y dos respuestas escritas. Plazo por confirmar (propuesto: 26/11); medio de entrega por confirmar.',
-      items: [
-        'Programa con los datos escritos en el código (variante por último dígito de la cédula)',
-        'Salida completa del programa (texto o captura)',
-        'Traza manual breve y dos respuestas escritas de justificación',
-        'Entrega individual por el medio digital indicado',
-      ],
-      due: '2026-11-26',
-      corte: 2,
-      weight: '10 %',
-      kind: 'evaluacion',
-      slideId: 'pnn9-24',
+      id: 'pnn9-t1', title: 'Informe teórico sobre métodos de adquisición (10 %)',
+      description: 'Informe teórico sobre métodos de adquisición. La fecha y el medio se comunicarán en clase.',
+      corte: 2, weight: '10 %', kind: 'evaluacion', slideId: 'pnn9-24'
     },
+    {
+      id: 'pnn9-t2', title: 'Ejercicio aplicado (20 %)',
+      description: 'Ejercicio aplicado del segundo corte. La fecha y el medio se comunicarán en clase.',
+      corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'pnn9-25'
+    }
   ],
 };

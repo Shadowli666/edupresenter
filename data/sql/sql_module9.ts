@@ -4,8 +4,8 @@ export const SQL_MODULE_9: Module = {
   id: 'sql-mod-9',
   title: '9. Repaso activo y taller de normalización',
   description:
-    'Semana 9: recuperación de las tres condiciones de una descomposición sin volver a explicarlas, procedimiento de seis pasos con dos pruebas manuales (propiedad NJB y reparto de filas), entrenamiento con la relación ferretería y asignación del taller individual de normalización del 10 %.',
-  evaluation: '10% — Taller individual de normalización',
+    'Semana 9: recuperación de las condiciones de una descomposición, procedimiento de seis pasos y entrenamiento con la relación ferretería.',
+  evaluation: 'Corte II: informe y caso (10 %) y caso de estudio (20 %)',
   slides: [
     {
       id: 'sql9-1',
@@ -26,7 +26,7 @@ export const SQL_MODULE_9: Module = {
           <p class="text-sm text-slate-500">Jueves 19/11/2026 · 14:30–16:45 · Aula A-01 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
-      notes: 'Construye hacia: taller individual del 10 % (se asigna hoy) y práctica-proyecto del 20 % del 03/12. Sin laboratorio: toda la verificación es manual, en el cuaderno.'
+      notes: 'Actualización docente 27/11: informe y caso en una entrega para el 10 %; otro caso para el 20 %. Fechas y autorización sujetas a validación. Sin laboratorio.'
     },
     {
       id: 'sql9-2',
@@ -41,18 +41,18 @@ export const SQL_MODULE_9: Module = {
             </div>
             <div class="bg-white border border-slate-200 rounded-2xl p-4">
               <p class="text-xs uppercase tracking-wider font-bold text-slate-700">Seis pasos · 15 min</p>
-              <p class="text-slate-800 mt-1">El procedimiento que se califica en el taller y las dos pruebas manuales.</p>
+              <p class="text-slate-800 mt-1">El procedimiento de descomposición y las dos pruebas manuales.</p>
             </div>
             <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
               <p class="text-xs uppercase tracking-wider font-bold text-emerald-700">Entrenamiento · 60 min</p>
               <p class="text-emerald-950 mt-1">Relación de ferretería: en parejas y luego individual, en el cuaderno.</p>
             </div>
             <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4">
-              <p class="text-xs uppercase tracking-wider font-bold text-rose-700">Taller del 10 % · 20 min</p>
-              <p class="text-rose-950 mt-1">Relación, entregables, escala y condiciones de entrega.</p>
+              <p class="text-xs uppercase tracking-wider font-bold text-rose-700">Aplicación de normalización</p>
+              <p class="text-rose-950 mt-1">Informe teórico y casos de normalización del segundo corte.</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600">La relación del taller no se resuelve en clase: el entrenamiento usa otra relación.</p>
+          <p class="text-sm text-slate-600">El entrenamiento utiliza la relación de ferretería.</p>
         </div>
       `,
       notes: 'Tiempos reales: inicio 6, repaso 20, pasos y pruebas 15, entrenamiento 60 (20 en parejas, 25 individual y 15 de corrección guiada), taller 20, cierre 14. Total 135 min.'
@@ -373,59 +373,19 @@ nota_entrega(nro_nota, fecha, rif_cliente, razon_social, telefono_cliente,
     },
     {
       id: 'sql9-15',
-      title: 'Taller 10 % · relación y entregables',
+      title: 'Corte II · informe y caso (10 %)',
       contentHtml: `
-        <div class="space-y-3">
-          <div class="bg-rose-50 border border-rose-300 rounded-xl p-4 font-mono text-xs md:text-sm leading-relaxed text-rose-950">
-INSCRIPCION_LEGADA(id_estudiante, nombre_estudiante, correo_estudiante,
-                  codigo_asignatura, nombre_asignatura,
-                  id_docente, nombre_docente, nota)
-          </div>
-          <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">1 · Los seis pasos</p><p class="text-slate-600 mt-1">Justificados como comentarios del archivo.</p></div>
-            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">2 · Esquema final</p><p class="text-slate-600 mt-1">CREATE TABLE con PK y FK.</p></div>
-            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">3 · Verificación</p><p class="text-slate-600 mt-1">Atributos, reunión con una fila concreta y dependencias.</p></div>
-            <div class="bg-white border rounded-xl p-3"><p class="font-bold text-slate-900">4 · Consulta de control</p><p class="text-slate-600 mt-1">Con su salida completa pegada.</p></div>
-          </div>
-          <p class="text-sm text-slate-600">Todo en un archivo <code>S09_normalizacion.sql</code>, en el PostgreSQL propio del estudiante (para casa). La relación, los datos y las reglas están en el instrumento del taller. Esta relación no se trabaja en clase.</p>
-        </div>
+        <div class="space-y-4"><p class="text-lg font-bold">Informe teórico y caso de normalización</p><p>Realicen individualmente para casa un informe teórico y desarrollen un caso de normalización. Ambos forman una sola entrega correspondiente al 10 % del segundo corte.</p><p>La fecha y el medio de entrega se comunicarán en clase.</p></div>
       `,
-      notes: 'Asignación del taller: individual, para casa. La relación es la del instrumento vigente (opción A). Pendiente del docente: medio de entrega y plazo (propuesta: jueves 26/11) y formato oficial. Si se cambiara a la relación de farmacia, hay que regenerar el instrumento.'
+      notes: 'Decisión docente del 27/11: una sola entrega; distribución interna e instrumento pendientes. Fecha sujeta a validación institucional.'
     },
     {
       id: 'sql9-16',
-      title: 'Taller 10 % · escala y condiciones de entrega',
+      title: 'Corte II · caso de estudio (20 %)',
       contentHtml: `
-        <div class="space-y-4">
-          <table class="w-full text-sm border-collapse">
-            <thead><tr class="bg-rose-700 text-white"><th class="p-2 border text-left">Criterio</th><th class="p-2 border text-right">Pts</th></tr></thead>
-            <tbody>
-              <tr><td class="p-2 border">Clave candidata y dependencias funcionales válidas</td><td class="p-2 border text-right">4</td></tr>
-              <tr><td class="p-2 border">Diagnóstico de formas normales y anomalías</td><td class="p-2 border text-right">4</td></tr>
-              <tr><td class="p-2 border">Descomposición relacional correcta hasta 3FN</td><td class="p-2 border text-right">4</td></tr>
-              <tr><td class="p-2 border">DDL con PK/FK y datos cargados sin pérdida</td><td class="p-2 border text-right">4</td></tr>
-              <tr><td class="p-2 border">Consulta de verificación y salida exacta</td><td class="p-2 border text-right">4</td></tr>
-              <tr class="bg-rose-50 font-bold"><td class="p-2 border">Total</td><td class="p-2 border text-right">20</td></tr>
-            </tbody>
-          </table>
-          <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-              <p class="font-bold text-slate-900">Condiciones</p>
-              <ul class="mt-1 space-y-1 text-slate-700">
-                <li>Individual y para casa (PostgreSQL propio del estudiante).</li>
-                <li>Un archivo <code>S09_normalizacion.sql</code> con la salida pegada.</li>
-                <li>Sin consulta entre compañeros.</li>
-              </ul>
-            </div>
-            <div class="bg-amber-50 border border-amber-300 rounded-xl p-4">
-              <p class="font-bold text-amber-950">Medio de entrega y plazo</p>
-              <p class="text-amber-900 mt-1">Por confirmar. Fecha propuesta: jueves 26/11.</p>
-            </div>
-          </div>
-          <p class="text-sm text-slate-600">Escala del instrumento: cinco criterios de 4 puntos sobre 20.</p>
-        </div>
+        <div class="space-y-4"><p class="text-lg font-bold">Caso de estudio de normalización · 20 %</p><p>Desarrollen individualmente para casa el caso de estudio de normalización, distinto del caso incluido en la entrega del 10 %.</p><p>La fecha y el medio de entrega se comunicarán en clase.</p></div>
       `,
-      notes: 'Escala del instrumento vigente: cinco criterios de 4 puntos (clave y DFs; diagnóstico; descomposición; DDL con PK/FK y carga; consulta y salida). La alternativa manuscrita con escala 13/7 queda en §5 del plan como opción B. Pendiente con el docente: medio de entrega, plazo y formato oficial (8.5 reinterpretado u 8.1 + escala). Anunciar antes de aplicar.'
+      notes: 'El docente propone la última semana del segundo corte. Verificar autorización y margen de cierre antes de anunciar fecha.'
     },
     {
       id: 'sql9-17',
@@ -442,14 +402,14 @@ INSCRIPCION_LEGADA(id_estudiante, nombre_estudiante, correo_estudiante,
           <div class="grid md:grid-cols-2 gap-3 text-sm">
             <div class="bg-rose-50 border border-rose-200 rounded-xl p-3">
               <p class="font-bold text-rose-950">Taller del 10 %</p>
-              <p class="text-rose-900 mt-1">Asignado hoy. Medio de entrega y plazo, por confirmar (propuesta: 26/11).</p>
+              <p class="text-rose-900 mt-1">Informe teórico y caso de normalización en una sola entrega.</p>
             </div>
             <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
-              <p class="font-bold text-emerald-950">Jueves 26/11 y jueves 03/12</p>
-              <p class="text-emerald-900 mt-1">DDL y restricciones en la próxima sesión; práctica-proyecto del 20 % el 03/12.</p>
+              <p class="font-bold text-emerald-950">Caso de estudio · 20 %</p>
+              <p class="text-emerald-900 mt-1">Caso de normalización distinto del incluido en el 10 %. Fecha y medio se comunicarán en clase.</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600">Antes de entregar: ¿mi clave es una y quitarle un atributo la rompe? ¿nombré la DF que viola cada forma? ¿conté las filas al reunir?</p>
+          <p class="text-sm text-slate-600">Para revisar una descomposición: ¿mi clave es una y quitarle un atributo la rompe? ¿nombré la DF que viola cada forma? ¿conté las filas al reunir?</p>
         </div>
       `,
       notes: 'Respuesta correcta del ticket: la tercera. Antes de cerrar se leen en voz alta las tres preguntas de la lista de comprobación. El plazo del taller queda por confirmar con el docente.'
@@ -478,19 +438,16 @@ INSCRIPCION_LEGADA(id_estudiante, nombre_estudiante, correo_estudiante,
   tasks: [
     {
       id: 'sql9-t1',
-      title: 'Taller individual: normalización hasta 3FN (10 %)',
-      description: 'Asignación individual para casa: analizar y normalizar una relación existente hasta la tercera forma normal, con el procedimiento de seis pasos y verificación manual. Se asigna el 19/11; medio de entrega y plazo por confirmar (fecha propuesta: 26/11).',
-      items: [
-        'Paso 0 a 3: multivaluados, clave candidata justificada, dependencias funcionales y diagnóstico de 1FN, 2FN y 3FN con la DF y la fila',
-        'Paso 4: descomposición en orden, con el esquema final y las claves primarias y foráneas señaladas',
-        'Paso 5: verificación de las tres condiciones, con el conteo de filas al reunir',
-        'Consulta de control escrita a mano sobre el esquema final'
-      ],
-      due: '2026-11-26',
-      corte: 2,
-      weight: '10 %',
-      kind: 'evaluacion',
-      slideId: 'sql9-15'
+      title: 'Informe y caso de normalización (10 %)',
+      description: 'Trabajo individual para casa: informe teórico y caso de normalización en una sola entrega. La fecha y el medio se comunicarán en clase.',
+      items: ['Informe teórico', 'Caso de normalización'],
+      corte: 2, weight: '10 %', kind: 'evaluacion', slideId: 'sql9-15'
+    },
+    {
+      id: 'sql9-t2',
+      title: 'Caso de estudio de normalización (20 %)',
+      description: 'Caso de normalización individual para casa, distinto del caso incluido en el 10 %. La fecha y el medio se comunicarán en clase.',
+      corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'sql9-16'
     }
   ]
 };

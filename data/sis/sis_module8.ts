@@ -509,5 +509,6 @@ flowchart LR
         </div>
       `
     }
-  ]
+  ],
+  tasks: [{ id: 'sis8-t1', title: 'Estudio de caso (20 %)', description: 'Estudio de caso del segundo corte. La fecha y el medio se comunicarán en clase.', corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'sis8-17' }]
 };

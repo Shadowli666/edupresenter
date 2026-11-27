@@ -4,8 +4,8 @@ export const ANALISIS_DISENO_MODULE_9: Module = {
   id: 'ads-mod-9',
   title: '9. Metodología del proyecto y alcance',
   description:
-    'Semana 9: jueves 19/11 — aplicar la metodología declarada por cada equipo al proyecto del curso y definir el alcance (seis elementos, cuatro fuentes del curso, diagrama de contexto enunciado y acta de alcance formativa). Viernes 20/11 — taller individual de metodologías (10 %, 20 puntos) en el cuaderno, sin dispositivos.',
-  evaluation: '10% — Taller individual de metodologías',
+    'Semana 9: metodología del proyecto y alcance. Antecedente: taller del 10 % aplicado en parejas la semana pasada.',
+  evaluation: '10% — Taller aplicado en parejas',
   slides: [
     {
       id: 'ads9-1',
@@ -26,7 +26,7 @@ export const ANALISIS_DISENO_MODULE_9: Module = {
           <p class="text-sm text-slate-500">Jueves 19/11/2026 · 13:00–14:30 · Aula A-01 · Sección A · IUPSM — Extensión Ciudad Ojeda</p>
         </div>
       `,
-      notes: 'Inicio 4 min: asistencia y las dos preguntas de recuperación de la diapositiva 3. Construye hacia: el taller individual del 20/11 (10 %, 20 puntos) y el SRS del 04/12 (20 %), donde esta acta es la sección 1.2. Hoy no hay nota: el acta es formativa (0 %).'
+      notes: 'Inicio 4 min: asistencia y las dos preguntas de recuperación de la diapositiva 3. El docente confirmó posteriormente que el taller del 10 % se aplicó en parejas y sin cuadernos; fecha exacta y contenido efectivamente aplicado por confirmar. El acta es formativa.'
     },
     {
       id: 'ads9-2',
@@ -249,33 +249,33 @@ flowchart LR
             <p data-explain class="text-sm text-slate-600 mt-2">Una exclusión sin destino no es una decisión: es una omisión.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Viernes 20/11 · 10 %</p><p class="font-bold text-rose-950 mt-1">Taller individual de metodologías</p><p class="text-rose-900 mt-1">En clase, en el cuaderno, sin dispositivos. 20 puntos, cuatro apartados.</p></div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-emerald-700">Viernes 04/12 · 20 %</p><p class="font-bold text-emerald-950 mt-1">SRS del sistema</p><p class="text-emerald-900 mt-1">El acta de hoy es la sección 1.2 Alcance del documento.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Antecedente · 10 %</p><p class="font-bold text-rose-950 mt-1">Taller en parejas</p><p class="text-rose-900 mt-1">Aplicado sin cuadernos; revisión pendiente.</p></div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-emerald-700">Corte II · 20 %</p><p class="font-bold text-emerald-950 mt-1">Estudio de caso</p><p class="text-emerald-900 mt-1">La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,
-      notes: 'Cierre 4 min. Respuesta del quiz: el destino. Anunciar el taller del viernes (individual, sin dispositivos, en el cuaderno) y el SRS del 04/12. Recordar que en la S10 (23–28/11) se recolectan datos: del alcance salen las personas a entrevistar y los documentos a revisar.'
+      notes: 'Cierre 4 min. Respuesta del quiz: el destino. El taller del 10 % se aplicó en parejas y sin cuadernos; su fecha exacta y contenido efectivo no están confirmados. Su revisión está pendiente.'
     },
     {
       id: 'ads9-13',
-      title: 'Viernes 20/11 · Taller individual de metodologías',
+      title: 'Antecedente · Taller del 10 %',
       contentHtml: `
         <div class="space-y-6">
           <p class="text-sm uppercase tracking-widest font-bold text-rose-700">Análisis y Diseño de Sistemas · Unidad IV</p>
-          <h2 class="text-4xl font-bold text-slate-900">Taller individual: metodologías de desarrollo</h2>
-          <div class="grid md:grid-cols-3 gap-4 text-center">
+          <h2 class="text-4xl font-bold text-slate-900">Taller aplicado en parejas</h2>
+          <div class="grid md:grid-cols-2 gap-4 text-center">
             <div class="bg-rose-600 text-white rounded-2xl p-5"><p class="text-2xl font-bold">10 %</p><p class="text-sm mt-1 text-rose-100">Ponderación</p></div>
-            <div class="bg-slate-800 text-white rounded-2xl p-5"><p class="text-2xl font-bold">20 pts</p><p class="text-sm mt-1 text-slate-200">Cuatro apartados</p></div>
-            <div class="bg-white border-2 border-slate-300 rounded-2xl p-5"><p class="text-2xl font-bold text-slate-900">66 min</p><p class="text-sm mt-1 text-slate-600">De trabajo individual</p></div>
+            <div class="bg-slate-800 text-white rounded-2xl p-5"><p class="text-2xl font-bold">En parejas</p><p class="text-sm mt-1 text-slate-200">Sin cuadernos</p></div>
           </div>
-          <p class="text-slate-600">Viernes 20/11/2026 · 13:00–14:30 · Aula A-01 · Sección A</p>
+          <p class="text-slate-600">Revisión pendiente.</p>
         </div>
       `,
-      notes: 'Portada del viernes. Se aplica el instrumento S09-2026-11-20 convertido a taller individual por decisión del docente del 17/11/2026. No introduce contenido nuevo: evalúa la Unidad IV.'
+      notes: 'Antecedente confirmado por el docente: taller del 10 % en parejas, sin cuadernos, aplicado la semana pasada; fecha exacta y contenido concreto no confirmados. No equiparar el instrumento individual protegido al taller realmente aplicado.'
     },
     {
       id: 'ads9-14',
-      title: 'Normas del taller',
+      title: 'Instrumento reservado · instrucciones',
+      lock: 'eval-corte-2',
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-5">
@@ -295,7 +295,8 @@ flowchart LR
     },
     {
       id: 'ads9-15',
-      title: 'Ítem 1 · Procesos de análisis (6 pts)',
+      title: 'Instrumento reservado · apartado 1',
+      lock: 'eval-corte-2',
       contentHtml: `
         <div class="space-y-5">
           <div class="flex items-center justify-between">
@@ -315,7 +316,8 @@ flowchart LR
     },
     {
       id: 'ads9-16',
-      title: 'Ítem 2 · Metodologías del programa (4 pts)',
+      title: 'Instrumento reservado · apartado 2',
+      lock: 'eval-corte-2',
       contentHtml: `
         <div class="space-y-5">
           <div class="flex items-center justify-between">
@@ -339,7 +341,8 @@ flowchart LR
     },
     {
       id: 'ads9-17',
-      title: 'Ítem 3 · Selección metodológica (6 pts)',
+      title: 'Instrumento reservado · apartado 3',
+      lock: 'eval-corte-2',
       contentHtml: `
         <div class="space-y-4">
           <div class="flex items-center justify-between">
@@ -360,7 +363,8 @@ flowchart LR
     },
     {
       id: 'ads9-18',
-      title: 'Ítem 4 · Recolección de datos (4 pts)',
+      title: 'Instrumento reservado · apartado 4',
+      lock: 'eval-corte-2',
       contentHtml: `
         <div class="space-y-5">
           <div class="flex items-center justify-between">
@@ -383,20 +387,16 @@ flowchart LR
       contentHtml: `
         <div class="space-y-5">
           <div class="bg-white border-l-4 border-rose-600 rounded-xl p-4">
-            <p class="font-bold text-slate-900">Antes de entregar</p>
-            <p class="text-slate-700">Nombre, cédula y sección · los cuatro apartados numerados · todo escrito con letra legible.</p>
-          </div>
-          <div class="bg-slate-50 border rounded-xl p-4 text-sm">
-            <p class="font-bold text-slate-800">Retroalimentación del bloque</p>
-            <p class="text-slate-700 mt-1">Se explica <strong>qué se valoró</strong> en cada apartado, sin resolver los ítems: pertinencia de la elección, criterios del caso, coherencia y emparejamiento técnica-evidencia.</p>
+            <p class="font-bold text-slate-900">Taller del 10 %</p>
+            <p class="text-slate-700">Aplicado en parejas y sin cuadernos. La revisión está pendiente.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-3 text-sm">
             <div class="bg-sky-50 border border-sky-200 rounded-xl p-3"><strong>S10 · 23–28/11:</strong> recolección de datos sobre el acta de alcance de cada equipo.</div>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3"><strong>04/12 · 20 %:</strong> SRS del sistema; el acta del 19/11 es su sección 1.2.</div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3"><strong>20 % del Corte II:</strong> estudio de caso. La fecha y el medio se comunicarán en clase.</div>
           </div>
         </div>
       `,
-      notes: 'Entrega 4 min (14:18) y retroalimentación 8 min, sin devolver puntajes. Queda por confirmar la fecha de publicación de calificaciones y el medio de retroalimentación individual. La corrección se asienta sobre 20 y se convierte a la ponderación del 10 % según la escala institucional 01-20.'
+      notes: 'No consta la fecha exacta, el contenido aplicado ni la retroalimentación del taller. El docente informó que su revisión está pendiente.'
     },
     {
       id: 'ads9-20',
@@ -422,21 +422,15 @@ flowchart LR
     }
   ],
   tasks: [
+    { id: 'ads9-t3', title: 'Estudio de caso (20 %)', description: 'Estudio de caso del segundo corte. La fecha y el medio se comunicarán en clase.', corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'ads9-12' },
     {
       id: 'ads9-t1',
-      title: 'Taller individual: metodologías (10 %)',
-      description: 'Taller individual en clase sobre la Unidad IV: procesos de análisis, metodologías del programa, selección metodológica y recolección de datos. Se responde en el cuaderno, sin dispositivos, sobre 20 puntos.',
-      items: [
-        'Apartado 1: una característica distintiva de cada enfoque de análisis (6 pts)',
-        'Apartado 2: propósito o ámbito de cuatro metodologías del programa (4 pts)',
-        'Apartado 3: selección metodológica con dos criterios del caso y una limitación (6 pts)',
-        'Apartado 4: técnicas de recolección vinculadas a la evidencia que aportan (4 pts)'
-      ],
-      due: '2026-11-20',
+      title: 'Antecedente: taller en parejas (10 %)',
+      description: 'Taller aplicado en parejas y sin cuadernos; revisión pendiente. Fecha exacta por confirmar.',
       corte: 2,
       weight: '10 %',
       kind: 'evaluacion',
-      slideId: 'ads9-14'
+      slideId: 'ads9-13'
     },
     {
       id: 'ads9-t2',

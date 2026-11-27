@@ -219,7 +219,7 @@ flowchart LR
           <ol class="space-y-3">
             <li class="bg-white border-l-4 border-indigo-500 rounded-xl p-3" data-reveal><strong>1. Clave candidata:</strong> (nro_orden, cod_servicio): una orden incluye varios servicios y un servicio aparece en varias órdenes.</li>
             <li class="bg-white border-l-4 border-indigo-500 rounded-xl p-3" data-reveal><strong>2. Atributos primos:</strong> nro_orden y cod_servicio. Todos los demás son no primos.</li>
-            <li class="bg-white border-l-4 border-indigo-500 rounded-xl p-3" data-reveal><strong>3. DF:</strong> las cuatro de la diapositiva 7, más ced_cliente → telefonos.</li>
+            <li class="bg-white border-l-4 border-indigo-500 rounded-xl p-3" data-reveal><strong>3. DF:</strong> las cuatro dependencias funcionales conocidas, más ced_cliente → telefonos.</li>
           </ol>
         </div>
       `,
@@ -251,7 +251,7 @@ flowchart LR
             <div class="bg-white border rounded-xl p-3">SERVICIO(<u>cod_servicio</u>, nombre_servicio, precio_base)</div>
             <div class="bg-white border rounded-xl p-3">DETALLE_ORDEN(<u>nro_orden, cod_servicio</u>)</div>
           </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-900" data-reveal>Vuelve a las tres anomalías de la diapositiva 5: ¿siguen ocurriendo? ¿Por qué?</div>
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-900" data-reveal>Vuelve a las tres anomalías de inserción, actualización y eliminación: ¿siguen ocurriendo? ¿Por qué?</div>
         </div>
       `,
       notes: 'Respuesta: ninguna ocurre; el servicio S4 se inserta en SERVICIO sin orden, el precio está una sola vez y borrar la orden 102 no borra al cliente. No desarrollar la descomposición: es contenido de S8.'
@@ -360,7 +360,7 @@ flowchart LR
           </div>
           <div class="space-y-3">
             <div class="flex gap-4 bg-white border-l-4 border-sky-500 rounded-xl p-4"><span class="font-bold text-sky-600">S8</span><p class="text-slate-800"><strong>Jueves 12/11:</strong> caso cooperativo: comparar descomposiciones y producir un esquema relacional hasta 3FN.</p></div>
-            <div class="flex gap-4 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">S9</span><p class="text-slate-800"><strong>Taller individual de normalización hasta 3FN</strong>, para resolver en casa · <strong>10 %</strong> del Corte II. Fecha y medio de entrega por confirmar.</p></div>
+            <div class="flex gap-4 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">S9</span><p class="text-slate-800"><strong>Informe teórico y caso de normalización</strong> en una sola entrega individual para casa · <strong>10 %</strong> del Corte II. La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,

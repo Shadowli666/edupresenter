@@ -204,7 +204,7 @@ export const PNN_MODULE_8: Module = {
             <div class="bg-white border-l-4 border-teal-500 rounded-xl p-3" data-reveal><strong>Ahora:</strong> ¿qué se elige en cada paso y qué se gana con esa elección?</div>
             <div class="bg-white border-l-4 border-teal-500 rounded-xl p-3" data-reveal><strong>Siempre:</strong> una función de costo. Sin ella no hay optimización posible.</div>
           </div>
-          <p class="text-sm text-slate-600">Se anotan dos o tres respuestas en la pizarra <strong>sin corregirlas</strong>: se contrastan con la diapositiva 11 y con el código.</p>
+          <p class="text-sm text-slate-600">Se anotan dos o tres respuestas en la pizarra <strong>sin corregirlas</strong>: se contrastan con la prueba de intercambio y con el código.</p>
         </div>
       `,
       notes: 'No corregir las respuestas iniciales: la clase se cierra volviendo a ellas. Si alguien menciona «el más pequeño primero», no confirmarlo todavía: es la hipótesis que hay que probar.'
@@ -410,7 +410,7 @@ void permutar(int nivel, int n)
           </div>
         </div>
       `,
-      notes: 'Código en vivo 18 min con las diap. 12 y 13. El archivo también guarda peor_suma/peor_orden y el contador de permutaciones exploradas: en la diapositiva solo se muestra el bloque mínimo. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-cintas.c. Compilar con: gcc -Wall -o cintas S08-cintas.c && ./cintas. Predicción (3 min) antes de ejecutar: cada pareja anota su MRT estimado para el orden creciente. La enumeración es solo verificación: la demostración general es el argumento de intercambio de la diap. 11.'
+      notes: 'Código en vivo 18 min con las diap. 12 y 13. El archivo también guarda peor_suma/peor_orden y el contador de permutaciones exploradas: en la diapositiva solo se muestra el bloque mínimo. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-cintas.c. Compilar con: gcc -Wall -o cintas S08-cintas.c && ./cintas. Predicción (3 min) antes de ejecutar: cada estudiante anota su MRT estimado para el orden creciente. La enumeración es solo verificación: la demostración general es el argumento de intercambio de la diap. 11.'
     },
     {
       id: 'pnn8-14',
@@ -446,7 +446,7 @@ El orden creciente SI es el optimo.</pre>
       title: 'Práctica guiada · los seis órdenes de {2, 5, 4}',
       contentHtml: `
         <div class="space-y-3">
-          <p class="text-sm text-slate-600">Con <code class="bg-slate-100 px-1 rounded">{2, 5, 4}</code> hay <strong>3! = 6</strong> órdenes. Se reparten dos parejas por orden y se completa la tabla en la pizarra.</p>
+          <p class="text-sm text-slate-600">Con <code class="bg-slate-100 px-1 rounded">{2, 5, 4}</code> hay <strong>3! = 6</strong> órdenes. Cada estudiante trabaja un orden y se completa la tabla en la pizarra a voz populi.</p>
           <table class="w-full text-sm border-collapse">
             <thead><tr class="bg-teal-700 text-white"><th class="p-2 border text-left">Orden</th><th class="p-2 border text-left">Σ T<sub>i</sub></th><th class="p-2 border text-left">MRT</th></tr></thead>
             <tbody>
@@ -496,7 +496,7 @@ El orden creciente SI es el optimo.</pre>
           </div>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
             <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-amber-800">Viernes 13/11</p><p class="font-bold text-amber-950 mt-1">El problema de la bolsa de papel</p><p class="text-amber-900 mt-1">Selección con restricción de capacidad y cierre del método de adquisición (III.1–III.2). Traer el cuaderno con la tabla de hoy.</p></div>
-            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Jueves 19/11</p><p class="font-bold text-rose-950 mt-1">Prueba escrita · 10 %</p><p class="text-rose-900 mt-1">Unidad II, divide y conquista. Incluye Sortmerge 2: revisar la variante antes de la prueba.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Corte II</p><p class="font-bold text-rose-950 mt-1">Informe teórico · 10 %</p><p class="text-rose-900 mt-1">Métodos de adquisición. La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,
@@ -751,7 +751,7 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
           </div>
         </div>
       `,
-      notes: 'Código en vivo 20 min con la diap. 27. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-bolsa.c. Compilar: gcc -Wall -o bolsa S08-bolsa.c && ./bolsa. Predicción (3 min): cada pareja anota cuánto dará el voraz 0/1; casi todos dirán 40 y la salida dirá 30.'
+      notes: 'Código en vivo 20 min con la diap. 27. Archivo completo: 03-Clases/PROGRAMACION-NO-NUMERICA-II/S08-bolsa.c. Compilar: gcc -Wall -o bolsa S08-bolsa.c && ./bolsa. Predicción (3 min): cada estudiante anota cuánto dará el voraz 0/1; casi todos dirán 40 y la salida dirá 30.'
     },
     {
       id: 'pnn8-27',
@@ -811,14 +811,14 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
               <tr><td class="p-2 border font-bold">i = 3 · C</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td><td class="p-2 border text-slate-300">·</td></tr>
             </tbody>
           </table>
-          <p class="text-sm text-slate-600">12 min en parejas. La tabla se llena en el <strong>cuaderno</strong> y se completa en la pizarra entre todos; no se proyecta resuelta.</p>
+          <p class="text-sm text-slate-600">La tabla se llena individualmente en el <strong>cuaderno</strong> y se completa en la pizarra entre todos; no se proyecta resuelta.</p>
         </div>
       `,
       notes: 'Respuestas: densidades A 1,67 · B 1,50 · C 1,50. Voraz 0/1: A (peso 3) y nada más → 5. Tabla: fila 1 = 0 0 0 5 5 · fila 2 = 0 0 3 5 5 · fila 3 = 0 0 3 5 6. Óptimo 6 con B + C (peso 4). La tabla contradice al voraz, igual que en la instancia grande.'
     },
     {
       id: 'pnn8-29',
-      title: 'Práctica autónoma en parejas',
+      title: 'Práctica autónoma individual',
       contentHtml: `
         <div class="space-y-3">
           <p class="text-sm text-slate-600">16 min. Cuaderno. Se corrigen dos ejercicios al final; no se entrega.</p>
@@ -846,7 +846,7 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
             <p class="text-slate-700 text-sm mt-1">En dos líneas: ¿por qué el método de adquisición falla en la variante 0/1 y por qué no falla en la fraccionaria?</p>
           </div>
           <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Jueves 19/11 · prueba 10 %</p><p class="text-rose-900 mt-1">Unidad II, divide y conquista. Incluye Sortmerge 2: la variante se confirma al inicio de esa sesión.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Corte II · informe teórico 10 %</p><p class="text-rose-900 mt-1">Métodos de adquisición. La fecha y el medio se comunicarán en clase.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Para la próxima</p><p class="text-slate-700 mt-1">Traer el cuaderno con la tabla de hoy y la comparación de las tres estrategias.</p></div>
           </div>
         </div>

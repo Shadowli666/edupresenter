@@ -352,7 +352,7 @@ venta(cod_venta, fecha, ced_cliente, nombre_cliente, telefono_cliente,
       contentHtml: `
         <div class="space-y-4">
           <div class="bg-white border-l-4 border-cyan-600 rounded-xl p-4">
-            <p class="font-bold text-slate-900">Auditoría cruzada (12 min)</p>
+            <p class="font-bold text-slate-900">Auditoría cruzada</p>
             <p class="text-slate-700 text-sm mt-1">Dos grupos presentan su esquema. A cada uno se le asigna <strong>una</strong> condición para auditar el esquema del otro: atributos, reunión sin pérdida o dependencias.</p>
           </div>
           <div class="bg-cyan-50 border border-cyan-200 rounded-xl p-4">
@@ -360,7 +360,7 @@ venta(cod_venta, fecha, ced_cliente, nombre_cliente, telefono_cliente,
             <p class="text-cyan-900 text-sm mt-1">Escriba una descomposición de <code>venta</code> que <strong>sí</strong> pierda información y explique por qué.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Jueves 19/11</p><p class="text-rose-900 mt-1">Taller individual · 10 %: normalizar una relación existente hasta 3FN con justificación.</p></div>
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Corte II · 10 %</p><p class="text-rose-900 mt-1">Informe teórico y caso de normalización en una sola entrega individual para casa. La fecha y el medio se comunicarán en clase.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Entrega</p><p class="text-slate-700 mt-1">Medio y hora <strong>por confirmar</strong>.</p></div>
           </div>
         </div>
