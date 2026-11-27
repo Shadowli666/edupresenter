@@ -5,7 +5,7 @@ export const PNN_MODULE_9: Module = {
   title: '9. El método de adquisición: cintas, bolsa e intercalación',
   description:
     'Semana 9: jueves 19/11 — el método de adquisición (voraz): las cuatro piezas, las dos condiciones de uso y cuándo falla; almacenamiento óptimo en cintas magnéticas con la fila de pago como analogía, la fórmula del MRT, la prueba de optimalidad por intercambio y la verificación por enumeración en C; el problema de la bolsa de papel en sus dos variantes (fraccionaria: el voraz es óptimo; 0/1: el voraz falla 30 frente a 40 y entra la programación dinámica con la tabla V(i,w)). Viernes 20/11 — modelos óptimos de intercalación: mezclar archivos de dos en dos, la analogía de la fotocopiadora, el árbol de mezcla y la lectura por profundidad, verificación en C (voraz 205 frente a cascada 270), repaso activo de las Unidades II y III y práctica de las Unidades II y III. Unidad III.1–III.3.',
-  evaluation: 'Corte II: informe teórico (10 %) y ejercicio aplicado (20 %)' ,
+  evaluation: 'Corte II: ejercicios individuales (20 %)' ,
   slides: [
     {
       id: 'pnn9-1',
@@ -588,14 +588,6 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
       notes: "16 min (corrección de 2 al final, 4 min). Respuestas: (1) índice 3 → 18; derecho [4,6] índice 5 → 31; izquierdo [4,4] índice 4 → 25. Encontrado en índice 4. (2) orden 2, 6, 9 → Σ T<sub>i</sub> = 2+8+17 = 27, MRT 9; fórmula 3·2+2·6+1·9 = 27. (3) densidades 6,00/5,00/5,00 → A entero (30) + 7/10 de B (35) = 65. (4) voraz 3+5=8; 7+8=15; 12+15=27 → 50. Cascada: 12+3=15; 15+7=22; 22+5=27 → 64. Diferencia 14. Formato replicado del instrumento: traza, decisión, fórmula, contraste."
     },
     {
-      id: 'pnn9-24',
-      title: 'Corte II · informe teórico (10 %)',
-      contentHtml: `
-        <div class="space-y-4"><p class="text-lg font-bold">Informe teórico sobre métodos de adquisición · 10 %</p><p>Elaboren un informe teórico sobre los métodos de adquisición.</p><p>La fecha y el medio de entrega se comunicarán en clase.</p></div>
-      `,
-      notes: 'Decisión docente del 27/11. Verificar con la coordinación su adecuación a la normativa para materias prácticas y la aprobación del instrumento.'
-    },
-    {
       id: 'pnn9-25',
       title: 'Cierre del viernes',
       contentHtml: `
@@ -627,6 +619,12 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
       notes: "10 min. La tabla completa es el síntesis de la Unidad III hasta hoy (4 problemas). Anuncios: (1) práctica del 10 % se entrega por el medio indicado (plazo por confirmar); (2) S10: Unidad III.3 (árbol de costo mínimo, paso más corto); (3) taller 20 % el 03/12 (PGA S11)."
     },
     {
+      id: 'pnn9-ejercicios-20',
+      title: 'Corte II · ejercicios individuales (20 %)',
+      contentHtml: `<div class="space-y-4 text-lg"><p>Resuelvan individualmente los ejercicios de trazas, intercalación y caminos óptimos. No se exige programar ni presentar un informe.</p><p>La variante se obtiene con el residuo de dividir los dos últimos dígitos de la cédula entre 4.</p><p><a class="text-teal-700 underline" href="pnn-2026-2/corte-2-ejercicios/estudiante.md" target="_blank" rel="noopener noreferrer">Abrir consigna y criterios</a></p><p>Entrega digital: jueves 03/12/2026. Hora y medio por confirmar.</p></div>`,
+      notes: 'Actividad del 20 %. El docente confirmó que el 10 % ya se aplicó mediante taller. Validar medio de recepción con coordinación y verificar remisión del instrumento a Control de Estudios.'
+    },
+    {
       id: 'pnn9-26',
       title: 'Fuentes',
       contentHtml: `
@@ -653,14 +651,10 @@ Suma de aportes = 205  (coincide con el costo total voraz)</code></pre>
   ],
   tasks: [
     {
-      id: 'pnn9-t1', title: 'Informe teórico sobre métodos de adquisición (10 %)',
-      description: 'Informe teórico sobre métodos de adquisición. La fecha y el medio se comunicarán en clase.',
-      corte: 2, weight: '10 %', kind: 'evaluacion', slideId: 'pnn9-24'
-    },
-    {
-      id: 'pnn9-t2', title: 'Ejercicio aplicado (20 %)',
-      description: 'Ejercicio aplicado del segundo corte. La fecha y el medio se comunicarán en clase.',
-      corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'pnn9-25'
+      id: 'pnn9-t2', title: 'Ejercicios individuales de trazas y caminos óptimos (20 %)',
+      description: 'Resuelvan la variante según su cédula. Entrega digital el 03/12/2026; hora y medio por confirmar.',
+      items: ['Traza de cinta e intercalación', 'Dos redes dirigidas y caminos mínimos'],
+      due: '2026-12-03', corte: 2, weight: '20 %', kind: 'evaluacion', slideId: 'pnn9-ejercicios-20'
     }
   ],
 };

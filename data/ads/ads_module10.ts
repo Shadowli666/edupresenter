@@ -80,10 +80,30 @@ C --> D["Validación"]</div><p class="text-slate-600">La fuente y el estado acom
       notes: '6 min. Solicitar respuesta oral o escrita sin exigir cuaderno. Recoger dos alternativas y cerrar: fuente, incertidumbre y siguiente verificación. Sin anunciar fechas ni condiciones de evaluación.'
     },
     {
+      id: 'ads10-caso-srs', title: 'Estudio de caso: SRS',
+      contentHtml: `<div class="space-y-4 text-lg"><p>Trabajo individual · Segundo corte · 20 %.</p><p>Dividan los dos últimos dígitos de su cédula entre 4: el residuo 0, 1, 2 o 3 corresponde respectivamente al caso 1, 2, 3 o 4. Lean la consigna y el expediente asignado antes de elaborar el SRS.</p><p class="font-bold">Consigna y expedientes</p><ul class="list-disc pl-7 space-y-1 text-sky-700 underline"><li><a href="ads/corte-2-srs/estudiante.pdf" target="_blank" rel="noopener noreferrer">Consigna y criterios de evaluación</a></li><li><a href="ads/corte-2-srs/caso-1.pdf" target="_blank" rel="noopener noreferrer">Caso 1 · Centro de Atención Médica Santa Lucía</a></li><li><a href="ads/corte-2-srs/caso-2.pdf" target="_blank" rel="noopener noreferrer">Caso 2 · Cooperativa de Transporte Costa del Lago</a></li><li><a href="ads/corte-2-srs/caso-3.pdf" target="_blank" rel="noopener noreferrer">Caso 3 · Instituto Técnico del Occidente</a></li><li><a href="ads/corte-2-srs/caso-4.pdf" target="_blank" rel="noopener noreferrer">Caso 4 · Comercial La Ceiba</a></li></ul><p>Entreguen el SRS impreso en clase el jueves 03/12/2026.</p></div>`,
+      notes: 'Instrumento aprobado por el docente; verificar remisión a Control de Estudios y validar recepción con coordinación. Aprobación no acredita aplicación.'
+    },
+    {
       id: 'ads10-15', title: 'Fuentes',
       contentHtml: `<div class="space-y-3 text-base"><p>Sommerville, I. (2011). <em>Ingeniería de software</em> (9.ª ed.). Pearson, pp. 103–105.</p><p>Government Digital Service. (s. f.). <em>Learning about users and their needs</em>. https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs</p><p>Government Digital Service. (s. f.). <em>Contextual research and observation</em>. https://www.gov.uk/service-manual/user-research/contextual-research-and-observation</p><p>ISO/IEC/IEEE. (2018). <em>ISO/IEC/IEEE 29148:2018: Requirements engineering</em>. https://www.iso.org/standard/72089.html</p><p>IUPSM. (2013). <em>Programa analítico de Análisis y Diseño de Sistemas</em>, unidad V.</p></div>`,
       notes: 'ISO consultada solo en su ficha pública, no en texto íntegro. La investigación y las rutas locales están documentadas en el plan.'
     },
   ],
-  tasks: [],
+  tasks: [{
+    id: 'ads10-t1',
+    title: 'Estudio de caso y especificación de requerimientos',
+    description: 'Trabajo individual: seleccionen el caso con los dos últimos dígitos de la cédula y entreguen el SRS impreso en clase el jueves 03/12/2026.',
+    items: [
+      'Dividan los dos últimos dígitos de la cédula entre 4: residuo 0, 1, 2 o 3 corresponde respectivamente al caso 1, 2, 3 o 4.',
+      'Lean la consigna y el expediente asignado; distingan hechos, discrepancias y decisiones pendientes.',
+      'Elaboren el SRS y la trazabilidad de necesidades y requerimientos; la tabla de discrepancias es opcional.',
+      'Preparen el SRS impreso identificado con nombre, cédula y número de caso; extensión orientativa de 6 a 10 páginas, sin portada ni anexos.',
+    ],
+    due: '2026-12-03',
+    corte: 2,
+    weight: '20 %',
+    kind: 'evaluacion',
+    slideId: 'ads10-caso-srs',
+  }],
 };

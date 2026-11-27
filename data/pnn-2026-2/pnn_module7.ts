@@ -502,7 +502,6 @@ int main(void) {
           <div class="bg-emerald-600 text-white rounded-2xl p-5"><p class="text-lg font-bold">Comparar es medir lo mismo, sobre la misma entrada y en el mismo caso.</p></div>
           <div class="space-y-3">
             <div class="flex gap-4 bg-white border-l-4 border-sky-500 rounded-xl p-4"><span class="font-bold text-sky-600">S8</span><p class="text-slate-800"><strong>Jueves 12/11 y viernes 13/11:</strong> Unidad III, método de adquisición: almacenamiento óptimo en cintas y problema de la bolsa de papel.</p></div>
-            <div class="flex gap-4 bg-white border-l-4 border-rose-500 rounded-xl p-4"><span class="font-bold text-rose-600">S9</span><p class="text-slate-800">Informe teórico sobre métodos de adquisición · <strong>10 %</strong> del Corte II. La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,

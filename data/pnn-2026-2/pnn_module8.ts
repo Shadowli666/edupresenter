@@ -496,7 +496,6 @@ El orden creciente SI es el optimo.</pre>
           </div>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
             <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-amber-800">Viernes 13/11</p><p class="font-bold text-amber-950 mt-1">El problema de la bolsa de papel</p><p class="text-amber-900 mt-1">Selección con restricción de capacidad y cierre del método de adquisición (III.1–III.2). Traer el cuaderno con la tabla de hoy.</p></div>
-            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4"><p class="text-xs uppercase font-bold text-rose-700">Corte II</p><p class="font-bold text-rose-950 mt-1">Informe teórico · 10 %</p><p class="text-rose-900 mt-1">Métodos de adquisición. La fecha y el medio se comunicarán en clase.</p></div>
           </div>
         </div>
       `,
@@ -846,7 +845,6 @@ int dinamica_cero_uno(Objeto a[], int n, int capacidad)
             <p class="text-slate-700 text-sm mt-1">En dos líneas: ¿por qué el método de adquisición falla en la variante 0/1 y por qué no falla en la fraccionaria?</p>
           </div>
           <div class="grid md:grid-cols-2 gap-3 text-sm">
-            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3"><p class="font-bold text-rose-950">Corte II · informe teórico 10 %</p><p class="text-rose-900 mt-1">Métodos de adquisición. La fecha y el medio se comunicarán en clase.</p></div>
             <div class="bg-slate-50 border border-slate-200 rounded-xl p-3"><p class="font-bold text-slate-900">Para la próxima</p><p class="text-slate-700 mt-1">Traer el cuaderno con la tabla de hoy y la comparación de las tres estrategias.</p></div>
           </div>
         </div>
